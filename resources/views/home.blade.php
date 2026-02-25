@@ -125,8 +125,6 @@
         </div>
     </div>
 
-
-
         {{-- NEW SECTION 1: Trusted By (Logos) --}}
         <section class="bg-white py-20 border-b border-gray-200">
             <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
