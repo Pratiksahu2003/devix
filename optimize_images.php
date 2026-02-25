@@ -4,7 +4,10 @@ ini_set('memory_limit', '512M');
 $directories = [
     __DIR__ . '/public/pooja',
     __DIR__ . '/public/vidhu',
-    __DIR__ . '/public/studio'
+    __DIR__ . '/public/studio',
+    __DIR__ . '/public/brand',
+    __DIR__ . '/public/logo',
+    __DIR__ . '/public/logo/fav'
 ];
 
 function optimizeImage($source, $destination, $quality = 80, $maxWidth = 1200) {
@@ -24,37 +27,23 @@ function optimizeImage($source, $destination, $quality = 80, $maxWidth = 1200) {
 
     if (!$image) return false;
 
-    $width = imagesx($image);
-    $height = imagesy($image);
-
-    // Keep original dimensions
-    $newWidth = $width;
-    $newHeight = $height;
-
-    $newImage = imagecreatetruecolor($newWidth, $newHeight);
-    
     // Preserve transparency for PNG
     if ($info['mime'] == 'image/png') {
-        imagealphablending($newImage, false);
-        imagesavealpha($newImage, true);
-        $transparent = imagecolorallocatealpha($newImage, 255, 255, 255, 127);
-        imagefilledrectangle($newImage, 0, 0, $newWidth, $newHeight, $transparent);
+        imagealphablending($image, false);
+        imagesavealpha($image, true);
     }
 
-    imagecopyresampled($newImage, $image, 0, 0, 0, 0, $newWidth, $newHeight, $width, $height);
-
-    // Save optimized image
+    // Save optimized image directly
     if ($info['mime'] == 'image/jpeg') {
-        imagejpeg($newImage, $destination, $quality);
+        imagejpeg($image, $destination, $quality);
     } elseif ($info['mime'] == 'image/png') {
         // PNG quality is 0-9, where 0 is no compression. Map 0-100 to 0-9 roughly.
         // Actually, for PNG, it's compression level (0-9). 
         // Let's use default for PNG to avoid quality loss issues.
-        imagepng($newImage, $destination, 9);
+        imagepng($image, $destination, 9);
     }
 
     imagedestroy($image);
-    imagedestroy($newImage);
 
     return true;
 }

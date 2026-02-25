@@ -9,7 +9,7 @@
             <div class="flex h-16 items-center justify-between gap-4">
                 {{-- Logo --}}
                 <a href="{{ route('home') }}" class="inline-flex items-center gap-2 transition hover:opacity-80">
-                    <img src="{{ asset(config('company.logo')) }}" alt="{{ config('company.brand') }}" class="h-8 w-auto object-contain" />
+                    <img src="{{ asset(config('company.logo')) }}" alt="{{ config('company.brand') }}" class="h-16 w-auto object-contain" />
                 </a>
 
                 {{-- Desktop Nav --}}
