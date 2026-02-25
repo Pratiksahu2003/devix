@@ -1,22 +1,37 @@
 <?php
-ini_set('memory_limit', '512M');
+ini_set('memory_limit', '1024M');
 
 $directories = [
-    __DIR__ . '/public/pooja',
-    __DIR__ . '/public/vidhu',
-    __DIR__ . '/public/studio',
-    __DIR__ . '/public/brand',
-    __DIR__ . '/public/logo',
-    __DIR__ . '/public/logo/fav'
+    __DIR__ . '/public/storage/pooja',
+    __DIR__ . '/public/storage/studio'
 ];
 
-function optimizeImage($source, $destination, $quality = 80, $maxWidth = 1200) {
+function optimizeImage($source, $destination, $targetSize = 204800, $maxWidth = 1500) {
     $info = getimagesize($source);
     if ($info === false) return false;
 
+    // Load image
     switch ($info['mime']) {
         case 'image/jpeg':
             $image = imagecreatefromjpeg($source);
+            // Handle EXIF Orientation
+            if (function_exists('exif_read_data')) {
+                $exif = @exif_read_data($source);
+                if ($exif && isset($exif['Orientation'])) {
+                    $orientation = $exif['Orientation'];
+                    switch ($orientation) {
+                        case 3:
+                            $image = imagerotate($image, 180, 0);
+                            break;
+                        case 6:
+                            $image = imagerotate($image, -90, 0);
+                            break;
+                        case 8:
+                            $image = imagerotate($image, 90, 0);
+                            break;
+                    }
+                }
+            }
             break;
         case 'image/png':
             $image = imagecreatefrompng($source);
@@ -27,22 +42,71 @@ function optimizeImage($source, $destination, $quality = 80, $maxWidth = 1200) {
 
     if (!$image) return false;
 
+    // Get current dimensions
+    $width = imagesx($image);
+    $height = imagesy($image);
+    
+    // Initial resize if larger than max width
+    // Use the orientation-corrected dimensions
+    if ($width > $maxWidth) {
+        $newWidth = $maxWidth;
+        $newHeight = intval($height * ($newWidth / $width));
+        
+        $newImage = imagecreatetruecolor($newWidth, $newHeight);
+        
+        // Preserve transparency for PNG
+        if ($info['mime'] == 'image/png') {
+            imagealphablending($newImage, false);
+            imagesavealpha($newImage, true);
+        }
+        
+        imagecopyresampled($newImage, $image, 0, 0, 0, 0, $newWidth, $newHeight, $width, $height);
+        imagedestroy($image);
+        $image = $newImage;
+    }
+
     // Preserve transparency for PNG
     if ($info['mime'] == 'image/png') {
         imagealphablending($image, false);
         imagesavealpha($image, true);
     }
 
-    // Save optimized image directly
-    if ($info['mime'] == 'image/jpeg') {
-        imagejpeg($image, $destination, $quality);
-    } elseif ($info['mime'] == 'image/png') {
-        // PNG quality is 0-9, where 0 is no compression. Map 0-100 to 0-9 roughly.
-        // Actually, for PNG, it's compression level (0-9). 
-        // Let's use default for PNG to avoid quality loss issues.
-        imagepng($image, $destination, 9);
-    }
+    // Iterative quality reduction loop
+    $quality = 85;
+    $minQuality = 40;
+    $tempFile = $destination . '.temp';
+    
+    do {
+        if ($info['mime'] == 'image/jpeg') {
+            imagejpeg($image, $tempFile, $quality);
+        } elseif ($info['mime'] == 'image/png') {
+            // PNG compression 0-9. 
+            // PNG is lossless-ish, so quality parameter in imagepng is compression level.
+            // It doesn't affect size as dramatically as JPEG quality.
+            // We'll stick to max compression (9).
+            imagepng($image, $tempFile, 9);
+            // If it's PNG and too big, we might need to convert to JPEG or resize more, 
+            // but for now let's just break if it's PNG as we can't do much more with standard GD.
+            if (filesize($tempFile) > $targetSize) {
+                 // Optional: Convert to JPEG if transparency not critical? 
+                 // But let's assume we keep format.
+            }
+        }
+        
+        clearstatcache();
+        $size = filesize($tempFile);
+        
+        if ($size <= $targetSize || $quality <= $minQuality) {
+            break;
+        }
+        
+        $quality -= 5;
+    } while ($quality >= $minQuality);
 
+    // If still too big and we hit min quality, we could resize down further, 
+    // but for now let's accept the result to avoid infinite loops or tiny images.
+    
+    rename($tempFile, $destination);
     imagedestroy($image);
 
     return true;
@@ -81,9 +145,9 @@ foreach ($directories as $dir) {
             copy($filePath, $backupPath);
         }
 
-        // Optimize
+        // Optimize using BACKUP as source
         if (optimizeImage($backupPath, $filePath)) {
-            echo "Done.\n";
+            echo "Done. Size: " . round(filesize($filePath) / 1024) . "KB\n";
         } else {
             echo "Failed.\n";
         }
