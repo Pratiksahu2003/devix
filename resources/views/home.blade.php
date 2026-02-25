@@ -64,7 +64,7 @@
                 
                 {{-- Mobile Text (Stacked) --}}
                 <div class="absolute md:hidden inset-0 flex items-center justify-center pointer-events-none z-30">
-                     <span class="text-4xl font-serif text-white font-bold tracking-widest drop-shadow-[0_2px_2px_rgba(0,0,0,0.8)]">DEVIX</span>
+                     <span class="text-4xl font-serif text-white font-bold tracking-widest drop-shadow-[0_2px_2px_rgba(0,0,0,0.8)]">dyWix</span>
                 </div>
             </div>
 
@@ -282,7 +282,7 @@
         </div>
     </section>
 
-    {{-- NEW SECTION 3: Life at Devix (Modern Bento Compact) --}}
+    {{-- NEW SECTION 3: Life at dyWix (Modern Bento Compact) --}}
     <section class="bg-white py-20">
         <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <div class="grid grid-cols-1 md:grid-cols-4 grid-rows-2 gap-4 h-[600px] md:h-[500px]">
@@ -290,7 +290,7 @@
                 <div class="md:col-span-2 md:row-span-2 rounded-3xl bg-gray-50 p-8 flex flex-col justify-between overflow-hidden relative group border border-gray-100">
                     <div class="relative z-10">
                         <span class="text-blue-600 font-bold tracking-widest uppercase text-xs">Community</span>
-                        <h2 class="mt-2 text-3xl font-bold text-gray-900 tracking-tight">Life at Devix</h2>
+                        <h2 class="mt-2 text-3xl font-bold text-gray-900 tracking-tight">Life at dyWix</h2>
                         <p class="mt-4 text-gray-600 leading-relaxed text-sm">
                             More than just a studio. A hub where creators connect. From intense fashion shoots to laid-back podcast sessions, the energy here is contagious.
                         </p>
