@@ -11,7 +11,7 @@
     {{-- Hero --}}
     <section class="relative overflow-hidden bg-black text-white pt-20 pb-24 lg:pt-32 lg:pb-40">
         <div class="absolute inset-0 z-0">
-            <img src="{{ asset('studio/DSC01009.JPG') }}" alt="Studio Background" class="h-full w-full object-cover opacity-40">
+            <img src="{{ asset('storage/studio/DSC01009.JPG') }}" alt="Studio Background" class="h-full w-full object-cover opacity-40">
             <div class="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent"></div>
         </div>
         <div class="relative z-10 mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 text-center">
@@ -30,7 +30,7 @@
         <div class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
             <div class="grid gap-12 lg:grid-cols-2 lg:gap-20 items-center">
                 <div class="relative rounded-3xl overflow-hidden shadow-2xl aspect-[4/5] lg:aspect-square group">
-                    <img src="{{ asset('studio/DSC01002.JPG') }}" alt="Fashion Editorial" class="h-full w-full object-cover transition duration-700 group-hover:scale-105">
+                    <img src="{{ asset('storage/studio/DSC01002.JPG') }}" alt="Fashion Editorial" class="h-full w-full object-cover transition duration-700 group-hover:scale-105">
                 </div>
                 <div>
                     <div class="inline-flex items-center rounded-full bg-pink-50 px-3 py-1 text-xs font-medium text-pink-700 mb-6">
@@ -99,7 +99,7 @@
                     </ul>
                 </div>
                 <div class="order-1 lg:order-2 relative rounded-3xl overflow-hidden shadow-2xl aspect-[4/5] lg:aspect-square group">
-                    <img src="{{ asset('studio/DSC01007.JPG') }}" alt="Product Photography" class="h-full w-full object-cover transition duration-700 group-hover:scale-105">
+                    <img src="{{ asset('storage/studio/DSC01007.JPG') }}" alt="Product Photography" class="h-full w-full object-cover transition duration-700 group-hover:scale-105">
                 </div>
             </div>
         </div>
@@ -110,7 +110,7 @@
         <div class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
             <div class="grid gap-12 lg:grid-cols-2 lg:gap-20 items-center">
                 <div class="relative rounded-3xl overflow-hidden shadow-2xl aspect-[4/5] lg:aspect-square group">
-                    <img src="{{ asset('studio/DSC01008.JPG') }}" alt="Podcast Studio" class="h-full w-full object-cover transition duration-700 group-hover:scale-105">
+                    <img src="{{ asset('storage/studio/DSC01008.JPG') }}" alt="Podcast Studio" class="h-full w-full object-cover transition duration-700 group-hover:scale-105">
                 </div>
                 <div>
                     <div class="inline-flex items-center rounded-full bg-purple-50 px-3 py-1 text-xs font-medium text-purple-700 mb-6">
@@ -160,7 +160,7 @@
                 {{-- Card 1 --}}
                 <div class="group relative overflow-hidden rounded-2xl bg-white shadow-sm transition hover:shadow-md">
                     <div class="aspect-video bg-gray-200 overflow-hidden">
-                        <img src="{{ asset('studio/DSC01003.JPG') }}" alt="Corporate" class="h-full w-full object-cover transition duration-500 group-hover:scale-105">
+                        <img src="{{ asset('storage/studio/DSC01003.JPG') }}" alt="Corporate" class="h-full w-full object-cover transition duration-500 group-hover:scale-105">
                     </div>
                     <div class="p-6">
                         <h3 class="text-lg font-bold text-[var(--color-text-main)]">Corporate Headshots</h3>
@@ -170,7 +170,7 @@
                 {{-- Card 2 --}}
                 <div class="group relative overflow-hidden rounded-2xl bg-white shadow-sm transition hover:shadow-md">
                     <div class="aspect-video bg-gray-200 overflow-hidden">
-                        <img src="{{ asset('studio/DSC01010.JPG') }}" alt="Social Media" class="h-full w-full object-cover transition duration-500 group-hover:scale-105">
+                        <img src="{{ asset('storage/studio/DSC01010.JPG') }}" alt="Social Media" class="h-full w-full object-cover transition duration-500 group-hover:scale-105">
                     </div>
                     <div class="p-6">
                         <h3 class="text-lg font-bold text-[var(--color-text-main)]">Content Sprints</h3>
@@ -180,7 +180,7 @@
                 {{-- Card 3 --}}
                 <div class="group relative overflow-hidden rounded-2xl bg-white shadow-sm transition hover:shadow-md">
                     <div class="aspect-video bg-gray-200 overflow-hidden">
-                        <img src="{{ asset('studio/DSC01012.JPG') }}" alt="Workshops" class="h-full w-full object-cover transition duration-500 group-hover:scale-105">
+                        <img src="{{ asset('storage/studio/DSC01012.JPG') }}" alt="Workshops" class="h-full w-full object-cover transition duration-500 group-hover:scale-105">
                     </div>
                     <div class="p-6">
                         <h3 class="text-lg font-bold text-[var(--color-text-main)]">Workshops</h3>
