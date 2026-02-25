@@ -93,16 +93,56 @@
         lightboxOpen: false,
         lightboxSrc: '',
         lightboxAlt: '',
+        scale: 1,
+        panning: false,
+        pointX: 0,
+        pointY: 0,
+        startX: 0,
+        startY: 0,
         openLightbox(src, alt) {
             this.lightboxSrc = src;
             this.lightboxAlt = alt;
             this.lightboxOpen = true;
+            this.scale = 1;
+            this.pointX = 0;
+            this.pointY = 0;
             document.body.style.overflow = 'hidden';
         },
         closeLightbox() {
             this.lightboxOpen = false;
             document.body.style.overflow = '';
-            setTimeout(() => { this.lightboxSrc = ''; }, 300);
+            setTimeout(() => { 
+                this.lightboxSrc = ''; 
+                this.scale = 1;
+                this.pointX = 0;
+                this.pointY = 0;
+            }, 300);
+        },
+        zoomIn() {
+            this.scale = Math.min(this.scale + 0.5, 4);
+        },
+        zoomOut() {
+            this.scale = Math.max(this.scale - 0.5, 1);
+            if (this.scale === 1) {
+                this.pointX = 0;
+                this.pointY = 0;
+            }
+        },
+        startDrag(e) {
+            if (this.scale <= 1) return;
+            e.preventDefault();
+            this.panning = true;
+            this.startX = e.clientX - this.pointX;
+            this.startY = e.clientY - this.pointY;
+        },
+        drag(e) {
+            if (!this.panning) return;
+            e.preventDefault();
+            this.pointX = e.clientX - this.startX;
+            this.pointY = e.clientY - this.startY;
+        },
+        stopDrag() {
+            this.panning = false;
         }
     }">
         {{-- Lightbox Overlay --}}
@@ -115,15 +155,32 @@
              x-transition:leave-end="opacity-0"
              class="fixed inset-0 z-[100] flex items-center justify-center bg-black/95 p-4 backdrop-blur-sm"
              @keydown.escape.window="closeLightbox()"
+             @mouseup.window="stopDrag()"
+             @mousemove.window="drag($event)"
              style="display: none;">
             
-            <button @click="closeLightbox()" class="absolute top-6 right-6 text-white hover:text-gray-300 z-50">
-                <svg class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" /></svg>
-            </button>
+            <div class="absolute top-6 right-6 flex items-center gap-4 z-50">
+                <div class="flex items-center gap-2 rounded-full bg-white/10 px-3 py-1.5 backdrop-blur-md">
+                    <button @click="zoomOut()" class="text-white hover:text-[var(--color-brand-lens-blue)] transition" title="Zoom Out">
+                        <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 12H4" /></svg>
+                    </button>
+                    <span class="text-xs font-medium text-white/80 w-8 text-center" x-text="Math.round(scale * 100) + '%'"></span>
+                    <button @click="zoomIn()" class="text-white hover:text-[var(--color-brand-lens-blue)] transition" title="Zoom In">
+                        <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4" /></svg>
+                    </button>
+                </div>
+                
+                <button @click="closeLightbox()" class="text-white hover:text-gray-300 transition">
+                    <svg class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" /></svg>
+                </button>
+            </div>
 
             <img :src="lightboxSrc" :alt="lightboxAlt" 
-                 class="max-h-[90vh] max-w-full rounded-lg shadow-2xl object-contain"
-                 @click.outside="closeLightbox()">
+                 class="max-h-[90vh] max-w-full rounded-lg shadow-2xl object-contain transition-transform duration-200 ease-out"
+                 :style="`transform: scale(${scale}) translate(${pointX/scale}px, ${pointY/scale}px); cursor: ${scale > 1 ? 'grab' : 'default'}`"
+                 @mousedown="startDrag($event)"
+                 @click.outside="closeLightbox()"
+                 @wheel.prevent="if($event.deltaY < 0) zoomIn(); else zoomOut();">
         </div>
 
         <div class="mx-auto max-w-7xl px-4 py-10 sm:px-6 lg:py-14">
