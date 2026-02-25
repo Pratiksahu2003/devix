@@ -127,84 +127,70 @@
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    {{-- NEW SECTION 1: Trusted By (Logos) --}}
-    <section class="bg-black py-20 border-b border-white/5">
-        <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-            <div class="mb-12 text-center md:text-left">
-                <p class="text-xs font-bold uppercase tracking-[0.2em] text-blue-500 mb-2">Our Network</p>
-                <h2 class="text-3xl font-bold text-white tracking-tight">Trusted by Industry Leaders</h2>
-            </div>
-            
-            <div class="grid grid-cols-2 md:grid-cols-4 border-t border-l border-white/10">
-                @foreach(range(1, 8) as $i)
-                    <div class="group relative flex h-32 items-center justify-center border-r border-b border-white/10 bg-white/5 p-6 transition-colors hover:bg-white/10">
-                        <img src="{{ asset('brand/' . $i . '.png') }}" 
-                             class="h-12 w-auto object-contain opacity-50 grayscale transition-all duration-500 group-hover:opacity-100 group-hover:grayscale-0 group-hover:scale-110" 
-                             alt="Client Logo {{ $i }}">
-                    </div>
-                @endforeach
-            </div>
-        </div>
-    </section>
-
-    {{-- NEW SECTION 2: Visual Sets Video Grid --}}
-    <section class="bg-black py-20 text-white">
-        <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-            <div class="mb-12 flex items-end justify-between">
-                <div>
-                    <span class="text-blue-500 font-bold tracking-widest uppercase text-xs">Visual Experience</span>
-                    <h2 class="mt-2 text-3xl font-bold tracking-tight sm:text-4xl text-white">Versatile Sets</h2>
+        {{-- NEW SECTION 1: Trusted By (Logos) --}}
+        <section class="bg-white py-20 border-b border-gray-200">
+            <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+                <div class="mb-12 text-center md:text-left">
+                    <p class="text-xs font-bold uppercase tracking-[0.2em] text-blue-500 mb-2">Our Network</p>
+                    <h2 class="text-3xl font-bold text-gray-900 tracking-tight">Trusted by Industry Leaders</h2>
                 </div>
-                <a href="{{ route('pages.gallery') }}" class="hidden text-sm font-medium text-gray-400 hover:text-white sm:block">View Gallery →</a>
+                
+                <div class="grid grid-cols-2 md:grid-cols-4 border-t border-l border-gray-200">
+                    @foreach(range(1, 8) as $i)
+                        <div class="group relative flex h-32 items-center justify-center border-r border-b border-gray-200 p-6 ">
+                            <img src="{{ asset('brand/' . $i . '.png') }}" 
+                                 class=" object-contain" 
+                                 alt="Client Logo {{ $i }}">
+                        </div>
+                    @endforeach
+                </div>
             </div>
+        </section>
 
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-4 h-[500px] md:h-[400px]">
-                {{-- Card 1: Fashion --}}
-                <div class="group relative h-full w-full overflow-hidden rounded-2xl bg-gray-900 reveal-up" x-intersect="$el.classList.add('is-visible')">
-                    <img src="{{ asset('studio/DSC01009.JPG') }}" class="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105">
-                    <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-transparent to-transparent"></div>
-                    <div class="absolute bottom-6 left-6">
-                        <h3 class="text-xl font-bold">Fashion & Editorial</h3>
-                        <p class="text-sm text-gray-400">Cyclorama wall & colored backdrops</p>
+        {{-- NEW SECTION 2: Visual Sets Video Grid --}}
+        <section class="bg-white py-20 text-gray-900">
+            <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+                <div class="mb-12 flex items-end justify-between">
+                    <div>
+                        <span class="text-blue-500 font-bold tracking-widest uppercase text-xs">Visual Experience</span>
+                        <h2 class="mt-2 text-3xl font-bold tracking-tight sm:text-4xl text-gray-900">Versatile Sets</h2>
                     </div>
+                    <a href="{{ route('pages.gallery') }}" class="hidden text-sm font-medium text-gray-600 hover:text-gray-900 sm:block">View Gallery →</a>
                 </div>
 
-                {{-- Card 2: Podcast --}}
-                <div class="group relative h-full w-full overflow-hidden rounded-2xl bg-gray-900 reveal-up delay-100" x-intersect="$el.classList.add('is-visible')">
-                    <img src="{{ asset('studio/DSC01012.JPG') }}" class="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105">
-                    <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-transparent to-transparent"></div>
-                    <div class="absolute bottom-6 left-6">
-                        <h3 class="text-xl font-bold">Video Podcast</h3>
-                        <p class="text-sm text-gray-400">4-person setup with 3-camera angles</p>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-4 h-[500px] md:h-[400px]">
+                    {{-- Card 1: Fashion --}}
+                    <div class="group relative h-full w-full overflow-hidden rounded-2xl bg-gray-100 reveal-up" x-intersect="$el.classList.add('is-visible')">
+                        <img src="{{ asset('studio/DSC01009.JPG') }}" class="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-transparent to-transparent"></div>
+                        <div class="absolute bottom-6 left-6">
+                            <h3 class="text-xl font-bold text-white">Fashion & Editorial</h3>
+                            <p class="text-sm text-gray-300">Cyclorama wall & colored backdrops</p>
+                        </div>
                     </div>
-                </div>
 
-                {{-- Card 3: Product --}}
-                <div class="group relative h-full w-full overflow-hidden rounded-2xl bg-gray-900 reveal-up delay-200" x-intersect="$el.classList.add('is-visible')">
-                    <img src="{{ asset('studio/DSC01007.JPG') }}" class="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105">
-                    <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-transparent to-transparent"></div>
-                    <div class="absolute bottom-6 left-6">
-                        <h3 class="text-xl font-bold">Product & Commercial</h3>
-                        <p class="text-sm text-gray-400">Tabletop & controlled lighting</p>
+                    {{-- Card 2: Podcast --}}
+                    <div class="group relative h-full w-full overflow-hidden rounded-2xl bg-gray-100 reveal-up delay-100" x-intersect="$el.classList.add('is-visible')">
+                        <img src="{{ asset('studio/DSC01012.JPG') }}" class="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-transparent to-transparent"></div>
+                        <div class="absolute bottom-6 left-6">
+                            <h3 class="text-xl font-bold text-white">Video Podcast</h3>
+                            <p class="text-sm text-gray-300">4-person setup with 3-camera angles</p>
+                        </div>
+                    </div>
+
+                    {{-- Card 3: Product --}}
+                    <div class="group relative h-full w-full overflow-hidden rounded-2xl bg-gray-100 reveal-up delay-200" x-intersect="$el.classList.add('is-visible')">
+                        <img src="{{ asset('studio/DSC01007.JPG') }}" class="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-transparent to-transparent"></div>
+                        <div class="absolute bottom-6 left-6">
+                            <h3 class="text-xl font-bold text-white">Product & Commercial</h3>
+                            <p class="text-sm text-gray-300">Tabletop & controlled lighting</p>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
     {{-- Podcast & Content Studio (Compacted) --}}
     <section class="relative bg-black py-20 text-white overflow-hidden border-t border-white/5">
