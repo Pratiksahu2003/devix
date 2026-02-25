@@ -1,0 +1,139 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Cinzel:wght@400;700&display=swap');
+@import 'tailwindcss';
+
+@source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
+@source '../../storage/framework/views/*.php';
+@source '../**/*.blade.php';
+@source '../**/*.js';
+
+@theme {
+    --font-sans: 'Montserrat', ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif,
+        'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+    --font-serif: 'Cinzel', ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
+
+    /* Brand colors */
+    --color-brand-lens-blue: #004aad;
+    --color-brand-lens-blue-soft: #e6f0ff;
+    --color-brand-gold-accent: #c89b3c;
+
+    /* Neutrals */
+    --color-surface: #ffffff;
+    --color-surface-muted: #f5f5f7;
+    --color-border-subtle: #e2e2e7;
+    --color-text-main: #111111;
+    --color-text-muted: #6b7280;
+}
+
+@layer base {
+    * {
+        @apply antialiased;
+    }
+
+    body {
+        @apply bg-[var(--color-surface)] text-[var(--color-text-main)] font-sans;
+    }
+}
+
+/* Motion system */
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation: none !important;
+        transition: none !important;
+        scroll-behavior: auto !important;
+    }
+}
+
+/* Apple-style Reveal Animations */
+.reveal-up {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 1s cubic-bezier(0.16, 1, 0.3, 1), transform 1s cubic-bezier(0.16, 1, 0.3, 1);
+    will-change: opacity, transform;
+}
+.reveal-up.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.scale-in {
+    opacity: 0;
+    transform: scale(0.95);
+    transition: opacity 1s cubic-bezier(0.16, 1, 0.3, 1), transform 1s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.scale-in.is-visible {
+    opacity: 1;
+    transform: scale(1);
+}
+
+.fade-in {
+    opacity: 0;
+    transition: opacity 1.2s ease-out;
+}
+.fade-in.is-visible {
+    opacity: 1;
+}
+
+/* Staggered Delays */
+.delay-100 { transition-delay: 100ms; }
+.delay-200 { transition-delay: 200ms; }
+.delay-300 { transition-delay: 300ms; }
+.delay-500 { transition-delay: 500ms; }
+
+/* Utilities */
+.glass {
+    background: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+}
+.dark .glass {
+    background: rgba(0, 0, 0, 0.6);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.text-gradient {
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-image: linear-gradient(135deg, #111 0%, #555 100%);
+}
+.dark .text-gradient {
+    background-image: linear-gradient(135deg, #fff 0%, #aaa 100%);
+}
+
+.marquee {
+    position: relative;
+    overflow: hidden;
+}
+.marquee-track {
+    white-space: nowrap;
+    width: max-content;
+    animation: marquee-scroll 40s linear infinite;
+}
+@keyframes marquee-scroll {
+    0% { transform: translateX(0%); }
+    100% { transform: translateX(-50%); }
+}
+
+.animate-spin-slow {
+    animation: spin 8s linear infinite;
+}
+@keyframes spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+.tilt-card {
+    transition: transform 300ms ease, box-shadow 300ms ease;
+}
+.tilt-card:hover {
+    transform: translateY(-4px);
+}
+
+.icon-breath {
+    transition: transform 250ms ease, color 250ms ease, filter 250ms ease;
+}
+.group:hover .icon-breath {
+    transform: scale(1.06);
+    filter: drop-shadow(0 6px 14px rgba(15,23,42,0.18));
+}
