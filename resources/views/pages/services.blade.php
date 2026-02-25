@@ -8,284 +8,225 @@
 @endsection
 
 @section('content')
-    <x-home.shop-by-frame />
-
-    @php
-        $hero = [
-            ['alt' => 'Portrait set ready with soft key', 'color' => '#e6f0ff', 'src' => 'https://images.unsplash.com/photo-1544005313-94ddf0286df2'],
-            ['alt' => 'Fashion frame against textured wall', 'color' => '#fde68a', 'src' => 'https://images.unsplash.com/photo-1549298916-b41d501d3772'],
-            ['alt' => 'Product catalog lighting setup', 'color' => '#f5f5f7', 'src' => 'https://images.unsplash.com/photo-1520975232559-17ea5bbdfd1d'],
-        ];
-        $lqip = function ($c) {
-            $svg = '<svg xmlns="http://www.w3.org/2000/svg" width="20" height="12"><rect width="100%" height="100%" fill="'.$c.'"/></svg>';
-            return 'data:image/svg+xml;charset=UTF-8,'.rawurlencode($svg);
-        };
-        $srcset = function ($b) {
-            $q = fn ($w) => $b.'?auto=format&fit=crop&w='.$w.'&q=60';
-            return $q(480).' 480w, '.$q(800).' 800w, '.$q(1200).' 1200w';
-        };
-    @endphp
-    <section class="border-b border-[var(--color-border-subtle)] bg-[var(--color-surface)]" id="mosaic">
-        <div class="mx-auto max-w-6xl px-4 py-8 sm:px-6">
-            <div class="grid gap-4 sm:grid-cols-3">
-                @foreach ($hero as $it)
-                    @php
-                        $href = route('pages.photography') . '#faqs';
-                        if (str_contains(strtolower($it['alt']), 'product')) $href = route('pages.photography') . '#faqs';
-                        if (str_contains(strtolower($it['alt']), 'fashion')) $href = route('pages.photography') . '#faqs';
-                    @endphp
-                    <a href="{{ $href }}" class="group overflow-hidden rounded-2xl border border-[var(--color-border-subtle)] bg-white shadow-sm shadow-black/5 transition hover:-translate-y-1 hover:shadow-md" data-tilt="5">
-                        <img
-                            alt="{{ $it['alt'] }}"
-                            loading="lazy"
-                            decoding="async"
-                            class="block w-full aspect-[4/3] object-cover transition duration-700 ease-out group-hover:scale-[1.02]"
-                            src="{{ $it['src'] }}?auto=format&fit=crop&w=800&q=70"
-                            srcset="{{ $srcset($it['src']) }}"
-                            sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                            style="background: url('{{ $lqip($it['color']) }}') center/cover no-repeat; filter: blur(12px);"
-                            onload="this.style.filter='none'; this.style.background='none';"
-                        />
-                        <div class="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent opacity-0 transition group-hover:opacity-100"></div>
-                        <figcaption class="absolute bottom-0 left-0 right-0 p-3 text-[12px] text-white/95 opacity-0 transition group-hover:opacity-100">
-                            {{ $it['alt'] }} · Learn more
-                        </figcaption>
-                    </a>
-                @endforeach
+    {{-- Hero Section --}}
+    <section class="relative bg-black py-24 text-white overflow-hidden">
+        <div class="absolute inset-0 opacity-30">
+            <img src="{{ asset('storage/studio/DSC01002.JPG') }}" class="h-full w-full object-cover" alt="Studio Background">
+        </div>
+        <div class="absolute inset-0 bg-gradient-to-b from-black/80 via-black/50 to-black"></div>
+        
+        <div class="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-center reveal-up">
+            <p class="text-blue-500 font-bold tracking-widest uppercase text-xs mb-4">Our Services</p>
+            <h1 class="text-4xl md:text-6xl font-bold tracking-tight mb-6">
+                Crafting visual stories <br> <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-500">starts here.</span>
+            </h1>
+            <p class="text-lg md:text-xl text-gray-300 max-w-2xl mx-auto mb-10">
+                Portraits, campaigns, podcasts, corporate films & more. A professional space designed for creators and brands.
+            </p>
+            
+            <div class="flex flex-wrap justify-center gap-4 text-sm font-medium">
+                <a href="#produce" class="rounded-full bg-white text-black px-6 py-3 hover:bg-gray-200 transition">Explore Services</a>
+                <a href="{{ route('pages.booking') }}" class="rounded-full border border-white/30 bg-white/10 px-6 py-3 hover:bg-white/20 transition backdrop-blur-md">Book Now</a>
             </div>
         </div>
     </section>
 
-    <section class="sticky top-0 z-10 border-b border-[var(--color-border-subtle)] bg-[var(--color-surface)]/80 backdrop-blur">
-        <div class="mx-auto max-w-6xl px-4 py-2 sm:px-6">
-            <nav class="flex flex-wrap gap-2 text-[12px]">
-                <a href="#audience" class="rounded-full border border-[var(--color-border-subtle)] bg-white px-3 py-1.5 hover:border-[var(--color-brand-lens-blue)] hover:text-[var(--color-brand-lens-blue)]">Who it’s for</a>
-                <a href="#formats" class="rounded-full border border-[var(--color-border-subtle)] bg-white px-3 py-1.5 hover:border-[var(--color-brand-lens-blue)] hover:text-[var(--color-brand-lens-blue)]">By format</a>
-                <a href="#produce" class="rounded-full border border-[var(--color-border-subtle)] bg-white px-3 py-1.5 hover:border-[var(--color-brand-lens-blue)] hover:text-[var(--color-brand-lens-blue)]">What we produce</a>
-                <a href="#flow" class="rounded-full border border-[var(--color-border-subtle)] bg-white px-3 py-1.5 hover:border-[var(--color-brand-lens-blue)] hover:text-[var(--color-brand-lens-blue)]">Flow</a>
-                <a href="#why" class="rounded-full border border-[var(--color-border-subtle)] bg-white px-3 py-1.5 hover:border-[var(--color-brand-lens-blue)] hover:text-[var(--color-brand-lens-blue)]">Why choose</a>
-                <a href="#faqs" class="rounded-full border border-[var(--color-border-subtle)] bg-white px-3 py-1.5 hover:border-[var(--color-brand-lens-blue)] hover:text-[var(--color-brand-lens-blue)]">FAQs</a>
-            </nav>
-        </div>
-    </section>
+    {{-- Who it's for --}}
+    <section class="py-20 bg-white border-b border-gray-100">
+        <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 reveal-up" x-intersect="$el.classList.add('is-visible')">
+                <h2 class="text-3xl font-bold text-gray-900">Who it’s for</h2>
+                <p class="mt-4 text-gray-500">Tailored experiences for every type of creator.</p>
+            </div>
 
-    <section class="border-b border-[var(--color-border-subtle)] bg-[var(--color-surface)]" id="audience">
-        <div class="mx-auto max-w-6xl px-4 py-10 sm:px-6 lg:py-12">
-            <h2 class="text-base font-semibold tracking-tight">
-                Who our studio services are for
-            </h2>
-            <div class="mt-4 grid gap-6 md:grid-cols-3 text-sm text-[var(--color-text-muted)]">
-                <div class="space-y-2">
-                    <p class="font-medium text-[var(--color-text-main)]">Independent creators</p>
-                    <p>Content creators, photographers and filmmakers who need a reliable, flexible space to shoot in.</p>
+            <div class="grid md:grid-cols-3 gap-8">
+                {{-- Card 1 --}}
+                <div class="p-8 rounded-2xl bg-gray-50 border border-gray-100 hover:shadow-lg transition duration-300 reveal-up delay-100" x-intersect="$el.classList.add('is-visible')">
+                    <div class="h-12 w-12 rounded-full bg-blue-100 text-blue-600 flex items-center justify-center mb-6">
+                        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" /></svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-3">Independent Creators</h3>
+                    <p class="text-gray-600 leading-relaxed">Content creators, photographers and filmmakers who need a reliable, flexible space to shoot in.</p>
                 </div>
-                <div class="space-y-2">
-                    <p class="font-medium text-[var(--color-text-main)]">Brands &amp; agencies</p>
-                    <p>Teams producing campaigns, lookbooks, product launches, and recurring content series.</p>
+
+                {{-- Card 2 --}}
+                <div class="p-8 rounded-2xl bg-gray-50 border border-gray-100 hover:shadow-lg transition duration-300 reveal-up delay-200" x-intersect="$el.classList.add('is-visible')">
+                    <div class="h-12 w-12 rounded-full bg-purple-100 text-purple-600 flex items-center justify-center mb-6">
+                        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" /></svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-3">Brands & Agencies</h3>
+                    <p class="text-gray-600 leading-relaxed">Teams producing campaigns, lookbooks, product launches, and recurring content series.</p>
                 </div>
-                <div class="space-y-2">
-                    <p class="font-medium text-[var(--color-text-main)]">Corporate teams</p>
-                    <p>Companies filming leadership messages, training content, internal events and interviews.</p>
+
+                {{-- Card 3 --}}
+                <div class="p-8 rounded-2xl bg-gray-50 border border-gray-100 hover:shadow-lg transition duration-300 reveal-up delay-300" x-intersect="$el.classList.add('is-visible')">
+                    <div class="h-12 w-12 rounded-full bg-pink-100 text-pink-600 flex items-center justify-center mb-6">
+                        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" /></svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-3">Corporate Teams</h3>
+                    <p class="text-gray-600 leading-relaxed">Companies filming leadership messages, training content, internal events and interviews.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    @php
-        $sets = [
-            'Portraits' => [
-                ['alt' => 'Headshot with soft key', 'color' => '#e6f0ff', 'src' => 'https://images.unsplash.com/photo-1544005313-94ddf0286df2'],
-                ['alt' => 'Editorial portrait', 'color' => '#e5e7eb', 'src' => 'https://images.unsplash.com/photo-1519345182560-3f2917c472ef'],
-                ['alt' => 'Team portraits batch', 'color' => '#f5f5f7', 'src' => 'https://images.unsplash.com/photo-1520975916090-3105956dac38'],
-            ],
-            'Fashion' => [
-                ['alt' => 'Lookbook textured wall', 'color' => '#fde68a', 'src' => 'https://images.unsplash.com/photo-1549298916-b41d501d3772'],
-                ['alt' => 'Editorial full‑length', 'color' => '#fde68a', 'src' => 'https://images.unsplash.com/photo-1539109136881-3be0616acf4b'],
-                ['alt' => 'Detail with props', 'color' => '#f5f5f7', 'src' => 'https://images.unsplash.com/photo-1520975232559-17ea5bbdfd1d'],
-            ],
-            'Products' => [
-                ['alt' => 'E‑commerce frame clean bg', 'color' => '#f5f5f7', 'src' => 'https://images.unsplash.com/photo-1585386959984-a41552231658'],
-                ['alt' => 'Cosmetic macro highlights', 'color' => '#fef3c7', 'src' => 'https://images.unsplash.com/photo-1585238342028-4bbc2e06a8aa'],
-                ['alt' => 'Catalog lighting table', 'color' => '#f5f5f7', 'src' => 'https://images.unsplash.com/photo-1542291026-7eec264c27ff'],
-            ],
-            'Interviews' => [
-                ['alt' => 'Two‑shot interview', 'color' => '#e5e7eb', 'src' => 'https://images.unsplash.com/photo-1550124220-1f57b8bd8cf3'],
-                ['alt' => 'Corporate talking head', 'color' => '#e5e7eb', 'src' => 'https://images.unsplash.com/photo-1517048676732-d65bc937f952'],
-                ['alt' => 'Key + fill + backlight', 'color' => '#e6f0ff', 'src' => 'https://images.unsplash.com/photo-1511391409289-602dbd83b38c'],
-            ],
-            'Podcasts' => [
-                ['alt' => 'Two‑person podcast set', 'color' => '#e6f0ff', 'src' => 'https://images.unsplash.com/photo-1525182008055-f88b95ff7980'],
-                ['alt' => 'Panel podcast layout', 'color' => '#e6f0ff', 'src' => 'https://images.unsplash.com/photo-1519046904884-53103b34b206'],
-                ['alt' => 'Mic technique close', 'color' => '#e6f0ff', 'src' => 'https://images.unsplash.com/photo-1511391409289-602dbd83b38c'],
-            ],
-        ];
-        $lqip2 = function ($c) {
-            $svg = '<svg xmlns="http://www.w3.org/2000/svg" width="20" height="12"><rect width="100%" height="100%" fill="'.$c.'"/></svg>';
-            return 'data:image/svg+xml;charset=UTF-8,'.rawurlencode($svg);
-        };
-        $srcset2 = function ($b) {
-            $q = fn ($w) => $b.'?auto=format&fit=crop&w='.$w.'&q=60';
-            return $q(480).' 480w, '.$q(800).' 800w, '.$q(1200).' 1200w';
-        };
-    @endphp
-    <section class="border-b border-[var(--color-border-subtle)] bg-[var(--color-surface)]" id="formats" x-data="{ tab: 'Portraits', tabs: ['Portraits','Fashion','Products','Interviews','Podcasts'] }">
-        <div class="mx-auto max-w-6xl px-4 py-10 sm:px-6 lg:py-12">
-            <div class="flex flex-wrap items-center gap-2">
-                <h2 class="text-base font-semibold tracking-tight mr-2">By format</h2>
-                <template x-for="t in tabs" :key="t">
-                    <button type="button"
-                        class="rounded-full border border-[var(--color-border-subtle)] bg-white px-3 py-1.5 text-[12px] font-medium transition hover:border-[var(--color-brand-lens-blue)] hover:text-[var(--color-brand-lens-blue)]"
-                        :class="tab === t ? 'border-[var(--color-brand-lens-blue)] text-[var(--color-brand-lens-blue)]' : ''"
-                        @click="tab = t" x-text="t"></button>
-                </template>
-            </div>
-            <div class="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-                @foreach ($sets as $name => $items)
-                    <template x-if="tab === '{{ $name }}'">
-                        <div class="contents">
-                            @foreach ($items as $it)
-                                <a href="{{ route('pages.gallery') }}" class="group overflow-hidden rounded-2xl border border-[var(--color-border-subtle)] bg-white shadow-sm shadow-black/5 transition hover:-translate-y-1 hover:shadow-md" data-tilt="4">
-                                    <img
-                                        alt="{{ $it['alt'] }}"
-                                        loading="lazy"
-                                        decoding="async"
-                                        class="block w-full aspect-[4/3] object-cover transition duration-700 ease-out group-hover:scale-[1.02]"
-                                        src="{{ $it['src'] }}?auto=format&fit=crop&w=800&q=70"
-                                        srcset="{{ $srcset2($it['src']) }}"
-                                        sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                                        style="background: url('{{ $lqip2($it['color']) }}') center/cover no-repeat; filter: blur(12px);"
-                                        onload="this.style.filter='none'; this.style.background='none';"
-                                    />
-                                    <div class="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent opacity-0 transition group-hover:opacity-100"></div>
-                                    <figcaption class="absolute bottom-0 left-0 right-0 p-3 text-[12px] text-white/95 opacity-0 transition group-hover:opacity-100">{{ $it['alt'] }} · Open gallery</figcaption>
-                                </a>
-                            @endforeach
-                        </div>
-                    </template>
-                @endforeach
-            </div>
-            <div class="mt-6 flex justify-center">
-                <a :href="'{{ route('pages.contact') }}?format=' + encodeURIComponent(tab)"
-                    class="inline-flex items-center rounded-full bg-[var(--color-brand-lens-blue)] px-5 py-2.5 text-xs font-medium text-white shadow-md shadow-[var(--color-brand-lens-blue)]/40 transition hover:-translate-y-0.5 hover:bg-[#003a88]">
-                    Get a quote for <span class="ml-1" x-text="tab"></span>
+    {{-- What we produce (Bento Grid) --}}
+    <section class="py-20 bg-gray-50" id="produce">
+        <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+            <div class="mb-12 flex items-end justify-between reveal-up" x-intersect="$el.classList.add('is-visible')">
+                <div>
+                    <span class="text-blue-600 font-bold tracking-widest uppercase text-xs">Our Expertise</span>
+                    <h2 class="mt-2 text-3xl font-bold text-gray-900">What we help you produce</h2>
+                </div>
+                <a href="{{ route('pages.gallery') }}" class="hidden text-sm font-medium text-blue-600 hover:text-blue-800 sm:block group">
+                    View Gallery <span class="inline-block transition-transform group-hover:translate-x-1">→</span>
                 </a>
             </div>
-        </div>
-    </section>
 
-    <section class="border-b border-[var(--color-border-subtle)] bg-[var(--color-surface-muted)]" id="produce">
-        <div class="mx-auto max-w-6xl px-4 py-10 sm:px-6 lg:py-12">
-            <h2 class="text-base font-semibold tracking-tight">
-                What we help you produce
-            </h2>
-            <div class="mt-6 grid gap-8 lg:grid-cols-2">
-                <div class="space-y-4 text-sm text-[var(--color-text-muted)]">
-                    <p class="text-[var(--color-text-main)] font-medium">Portraits and personal branding</p>
-                    <p>Headshots and personal branding portraits that look natural, clean and consistent across teams and campaigns. With controlled light, practical backdrops and an assistant on floor, you can move quickly between looks while keeping skin tones accurate and flattering.</p>
-                    <p class="text-[var(--color-text-main)] font-medium">Fashion and lookbooks</p>
-                    <p>From minimal, catalogue‑ready frames to editorial sets, the floor supports quick lighting resets, wardrobe changes in the makeup room and modular props. Use textured walls and backdrops to create variety without losing continuity across the series.</p>
-                    <p class="text-[var(--color-text-main)] font-medium">Product and e‑commerce</p>
-                    <p>Lights and modifiers are tuned for fast, repeatable results. Whether you’re shooting reflective surfaces, apparel, accessories or cosmetics, you get the space to set up controlled tables, flags and cutters to keep highlights disciplined and edges crisp.</p>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 auto-rows-[400px]">
+                {{-- Item 1: Portraits --}}
+                <div class="group relative overflow-hidden rounded-2xl bg-black md:col-span-1 reveal-up" x-intersect="$el.classList.add('is-visible')">
+                    <img src="{{ asset('storage/vidhu/DSC00987.JPG') }}" class="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110 opacity-80 group-hover:opacity-60" alt="Portraits">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-transparent to-transparent"></div>
+                    <div class="absolute bottom-0 left-0 p-8">
+                        <h3 class="text-2xl font-bold text-white mb-2">Portraits & Branding</h3>
+                        <p class="text-gray-300 text-sm line-clamp-3 group-hover:line-clamp-none transition-all">Headshots and personal branding portraits that look natural, clean and consistent. Controlled light and practical backdrops.</p>
+                    </div>
                 </div>
-                <div class="space-y-4 text-sm text-[var(--color-text-muted)]">
-                    <p class="text-[var(--color-text-main)] font-medium">Corporate content and interviews</p>
-                    <p>Capture leadership messages, training modules and internal communications with a calm set that keeps the focus on your speakers. The layout supports single‑camera and multi‑camera setups, with power and organization to keep cables and stands out of the way.</p>
-                    <p class="text-[var(--color-text-main)] font-medium">Podcast and talk shows</p>
-                    <p>The podcast corner balances comfort and acoustics with clean backgrounds. Use dynamic mics for speech clarity and soft LED panels shaped with cutters to hold attention on your guests. Record audio‑only, or add cameras for short‑form and long‑form shows.</p>
+
+                {{-- Item 2: Fashion --}}
+                <div class="group relative overflow-hidden rounded-2xl bg-black md:col-span-2 reveal-up delay-100" x-intersect="$el.classList.add('is-visible')">
+                    <img src="{{ asset('storage/pooja/DSC00960.JPG') }}" class="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110 opacity-80 group-hover:opacity-60" alt="Fashion">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-transparent to-transparent"></div>
+                    <div class="absolute bottom-0 left-0 p-8">
+                        <h3 class="text-2xl font-bold text-white mb-2">Fashion & Lookbooks</h3>
+                        <p class="text-gray-300 text-sm max-w-lg">From minimal, catalogue‑ready frames to editorial sets. Quick lighting resets, wardrobe changes, and modular props for variety.</p>
+                    </div>
                 </div>
-            </div>
-            <div class="mt-8 overflow-x-auto">
-                @php
-                    $roll = [
-                        ['alt' => 'Portrait session in progress', 'color' => '#e6f0ff', 'src' => 'https://images.unsplash.com/photo-1559339352-11d035aa65de'],
-                        ['alt' => 'Lookbook on textured wall', 'color' => '#fde68a', 'src' => 'https://images.unsplash.com/photo-1520975916090-3105956dac38'],
-                        ['alt' => 'E‑commerce catalog flat‑lay', 'color' => '#f5f5f7', 'src' => 'https://images.unsplash.com/photo-1542291026-7eec264c27ff'],
-                        ['alt' => 'Corporate interview lighting', 'color' => '#e5e7eb', 'src' => 'https://images.unsplash.com/photo-1517048676732-d65bc937f952'],
-                        ['alt' => 'Podcast set with dynamic mics', 'color' => '#e6f0ff', 'src' => 'https://images.unsplash.com/photo-1511391409289-602dbd83b38c'],
-                    ];
-                @endphp
-                <div class="flex gap-4">
-                    @foreach ($roll as $it)
-                        <a href="{{ route('pages.gallery') }}" class="group min-w-[260px] flex-1 overflow-hidden rounded-2xl border border-[var(--color-border-subtle)] bg-white shadow-sm shadow-black/5 transition hover:-translate-y-1 hover:shadow-md sm:min-w-[320px]" data-tilt="4">
-                            <img
-                                alt="{{ $it['alt'] }}"
-                                loading="lazy"
-                                decoding="async"
-                                class="block w-full aspect-[4/3] object-cover transition duration-700 ease-out group-hover:scale-[1.02]"
-                                src="{{ $it['src'] }}?auto=format&fit=crop&w=800&q=70"
-                                srcset="{{ $srcset($it['src']) }}"
-                                sizes="(max-width: 640px) 80vw, (max-width: 1024px) 40vw, 33vw"
-                                style="background: url('{{ $lqip($it['color']) }}') center/cover no-repeat; filter: blur(12px);"
-                                onload="this.style.filter='none'; this.style.background='none';"
-                            />
-                            <div class="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent opacity-0 transition group-hover:opacity-100"></div>
-                            <figcaption class="absolute bottom-0 left-0 right-0 p-3 text-[12px] text-white/95 opacity-0 transition group-hover:opacity-100">{{ $it['alt'] }}</figcaption>
-                        </a>
-                    @endforeach
+
+                {{-- Item 3: Product --}}
+                <div class="group relative overflow-hidden rounded-2xl bg-black md:col-span-2 reveal-up delay-200" x-intersect="$el.classList.add('is-visible')">
+                    <img src="{{ asset('storage/studio/DSC01007.JPG') }}" class="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110 opacity-80 group-hover:opacity-60" alt="Product">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-transparent to-transparent"></div>
+                    <div class="absolute bottom-0 left-0 p-8">
+                        <h3 class="text-2xl font-bold text-white mb-2">Product & E-commerce</h3>
+                        <p class="text-gray-300 text-sm max-w-lg">Lights and modifiers tuned for fast, repeatable results. Perfect for reflective surfaces, apparel, accessories, or cosmetics.</p>
+                    </div>
+                </div>
+
+                {{-- Item 4: Podcast --}}
+                <div class="group relative overflow-hidden rounded-2xl bg-black md:col-span-1 reveal-up delay-300" x-intersect="$el.classList.add('is-visible')">
+                    <img src="{{ asset('storage/studio/DSC01012.JPG') }}" class="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110 opacity-80 group-hover:opacity-60" alt="Podcast">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-transparent to-transparent"></div>
+                    <div class="absolute bottom-0 left-0 p-8">
+                        <h3 class="text-2xl font-bold text-white mb-2">Podcast & Shows</h3>
+                        <p class="text-gray-300 text-sm">Comfort and acoustics with clean backgrounds. Dynamic mics and soft LED panels for professional quality.</p>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <section class="border-b border-[var(--color-border-subtle)] bg-[var(--color-surface)]" id="flow">
-        <div class="mx-auto max-w-6xl px-4 py-10 sm:px-6 lg:py-12">
-            <h2 class="text-base font-semibold tracking-tight">How a typical booking flows</h2>
-            <div class="mt-6 grid gap-8 lg:grid-cols-3 text-sm text-[var(--color-text-muted)]">
-                <div class="space-y-2">
-                    <p class="font-medium text-[var(--color-text-main)]">Pre‑production</p>
-                    <p>Share a quick brief with references, quantity of frames, and preferred dates. We help map backdrops, lighting approach and props so the floor is production‑ready on arrival.</p>
-                </div>
-                <div class="space-y-2">
-                    <p class="font-medium text-[var(--color-text-main)]">On the day</p>
-                    <p>Arrive to a clean, organized set. Use the makeup room for prep, then rotate through looks while the assistant helps with stands, modifiers and resets to keep momentum high.</p>
-                </div>
-                <div class="space-y-2">
-                    <p class="font-medium text-[var(--color-text-main)]">Wrap & handoff</p>
-                    <p>Review selects on set or in the edit room. We assist with safe pack‑down and basic backups so your cards travel securely and the space is ready for the next team.</p>
+    {{-- How it flows --}}
+    <section class="py-20 bg-white border-b border-gray-100" id="flow">
+        <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 reveal-up" x-intersect="$el.classList.add('is-visible')">
+                <h2 class="text-3xl font-bold text-gray-900">How a typical booking flows</h2>
+            </div>
+
+            <div class="relative">
+                {{-- Connecting Line --}}
+                <div class="hidden md:block absolute top-12 left-0 w-full h-0.5 bg-gray-100 -z-10"></div>
+
+                <div class="grid md:grid-cols-3 gap-12">
+                    {{-- Step 1 --}}
+                    <div class="relative bg-white p-6 rounded-xl border border-gray-100 shadow-sm hover:shadow-md transition reveal-up" x-intersect="$el.classList.add('is-visible')">
+                        <div class="h-10 w-10 bg-blue-600 text-white rounded-full flex items-center justify-center font-bold text-lg mb-6 mx-auto md:mx-0 shadow-lg shadow-blue-200">1</div>
+                        <h3 class="text-xl font-bold text-gray-900 mb-3 text-center md:text-left">Pre‑production</h3>
+                        <p class="text-gray-600 text-sm leading-relaxed text-center md:text-left">Share a quick brief with references and preferred dates. We help map backdrops, lighting approach and props so the floor is production‑ready.</p>
+                    </div>
+
+                    {{-- Step 2 --}}
+                    <div class="relative bg-white p-6 rounded-xl border border-gray-100 shadow-sm hover:shadow-md transition reveal-up delay-100" x-intersect="$el.classList.add('is-visible')">
+                        <div class="h-10 w-10 bg-blue-600 text-white rounded-full flex items-center justify-center font-bold text-lg mb-6 mx-auto md:mx-0 shadow-lg shadow-blue-200">2</div>
+                        <h3 class="text-xl font-bold text-gray-900 mb-3 text-center md:text-left">On the day</h3>
+                        <p class="text-gray-600 text-sm leading-relaxed text-center md:text-left">Arrive to a clean, organized set. Use the makeup room for prep, then rotate through looks while our assistant helps with stands and resets.</p>
+                    </div>
+
+                    {{-- Step 3 --}}
+                    <div class="relative bg-white p-6 rounded-xl border border-gray-100 shadow-sm hover:shadow-md transition reveal-up delay-200" x-intersect="$el.classList.add('is-visible')">
+                        <div class="h-10 w-10 bg-blue-600 text-white rounded-full flex items-center justify-center font-bold text-lg mb-6 mx-auto md:mx-0 shadow-lg shadow-blue-200">3</div>
+                        <h3 class="text-xl font-bold text-gray-900 mb-3 text-center md:text-left">Wrap & handoff</h3>
+                        <p class="text-gray-600 text-sm leading-relaxed text-center md:text-left">Review selects on set. We assist with safe pack‑down and basic backups so your cards travel securely and the space is ready for the next team.</p>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <section class="border-b border-[var(--color-border-subtle)] bg-[var(--color-surface-muted)]" id="why">
-        <div class="mx-auto max-w-6xl px-4 py-10 sm:px-6 lg:py-12">
-            <h2 class="text-base font-semibold tracking-tight">Why teams choose this studio</h2>
-            <div class="mt-6 grid gap-8 md:grid-cols-2 text-sm text-[var(--color-text-muted)]">
-                <div class="space-y-2">
-                    <p class="font-medium text-[var(--color-text-main)]">Availability that respects your schedule</p>
-                    <p>24×7 slots for early starts, late‑night shoots and quick turnarounds. No hidden restrictions, no surprise cut‑offs.</p>
+    {{-- Why Choose Us (Amenities) --}}
+    <section class="py-20 bg-gray-50" id="why">
+        <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 reveal-up" x-intersect="$el.classList.add('is-visible')">
+                <span class="text-blue-600 font-bold tracking-widest uppercase text-xs">Why Us</span>
+                <h2 class="mt-2 text-3xl font-bold text-gray-900">Why teams choose this studio</h2>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <div class="bg-white p-6 rounded-2xl shadow-sm hover:shadow-md transition reveal-up" x-intersect="$el.classList.add('is-visible')">
+                    <h3 class="font-bold text-lg mb-2">Flexible Availability</h3>
+                    <p class="text-sm text-gray-600">24×7 slots for early starts, late‑night shoots and quick turnarounds.</p>
                 </div>
-                <div class="space-y-2">
-                    <p class="font-medium text-[var(--color-text-main)]">Production‑ready support</p>
-                    <p>An on‑floor assistant helps move stands, shape light and reset sets so directors and creators stay focused on the frame and the performance.</p>
+                <div class="bg-white p-6 rounded-2xl shadow-sm hover:shadow-md transition reveal-up delay-100" x-intersect="$el.classList.add('is-visible')">
+                    <h3 class="font-bold text-lg mb-2">Production Support</h3>
+                    <p class="text-sm text-gray-600">On‑floor assistant to help move stands, shape light and reset sets.</p>
                 </div>
-                <div class="space-y-2">
-                    <p class="font-medium text-[var(--color-text-main)]">Modular sets and props</p>
-                    <p>Combine textured walls, plain backgrounds and simple props to build distinct moods in a single day without bloating setup times.</p>
+                <div class="bg-white p-6 rounded-2xl shadow-sm hover:shadow-md transition reveal-up delay-200" x-intersect="$el.classList.add('is-visible')">
+                    <h3 class="font-bold text-lg mb-2">Modular Sets</h3>
+                    <p class="text-sm text-gray-600">Textured walls, plain backgrounds and simple props for distinct moods.</p>
                 </div>
-                <div class="space-y-2">
-                    <p class="font-medium text-[var(--color-text-main)]">Calm, organized spaces</p>
-                    <p>Makeup, green room and the floor are planned to reduce clutter and friction, so talent can focus and teams can move with rhythm.</p>
+                <div class="bg-white p-6 rounded-2xl shadow-sm hover:shadow-md transition reveal-up delay-300" x-intersect="$el.classList.add('is-visible')">
+                    <h3 class="font-bold text-lg mb-2">Organized Spaces</h3>
+                    <p class="text-sm text-gray-600">Makeup, green room and floor planned to reduce clutter and friction.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <section class="bg-[var(--color-surface)]" id="faqs">
-        <div class="mx-auto max-w-6xl px-4 py-10 sm:px-6 lg:py-12">
-            <h2 class="text-base font-semibold tracking-tight">FAQs about services</h2>
-            <div class="mt-4 space-y-4 text-sm text-[var(--color-text-muted)]">
-                <div>
-                    <p class="font-medium text-[var(--color-text-main)]">Can you help with creative direction?</p>
-                    <p>We guide lighting, backdrop choices and set flow. For end‑to‑end direction, we coordinate with trusted stylists, art directors and producers on request.</p>
+    {{-- FAQs --}}
+    <section class="py-20 bg-white" id="faqs" x-data="{ active: null }">
+        <div class="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12 reveal-up" x-intersect="$el.classList.add('is-visible')">
+                <h2 class="text-3xl font-bold text-gray-900">FAQs about services</h2>
+            </div>
+            
+            <div class="space-y-4 reveal-up delay-100" x-intersect="$el.classList.add('is-visible')">
+                <div class="rounded-xl border border-gray-200 overflow-hidden">
+                    <button @click="active = (active === 1 ? null : 1)" class="flex w-full items-center justify-between p-5 text-left font-bold text-gray-900 hover:bg-gray-50">
+                        <span>Can you help with creative direction?</span>
+                        <svg class="h-5 w-5 transform transition-transform" :class="active === 1 ? 'rotate-180' : ''" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg>
+                    </button>
+                    <div x-show="active === 1" x-collapse class="p-5 pt-0 text-sm text-gray-600">
+                        We guide lighting, backdrop choices and set flow. For end‑to‑end direction, we coordinate with trusted stylists, art directors and producers on request.
+                    </div>
                 </div>
-                <div>
-                    <p class="font-medium text-[var(--color-text-main)]">Do you offer crew and equipment add‑ons?</p>
-                    <p>Yes. Add podcast mics, constant lights, and an edit room. For cameras and specialty grip we connect you with partner rentals to keep workflows reliable.</p>
+                <div class="rounded-xl border border-gray-200 overflow-hidden">
+                    <button @click="active = (active === 2 ? null : 2)" class="flex w-full items-center justify-between p-5 text-left font-bold text-gray-900 hover:bg-gray-50">
+                        <span>Do you offer crew and equipment add‑ons?</span>
+                        <svg class="h-5 w-5 transform transition-transform" :class="active === 2 ? 'rotate-180' : ''" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg>
+                    </button>
+                    <div x-show="active === 2" x-collapse class="p-5 pt-0 text-sm text-gray-600">
+                        Yes. Add podcast mics, constant lights, and an edit room. For cameras and specialty grip we connect you with partner rentals to keep workflows reliable.
+                    </div>
                 </div>
-                <div>
-                    <p class="font-medium text-[var(--color-text-main)]">What’s the best way to plan a first visit?</p>
-                    <p>Browse the <a class="underline" href="{{ route('pages.pricing') }}">pricing</a> and <a class="underline" href="{{ route('pages.about') }}">about</a> pages, then write to us via <a class="underline" href="{{ route('pages.contact') }}">contact</a> with your brief and dates. We will confirm availability and a plan within a business day.</p>
+                <div class="rounded-xl border border-gray-200 overflow-hidden">
+                    <button @click="active = (active === 3 ? null : 3)" class="flex w-full items-center justify-between p-5 text-left font-bold text-gray-900 hover:bg-gray-50">
+                        <span>What’s the best way to plan a first visit?</span>
+                        <svg class="h-5 w-5 transform transition-transform" :class="active === 3 ? 'rotate-180' : ''" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg>
+                    </button>
+                    <div x-show="active === 3" x-collapse class="p-5 pt-0 text-sm text-gray-600">
+                        Browse the <a class="text-blue-600 hover:underline" href="{{ route('pages.pricing') }}">pricing</a> and <a class="text-blue-600 hover:underline" href="{{ route('pages.about') }}">about</a> pages, then write to us via <a class="text-blue-600 hover:underline" href="{{ route('pages.contact') }}">contact</a> with your brief and dates. We will confirm availability and a plan within a business day.
+                    </div>
                 </div>
             </div>
         </div>
