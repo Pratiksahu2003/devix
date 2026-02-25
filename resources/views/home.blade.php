@@ -4,14 +4,17 @@
 
 @section('content')
     {{-- Hero Section (Fitting Frames Cinematic) --}}
-    <section class="relative w-full bg-black min-h-screen flex flex-col items-center justify-center overflow-hidden py-20">
-        {{-- Background Texture --}}
-        <div class="absolute inset-0 opacity-20 bg-[url('https://www.transparenttextures.com/patterns/stardust.png')]"></div>
+    <section class="relative w-full bg-black min-h-screen flex flex-col items-center justify-center overflow-hidden py-20"
+             x-data="{ mouseX: 0, mouseY: 0 }" 
+             @mousemove="mouseX = $event.clientX; mouseY = $event.clientY">
+        {{-- Background Texture (Parallax) --}}
+        <div class="absolute inset-0 opacity-20 bg-[url('https://www.transparenttextures.com/patterns/stardust.png')]"
+             :style="`transform: translate(${mouseX * -0.02}px, ${mouseY * -0.02}px)`"></div>
         
         {{-- Top Header --}}
-        <div class="relative z-10 text-center px-4 mb-12 reveal-up">
+        <div class="relative z-10 text-center px-4 mb-12 reveal-up" x-intersect="$el.classList.add('is-visible')">
             <h1 class="text-3xl md:text-5xl font-bold uppercase tracking-widest text-white mb-2 font-sans">
-                Studio Space Available <span class="text-red-600">24/7</span> For All Your Shooting Needs
+                Studio Space Available <span class="text-red-600 animate-pulse">24/7</span> For All Your Shooting Needs
             </h1>
             <p class="text-red-600 text-[10px] md:text-sm font-bold tracking-[0.2em] uppercase">
                 Equipped With Professional Gear & Versatile Filming Environments
@@ -148,42 +151,92 @@
         {{-- NEW SECTION 2: Visual Sets Video Grid --}}
         <section class="bg-white py-20 text-gray-900">
             <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-                <div class="mb-12 flex items-end justify-between">
+                <div class="mb-12 flex items-end justify-between reveal-up" x-intersect="$el.classList.add('is-visible')">
                     <div>
                         <span class="text-blue-500 font-bold tracking-widest uppercase text-xs">Visual Experience</span>
                         <h2 class="mt-2 text-3xl font-bold tracking-tight sm:text-4xl text-gray-900">Versatile Sets</h2>
                     </div>
-                    <a href="{{ route('pages.gallery') }}" class="hidden text-sm font-medium text-gray-600 hover:text-gray-900 sm:block">View Gallery →</a>
+                    <a href="{{ route('pages.gallery') }}" class="hidden text-sm font-medium text-gray-600 hover:text-gray-900 sm:block group">
+                        View Gallery <span class="inline-block transition-transform group-hover:translate-x-1">→</span>
+                    </a>
                 </div>
 
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-4 h-[500px] md:h-[400px]">
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6 h-[500px] md:h-[400px]">
                     {{-- Card 1: Fashion --}}
-                    <div class="group relative h-full w-full overflow-hidden rounded-2xl bg-gray-100 reveal-up" x-intersect="$el.classList.add('is-visible')">
-                        <img src="{{ asset('storage/studio/DSC01009.JPG') }}" class="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105">
+                    <div class="group relative h-full w-full overflow-hidden rounded-2xl bg-gray-100 reveal-up" 
+                         x-intersect="$el.classList.add('is-visible')"
+                         x-data="{ hover: false, rotateX: 0, rotateY: 0 }"
+                         @mousemove="
+                            const rect = $el.getBoundingClientRect();
+                            const x = $event.clientX - rect.left;
+                            const y = $event.clientY - rect.top;
+                            rotateY = ((x - rect.width / 2) / rect.width) * 20;
+                            rotateX = ((y - rect.height / 2) / rect.height) * -20;
+                         "
+                         @mouseleave="rotateX = 0; rotateY = 0; hover = false"
+                         @mouseenter="hover = true"
+                         :style="`transform: perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(${hover ? 1.02 : 1}); transition: transform 0.1s ease-out;`">
+                        <img src="{{ asset('storage/studio/DSC01009.JPG') }}" class="h-full w-full object-cover transition-transform duration-700 scale-100">
                         <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-transparent to-transparent"></div>
-                        <div class="absolute bottom-6 left-6">
+                        
+                        {{-- Shine Effect --}}
+                        <div class="absolute inset-0 bg-gradient-to-tr from-transparent via-white/20 to-transparent translate-x-[-100%] transition-transform duration-1000 group-hover:translate-x-[100%]"></div>
+
+                        <div class="absolute bottom-6 left-6 translate-y-4 transition-transform duration-500 group-hover:translate-y-0">
                             <h3 class="text-xl font-bold text-white">Fashion & Editorial</h3>
-                            <p class="text-sm text-gray-300">Cyclorama wall & colored backdrops</p>
+                            <p class="text-sm text-gray-300 opacity-0 transition-opacity duration-500 group-hover:opacity-100">Cyclorama wall & colored backdrops</p>
                         </div>
                     </div>
 
                     {{-- Card 2: Podcast --}}
-                    <div class="group relative h-full w-full overflow-hidden rounded-2xl bg-gray-100 reveal-up delay-100" x-intersect="$el.classList.add('is-visible')">
-                        <img src="{{ asset('storage/studio/DSC01012.JPG') }}" class="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105">
+                    <div class="group relative h-full w-full overflow-hidden rounded-2xl bg-gray-100 reveal-up delay-100" 
+                         x-intersect="$el.classList.add('is-visible')"
+                         x-data="{ hover: false, rotateX: 0, rotateY: 0 }"
+                         @mousemove="
+                            const rect = $el.getBoundingClientRect();
+                            const x = $event.clientX - rect.left;
+                            const y = $event.clientY - rect.top;
+                            rotateY = ((x - rect.width / 2) / rect.width) * 20;
+                            rotateX = ((y - rect.height / 2) / rect.height) * -20;
+                         "
+                         @mouseleave="rotateX = 0; rotateY = 0; hover = false"
+                         @mouseenter="hover = true"
+                         :style="`transform: perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(${hover ? 1.02 : 1}); transition: transform 0.1s ease-out;`">
+                        <img src="{{ asset('storage/studio/DSC01012.JPG') }}" class="h-full w-full object-cover transition-transform duration-700 scale-100">
                         <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-transparent to-transparent"></div>
-                        <div class="absolute bottom-6 left-6">
+                        
+                        {{-- Shine Effect --}}
+                        <div class="absolute inset-0 bg-gradient-to-tr from-transparent via-white/20 to-transparent translate-x-[-100%] transition-transform duration-1000 group-hover:translate-x-[100%]"></div>
+
+                        <div class="absolute bottom-6 left-6 translate-y-4 transition-transform duration-500 group-hover:translate-y-0">
                             <h3 class="text-xl font-bold text-white">Video Podcast</h3>
-                            <p class="text-sm text-gray-300">4-person setup with 3-camera angles</p>
+                            <p class="text-sm text-gray-300 opacity-0 transition-opacity duration-500 group-hover:opacity-100">4-person setup with 3-camera angles</p>
                         </div>
                     </div>
 
                     {{-- Card 3: Product --}}
-                    <div class="group relative h-full w-full overflow-hidden rounded-2xl bg-gray-100 reveal-up delay-200" x-intersect="$el.classList.add('is-visible')">
-                        <img src="{{ asset('storage/studio/DSC01007.JPG') }}" class="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105">
+                    <div class="group relative h-full w-full overflow-hidden rounded-2xl bg-gray-100 reveal-up delay-200" 
+                         x-intersect="$el.classList.add('is-visible')"
+                         x-data="{ hover: false, rotateX: 0, rotateY: 0 }"
+                         @mousemove="
+                            const rect = $el.getBoundingClientRect();
+                            const x = $event.clientX - rect.left;
+                            const y = $event.clientY - rect.top;
+                            rotateY = ((x - rect.width / 2) / rect.width) * 20;
+                            rotateX = ((y - rect.height / 2) / rect.height) * -20;
+                         "
+                         @mouseleave="rotateX = 0; rotateY = 0; hover = false"
+                         @mouseenter="hover = true"
+                         :style="`transform: perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(${hover ? 1.02 : 1}); transition: transform 0.1s ease-out;`">
+                        <img src="{{ asset('storage/studio/DSC01007.JPG') }}" class="h-full w-full object-cover transition-transform duration-700 scale-100">
                         <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-transparent to-transparent"></div>
-                        <div class="absolute bottom-6 left-6">
+                        
+                        {{-- Shine Effect --}}
+                        <div class="absolute inset-0 bg-gradient-to-tr from-transparent via-white/20 to-transparent translate-x-[-100%] transition-transform duration-1000 group-hover:translate-x-[100%]"></div>
+
+                        <div class="absolute bottom-6 left-6 translate-y-4 transition-transform duration-500 group-hover:translate-y-0">
                             <h3 class="text-xl font-bold text-white">Product & Commercial</h3>
-                            <p class="text-sm text-gray-300">Tabletop & controlled lighting</p>
+                            <p class="text-sm text-gray-300 opacity-0 transition-opacity duration-500 group-hover:opacity-100">Tabletop & controlled lighting</p>
                         </div>
                     </div>
                 </div>
@@ -238,43 +291,47 @@
     {{-- NEW SECTION 2: Equipment Spotlight (Horizontal Scroll) --}}
     <section class="bg-gray-50 py-20 text-black overflow-hidden">
         <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-            <div class="mb-10 text-center">
+            <div class="mb-10 text-center reveal-up" x-intersect="$el.classList.add('is-visible')">
                 <span class="text-blue-600 font-bold tracking-widest uppercase text-xs">Professional Gear</span>
                 <h2 class="mt-2 text-3xl font-bold text-gray-900">Included with Every Booking</h2>
             </div>
             
-            <div class="relative">
-                <div class="flex gap-6 overflow-x-auto pb-8 snap-x snap-mandatory no-scrollbar" style="scrollbar-width: none; -ms-overflow-style: none;">
+            <div class="relative reveal-up delay-100" x-intersect="$el.classList.add('is-visible')">
+                <div class="flex gap-6 overflow-x-auto pb-12 snap-x snap-mandatory no-scrollbar p-4" style="scrollbar-width: none; -ms-overflow-style: none;">
                     {{-- Item 1 --}}
-                    <div class="min-w-[280px] snap-center rounded-2xl bg-white p-6 shadow-sm border border-gray-100 transition hover:-translate-y-1 hover:shadow-md">
-                        <div class="h-40 w-full mb-4 overflow-hidden rounded-lg bg-gray-100">
-                            <img src="{{ asset('storage/studio/DSC01009.JPG') }}" class="h-full w-full object-cover">
+                    <div class="min-w-[280px] snap-center rounded-2xl bg-white p-6 shadow-sm border border-gray-100 transition-all duration-300 hover:-translate-y-2 hover:shadow-xl hover:border-blue-100 group">
+                        <div class="h-40 w-full mb-4 overflow-hidden rounded-lg bg-gray-100 relative">
+                            <img src="{{ asset('storage/studio/DSC01009.JPG') }}" class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-110">
+                            <div class="absolute inset-0 bg-blue-600/10 opacity-0 group-hover:opacity-100 transition-opacity"></div>
                         </div>
-                        <h3 class="font-bold text-lg">Sony A7S III</h3>
+                        <h3 class="font-bold text-lg group-hover:text-blue-600 transition-colors">Sony A7S III</h3>
                         <p class="text-xs text-gray-500 mt-1">4K 120fps Cinema Camera</p>
                     </div>
                     {{-- Item 2 --}}
-                    <div class="min-w-[280px] snap-center rounded-2xl bg-white p-6 shadow-sm border border-gray-100 transition hover:-translate-y-1 hover:shadow-md">
-                        <div class="h-40 w-full mb-4 overflow-hidden rounded-lg bg-gray-100">
-                            <img src="{{ asset('storage/studio/DSC01010.JPG') }}" class="h-full w-full object-cover">
+                    <div class="min-w-[280px] snap-center rounded-2xl bg-white p-6 shadow-sm border border-gray-100 transition-all duration-300 hover:-translate-y-2 hover:shadow-xl hover:border-blue-100 group">
+                        <div class="h-40 w-full mb-4 overflow-hidden rounded-lg bg-gray-100 relative">
+                            <img src="{{ asset('storage/studio/DSC01010.JPG') }}" class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-110">
+                            <div class="absolute inset-0 bg-blue-600/10 opacity-0 group-hover:opacity-100 transition-opacity"></div>
                         </div>
-                        <h3 class="font-bold text-lg">Godox AD600 Pro</h3>
+                        <h3 class="font-bold text-lg group-hover:text-blue-600 transition-colors">Godox AD600 Pro</h3>
                         <p class="text-xs text-gray-500 mt-1">High-Speed Strobe</p>
                     </div>
                     {{-- Item 3 --}}
-                    <div class="min-w-[280px] snap-center rounded-2xl bg-white p-6 shadow-sm border border-gray-100 transition hover:-translate-y-1 hover:shadow-md">
-                        <div class="h-40 w-full mb-4 overflow-hidden rounded-lg bg-gray-100">
-                            <img src="{{ asset('storage/studio/DSC01008.JPG') }}" class="h-full w-full object-cover">
+                    <div class="min-w-[280px] snap-center rounded-2xl bg-white p-6 shadow-sm border border-gray-100 transition-all duration-300 hover:-translate-y-2 hover:shadow-xl hover:border-blue-100 group">
+                        <div class="h-40 w-full mb-4 overflow-hidden rounded-lg bg-gray-100 relative">
+                            <img src="{{ asset('storage/studio/DSC01008.JPG') }}" class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-110">
+                            <div class="absolute inset-0 bg-blue-600/10 opacity-0 group-hover:opacity-100 transition-opacity"></div>
                         </div>
-                        <h3 class="font-bold text-lg">G Master Lenses</h3>
+                        <h3 class="font-bold text-lg group-hover:text-blue-600 transition-colors">G Master Lenses</h3>
                         <p class="text-xs text-gray-500 mt-1">24-70mm, 85mm, 16-35mm</p>
                     </div>
                      {{-- Item 4 --}}
-                     <div class="min-w-[280px] snap-center rounded-2xl bg-white p-6 shadow-sm border border-gray-100 transition hover:-translate-y-1 hover:shadow-md">
-                        <div class="h-40 w-full mb-4 overflow-hidden rounded-lg bg-gray-100">
-                            <img src="{{ asset('storage/studio/DSC01002.JPG') }}" class="h-full w-full object-cover">
+                     <div class="min-w-[280px] snap-center rounded-2xl bg-white p-6 shadow-sm border border-gray-100 transition-all duration-300 hover:-translate-y-2 hover:shadow-xl hover:border-blue-100 group">
+                        <div class="h-40 w-full mb-4 overflow-hidden rounded-lg bg-gray-100 relative">
+                            <img src="{{ asset('storage/studio/DSC01002.JPG') }}" class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-110">
+                            <div class="absolute inset-0 bg-blue-600/10 opacity-0 group-hover:opacity-100 transition-opacity"></div>
                         </div>
-                        <h3 class="font-bold text-lg">Aputure 600d</h3>
+                        <h3 class="font-bold text-lg group-hover:text-blue-600 transition-colors">Aputure 600d</h3>
                         <p class="text-xs text-gray-500 mt-1">Continuous LED Lighting</p>
                     </div>
                 </div>
@@ -283,11 +340,17 @@
     </section>
 
     {{-- NEW SECTION 3: Life at dyWix (Modern Bento Compact) --}}
-    <section class="bg-white py-20">
+    <section class="bg-white py-20" x-data="{ mouseX: 0, mouseY: 0 }" @mousemove="mouseX = $event.clientX; mouseY = $event.clientY">
         <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <div class="grid grid-cols-1 md:grid-cols-4 grid-rows-2 gap-4 h-[600px] md:h-[500px]">
                 {{-- Text Block (Top Left) --}}
-                <div class="md:col-span-2 md:row-span-2 rounded-3xl bg-gray-50 p-8 flex flex-col justify-between overflow-hidden relative group border border-gray-100">
+                <div class="md:col-span-2 md:row-span-2 rounded-3xl bg-gray-50 p-8 flex flex-col justify-between overflow-hidden relative group border border-gray-100 reveal-up"
+                     x-intersect="$el.classList.add('is-visible')">
+                    
+                    {{-- Spotlight Effect --}}
+                    <div class="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"
+                         :style="`background: radial-gradient(600px circle at ${mouseX - $el.getBoundingClientRect().left}px ${mouseY - $el.getBoundingClientRect().top}px, rgba(59, 130, 246, 0.1), transparent 40%);`"></div>
+
                     <div class="relative z-10">
                         <span class="text-blue-600 font-bold tracking-widest uppercase text-xs">Community</span>
                         <h2 class="mt-2 text-3xl font-bold text-gray-900 tracking-tight">Life at dyWix</h2>
@@ -296,16 +359,16 @@
                         </p>
                     </div>
                     <div class="relative z-10 mt-6 grid grid-cols-3 gap-4 border-t border-gray-200 pt-6">
-                        <div>
-                            <p class="text-2xl font-bold text-black">500+</p>
+                        <div class="group/stat cursor-default">
+                            <p class="text-2xl font-bold text-black transition-transform group-hover/stat:-translate-y-1">500+</p>
                             <p class="text-[10px] text-gray-500 uppercase">Shoots</p>
                         </div>
-                        <div>
-                            <p class="text-2xl font-bold text-black">150+</p>
+                        <div class="group/stat cursor-default">
+                            <p class="text-2xl font-bold text-black transition-transform group-hover/stat:-translate-y-1 delay-75">150+</p>
                             <p class="text-[10px] text-gray-500 uppercase">Clients</p>
                         </div>
-                        <div>
-                            <p class="text-2xl font-bold text-black">24/7</p>
+                        <div class="group/stat cursor-default">
+                            <p class="text-2xl font-bold text-black transition-transform group-hover/stat:-translate-y-1 delay-100">24/7</p>
                             <p class="text-[10px] text-gray-500 uppercase">Access</p>
                         </div>
                     </div>
@@ -314,25 +377,25 @@
                 </div>
 
                 {{-- Image 1 (Top Right) --}}
-                <div class="md:col-span-2 md:row-span-1 rounded-3xl overflow-hidden relative group">
+                <div class="md:col-span-2 md:row-span-1 rounded-3xl overflow-hidden relative group reveal-up delay-100" x-intersect="$el.classList.add('is-visible')">
                     <img src="{{ asset('storage/studio/DSC01003.JPG') }}" class="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110">
                     <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-60 group-hover:opacity-40 transition-opacity"></div>
                     <div class="absolute bottom-4 left-4">
-                         <span class="inline-flex items-center rounded-full bg-white/20 px-3 py-1 text-xs font-medium text-white backdrop-blur-md border border-white/10">BTS Action</span>
+                         <span class="inline-flex items-center rounded-full bg-white/20 px-3 py-1 text-xs font-medium text-white backdrop-blur-md border border-white/10 transition-transform group-hover:scale-105">BTS Action</span>
                     </div>
                 </div>
 
                 {{-- Image 2 (Bottom Middle) --}}
-                <div class="md:col-span-1 md:row-span-1 rounded-3xl overflow-hidden relative group">
+                <div class="md:col-span-1 md:row-span-1 rounded-3xl overflow-hidden relative group reveal-up delay-200" x-intersect="$el.classList.add('is-visible')">
                     <img src="{{ asset('storage/studio/DSC01012.JPG') }}" class="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110">
                     <div class="absolute inset-0 bg-black/10 group-hover:bg-transparent transition-colors"></div>
                 </div>
 
                 {{-- Image 3 (Bottom Right) --}}
-                <div class="md:col-span-1 md:row-span-1 rounded-3xl overflow-hidden relative group">
+                <div class="md:col-span-1 md:row-span-1 rounded-3xl overflow-hidden relative group reveal-up delay-300" x-intersect="$el.classList.add('is-visible')">
                      <img src="{{ asset('storage/studio/DSC01002.JPG') }}" class="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110">
                      <div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-black/30 backdrop-blur-[2px]">
-                        <span class="text-white font-bold tracking-wider text-sm">Join Us</span>
+                        <span class="text-white font-bold tracking-wider text-sm transform translate-y-4 group-hover:translate-y-0 transition-transform">Join Us</span>
                      </div>
                 </div>
             </div>
@@ -469,14 +532,15 @@
     {{-- Modern Pricing Cards (Compacted) --}}
     <section class="bg-white py-20" id="pricing">
         <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-12">
+            <div class="text-center mb-12 reveal-up" x-intersect="$el.classList.add('is-visible')">
                 <h2 class="text-3xl font-bold tracking-tight text-gray-900">Simple Pricing</h2>
                 <p class="mt-2 text-gray-500">Choose the perfect plan for your project.</p>
             </div>
             
             <div class="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto">
                 {{-- Plan 1 --}}
-                <div class="relative overflow-hidden rounded-2xl bg-gray-50 p-8 transition hover:shadow-lg hover:-translate-y-1 duration-300 border border-gray-100 reveal-up" x-intersect="$el.classList.add('is-visible')">
+                <div class="relative overflow-hidden rounded-2xl bg-gray-50 p-8 transition-all duration-300 hover:shadow-xl hover:-translate-y-2 border border-gray-100 reveal-up" 
+                     x-intersect="$el.classList.add('is-visible')">
                     <h3 class="text-lg font-bold text-gray-900">Hourly</h3>
                     <div class="mt-2 flex items-baseline">
                         <span class="text-4xl font-bold tracking-tight text-gray-900">₹1,400</span>
@@ -487,27 +551,33 @@
                         <li class="flex items-center"><svg class="mr-3 h-4 w-4 text-green-500" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg> 2x Godox Strobes</li>
                         <li class="flex items-center"><svg class="mr-3 h-4 w-4 text-green-500" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg> Basic Grip</li>
                     </ul>
-                    <a href="{{ route('pages.booking') }}" class="mt-6 block w-full rounded-xl border border-gray-200 bg-white px-4 py-3 text-center text-sm font-bold text-gray-900 hover:bg-gray-50 transition">Book Hourly</a>
+                    <a href="{{ route('pages.booking') }}" class="mt-6 block w-full rounded-xl border border-gray-200 bg-white px-4 py-3 text-center text-sm font-bold text-gray-900 hover:bg-gray-50 transition hover:scale-105 active:scale-95">Book Hourly</a>
                 </div>
 
                 {{-- Plan 2 (Featured) --}}
-                <div class="relative overflow-hidden rounded-2xl bg-black p-8 shadow-xl scale-105 z-10 border border-gray-800 reveal-up delay-100" x-intersect="$el.classList.add('is-visible')">
-                    <div class="absolute top-0 right-0 bg-blue-600 px-3 py-1 rounded-bl-lg text-[10px] font-bold text-white">POPULAR</div>
-                    <h3 class="text-lg font-bold text-white">Full Day</h3>
-                    <div class="mt-2 flex items-baseline">
-                        <span class="text-4xl font-bold tracking-tight text-white">₹9,000</span>
-                        <span class="ml-1 text-base font-medium text-gray-400">/10hr</span>
+                <div class="relative overflow-hidden rounded-2xl bg-black p-8 shadow-2xl scale-105 z-10 border border-gray-800 reveal-up delay-100 ring-4 ring-blue-500/20" 
+                     x-intersect="$el.classList.add('is-visible')">
+                    <div class="absolute top-0 right-0 bg-blue-600 px-3 py-1 rounded-bl-lg text-[10px] font-bold text-white shadow-lg animate-pulse">POPULAR</div>
+                    <div class="absolute inset-0 bg-gradient-to-br from-gray-900 via-black to-gray-900"></div>
+                    
+                    <div class="relative z-10">
+                        <h3 class="text-lg font-bold text-white">Full Day</h3>
+                        <div class="mt-2 flex items-baseline">
+                            <span class="text-4xl font-bold tracking-tight text-white">₹9,000</span>
+                            <span class="ml-1 text-base font-medium text-gray-400">/10hr</span>
+                        </div>
+                        <ul class="mt-6 space-y-3 text-sm text-gray-300">
+                            <li class="flex items-center"><svg class="mr-3 h-4 w-4 text-blue-500" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg> 4x Lights (Strobe/Video)</li>
+                            <li class="flex items-center"><svg class="mr-3 h-4 w-4 text-blue-500" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg> Full Grip Package</li>
+                            <li class="flex items-center"><svg class="mr-3 h-4 w-4 text-blue-500" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg> Assistant Included</li>
+                        </ul>
+                        <a href="{{ route('pages.booking') }}" class="mt-6 block w-full rounded-xl bg-blue-600 px-4 py-3 text-center text-sm font-bold text-white hover:bg-blue-700 transition shadow-lg shadow-blue-900/50 hover:shadow-blue-600/50 hover:scale-105 active:scale-95">Book Full Day</a>
                     </div>
-                    <ul class="mt-6 space-y-3 text-sm text-gray-300">
-                        <li class="flex items-center"><svg class="mr-3 h-4 w-4 text-blue-500" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg> 4x Lights (Strobe/Video)</li>
-                        <li class="flex items-center"><svg class="mr-3 h-4 w-4 text-blue-500" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg> Full Grip Package</li>
-                        <li class="flex items-center"><svg class="mr-3 h-4 w-4 text-blue-500" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg> Assistant Included</li>
-                    </ul>
-                    <a href="{{ route('pages.booking') }}" class="mt-6 block w-full rounded-xl bg-blue-600 px-4 py-3 text-center text-sm font-bold text-white hover:bg-blue-700 transition">Book Full Day</a>
                 </div>
 
                 {{-- Plan 3 --}}
-                <div class="relative overflow-hidden rounded-2xl bg-gray-50 p-8 transition hover:shadow-lg hover:-translate-y-1 duration-300 border border-gray-100 reveal-up delay-200" x-intersect="$el.classList.add('is-visible')">
+                <div class="relative overflow-hidden rounded-2xl bg-gray-50 p-8 transition-all duration-300 hover:shadow-xl hover:-translate-y-2 border border-gray-100 reveal-up delay-200" 
+                     x-intersect="$el.classList.add('is-visible')">
                     <h3 class="text-lg font-bold text-gray-900">All Access</h3>
                     <div class="mt-2 flex items-baseline">
                         <span class="text-4xl font-bold tracking-tight text-gray-900">₹15,000</span>
@@ -518,7 +588,7 @@
                         <li class="flex items-center"><svg class="mr-3 h-4 w-4 text-green-500" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg> Podcast Recording</li>
                         <li class="flex items-center"><svg class="mr-3 h-4 w-4 text-green-500" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg> Priority Editing Slot</li>
                     </ul>
-                    <a href="{{ route('pages.booking') }}" class="mt-6 block w-full rounded-xl border border-gray-200 bg-white px-4 py-3 text-center text-sm font-bold text-gray-900 hover:bg-gray-50 transition">Go All In</a>
+                    <a href="{{ route('pages.booking') }}" class="mt-6 block w-full rounded-xl border border-gray-200 bg-white px-4 py-3 text-center text-sm font-bold text-gray-900 hover:bg-gray-50 transition hover:scale-105 active:scale-95">Go All In</a>
                 </div>
             </div>
         </div>
