@@ -7,6 +7,7 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="csrf-token" content="{{ csrf_token() }}">
         <link rel="icon" type="image/png" href="{{ asset('logo/fav/favicon.PNG') }}">
         @php $brand = config('company.brand'); @endphp
         <title>@yield('title', $brand)</title>
@@ -214,9 +215,10 @@
                             <p class="text-[13px] leading-relaxed">
                                 Be the first to know about new sets, equipment upgrades, and studio offers.
                             </p>
-                            <form class="mt-2 flex gap-2">
+                            <form id="newsletter-form" class="mt-2 flex gap-2">
                                 <input
                                     type="email"
+                                    required
                                     class="h-10 flex-1 rounded-lg border border-white/20 bg-white/5 px-4 text-xs text-white placeholder-gray-500 focus:border-[var(--color-brand-lens-blue)] focus:outline-none focus:ring-1 focus:ring-[var(--color-brand-lens-blue)]"
                                     placeholder="Email address"
                                 >
@@ -242,4 +244,54 @@
             </footer>
         </div>
     </body>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const form = document.getElementById('newsletter-form');
+            if (form) {
+                form.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    const emailInput = form.querySelector('input[type="email"]');
+                    const email = emailInput.value;
+                    const button = form.querySelector('button');
+                    const originalText = button.innerText;
+                    
+                    button.disabled = true;
+                    button.innerText = 'Joining...';
+
+                    axios.post('{{ route("subscribe.store") }}', {
+                        email: email
+                    })
+                    .then(function (response) {
+                        Swal.fire({
+                            title: 'Success!',
+                            text: response.data.message,
+                            icon: 'success',
+                            confirmButtonText: 'Great!',
+                            confirmButtonColor: '#004aad'
+                        });
+                        emailInput.value = '';
+                    })
+                    .catch(function (error) {
+                        let message = 'Something went wrong. Please try again.';
+                        if (error.response && error.response.data && error.response.data.message) {
+                            message = error.response.data.message;
+                        }
+                        
+                        Swal.fire({
+                            title: 'Error!',
+                            text: message,
+                            icon: 'error',
+                            confirmButtonText: 'Okay',
+                            confirmButtonColor: '#004aad'
+                        });
+                    })
+                    .finally(function() {
+                        button.disabled = false;
+                        button.innerText = originalText;
+                    });
+                });
+            }
+        });
+    </script>
 </html>

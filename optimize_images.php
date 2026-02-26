@@ -2,10 +2,7 @@
 ini_set('memory_limit', '1024M');
 
 $directories = [
-    __DIR__ . '/public/storage/pooja',
-    __DIR__ . '/public/storage/studio',
-    __DIR__ . '/public/storage/vidhu'
-
+    __DIR__ . '/public/storage/room',
 ];
 
 function optimizeImage($source, $destination, $targetSize = 204800, $maxWidth = 1500) {

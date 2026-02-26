@@ -13,7 +13,7 @@
         <div class="absolute inset-0 z-0">
             <div class="absolute inset-0 bg-gradient-to-b from-black/80 via-black/50 to-black z-10"></div>
             <img 
-                src="https://images.unsplash.com/photo-1598550476439-6847785fcea6?auto=format&fit=crop&w=1920&q=80" 
+                src="{{ asset('storage/studio/DSC01008.JPG') }}" 
                 alt="Studio Lighting Grid" 
                 class="h-full w-full object-cover opacity-50 transition-transform duration-[3s] ease-out scale-105"
                 :class="{ 'scale-100': shown }"
@@ -153,7 +153,7 @@
                         class="aspect-square rounded-3xl overflow-hidden bg-gray-100 shadow-2xl transition-all duration-1000 transform translate-x-12 opacity-0"
                         :class="{ 'translate-x-0 opacity-100': shown }"
                     >
-                        <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1200&q=80" alt="Lighting Gear" class="h-full w-full object-cover">
+                        <img src="{{ asset('storage/studio/DSC01009.JPG') }}" alt="Lighting Gear" class="h-full w-full object-cover">
                     </div>
                     {{-- Floating Card --}}
                     <div 
@@ -194,7 +194,7 @@
                     style="transition-duration: 800ms;"
                 >
                     <div class="aspect-[4/3] overflow-hidden">
-                        <img src="https://images.unsplash.com/photo-1590602847861-f357a9332bbc?auto=format&fit=crop&w=800&q=80" alt="Audio Gear" class="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105">
+                        <img src="{{ asset('storage/studio/DSC01007.JPG') }}" alt="Audio Gear" class="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105">
                     </div>
                     <div class="p-8">
                         <p class="text-xs font-bold uppercase tracking-wider text-purple-600">Audio</p>
@@ -214,7 +214,7 @@
                     style="transition-duration: 800ms; transition-delay: 200ms;"
                 >
                     <div class="aspect-[4/3] overflow-hidden">
-                        <img src="https://images.unsplash.com/photo-1516035069371-29a1b244cc32?auto=format&fit=crop&w=800&q=80" alt="Grip Gear" class="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105">
+                        <img src="{{ asset('storage/room/IMG_0774.jpeg') }}" alt="Grip Gear" class="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105">
                     </div>
                     <div class="p-8">
                         <p class="text-xs font-bold uppercase tracking-wider text-[var(--color-brand-lens-blue)]">Grip</p>
@@ -289,6 +289,40 @@
                     <svg class="w-5 h-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" /></svg>
                     Download PDF Technical Rider
                 </button>
+            </div>
+        </div>
+    </section>
+
+    {{-- Full Gallery Section --}}
+    <section class="py-32 bg-gray-50">
+        <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+            <div class="mb-16 text-center">
+                <h2 class="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">Studio Visual Tour</h2>
+                <p class="mt-4 text-lg text-gray-500">Explore every corner of the facility.</p>
+            </div>
+            
+            <div class="columns-1 md:columns-2 lg:columns-3 gap-8 space-y-8">
+                @php
+                    $galleryImages = [
+                        'IMG_0770.jpeg', 'IMG_0771.jpeg', 'IMG_0772.jpeg', 
+                        'IMG_0773.jpeg', 'IMG_0775.jpeg', 'IMG_0776.jpeg', 
+                        'IMG_0777.jpeg', 'IMG_0779.jpeg', 'IMG_0780.jpeg',
+                        'IMG_0783.jpeg', 'IMG_0784.jpeg', 'IMG_0785.jpeg',
+                        'IMG_0786.jpeg', 'IMG_0787.jpeg'
+                    ];
+                @endphp
+
+                @foreach($galleryImages as $img)
+                    <div class="break-inside-avoid relative group overflow-hidden rounded-2xl bg-gray-200 shadow-md hover:shadow-xl transition-all duration-300">
+                        <img 
+                            src="{{ asset('storage/room/' . $img) }}" 
+                            alt="Studio Detail" 
+                            class="w-full h-auto object-cover transition duration-700 group-hover:scale-105"
+                            loading="lazy"
+                        >
+                        <div class="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition duration-300"></div>
+                    </div>
+                @endforeach
             </div>
         </div>
     </section>

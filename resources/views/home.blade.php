@@ -30,9 +30,9 @@
                 <div class="flex animate-marquee-reverse hover:[animation-play-state:paused] items-center h-full border-y-4 border-dashed border-gray-800 bg-gray-900/50">
                     @foreach(range(1, 4) as $i)
                         <div class="flex shrink-0">
-                            <img src="{{ asset('storage/studio/DSC01002.JPG') }}" class="h-24 w-40 object-cover mx-1 border-2 border-gray-800 transition-all duration-300">
-                            <img src="{{ asset('storage/studio/DSC01007.JPG') }}" class="h-24 w-40 object-cover mx-1 border-2 border-gray-800 transition-all duration-300">
-                            <img src="{{ asset('storage/studio/DSC01009.JPG') }}" class="h-24 w-40 object-cover mx-1 border-2 border-gray-800 transition-all duration-300">
+                            <img src="{{ asset('storage/room/IMG_0769.jpeg') }}" class="h-24 w-40 object-cover mx-1 border-2 border-gray-800 transition-all duration-300">
+                            <img src="{{ asset('storage/room/IMG_0770.jpeg') }}" class="h-24 w-40 object-cover mx-1 border-2 border-gray-800 transition-all duration-300">
+                            <img src="{{ asset('storage/room/IMG_0771.jpeg') }}" class="h-24 w-40 object-cover mx-1 border-2 border-gray-800 transition-all duration-300">
                         </div>
                     @endforeach
                 </div>
@@ -49,10 +49,10 @@
                 <div class="relative w-72 h-72 md:w-96 md:h-96 rounded-full border-[6px] border-white bg-black overflow-hidden z-20 shadow-[0_0_50px_rgba(0,0,0,0.8)] group">
                     {{-- Spinning Grid --}}
                     <div class="absolute inset-0 grid grid-cols-2 grid-rows-2 gap-1 transform rotate-45 scale-125 transition-transform duration-[20s] ease-linear group-hover:rotate-[225deg]">
-                        <div class="overflow-hidden bg-gray-800"><img src="{{ asset('storage/studio/DSC01003.JPG') }}" class="h-full w-full object-cover transform -rotate-45 transition-all duration-700"></div>
-                        <div class="overflow-hidden bg-gray-800"><img src="{{ asset('storage/studio/DSC01008.JPG') }}" class="h-full w-full object-cover transform -rotate-45 transition-all duration-700"></div>
-                        <div class="overflow-hidden bg-gray-800"><img src="{{ asset('storage/studio/DSC01012.JPG') }}" class="h-full w-full object-cover transform -rotate-45 transition-all duration-700"></div>
-                        <div class="overflow-hidden bg-gray-800"><img src="{{ asset('storage/studio/DSC01010.JPG') }}" class="h-full w-full object-cover transform -rotate-45 transition-all duration-700"></div>
+                        <div class="overflow-hidden bg-gray-800"><img src="{{ asset('storage/room/IMG_0772.jpeg') }}" class="h-full w-full object-cover transform -rotate-45 transition-all duration-700"></div>
+                        <div class="overflow-hidden bg-gray-800"><img src="{{ asset('storage/room/IMG_0773.jpeg') }}" class="h-full w-full object-cover transform -rotate-45 transition-all duration-700"></div>
+                        <div class="overflow-hidden bg-gray-800"><img src="{{ asset('storage/room/IMG_0774.jpeg') }}" class="h-full w-full object-cover transform -rotate-45 transition-all duration-700"></div>
+                        <div class="overflow-hidden bg-gray-800"><img src="{{ asset('storage/room/IMG_0775.jpeg') }}" class="h-full w-full object-cover transform -rotate-45 transition-all duration-700"></div>
                     </div>
                     {{-- Center Aperture Dot --}}
                     <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-16 h-16 bg-black/80 rounded-full border-2 border-red-600 backdrop-blur-sm z-30 flex items-center justify-center">
@@ -77,9 +77,9 @@
                 <div class="flex animate-marquee hover:[animation-play-state:paused] items-center h-full border-y-4 border-dashed border-gray-800 bg-gray-900/50">
                     @foreach(range(1, 4) as $i)
                         <div class="flex shrink-0">
-                            <img src="{{ asset('storage/studio/DSC01008.JPG') }}" class="h-24 w-40 object-cover mx-1 border-2 border-gray-800 transition-all duration-300">
-                            <img src="{{ asset('storage/studio/DSC01010.JPG') }}" class="h-24 w-40 object-cover mx-1 border-2 border-gray-800 transition-all duration-300">
-                            <img src="{{ asset('storage/studio/DSC01012.JPG') }}" class="h-24 w-40 object-cover mx-1 border-2 border-gray-800 transition-all duration-300">
+                            <img src="{{ asset('storage/room/IMG_0776.jpeg') }}" class="h-24 w-40 object-cover mx-1 border-2 border-gray-800 transition-all duration-300">
+                            <img src="{{ asset('storage/room/IMG_0777.jpeg') }}" class="h-24 w-40 object-cover mx-1 border-2 border-gray-800 transition-all duration-300">
+                            <img src="{{ asset('storage/room/IMG_0779.jpeg') }}" class="h-24 w-40 object-cover mx-1 border-2 border-gray-800 transition-all duration-300">
                         </div>
                     @endforeach
                 </div>
@@ -176,7 +176,7 @@
                          @mouseleave="rotateX = 0; rotateY = 0; hover = false"
                          @mouseenter="hover = true"
                          :style="`transform: perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(${hover ? 1.02 : 1}); transition: transform 0.1s ease-out;`">
-                        <img src="{{ asset('storage/studio/DSC01009.JPG') }}" class="h-full w-full object-cover transition-transform duration-700 scale-100">
+                        <img src="{{ asset('storage/room/IMG_0780.jpeg') }}" class="h-full w-full object-cover transition-transform duration-700 scale-100">
                         <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-transparent to-transparent"></div>
                         
                         {{-- Shine Effect --}}
@@ -202,7 +202,7 @@
                          @mouseleave="rotateX = 0; rotateY = 0; hover = false"
                          @mouseenter="hover = true"
                          :style="`transform: perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(${hover ? 1.02 : 1}); transition: transform 0.1s ease-out;`">
-                        <img src="{{ asset('storage/studio/DSC01012.JPG') }}" class="h-full w-full object-cover transition-transform duration-700 scale-100">
+                        <img src="{{ asset('storage/room/IMG_0781.jpeg') }}" class="h-full w-full object-cover transition-transform duration-700 scale-100">
                         <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-transparent to-transparent"></div>
                         
                         {{-- Shine Effect --}}
@@ -228,7 +228,7 @@
                          @mouseleave="rotateX = 0; rotateY = 0; hover = false"
                          @mouseenter="hover = true"
                          :style="`transform: perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(${hover ? 1.02 : 1}); transition: transform 0.1s ease-out;`">
-                        <img src="{{ asset('storage/studio/DSC01007.JPG') }}" class="h-full w-full object-cover transition-transform duration-700 scale-100">
+                        <img src="{{ asset('storage/room/IMG_0782.jpeg') }}" class="h-full w-full object-cover transition-transform duration-700 scale-100">
                         <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-transparent to-transparent"></div>
                         
                         {{-- Shine Effect --}}
@@ -275,7 +275,7 @@
 
                 {{-- Visual Representation --}}
                 <div class="relative h-[450px] w-full rounded-2xl overflow-hidden glass tilt-card reveal-up delay-200" x-intersect="$el.classList.add('is-visible')">
-                    <img src="{{ asset('storage/studio/DSC01007.JPG') }}" alt="Podcast Studio" class="h-full w-full object-cover transition-transform duration-700 hover:scale-110">
+                    <img src="{{ asset('storage/room/IMG_0783.jpeg') }}" alt="Podcast Studio" class="h-full w-full object-cover transition-transform duration-700 hover:scale-110">
                     <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
                     <div class="absolute bottom-6 left-6 right-6">
                         <div class="inline-flex items-center gap-2 rounded-full bg-green-500/20 px-2 py-0.5 text-[10px] font-bold text-green-400 backdrop-blur-sm mb-2">
@@ -301,7 +301,7 @@
                     {{-- Item 1 --}}
                     <div class="min-w-[280px] snap-center rounded-2xl bg-white p-6 shadow-sm border border-gray-100 transition-all duration-300 hover:-translate-y-2 hover:shadow-xl hover:border-blue-100 group">
                         <div class="h-40 w-full mb-4 overflow-hidden rounded-lg bg-gray-100 relative">
-                            <img src="{{ asset('storage/studio/DSC01009.JPG') }}" class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-110">
+                            <img src="{{ asset('storage/room/IMG_0784.jpeg') }}" class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-110">
                             <div class="absolute inset-0 bg-blue-600/10 opacity-0 group-hover:opacity-100 transition-opacity"></div>
                         </div>
                         <h3 class="font-bold text-lg group-hover:text-blue-600 transition-colors">Sony A7S III</h3>
@@ -310,7 +310,7 @@
                     {{-- Item 2 --}}
                     <div class="min-w-[280px] snap-center rounded-2xl bg-white p-6 shadow-sm border border-gray-100 transition-all duration-300 hover:-translate-y-2 hover:shadow-xl hover:border-blue-100 group">
                         <div class="h-40 w-full mb-4 overflow-hidden rounded-lg bg-gray-100 relative">
-                            <img src="{{ asset('storage/studio/DSC01010.JPG') }}" class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-110">
+                            <img src="{{ asset('storage/room/IMG_0785.jpeg') }}" class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-110">
                             <div class="absolute inset-0 bg-blue-600/10 opacity-0 group-hover:opacity-100 transition-opacity"></div>
                         </div>
                         <h3 class="font-bold text-lg group-hover:text-blue-600 transition-colors">Godox AD600 Pro</h3>
@@ -319,7 +319,7 @@
                     {{-- Item 3 --}}
                     <div class="min-w-[280px] snap-center rounded-2xl bg-white p-6 shadow-sm border border-gray-100 transition-all duration-300 hover:-translate-y-2 hover:shadow-xl hover:border-blue-100 group">
                         <div class="h-40 w-full mb-4 overflow-hidden rounded-lg bg-gray-100 relative">
-                            <img src="{{ asset('storage/studio/DSC01008.JPG') }}" class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-110">
+                            <img src="{{ asset('storage/room/IMG_0786.jpeg') }}" class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-110">
                             <div class="absolute inset-0 bg-blue-600/10 opacity-0 group-hover:opacity-100 transition-opacity"></div>
                         </div>
                         <h3 class="font-bold text-lg group-hover:text-blue-600 transition-colors">G Master Lenses</h3>
@@ -328,7 +328,7 @@
                      {{-- Item 4 --}}
                      <div class="min-w-[280px] snap-center rounded-2xl bg-white p-6 shadow-sm border border-gray-100 transition-all duration-300 hover:-translate-y-2 hover:shadow-xl hover:border-blue-100 group">
                         <div class="h-40 w-full mb-4 overflow-hidden rounded-lg bg-gray-100 relative">
-                            <img src="{{ asset('storage/studio/DSC01002.JPG') }}" class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-110">
+                            <img src="{{ asset('storage/room/IMG_0787.jpeg') }}" class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-110">
                             <div class="absolute inset-0 bg-blue-600/10 opacity-0 group-hover:opacity-100 transition-opacity"></div>
                         </div>
                         <h3 class="font-bold text-lg group-hover:text-blue-600 transition-colors">Aputure 600d</h3>
@@ -378,7 +378,7 @@
 
                 {{-- Image 1 (Top Right) --}}
                 <div class="md:col-span-2 md:row-span-1 rounded-3xl overflow-hidden relative group reveal-up delay-100" x-intersect="$el.classList.add('is-visible')">
-                    <img src="{{ asset('storage/studio/DSC01003.JPG') }}" class="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110">
+                    <img src="{{ asset('storage/room/IMG_0787.jpeg') }}" class="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110">
                     <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-60 group-hover:opacity-40 transition-opacity"></div>
                     <div class="absolute bottom-4 left-4">
                          <span class="inline-flex items-center rounded-full bg-white/20 px-3 py-1 text-xs font-medium text-white backdrop-blur-md border border-white/10 transition-transform group-hover:scale-105">BTS Action</span>
@@ -387,13 +387,13 @@
 
                 {{-- Image 2 (Bottom Middle) --}}
                 <div class="md:col-span-1 md:row-span-1 rounded-3xl overflow-hidden relative group reveal-up delay-200" x-intersect="$el.classList.add('is-visible')">
-                    <img src="{{ asset('storage/studio/DSC01012.JPG') }}" class="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110">
+                    <img src="{{ asset('storage/room/IMG_0770.jpeg') }}" class="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110">
                     <div class="absolute inset-0 bg-black/10 group-hover:bg-transparent transition-colors"></div>
                 </div>
 
                 {{-- Image 3 (Bottom Right) --}}
                 <div class="md:col-span-1 md:row-span-1 rounded-3xl overflow-hidden relative group reveal-up delay-300" x-intersect="$el.classList.add('is-visible')">
-                     <img src="{{ asset('storage/studio/DSC01002.JPG') }}" class="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110">
+                     <img src="{{ asset('storage/room/IMG_0773.jpeg') }}" class="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110">
                      <div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-black/30 backdrop-blur-[2px]">
                         <span class="text-white font-bold tracking-wider text-sm transform translate-y-4 group-hover:translate-y-0 transition-transform">Join Us</span>
                      </div>
@@ -489,7 +489,7 @@
     {{-- NEW SECTION 6: Location & Final CTA --}}
     <section class="relative bg-black py-24 text-white overflow-hidden">
         <div class="absolute inset-0">
-            <img src="{{ asset('storage/studio/DSC01002.JPG') }}" class="h-full w-full object-cover">
+            <img src="{{ asset('storage/room/IMG_0779.jpeg') }}" class="h-full w-full object-cover">
         </div>
         <div class="absolute inset-0 bg-gradient-to-t from-black via-black/80 to-transparent"></div>
         

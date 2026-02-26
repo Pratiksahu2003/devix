@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ContactController;
+use App\Http\Controllers\SubscriberController;
 use App\Http\Controllers\OgController;
 
 Route::get('/', HomeController::class)->name('home');
@@ -40,6 +41,7 @@ Route::view('/cancellation-policy', 'pages.cancellation')->name('pages.cancellat
 
 // Contact form submission
 Route::post('/contact', [ContactController::class, 'store'])->name('contact.submit');
+Route::post('/subscribe', [SubscriberController::class, 'store'])->name('subscribe.store');
 
 // Dynamic OG image (SVG)
 Route::get('/og', [OgController::class, 'image'])->name('og.image');
