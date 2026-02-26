@@ -47,7 +47,7 @@
                     {{ session('status') }}
                 </div>
             @endif
-            <form method="POST" action="{{ route('contact.submit') }}" class="space-y-4 rounded-2xl border border-[var(--color-border-subtle)] bg-white p-5 shadow-sm shadow-black/5">
+            <form id="contact-form" method="POST" action="{{ route('contact.submit') }}" class="space-y-4 rounded-2xl border border-[var(--color-border-subtle)] bg-white p-5 shadow-sm shadow-black/5">
                 @csrf
                 <input type="hidden" name="_start_ts" value="{{ time() }}">
                 <input type="text" name="website" class="hidden" tabindex="-1" autocomplete="off">
@@ -65,7 +65,7 @@
                                 class="h-10 w-full rounded-full border border-[var(--color-border-subtle)] pl-9 pr-3 text-xs focus:border-[var(--color-brand-lens-blue)] focus:outline-none"
                                 placeholder="Full name" />
                         </div>
-                        @error('name')<p class="text-[11px] text-rose-600">{{ $message }}</p>@enderror
+                        <p class="text-[11px] text-rose-600 error-message" data-field="name"></p>
                     </div>
                     <div class="space-y-1.5">
                         <label class="text-[11px] font-medium uppercase tracking-[0.16em] text-[var(--color-text-muted)]">
@@ -79,7 +79,7 @@
                                 class="h-10 w-full rounded-full border border-[var(--color-border-subtle)] pl-9 pr-3 text-xs focus:border-[var(--color-brand-lens-blue)] focus:outline-none"
                                 placeholder="you@example.com" />
                         </div>
-                        @error('email')<p class="text-[11px] text-rose-600">{{ $message }}</p>@enderror
+                        <p class="text-[11px] text-rose-600 error-message" data-field="email"></p>
                     </div>
                 </div>
                 <div class="grid gap-3 sm:grid-cols-2">
@@ -95,7 +95,7 @@
                                 class="h-10 w-full rounded-full border border-[var(--color-border-subtle)] pl-9 pr-3 text-xs focus:border-[var(--color-brand-lens-blue)] focus:outline-none"
                                 placeholder="{{ config('company.phone.intl') }}" />
                         </div>
-                        @error('phone')<p class="text-[11px] text-rose-600">{{ $message }}</p>@enderror
+                        <p class="text-[11px] text-rose-600 error-message" data-field="phone"></p>
                     </div>
                     <div class="space-y-1.5">
                         <label class="text-[11px] font-medium uppercase tracking-[0.16em] text-[var(--color-text-muted)]">
@@ -109,7 +109,7 @@
                                 class="h-10 w-full rounded-full border border-[var(--color-border-subtle)] pl-9 pr-3 text-xs focus:border-[var(--color-brand-lens-blue)] focus:outline-none"
                                 placeholder="Brand / agency (optional)" />
                         </div>
-                        @error('company')<p class="text-[11px] text-rose-600">{{ $message }}</p>@enderror
+                        <p class="text-[11px] text-rose-600 error-message" data-field="company"></p>
                     </div>
                 </div>
                 <div class="space-y-1.5">
@@ -119,15 +119,16 @@
                     <textarea name="message"
                         class="min-h-[112px] w-full rounded-2xl border border-[var(--color-border-subtle)] px-3 py-2 text-xs focus:border-[var(--color-brand-lens-blue)] focus:outline-none"
                         placeholder="Tell us about your shoot, preferred dates, and any special requirements.">{{ $prefill }}</textarea>
-                    @error('message')<p class="text-[11px] text-rose-600">{{ $message }}</p>@enderror
+                    <p class="text-[11px] text-rose-600 error-message" data-field="message"></p>
                 </div>
                 <div class="flex items-center justify-between pt-2">
                     <button
                         type="submit"
+                        id="contact-submit-btn"
                         class="inline-flex items-center gap-2 rounded-full bg-[var(--color-brand-lens-blue)] px-5 py-2.5 text-xs font-medium text-white shadow-md shadow-[var(--color-brand-lens-blue)]/40 transition hover:-translate-y-0.5 hover:bg-[#003a88]"
                     >
-                        <svg viewBox="0 0 24 24" class="h-4 w-4"><path fill="currentColor" d="M2 21v-6l12-9l4 4l-9 11H2Zm14.85-11.56l-1.41-1.41l1.78-1.79l1.41 1.42l-1.78 1.78Z"/></svg>
-                        Let’s talk
+                        <svg viewBox="0 0 24 24" class="h-4 w-4 btn-icon"><path fill="currentColor" d="M2 21v-6l12-9l4 4l-9 11H2Zm14.85-11.56l-1.41-1.41l1.78-1.79l1.41 1.42l-1.78 1.78Z"/></svg>
+                        <span class="btn-text">Let’s talk</span>
                     </button>
                     <p class="hidden text-[11px] text-[var(--color-text-muted)] sm:block">
                         We’ll get back within one business day.
@@ -137,3 +138,86 @@
         </div>
     </div>
 </section>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const form = document.getElementById('contact-form');
+        const submitBtn = document.getElementById('contact-submit-btn');
+        const btnText = submitBtn.querySelector('.btn-text');
+        const btnIcon = submitBtn.querySelector('.btn-icon');
+        const originalText = btnText.innerText;
+
+        if (form) {
+            form.addEventListener('submit', function(e) {
+                e.preventDefault();
+
+                // Clear previous errors
+                document.querySelectorAll('.error-message').forEach(el => el.innerText = '');
+                
+                // Disable button and show loading state
+                submitBtn.disabled = true;
+                submitBtn.classList.add('opacity-75', 'cursor-not-allowed');
+                btnText.innerText = 'Sending...';
+
+                // Prepare form data
+                const formData = new FormData(form);
+
+                axios.post(form.action, formData)
+                    .then(function (response) {
+                        // Success handling
+                        Swal.fire({
+                            title: 'Message Sent!',
+                            text: 'We have received your message and will get back to you shortly.',
+                            icon: 'success',
+                            confirmButtonText: 'Great!',
+                            confirmButtonColor: '#004aad'
+                        });
+                        form.reset();
+                    })
+                    .catch(function (error) {
+                        // Error handling
+                        if (error.response && error.response.status === 422) {
+                            // Validation errors
+                            const errors = error.response.data.errors;
+                            Object.keys(errors).forEach(field => {
+                                const errorElement = form.querySelector(`.error-message[data-field="${field}"]`);
+                                if (errorElement) {
+                                    errorElement.innerText = errors[field][0];
+                                }
+                            });
+                            
+                            // Show a toast or small alert for validation error
+                            Swal.fire({
+                                toast: true,
+                                position: 'top-end',
+                                icon: 'warning',
+                                title: 'Please check the form for errors.',
+                                showConfirmButton: false,
+                                timer: 3000
+                            });
+                        } else {
+                            // General error
+                            let message = 'Something went wrong. Please try again later.';
+                            if (error.response && error.response.data && error.response.data.message) {
+                                message = error.response.data.message;
+                            }
+                            
+                            Swal.fire({
+                                title: 'Error!',
+                                text: message,
+                                icon: 'error',
+                                confirmButtonText: 'Okay',
+                                confirmButtonColor: '#004aad'
+                            });
+                        }
+                    })
+                    .finally(function() {
+                        // Reset button state
+                        submitBtn.disabled = false;
+                        submitBtn.classList.remove('opacity-75', 'cursor-not-allowed');
+                        btnText.innerText = originalText;
+                    });
+            });
+        }
+    });
+</script>
