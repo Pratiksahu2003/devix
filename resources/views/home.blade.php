@@ -128,20 +128,30 @@
         </div>
     </div>
 
-        {{-- NEW SECTION 1: Trusted By (Logos) --}}
-        <section class="bg-white py-20 border-b border-gray-200">
-            <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-                <div class="mb-12 text-center md:text-left">
-                    <p class="text-xs font-bold uppercase tracking-[0.2em] text-blue-500 mb-2">Our Network</p>
-                    <h2 class="text-3xl font-bold text-gray-900 tracking-tight">Trusted by Industry Leaders</h2>
-                </div>
-                
-                <div class="grid grid-cols-2 md:grid-cols-4 border-t border-l border-gray-200">
-                    @foreach(range(1, 10) as $i)
-                        <div class="group relative flex h-32 items-center justify-center border-r border-b border-gray-200 p-6 ">
-                            <img src="{{ asset('brand/' . $i . '.png') }}" 
-                                 class=" object-contain" 
-                                 alt="Client Logo {{ $i }}">
+        {{-- NEW SECTION 1: Trusted By (Logos - Modern Infinite Loop) --}}
+        <section class="bg-white py-12 border-b border-gray-100 overflow-hidden">
+            <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 mb-8 text-center">
+                <p class="text-xs font-bold uppercase tracking-[0.2em] text-blue-500 mb-2">Our Network</p>
+                <h2 class="text-2xl font-bold text-gray-900 tracking-tight">Trusted by Industry Leaders</h2>
+            </div>
+            
+            <div class="relative w-full overflow-hidden">
+                {{-- Gradient Masks --}}
+                <div class="pointer-events-none absolute inset-y-0 left-0 w-24 bg-gradient-to-r from-white to-transparent z-10"></div>
+                <div class="pointer-events-none absolute inset-y-0 right-0 w-24 bg-gradient-to-l from-white to-transparent z-10"></div>
+
+                {{-- Infinite Marquee Track --}}
+                <div class="marquee-track flex items-center gap-12 hover:[animation-play-state:paused] py-4">
+                    {{-- Double the content for seamless loop --}}
+                    @foreach(range(1, 2) as $loop)
+                        <div class="flex items-center gap-12 shrink-0">
+                            @foreach(range(1, 10) as $i)
+                                <div class="group relative flex h-20 w-32 items-center justify-center grayscale opacity-60 transition-all duration-300 hover:grayscale-0 hover:opacity-100 hover:scale-110">
+                                    <img src="{{ asset('brand/' . $i . '.png') }}" 
+                                         class="max-h-12 w-auto object-contain" 
+                                         alt="Client Logo {{ $i }}">
+                                </div>
+                            @endforeach
                         </div>
                     @endforeach
                 </div>
