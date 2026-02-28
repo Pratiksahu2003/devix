@@ -137,7 +137,7 @@
                 </div>
                 
                 <div class="grid grid-cols-2 md:grid-cols-4 border-t border-l border-gray-200">
-                    @foreach(range(1, 8) as $i)
+                    @foreach(range(1, 10) as $i)
                         <div class="group relative flex h-32 items-center justify-center border-r border-b border-gray-200 p-6 ">
                             <img src="{{ asset('brand/' . $i . '.png') }}" 
                                  class=" object-contain" 

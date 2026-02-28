@@ -41,6 +41,11 @@
                                 'key' => 'services',
                                 'route' => 'pages.services',
                             ],
+                             [
+                                'label' => 'Our Work',
+                                'key' => 'our-work',
+                                'route' => 'pages.gallery',    
+                            ],
                         ];
                     @endphp
 
