@@ -26,4 +26,13 @@ return [
         'embed_url' => 'https://www.google.com/maps?q=4th%20Floor%2096A%20Block-%20B%20Pocket-10%2C%20Dwarka%20Sector%2013%2C%20New%20Delhi%20110078&output=embed',
         'view_url' => 'https://www.google.com/maps/place/4th+Floor,+96A,+Block-B,+Pocket-10,+Dwarka+Sector-13,+New+Delhi+110078',
     ],
+    'social' => [
+        'facebook' => 'https://www.facebook.com/dywix',
+        'instagram' => 'https://www.instagram.com/dywix',
+        'twitter' => 'https://twitter.com/dywix',
+        'linkedin' => 'https://www.linkedin.com/company/dywix',
+        'youtube' => 'https://www.youtube.com/@dywix',
+        'whatsapp' => 'https://wa.me/917838663434',
+        'pinterest' => 'https://in.pinterest.com/dywix/',
+    ],
 ];
