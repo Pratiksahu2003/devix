@@ -148,7 +148,7 @@
                             @foreach(range(1, 9) as $i)
                                 <div class="group relative flex h-30 w-32 items-center justify-center ">
                                     <img src="{{ asset('brand/' . $i . '.png') }}" 
-                                         class="max-h-20 w-auto object-contain" 
+                                         class="max-h-40 w-auto object-contain" 
                                          alt="Client Logo {{ $i }}">
                                 </div>
                             @endforeach
