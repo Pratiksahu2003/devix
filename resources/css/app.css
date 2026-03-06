@@ -137,3 +137,79 @@
     transform: scale(1.06);
     filter: drop-shadow(0 6px 14px rgba(15,23,42,0.18));
 }
+
+/* Legal / policy page layout */
+.legal-hero {
+    background: linear-gradient(160deg, var(--color-brand-lens-blue-soft) 0%, var(--color-surface) 100%);
+}
+.legal-content-card {
+    background: var(--color-surface);
+    border: 1px solid var(--color-border-subtle);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+}
+.legal-content h2 {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--color-text-main);
+    margin-top: 2.5rem;
+    margin-bottom: 0.75rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid var(--color-brand-lens-blue);
+    display: inline-block;
+}
+.legal-content h2:first-of-type { margin-top: 0; }
+.legal-content h3 {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--color-text-main);
+    margin-top: 2rem;
+    margin-bottom: 0.5rem;
+}
+.legal-content h4 {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--color-text-main);
+    margin-top: 1.25rem;
+    margin-bottom: 0.375rem;
+}
+.legal-content p {
+    color: var(--color-text-muted);
+    line-height: 1.7;
+    margin-bottom: 1rem;
+}
+.legal-content ul {
+    margin: 0.75rem 0 1.25rem 0;
+    padding-left: 1.5rem;
+    color: var(--color-text-muted);
+    line-height: 1.7;
+}
+.legal-content li {
+    margin-bottom: 0.5rem;
+}
+.legal-content li::marker {
+    color: var(--color-brand-lens-blue);
+}
+.legal-content a {
+    color: var(--color-brand-lens-blue);
+    font-weight: 500;
+    text-decoration: none;
+    border-bottom: 1px solid transparent;
+    transition: border-color 0.2s ease, color 0.2s ease;
+}
+.legal-content a:hover {
+    border-bottom-color: var(--color-brand-lens-blue);
+}
+.legal-content .lead {
+    font-size: 1.125rem;
+    color: var(--color-text-main);
+    font-weight: 500;
+    line-height: 1.65;
+}
+.legal-content hr {
+    border-color: var(--color-border-subtle);
+    margin: 2.5rem 0;
+}
+.legal-content strong {
+    color: var(--color-text-main);
+    font-weight: 600;
+}
