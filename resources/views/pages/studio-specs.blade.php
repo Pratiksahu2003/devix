@@ -43,6 +43,51 @@
         </div>
     </section>
 
+    {{-- Creative Studio Services (from doc) --}}
+    <section class="py-24 bg-[var(--color-surface)] border-b border-[var(--color-border-subtle)]">
+        <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <h2 class="text-3xl font-bold tracking-tight text-[var(--color-text-main)] sm:text-4xl">Creative Studio Services</h2>
+                <p class="mt-4 text-lg text-[var(--color-text-muted)]">{{ config('company.brand') }} Studio in Dwarka Sector-13 is a complete content creation studio offering photography, videography, podcast recording, video editing, and studio rental under one roof.</p>
+            </div>
+            <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+                <div class="rounded-2xl border border-[var(--color-border-subtle)] bg-white p-6 shadow-sm">
+                    <h3 class="font-semibold text-[var(--color-text-main)]">Professional Photography</h3>
+                    <p class="mt-2 text-sm text-[var(--color-text-muted)]">Fashion, product, model portfolio, and commercial photography with professional lighting and backdrops.</p>
+                </div>
+                <div class="rounded-2xl border border-[var(--color-border-subtle)] bg-white p-6 shadow-sm">
+                    <h3 class="font-semibold text-[var(--color-text-main)]">Videography &amp; Video Production</h3>
+                    <p class="mt-2 text-sm text-[var(--color-text-muted)]">Interviews, YouTube content, product videos, podcast videos, and brand films with 4K cameras and lighting.</p>
+                </div>
+                <div class="rounded-2xl border border-[var(--color-border-subtle)] bg-white p-6 shadow-sm">
+                    <h3 class="font-semibold text-[var(--color-text-main)]">Podcast Recording Studio</h3>
+                    <p class="mt-2 text-sm text-[var(--color-text-muted)]">Audio and video podcast recording with professional mics, multi-camera setup, and acoustically treated space.</p>
+                </div>
+                <div class="rounded-2xl border border-[var(--color-border-subtle)] bg-white p-6 shadow-sm">
+                    <h3 class="font-semibold text-[var(--color-text-main)]">Advertisement Video Production</h3>
+                    <p class="mt-2 text-sm text-[var(--color-text-muted)]">Commercials, brand films, and advertisement video production with full studio support.</p>
+                </div>
+                <div class="rounded-2xl border border-[var(--color-border-subtle)] bg-white p-6 shadow-sm">
+                    <h3 class="font-semibold text-[var(--color-text-main)]">Live Streaming Services</h3>
+                    <p class="mt-2 text-sm text-[var(--color-text-muted)]">Live streaming for events, product launches, and online broadcasts with professional setup.</p>
+                </div>
+                <div class="rounded-2xl border border-[var(--color-border-subtle)] bg-white p-6 shadow-sm">
+                    <h3 class="font-semibold text-[var(--color-text-main)]">Video Editing &amp; Post-Production</h3>
+                    <p class="mt-2 text-sm text-[var(--color-text-muted)]">Dedicated edit room with Mac mini M2 Pro, 4K display, and reference audio for finishing.</p>
+                </div>
+                <div class="rounded-2xl border border-[var(--color-border-subtle)] bg-white p-6 shadow-sm sm:col-span-2 lg:col-span-2">
+                    <h3 class="font-semibold text-[var(--color-text-main)]">Studio Rental for Creators</h3>
+                    <p class="mt-2 text-sm text-[var(--color-text-muted)]">Rent the full studio or individual spaces — photography, videography, podcast, or edit room — for hourly, half-day, or full-day sessions. Ideal for creators, brands, YouTubers, and production teams.</p>
+                </div>
+            </div>
+            <p class="mt-12 text-center text-[var(--color-text-muted)] max-w-2xl mx-auto">A complete content creation studio in one location. Shoot and edit in Dwarka Sector-13, New Delhi — convenient for Delhi NCR.</p>
+            <div class="mt-10 text-center flex flex-col sm:flex-row items-center justify-center gap-4">
+                <a href="{{ route('pages.booking') }}" class="inline-flex items-center justify-center rounded-lg bg-[var(--color-brand-lens-blue)] px-6 py-3 text-base font-semibold text-white shadow-sm hover:opacity-90">Start Creating with {{ config('company.brand') }}</a>
+                <a href="{{ route('pages.location') }}" class="inline-flex items-center font-semibold text-[var(--color-text-muted)] hover:text-[var(--color-text-main)]">View location →</a>
+            </div>
+        </div>
+    </section>
+
     {{-- Bento Grid Stats --}}
     <section class="py-24 bg-black text-white" x-data="{ shown: false }" x-intersect.threshold.0.1="shown = true">
         <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">

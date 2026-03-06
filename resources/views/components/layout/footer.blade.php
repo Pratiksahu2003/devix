@@ -115,6 +115,7 @@
             <div class="flex flex-wrap items-center gap-6">
                 <a href="{{ route('pages.privacy') }}" class="hover:text-white transition-colors">Privacy</a>
                 <a href="{{ route('pages.terms') }}" class="hover:text-white transition-colors">Terms</a>
+                <a href="{{ route('pages.cookie-policy') }}" class="hover:text-white transition-colors">Cookie Policy</a>
                 <a href="{{ route('pages.accessibility') }}" class="hover:text-white transition-colors">Accessibility</a>
             </div>
         </div>

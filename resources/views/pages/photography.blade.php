@@ -11,16 +11,20 @@
     @php
         $faq = [
             [
-                'q' => 'How long is the minimum booking?',
-                'a' => 'The minimum booking is 3 hours. You can extend in hourly blocks or upgrade to a full‑day or all‑in package depending on your project.',
+                'q' => 'Where is ' . config('company.brand') . ' Photography Studio located?',
+                'a' => config('company.brand') . ' Photography Studio is located in Dwarka Sector 13, New Delhi, making it easily accessible from major areas of Delhi NCR, including Janakpuri, West Delhi, and Gurugram. The studio location is convenient for photographers, content creators, brands, and influencers looking for a professional studio space in Delhi.',
             ],
             [
-                'q' => 'Can I bring my own equipment or team?',
-                'a' => 'Yes. Bring your own cameras and lenses while using our lights, sets and support staff. Your crew is welcome as long as they follow studio rules.',
+                'q' => 'What services are available at ' . config('company.brand') . ' Studio?',
+                'a' => config('company.brand') . ' Studio offers a wide range of creative services including fashion photography, product photography, model portfolio shoots, commercial photography, podcast recording, video production, and social media content creation. The studio is designed to support both photography and video production projects.',
             ],
             [
-                'q' => 'Do you help with concepts and set design?',
-                'a' => 'We will walk you through the space, suggest backdrops and props, and help you get the most from the studio layout. Full creative direction can be arranged with partner stylists and art directors.',
+                'q' => 'Can I rent ' . config('company.brand') . ' Studio for my own photoshoot or video shoot?',
+                'a' => 'Yes, ' . config('company.brand') . ' Studio is available for studio rental. Photographers, videographers, influencers, brands, and creators can book the studio for photoshoots, video shoots, podcasts, and commercial productions. The studio can be booked for hourly, half-day, or full-day sessions depending on your project requirements.',
+            ],
+            [
+                'q' => 'What equipment is available at ' . config('company.brand') . ' Photography Studio?',
+                'a' => config('company.brand') . ' Studio is equipped with professional cameras, studio lighting setups, audio equipment, and creative backdrops suitable for photography, videography, and podcast recording. The studio provides the essential tools needed to produce high-quality professional content.',
             ],
         ];
         
@@ -71,8 +75,7 @@
                 Your Vision.<br/>Our Studio.
             </h1>
             <p class="mt-6 max-w-2xl text-lg sm:text-xl text-gray-200 leading-relaxed drop-shadow-md">
-                Professional lighting, limitless backdrops, and the creative freedom you need.
-                Book your slot today and create something extraordinary.
+                Professional photography and content creation studio in Dwarka, New Delhi. Fashion, product shoots, model portfolios, and commercial photography — all in one place.
             </p>
             <div class="mt-10 flex flex-col sm:flex-row gap-4">
                 <a href="#contact" class="rounded-full bg-white px-8 py-3.5 text-base font-semibold text-black transition hover:bg-gray-200 hover:scale-105 transform duration-200">
@@ -84,6 +87,44 @@
             </div>
         </div>
     </div>
+
+    {{-- Intro --}}
+    <section class="bg-white py-16 border-b border-[var(--color-border-subtle)]">
+        <div class="mx-auto max-w-3xl px-4 sm:px-6 text-center">
+            <p class="text-lg text-[var(--color-text-muted)] leading-relaxed">
+                Welcome to {{ config('company.brand') }} Studio, a modern and fully equipped <strong class="text-[var(--color-text-main)]">photography and content creation studio in Dwarka, New Delhi</strong>. Designed for creators, brands, influencers, and businesses, we provide a professional environment for photography, videography, podcasts, product shoots, and digital content production.
+            </p>
+            <p class="mt-6 text-[var(--color-text-muted)] leading-relaxed">
+                Our studio combines professional lighting, high-end cameras, modern production equipment, and creative studio spaces to deliver high-quality visual content.
+            </p>
+        </div>
+    </section>
+
+    {{-- Photography Services --}}
+    <section class="bg-[var(--color-surface-muted)] py-16">
+        <div class="mx-auto max-w-6xl px-4 sm:px-6">
+            <h2 class="text-2xl font-bold tracking-tight text-[var(--color-text-main)] sm:text-3xl text-center mb-10">Our Photography Studio Services</h2>
+            <p class="text-center text-[var(--color-text-muted)] max-w-2xl mx-auto mb-12">{{ config('company.brand') }} Studio offers multiple creative services tailored to different production needs.</p>
+            <div class="grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
+                <div class="rounded-2xl bg-white p-6 shadow-sm border border-[var(--color-border-subtle)]">
+                    <h3 class="font-semibold text-[var(--color-text-main)]">Fashion Photography</h3>
+                    <p class="mt-2 text-sm text-[var(--color-text-muted)]">Fashion shoots, lookbooks, model portfolios, and editorial photography with professional lighting and multiple backdrop options.</p>
+                </div>
+                <div class="rounded-2xl bg-white p-6 shadow-sm border border-[var(--color-border-subtle)]">
+                    <h3 class="font-semibold text-[var(--color-text-main)]">Product Photography</h3>
+                    <p class="mt-2 text-sm text-[var(--color-text-muted)]">Product photography, catalog shoots, and commercial product campaigns for e-commerce and brand marketing.</p>
+                </div>
+                <div class="rounded-2xl bg-white p-6 shadow-sm border border-[var(--color-border-subtle)]">
+                    <h3 class="font-semibold text-[var(--color-text-main)]">Model Portfolio Shoots</h3>
+                    <p class="mt-2 text-sm text-[var(--color-text-muted)]">Professional portfolios for aspiring models and actors with high-quality photography and lighting setups.</p>
+                </div>
+                <div class="rounded-2xl bg-white p-6 shadow-sm border border-[var(--color-border-subtle)]">
+                    <h3 class="font-semibold text-[var(--color-text-main)]">Commercial Photography</h3>
+                    <p class="mt-2 text-sm text-[var(--color-text-muted)]">Advertising campaigns, marketing shoots, corporate portraits, and brand visuals for businesses.</p>
+                </div>
+            </div>
+        </div>
+    </section>
 
     {{-- Features Grid --}}
     <section id="features" class="bg-[var(--color-surface)] py-20">
@@ -208,6 +249,18 @@
                     </div>
                 @endforeach
             </div>
+        </div>
+    </section>
+
+    {{-- Location --}}
+    <section class="border-t border-[var(--color-border-subtle)] bg-white py-16">
+        <div class="mx-auto max-w-6xl px-4 sm:px-6">
+            <h2 class="text-2xl font-bold tracking-tight text-[var(--color-text-main)] mb-4">Convenient Location in Dwarka, New Delhi</h2>
+            <p class="text-[var(--color-text-muted)] mb-6">{{ config('company.brand') }} Studio is located in <strong class="text-[var(--color-text-main)]">Dwarka Sector 13, New Delhi</strong>, making it easily accessible from major areas of Delhi NCR. The studio is conveniently located near Janakpuri, West Delhi, Gurugram, and IGI Airport. This central location allows photographers, creators, and brands across Delhi NCR to easily access the studio for shoots and recordings.</p>
+            <a href="{{ route('pages.location') }}" class="inline-flex items-center font-semibold text-blue-600 hover:text-blue-500">
+                View location &amp; access
+                <svg class="ml-2 h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
+            </a>
         </div>
     </section>
 

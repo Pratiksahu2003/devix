@@ -11,16 +11,20 @@
     @php
         $faq = [
             [
-                'q' => 'How many people can we comfortably record at once?',
-                'a' => 'The podcast setup is ideal for 2–4 people on mic at the same time, depending on your preferred seating layout and framing.',
+                'q' => 'What types of podcasts can be recorded at ' . config('company.brand') . ' Studio?',
+                'a' => 'You can record various formats including interview podcasts, video podcasts, business podcasts, educational podcasts, and panel discussions.',
             ],
             [
-                'q' => 'Do you handle recording and editing?',
-                'a' => 'Most teams bring their own recorders, laptops and workflows. If you need end‑to‑end recording and editing support, we can connect you with trusted audio and video partners.',
+                'q' => 'Is the podcast studio available for rent?',
+                'a' => 'Yes, ' . config('company.brand') . ' offers a fully equipped podcast studio for rent. The studio can be booked for hourly or full-day sessions depending on your recording needs.',
             ],
             [
-                'q' => 'Can we film the podcast for YouTube or reels?',
-                'a' => 'Absolutely. Many creators record both audio and video in the space, using a mix of static and moving cameras. The lighting and background are designed to look great on YouTube, reels and shorts.',
+                'q' => 'Can we record video podcasts at ' . config('company.brand') . '?',
+                'a' => 'Yes. The studio supports multi-camera video podcast recording, allowing you to create high-quality podcast videos for YouTube and other platforms.',
+            ],
+            [
+                'q' => 'Where is ' . config('company.brand') . ' Podcast Studio located?',
+                'a' => config('company.brand') . ' Podcast Studio is located in Dwarka Sector-13, New Delhi, making it convenient for creators across Delhi NCR.',
             ],
         ];
         
@@ -73,7 +77,7 @@
                     Broadcast<br/>Your Voice.
                 </h1>
                 <p class="mt-8 max-w-2xl text-xl text-gray-200 leading-relaxed drop-shadow-lg mx-auto font-light">
-                    A dedicated podcast suite with acoustically treated walls, professional lighting, and a vibe that sparks conversation.
+                    A fully equipped podcast recording space in Dwarka Sector-13, New Delhi — for audio podcasts, video podcasts, interviews, and content for YouTube or social media.
                 </p>
             </div>
             <div class="mt-12 flex flex-col sm:flex-row gap-5 animate-fade-in-up delay-100">
@@ -86,6 +90,15 @@
             </div>
         </div>
     </div>
+
+    {{-- Intro --}}
+    <section class="bg-white py-16 border-b border-[var(--color-border-subtle)]">
+        <div class="mx-auto max-w-3xl px-4 sm:px-6 text-center">
+            <p class="text-lg text-[var(--color-text-muted)] leading-relaxed">
+                Looking for a <strong class="text-[var(--color-text-main)]">professional podcast studio in Delhi</strong> to record your next podcast or interview? At {{ config('company.brand') }}, we provide a high-quality podcast studio for rent where you can record audio podcasts, video podcasts, interviews, talk shows, and content for YouTube or social media. Our studio combines professional audio equipment, multi-camera video recording, studio lighting, and a comfortable creative environment.
+            </p>
+        </div>
+    </section>
 
     {{-- Features Grid --}}
     <section id="features" class="bg-[var(--color-surface)] py-24">
@@ -210,6 +223,18 @@
                     </div>
                 @endforeach
             </div>
+        </div>
+    </section>
+
+    {{-- Location --}}
+    <section class="border-t border-[var(--color-border-subtle)] bg-white py-16">
+        <div class="mx-auto max-w-6xl px-4 sm:px-6">
+            <h2 class="text-2xl font-bold tracking-tight text-[var(--color-text-main)] mb-4">Convenient Podcast Studio Location</h2>
+            <p class="text-[var(--color-text-muted)] mb-6">{{ config('company.brand') }} Podcast Studio is located in <strong class="text-[var(--color-text-main)]">Dwarka Sector-13, New Delhi</strong>, making it easily accessible for creators across Delhi NCR including West Delhi, Janakpuri, Gurugram, and nearby areas. The studio's location provides a professional and private environment for podcast recording, away from the noise and distractions of typical home setups.</p>
+            <a href="{{ route('pages.location') }}" class="inline-flex items-center font-semibold text-purple-600 hover:text-purple-500">
+                View location &amp; access
+                <svg class="ml-2 h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
+            </a>
         </div>
     </section>
 

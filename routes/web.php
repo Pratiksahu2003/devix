@@ -35,6 +35,7 @@ Route::view('/collaborations', 'pages.collaborations')->name('pages.collaboratio
 // Legal & policy pages
 Route::view('/terms-and-conditions', 'pages.terms')->name('pages.terms');
 Route::view('/privacy-policy', 'pages.privacy')->name('pages.privacy');
+Route::view('/cookie-policy', 'pages.cookie-policy')->name('pages.cookie-policy');
 Route::view('/accessibility', 'pages.accessibility')->name('pages.accessibility');
 Route::view('/studio-rules', 'pages.studio-rules')->name('pages.studio-rules');
 Route::view('/cancellation-policy', 'pages.cancellation')->name('pages.cancellation');

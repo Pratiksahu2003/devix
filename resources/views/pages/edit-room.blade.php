@@ -40,12 +40,11 @@
                     Post.<br/>Production.
                 </h1>
                 <p class="mt-8 max-w-2xl text-xl text-gray-200 leading-relaxed drop-shadow-lg mx-auto font-light">
-                    A dedicated, acoustically treated suite with <span class="text-white font-medium">Mac mini M2 Pro</span> power. 
-                    Review, cut, and grade without leaving the studio.
+                    A dedicated edit room in Dwarka Sector-13 for professional video post-production — with <span class="text-white font-medium">Mac mini M2 Pro</span>, calibrated 4K display, and high-speed storage. Review, cut, and grade without leaving the studio.
                 </p>
             </div>
             <div class="mt-12 flex flex-col sm:flex-row gap-5 animate-fade-in-up delay-100">
-                <a href="#contact" class="rounded-full bg-white px-10 py-4 text-lg font-semibold text-black transition hover:bg-gray-100 hover:scale-105 transform duration-200 shadow-xl shadow-white/10">
+                <a href="{{ route('pages.booking') }}" class="rounded-full bg-white px-10 py-4 text-lg font-semibold text-black transition hover:bg-gray-100 hover:scale-105 transform duration-200 shadow-xl shadow-white/10">
                     Book Suite Now
                 </a>
                 <a href="#specs" class="rounded-full border border-white/20 bg-white/5 px-10 py-4 text-lg font-semibold text-white backdrop-blur-md transition hover:bg-white/10 hover:border-white/40">
@@ -54,6 +53,31 @@
             </div>
         </div>
     </div>
+
+    {{-- Intro --}}
+    <section class="bg-white py-16 border-b border-[var(--color-border-subtle)]">
+        <div class="mx-auto max-w-3xl px-4 sm:px-6 text-center">
+            <p class="text-lg text-[var(--color-text-muted)] leading-relaxed">
+                Need a <strong class="text-[var(--color-text-main)]">professional video editing room in Delhi</strong>? The {{ config('company.brand') }} Edit Room in Dwarka Sector-13 is a dedicated space for video post-production. Whether you're editing YouTube content, podcast videos, brand films, or commercial projects, our edit suite offers a high-performance environment with Mac mini M2 Pro, calibrated 4K display, and reference audio — so you can review, cut, and grade without leaving the studio.
+            </p>
+        </div>
+    </section>
+
+    {{-- Edit Room For — types of work --}}
+    <section class="bg-[var(--color-surface-muted)] py-16">
+        <div class="mx-auto max-w-6xl px-4 sm:px-6">
+            <h2 class="text-2xl font-bold tracking-tight text-[var(--color-text-main)] sm:text-3xl text-center mb-10">Edit Room for Professional Video Post-Production</h2>
+            <p class="text-center text-[var(--color-text-muted)] max-w-2xl mx-auto mb-12">The {{ config('company.brand') }} Edit Room is designed for creators and professionals who need a focused space for video editing, color grading, and finishing.</p>
+            <ul class="grid gap-4 sm:grid-cols-2 lg:grid-cols-3 text-[var(--color-text-muted)] max-w-4xl mx-auto">
+                <li class="flex items-start gap-2"><span class="text-indigo-600 mt-0.5">✓</span> YouTube and long-form video editing</li>
+                <li class="flex items-start gap-2"><span class="text-indigo-600 mt-0.5">✓</span> Podcast and interview video assembly</li>
+                <li class="flex items-start gap-2"><span class="text-indigo-600 mt-0.5">✓</span> Social media cuts and reels</li>
+                <li class="flex items-start gap-2"><span class="text-indigo-600 mt-0.5">✓</span> Brand films and commercial post-production</li>
+                <li class="flex items-start gap-2"><span class="text-indigo-600 mt-0.5">✓</span> On-set reviews and dailies</li>
+                <li class="flex items-start gap-2"><span class="text-indigo-600 mt-0.5">✓</span> Color grading and final delivery</li>
+            </ul>
+        </div>
+    </section>
 
     {{-- Specs & Features --}}
     <section id="specs" class="bg-[var(--color-surface)] py-24">
@@ -150,6 +174,63 @@
                     </p>
                 </div>
             </div>
+        </div>
+    </section>
+
+    {{-- Why Choose & Ecosystem --}}
+    <section class="border-t border-[var(--color-border-subtle)] bg-white py-16">
+        <div class="mx-auto max-w-6xl px-4 sm:px-6">
+            <h2 class="text-2xl font-bold tracking-tight text-[var(--color-text-main)] mb-4">Why Choose {{ config('company.brand') }} Edit Room</h2>
+            <p class="text-[var(--color-text-muted)] mb-6">A high-performance editing environment with Mac mini M2 Pro, calibrated 4K display, Thunderbolt 4 storage, and reference audio. The edit room is acoustically treated and ergonomically designed for long editing sessions.</p>
+            <h3 class="text-xl font-semibold text-[var(--color-text-main)] mt-10 mb-4">Part of the {{ config('company.brand') }} Creative Studio Ecosystem</h3>
+            <p class="text-[var(--color-text-muted)]">Shoot in our photography or videography studio, then move to the edit room for post-production — or book the edit room alone for your existing footage. Complete content production under one roof in Dwarka Sector-13.</p>
+        </div>
+    </section>
+
+    {{-- Location --}}
+    <section class="border-t border-[var(--color-border-subtle)] bg-[var(--color-surface-muted)] py-16">
+        <div class="mx-auto max-w-6xl px-4 sm:px-6">
+            <h2 class="text-2xl font-bold tracking-tight text-[var(--color-text-main)] mb-4">Convenient Location</h2>
+            <p class="text-[var(--color-text-muted)] mb-6">{{ config('company.brand') }} Edit Room is located in <strong class="text-[var(--color-text-main)]">Dwarka Sector-13, New Delhi</strong>, alongside our photography and videography studios. Easy to reach from major areas of Delhi NCR.</p>
+            <a href="{{ route('pages.location') }}" class="inline-flex items-center font-semibold text-indigo-600 hover:text-indigo-500">
+                View location &amp; access
+                <svg class="ml-2 h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
+            </a>
+        </div>
+    </section>
+
+    @php
+        $faq = [
+            ['q' => 'What is the ' . config('company.brand') . ' Edit Room?', 'a' => 'The ' . config('company.brand') . ' Edit Room is a dedicated video editing suite in Dwarka Sector-13 with Mac mini M2 Pro, calibrated 4K display, high-speed storage, and reference audio — ideal for video post-production, color grading, and finishing.'],
+            ['q' => 'Who can use the ' . config('company.brand') . ' Edit Room?', 'a' => 'Video editors, content creators, YouTubers, filmmakers, and production teams who need a professional editing environment can book the edit room for hourly or full-day sessions.'],
+            ['q' => 'What types of projects can I edit in the Edit Room?', 'a' => 'YouTube videos, podcast videos, brand films, social media content, commercial projects, and any video that requires 4K editing, color grading, or professional audio monitoring.'],
+            ['q' => 'Where is the ' . config('company.brand') . ' Edit Room located?', 'a' => 'The Edit Room is in Dwarka Sector-13, New Delhi, part of the ' . config('company.brand') . ' creative studio. You can shoot in the studio and edit in the same building.'],
+        ];
+        $faqLd = ['@context' => 'https://schema.org', '@type' => 'FAQPage', 'mainEntity' => collect($faq)->map(fn($i) => ['@type' => 'Question', 'name' => $i['q'], 'acceptedAnswer' => ['@type' => 'Answer', 'text' => $i['a']]])->toArray()];
+    @endphp
+    <script type="application/ld+json">{!! json_encode($faqLd, JSON_UNESCAPED_SLASHES|JSON_UNESCAPED_UNICODE) !!}</script>
+
+    {{-- FAQ --}}
+    <section id="faqs" class="border-t border-[var(--color-border-subtle)] bg-[var(--color-surface)] py-16">
+        <div class="mx-auto max-w-3xl px-4 sm:px-6">
+            <h2 class="text-2xl font-bold tracking-tight text-[var(--color-text-main)] mb-8">FAQs</h2>
+            <ul class="space-y-6">
+                @foreach($faq as $item)
+                    <li>
+                        <h3 class="font-semibold text-[var(--color-text-main)]">{{ $item['q'] }}</h3>
+                        <p class="mt-2 text-[var(--color-text-muted)]">{{ $item['a'] }}</p>
+                    </li>
+                @endforeach
+            </ul>
+        </div>
+    </section>
+
+    {{-- CTA --}}
+    <section class="border-t border-[var(--color-border-subtle)] bg-[var(--color-surface-muted)] py-12">
+        <div class="mx-auto max-w-6xl px-4 sm:px-6 text-center">
+            <h2 class="text-xl font-bold text-[var(--color-text-main)]">Book the {{ config('company.brand') }} Edit Room</h2>
+            <p class="mt-2 text-[var(--color-text-muted)]">Reserve your slot for video editing, color grading, or post-production.</p>
+            <a href="{{ route('pages.booking') }}" class="mt-6 inline-flex items-center justify-center rounded-lg bg-indigo-600 px-6 py-3 text-base font-semibold text-white shadow-sm hover:bg-indigo-500">Book Now</a>
         </div>
     </section>
 
