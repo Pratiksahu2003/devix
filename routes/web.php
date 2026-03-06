@@ -6,11 +6,12 @@ use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\SubscriberController;
 use App\Http\Controllers\OgController;
+use App\Http\Controllers\SitemapController;
 
 Route::get('/', HomeController::class)->name('home');
 
-Route::get('/products', [ProductController::class, 'index'])->name('products.index');
-Route::get('/products/{product}', [ProductController::class, 'show'])->name('products.show');
+// Sitemap (all public page URLs from this file)
+Route::get('/sitemap.xml', SitemapController::class)->name('sitemap');
 
 // Studio informational pages
 Route::view('/photography-studio', 'pages.photography')->name('pages.photography');
