@@ -145,10 +145,10 @@
                     {{-- Double the content for seamless loop --}}
                     @foreach(range(1, 2) as $loop)
                         <div class="flex items-center gap-12 shrink-0">
-                            @foreach(range(1, 10) as $i)
-                                <div class="group relative flex h-20 w-32 items-center justify-center grayscale opacity-60 transition-all duration-300 hover:grayscale-0 hover:opacity-100 hover:scale-110">
+                            @foreach(range(1, 9) as $i)
+                                <div class="group relative flex h-30 w-32 items-center justify-center ">
                                     <img src="{{ asset('brand/' . $i . '.png') }}" 
-                                         class="max-h-12 w-auto object-contain" 
+                                         class="max-h-20 w-auto object-contain" 
                                          alt="Client Logo {{ $i }}">
                                 </div>
                             @endforeach
