@@ -41,28 +41,6 @@ class SitemapController extends Controller
         ];
     }
 
-    /**
-     * Generate sitemap XML for all public page URLs.
-     */
-    public function __invoke(): Response
-    {
-        $urls = self::staticUrls();
-
-        foreach (Product::query()->get() as $product) {
-            $urls[] = [
-                'loc' => route('products.show', $product),
-                'name' => 'products.show',
-                'lastmod' => $product->updated_at?->toAtomString(),
-            ];
-        }
-
-        $xml = $this->buildXml($urls);
-
-        return response($xml, 200, [
-            'Content-Type' => 'application/xml',
-            'Cache-Control' => 'public, max-age=3600',
-        ]);
-    }
 
     private function buildXml(array $urls): string
     {

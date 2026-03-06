@@ -2,16 +2,11 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
-use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\SubscriberController;
 use App\Http\Controllers\OgController;
-use App\Http\Controllers\SitemapController;
 
 Route::get('/', HomeController::class)->name('home');
-
-// Sitemap (all public page URLs from this file)
-Route::get('/sitemap.xml', SitemapController::class)->name('sitemap');
 
 // Studio informational pages
 Route::view('/photography-studio', 'pages.photography')->name('pages.photography');
