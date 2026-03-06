@@ -12,27 +12,72 @@
     <section class="bg-[var(--color-surface)] py-16 lg:py-24 border-b border-[var(--color-border-subtle)]">
         <div class="mx-auto max-w-4xl px-4 text-center">
             <h1 class="text-3xl font-bold tracking-tight text-[var(--color-text-main)] sm:text-4xl">
-                How can we help?
+                Help Center – {{ config('company.short_name') }}
             </h1>
+            <p class="mt-2 text-sm font-medium text-[var(--color-text-muted)]">
+                Last updated: March 2026
+            </p>
             <p class="mt-4 text-lg text-[var(--color-text-muted)]">
                 Everything you need to know about shooting at {{ config('company.brand') }}.
             </p>
-            
-            {{-- Search Bar (Functional with Alpine) --}}
-            <div class="mx-auto mt-8 max-w-xl" x-data="{ query: '' }">
-                <div class="relative">
-                    <div class="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-4">
-                        <svg class="h-5 w-5 text-gray-400" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
-                            <path fill-rule="evenodd" d="M9 3.5a5.5 5.5 0 100 11 5.5 5.5 0 000-11zM2 9a7 7 0 1112.452 4.391l3.328 3.329a.75.75 0 11-1.06 1.06l-3.329-3.328A7 7 0 012 9z" clip-rule="evenodd" />
-                        </svg>
-                    </div>
-                    <input 
-                        type="text" 
-                        x-model="query"
-                        @input="$dispatch('search-faq', query)"
-                        class="block w-full rounded-full border-0 py-4 pl-12 pr-4 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-[var(--color-brand-lens-blue)] sm:text-sm sm:leading-6" 
-                        placeholder="Search for keywords like 'parking', 'wifi', or 'cancel'..."
-                    >
+         
+        </div>
+    </section>
+
+    {{-- Welcome & About --}}
+    <section class="py-12 lg:py-16 border-b border-[var(--color-border-subtle)] bg-white">
+        <div class="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
+            <p class="text-[var(--color-text-muted)] leading-relaxed">
+                Welcome to the {{ config('company.brand') }} Help Center. This page helps you quickly find answers about our services, studio bookings, equipment usage, and platform support.
+            </p>
+            <p class="mt-4 text-[var(--color-text-muted)] leading-relaxed">
+                At {{ config('company.short_name') }}, our mission is to provide creators, brands, photographers, and influencers with a professional and accessible content creation environment. Whether you are planning a <strong class="text-[var(--color-text-main)]">podcast recording, photography session, video shoot, influencer collaboration, or brand campaign</strong>, this help page will guide you through the most important information.
+            </p>
+            <p class="mt-4 text-[var(--color-text-muted)]">
+                If you cannot find what you need, our support team is always ready to assist you.
+            </p>
+
+            <h2 class="mt-10 text-xl font-bold text-[var(--color-text-main)]">About {{ config('company.short_name') }}</h2>
+            <p class="mt-3 text-[var(--color-text-muted)] leading-relaxed">
+                {{ config('company.short_name') }} is a digital platform and creative studio initiative operated by {{ config('company.name') }}, designed to support modern content creators, businesses, and professionals looking for high-quality production facilities.
+            </p>
+            <p class="mt-3 text-[var(--color-text-muted)]">Our services include:</p>
+            <ul class="mt-2 list-disc list-inside space-y-1 text-[var(--color-text-muted)]">
+                <li>Photography studio rental</li>
+                <li>Podcast studio setup</li>
+                <li>Professional video shoots</li>
+                <li>Personal branding photography</li>
+                <li>Influencer collaboration opportunities</li>
+                <li>Creative production support</li>
+            </ul>
+            <p class="mt-4 text-[var(--color-text-muted)] leading-relaxed">
+                The {{ config('company.short_name') }} platform allows you to explore services, understand studio capabilities, and connect with a professional environment designed for modern content creation.
+            </p>
+
+            <h2 class="mt-10 text-xl font-bold text-[var(--color-text-main)]">How Can We Help You?</h2>
+            <p class="mt-3 text-[var(--color-text-muted)]">
+                Below are the most common areas where users need assistance when using {{ config('company.short_name') }}.
+            </p>
+            <div class="mt-6 space-y-6">
+                <div class="rounded-xl border border-[var(--color-border-subtle)] p-5 bg-[var(--color-surface)]">
+                    <h3 class="font-semibold text-[var(--color-text-main)]">1. Studio Booking Assistance</h3>
+                    <p class="mt-2 text-sm text-[var(--color-text-muted)]">If you are planning to book the {{ config('company.short_name') }} studio, you may have questions about availability, pricing, or booking procedures. Our studio can be used for photography sessions, podcast recordings, product shoots, influencer content creation, brand advertisement videos, and personal branding shoots. Before your booking, review the studio features and confirm your preferred schedule. Our team can guide you through the process and answer questions about availability.</p>
+                </div>
+                <div class="rounded-xl border border-[var(--color-border-subtle)] p-5 bg-[var(--color-surface)]">
+                    <h3 class="font-semibold text-[var(--color-text-main)]">2. Equipment and Studio Facilities</h3>
+                    <p class="mt-2 text-sm text-[var(--color-text-muted)]">{{ config('company.short_name') }} studio is designed to support creators with a professional production environment. Depending on your booking plan, the studio may include basic lighting setup, studio backgrounds, grip equipment, professional podcast setup, and a recording environment for content creation. Additional equipment or customized setups may be available—discuss your production needs with our team in advance for the best setup.</p>
+                </div>
+                <div class="rounded-xl border border-[var(--color-border-subtle)] p-5 bg-[var(--color-surface)]">
+                    <h3 class="font-semibold text-[var(--color-text-main)]">3. Preparing for Your Studio Session</h3>
+                    <p class="mt-2 text-sm text-[var(--color-text-muted)]">We recommend: <strong class="text-[var(--color-text-main)]">Plan your shoot in advance</strong>—define your concept, script, or visual idea before arriving. <strong class="text-[var(--color-text-main)]">Bring required props or products</strong>—if your shoot involves brand products or personal items, have them ready. <strong class="text-[var(--color-text-main)]">Coordinate with your team</strong>—if multiple people are involved, make sure everyone knows the schedule. <strong class="text-[var(--color-text-main)]">Arrive on time</strong>—timely arrival helps your session run smoothly. Proper preparation helps you make the most of your studio booking.</p>
+                </div>
+                <div class="rounded-xl border border-[var(--color-border-subtle)] p-5 bg-[var(--color-surface)]">
+                    <h3 class="font-semibold text-[var(--color-text-main)]">4. Influencer and Creator Support</h3>
+                    <p class="mt-2 text-sm text-[var(--color-text-muted)]">{{ config('company.short_name') }} aims to support creators building their presence in the digital space. Our platform encourages collaboration between influencers, brands, content creators, photographers, and videographers. If you are a creator looking to produce high-quality content or collaborate with professionals, {{ config('company.short_name') }} provides a creative environment to bring your ideas to life.</p>
+                </div>
+                <div class="rounded-xl border border-[var(--color-border-subtle)] p-5 bg-[var(--color-surface)]">
+                    <h3 class="font-semibold text-[var(--color-text-main)]">5. Payments and Service Queries</h3>
+                    <p class="mt-2 text-sm text-[var(--color-text-muted)]">For questions about pricing, service packages, or booking confirmation, our support team can assist. Payment structures may vary depending on studio duration, equipment requirements, production complexity, and additional services requested. We recommend confirming details with our team before your scheduled session for a smooth experience.</p>
                 </div>
             </div>
         </div>
@@ -40,6 +85,13 @@
 
     @php
         $faqCategories = [
+            'About ' . config('company.short_name') => [
+                ['q' => 'What is ' . config('company.short_name') . '?', 'a' => config('company.short_name') . ' is a creative studio platform operated by ' . config('company.name') . ' that offers professional spaces and services for photography, podcasting, and video production.'],
+                ['q' => 'Who can use the ' . config('company.short_name') . ' studio?', 'a' => 'The ' . config('company.short_name') . ' studio is designed for content creators, influencers, businesses, photographers, podcasters, and individuals looking for professional content production.'],
+                ['q' => 'Do I need professional experience to book the studio?', 'a' => 'No. Both beginners and professionals can use the ' . config('company.short_name') . ' studio. Our environment is designed to support creators at every level.'],
+                ['q' => 'What type of shoots can be done at ' . config('company.short_name') . '?', 'a' => config('company.short_name') . ' studio can be used for photography sessions, podcast recordings, product shoots, personal branding shoots, and digital content creation.'],
+                ['q' => 'How can I contact the ' . config('company.short_name') . ' support team?', 'a' => 'You can reach our team through the contact information on our website, or call ' . config('company.phone.intl') . ' or email ' . config('company.email') . '.'],
+            ],
             'Booking & Rates' => [
                 ['q' => 'What is the minimum booking time?', 'a' => 'Our minimum booking duration is 3 hours. This ensures you have enough time for load-in, setup, shooting, and load-out without rushing.'],
                 ['q' => 'How do I confirm a booking?', 'a' => 'A booking is confirmed only after we receive a 50% advance payment. Tentative holds are valid for 24 hours.'],
@@ -89,7 +141,7 @@
     @endphp
 
     {{-- FAQ Accordions --}}
-    <section class="py-16 lg:py-24 bg-white" x-data="{ activeGroup: 'Booking & Rates', filter: '' }" @search-faq.window="filter = $event.detail.toLowerCase()">
+    <section class="py-16 lg:py-24 bg-white" x-data="{ activeGroup: 'About {{ addslashes(config('company.short_name')) }}', filter: '' }" @search-faq.window="filter = $event.detail.toLowerCase()">
         <div class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
             <div class="lg:grid lg:grid-cols-12 lg:gap-12">
                 {{-- Sidebar Navigation --}}
@@ -157,12 +209,36 @@
         </div>
     </section>
 
-    {{-- Still need help? --}}
+    {{-- Our Commitment to Creators --}}
+    <section class="py-12 lg:py-16 border-b border-[var(--color-border-subtle)] bg-white">
+        <div class="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 text-center">
+            <h2 class="text-2xl font-bold text-[var(--color-text-main)]">Our Commitment to Creators</h2>
+            <p class="mt-4 text-[var(--color-text-muted)] leading-relaxed">
+                At {{ config('company.short_name') }}, we believe that every creator deserves access to a professional environment where ideas can turn into impactful content. We continuously work to improve our services, studio infrastructure, and digital platform so that creators, brands, and professionals can produce content with confidence and ease.
+            </p>
+            <p class="mt-4 text-[var(--color-text-muted)]">
+                Whether you are recording your first podcast or producing a full brand campaign, {{ config('company.short_name') }} aims to be a space where creativity and professionalism come together.
+            </p>
+            <p class="mt-8 font-semibold text-[var(--color-text-main)]">Thank you for choosing {{ config('company.short_name') }}.</p>
+        </div>
+    </section>
+
+    {{-- Still need help? / Contact Support --}}
     <section class="bg-[var(--color-surface-muted)] py-16 text-center">
         <div class="mx-auto max-w-3xl px-4">
-            <h2 class="text-2xl font-bold text-[var(--color-text-main)]">Still have questions?</h2>
+            <h2 class="text-2xl font-bold text-[var(--color-text-main)]">Contact Support</h2>
             <p class="mt-4 text-[var(--color-text-muted)]">
-                Can't find the answer you're looking for? Chat with our team directly.
+                If your question is not answered on this page, our support team will be happy to assist you.
+            </p>
+            <p class="mt-4 text-[var(--color-text-muted)] font-medium">
+                {{ config('company.short_name') }} Studio – {{ config('company.address.locality') }}
+            </p>
+            <p class="mt-2 text-[var(--color-text-muted)]">
+                Phone: <a href="tel:{{ config('company.phone.raw') }}" class="text-[var(--color-brand-lens-blue)] hover:underline">{{ config('company.phone.intl') }}</a><br>
+                Email: <a href="mailto:{{ config('company.email') }}" class="text-[var(--color-brand-lens-blue)] hover:underline">{{ config('company.email') }}</a>
+            </p>
+            <p class="mt-4 text-sm text-[var(--color-text-muted)]">
+                Our team strives to respond to inquiries as quickly as possible and help ensure a smooth experience for every creator using the {{ config('company.short_name') }} platform.
             </p>
             <div class="mt-8">
                 <a href="{{ route('pages.contact') }}" class="inline-flex items-center rounded-full bg-[var(--color-brand-lens-blue)] px-6 py-3 text-sm font-bold text-white shadow-md hover:bg-blue-700 transition">
