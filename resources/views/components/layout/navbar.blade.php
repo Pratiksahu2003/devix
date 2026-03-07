@@ -32,7 +32,7 @@
                                 'route' => 'pages.podcast',
                             ],
                             [
-                                'label' => 'Edit Room',
+                                'label' => 'Our Studio',
                                 'key' => 'edit-room',
                                 'route' => 'pages.edit-room',
                             ],

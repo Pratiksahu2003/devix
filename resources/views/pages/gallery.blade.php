@@ -8,11 +8,11 @@
 
 @section('content')
     <section class="border-b border-[var(--color-border-subtle)] bg-[var(--color-surface)]">
-        <div class="mx-auto max-w-6xl px-4 py-10 sm:px-6 lg:py-14">
-            <h1 class="text-2xl font-semibold tracking-tight sm:text-3xl">
+        <div class="mx-auto max-w-6xl px-4 py-1.5 sm:px-6 lg:py-2">
+            <h1 class="text-lg font-semibold tracking-tight sm:text-xl">
                 Gallery
             </h1>
-            <p class="mt-3 max-w-2xl text-sm leading-relaxed text-[var(--color-text-muted)]">
+            <p class="mt-1.5 max-w-2xl text-xs leading-relaxed text-[var(--color-text-muted)]">
                 Explore sample frames across portraits, fashion, e‑commerce, interviews and podcasts. Images are optimized
                 with responsive sizes, lazy loading and low‑quality placeholders for a fast experience on any network.
             </p>
@@ -183,11 +183,11 @@
                  @wheel.prevent="if($event.deltaY < 0) zoomIn(); else zoomOut();">
         </div>
 
-        <div class="mx-auto max-w-7xl px-4 py-10 sm:px-6 lg:py-14">
-            <div class="mb-8 flex flex-wrap justify-center gap-2">
+        <div class="mx-auto max-w-7xl px-4 py-1.5 sm:px-6 lg:py-2">
+            <div class="mb-2 flex flex-wrap justify-center gap-1">
                 <template x-for="c in cats" :key="c">
                     <button type="button"
-                        class="rounded-full border border-[var(--color-border-subtle)] bg-white px-5 py-2 text-sm font-medium text-[var(--color-text-main)] transition hover:border-[var(--color-brand-lens-blue)] hover:text-[var(--color-brand-lens-blue)] hover:shadow-sm"
+                        class="rounded-full border border-[var(--color-border-subtle)] bg-white px-3 py-1.5 text-xs font-medium text-[var(--color-text-main)] transition hover:border-[var(--color-brand-lens-blue)] hover:text-[var(--color-brand-lens-blue)] hover:shadow-sm"
                         :class="cat === c ? 'border-[var(--color-brand-lens-blue)] bg-blue-50 text-[var(--color-brand-lens-blue)]' : ''"
                         @click="cat = c; show = 12">
                         <span x-text="c"></span>
@@ -196,9 +196,9 @@
             </div>
 
             {{-- Masonry Layout --}}
-            <div class="columns-1 sm:columns-2 lg:columns-3 gap-6 space-y-6">
+            <div class="columns-3 sm:columns-4 md:columns-5 lg:columns-6 xl:columns-8 2xl:columns-9 gap-1 space-y-1">
                 @foreach($items as $it)
-                    <figure class="group break-inside-avoid overflow-hidden rounded-2xl bg-white shadow-sm transition hover:shadow-md cursor-zoom-in"
+                    <figure class="group break-inside-avoid overflow-hidden rounded-md bg-white shadow-sm transition hover:shadow-md cursor-zoom-in"
                         x-show="cat === 'All' || $el.dataset.cat === cat"
                         x-transition
                         data-cat="{{ $it['cat'] }}"
@@ -217,14 +217,6 @@
                         </div>
                     </figure>
                 @endforeach
-            </div>
-
-            <div class="mt-12 flex justify-center">
-                <button type="button"
-                    class="rounded-full border border-[var(--color-border-subtle)] bg-white px-6 py-3 text-sm font-medium transition hover:border-[var(--color-brand-lens-blue)] hover:text-[var(--color-brand-lens-blue)] hover:shadow-md"
-                    @click="show = show + 9; $dispatch('reveal-more')">
-                    Load More
-                </button>
             </div>
         </div>
     </section>
