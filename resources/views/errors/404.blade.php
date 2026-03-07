@@ -66,7 +66,7 @@
                 </a>
                 <a href="{{ route('pages.help') }}"
                    class="rounded-2xl border border-[var(--color-border-subtle)] bg-[var(--color-surface)] p-4 hover:border-[var(--color-brand-lens-blue)] transition">
-                    <p class="font-medium text-[var(--color-text-main)]">Help Center & FAQs</p>
+                    <p class="font-medium text-[var(--color-text-main)]">Help Center & frequently Asked Questions</p>
                     <p class="mt-1 text-sm text-[var(--color-text-muted)]">
                         Find answers to common questions about {{ config('company.short_name') }}.
                     </p>

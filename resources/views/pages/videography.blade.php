@@ -184,9 +184,9 @@
     </section>
 
     {{-- FAQ --}}
-    <section id="faqs" class="border-t border-[var(--color-border-subtle)] bg-[var(--color-surface)] py-16">
+    <section id="frequently Asked Questions" class="border-t border-[var(--color-border-subtle)] bg-[var(--color-surface)] py-16">
         <div class="mx-auto max-w-3xl px-4 sm:px-6">
-            <h2 class="text-2xl font-bold tracking-tight text-[var(--color-text-main)] mb-8">FAQs</h2>
+            <h2 class="text-2xl font-bold tracking-tight text-[var(--color-text-main)] mb-8">frequently Asked Questions</h2>
             <ul class="space-y-6">
                 @foreach($faq as $item)
                     <li>

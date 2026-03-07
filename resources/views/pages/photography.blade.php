@@ -422,10 +422,10 @@
         </div>
     </section>
 
-    {{-- Frequently Asked Questions (FAQs) --}}
+    {{-- Frequently Asked Questions (frequently Asked Questions) --}}
     <section class="bg-slate-50 py-10 border-t border-slate-200">
         <div class="mx-auto max-w-3xl px-4 sm:px-6">
-            <h2 class="text-2xl font-bold text-slate-900 text-center mb-8">Frequently Asked Questions (FAQs)</h2>
+            <h2 class="text-2xl font-bold text-slate-900 text-center mb-8">Frequently Asked Questions (frequently Asked Questions)</h2>
             <div class="space-y-4" x-data="{ active: null }">
                 @foreach($faq as $index => $item)
                     <div class="overflow-hidden rounded-2xl bg-white border border-slate-200 shadow-sm hover:shadow-md transition-shadow">

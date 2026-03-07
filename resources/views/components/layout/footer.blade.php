@@ -112,7 +112,7 @@
                 <a href="{{ route('pages.terms') }}" class="hover:text-white transition-colors">Terms</a>
                 <a href="{{ route('pages.cookie-policy') }}" class="hover:text-white transition-colors">Cookie Policy</a>
                 <a href="{{ route('pages.accessibility') }}" class="hover:text-white transition-colors">Accessibility</a>
-                <a href="{{ route('pages.help') }}" class="hover:text-white transition-colors">Help &amp; FAQs</a>
+                <a href="{{ route('pages.help') }}" class="hover:text-white transition-colors">Help &amp; frequently Asked Questions</a>
 
             </div>
         </div>

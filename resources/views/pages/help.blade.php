@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'Help & FAQs | '.config('company.brand'))
+@section('title', 'Help & frequently Asked Questions | '.config('company.brand'))
 
 @section('meta')
     <meta name="description"
@@ -117,17 +117,17 @@
         ];
 
         // Flatten for JSON-LD
-        $allFaqs = [];
+        $allfrequently Asked Questions = [];
         foreach ($faqCategories as $cat => $qs) {
             foreach ($qs as $item) {
-                $allFaqs[] = $item;
+                $allfrequently Asked Questions[] = $item;
             }
         }
         
         $faqLd = [
             '@context' => 'https://schema.org',
             '@type' => 'FAQPage',
-            'mainEntity' => collect($allFaqs)->map(function ($item) {
+            'mainEntity' => collect($allfrequently Asked Questions)->map(function ($item) {
                 return [
                     '@type' => 'Question',
                     'name' => $item['q'],
@@ -188,7 +188,7 @@
                     <div x-show="filter" x-cloak>
                         <h2 class="text-xl font-bold text-[var(--color-text-main)] mb-6">Search Results</h2>
                         <div class="space-y-4">
-                            @foreach ($allFaqs as $item)
+                            @foreach ($allfrequently Asked Questions as $item)
                                 <div 
                                     x-show="'{{ strtolower($item['q']) }}'.includes(filter) || '{{ strtolower($item['a']) }}'.includes(filter)"
                                     class="rounded-2xl border border-[var(--color-border-subtle)] bg-white overflow-hidden"

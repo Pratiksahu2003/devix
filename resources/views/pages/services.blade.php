@@ -246,15 +246,15 @@
         </div>
     </section>
 
-    {{-- FAQs --}}
-    <section class="py-24 bg-white" id="faqs" x-data="{ active: null }">
+    {{-- frequently Asked Questions --}}
+    <section class="py-24 bg-white" id="frequently Asked Questions" x-data="{ active: null }">
         <div class="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-16" x-data="{ shown: false }" x-intersect.threshold.0.2="shown = true">
                 <h2 
                     class="text-4xl font-bold text-[var(--color-text-main)] transition-all duration-1000 transform translate-y-4 opacity-0"
                     :class="{ 'translate-y-0 opacity-100': shown }"
                 >
-                    FAQs about services
+                    frequently Asked Questions about services
                 </h2>
             </div>
             

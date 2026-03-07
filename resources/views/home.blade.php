@@ -565,7 +565,7 @@
     </div>
 </section>
 
-{{-- NEW SECTION 5: FAQs (2-Column Grid) --}}
+{{-- NEW SECTION 5: frequently Asked Questions (2-Column Grid) --}}
 <section class="bg-white py-20" x-data="{ active: null }">
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div class="text-center mb-12 reveal-up" x-intersect="$el.classList.add('is-visible')">
