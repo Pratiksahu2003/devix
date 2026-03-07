@@ -385,31 +385,4 @@
     </section>
    
 
-    {{-- Best Practices --}}
-    <section class="border-t border-[var(--color-border-subtle)] bg-[var(--color-surface-muted)] py-20 sm:py-28">
-        <div class="mx-auto max-w-7xl px-4 sm:px-6">
-            <p class="text-xs font-semibold tracking-[0.2em] uppercase text-purple-600 mb-4">Pro Tips</p>
-            <h2 class="text-3xl font-bold tracking-tight text-[var(--color-text-main)] sm:text-4xl mb-12">Best Practices for Great Shows</h2>
-            <div class="grid gap-6 lg:gap-8 md:grid-cols-2">
-                <div class="group rounded-2xl lg:rounded-3xl bg-white p-8 lg:p-10 shadow-sm border border-[var(--color-border-subtle)] transition-all duration-300 hover:shadow-xl hover:shadow-purple-500/5 hover:border-purple-100">
-                    <div class="flex items-center gap-4 mb-6">
-                        <div class="h-12 w-12 rounded-full bg-purple-100 flex items-center justify-center text-purple-600">
-                            <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4m-4-8a3 3 0 01-3-3V5a3 3 0 116 0v6a3 3 0 01-3 3z" /></svg>
-                        </div>
-                        <h3 class="text-2xl font-bold text-[var(--color-text-main)]">Mic Technique</h3>
-                    </div>
-                    <p class="text-[var(--color-text-muted)] text-lg leading-relaxed">Coach guests to keep a consistent distance (about a fist's width) and angle to the mic. Use simple hand signals to pause and resume between topics to keep the flow natural.</p>
-                </div>
-                <div class="group rounded-2xl lg:rounded-3xl bg-white p-8 lg:p-10 shadow-sm border border-[var(--color-border-subtle)] transition-all duration-300 hover:shadow-xl hover:shadow-blue-500/5 hover:border-blue-100">
-                    <div class="flex items-center gap-4 mb-6">
-                        <div class="h-12 w-12 rounded-full bg-blue-100 flex items-center justify-center text-blue-600 group-hover:scale-110 transition-transform duration-300">
-                            <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z" /></svg>
-                        </div>
-                        <h3 class="text-2xl font-bold text-[var(--color-text-main)]">Edit‑Friendly Takes</h3>
-                    </div>
-                    <p class="text-[var(--color-text-muted)] text-lg leading-relaxed">Record 30 seconds of room tone and use clap syncs for each camera change. This simple step speeds up assembly and noise reduction significantly in post-production.</p>
-                </div>
-            </div>
-        </div>
-    </section>
 @endsection
