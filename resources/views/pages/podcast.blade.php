@@ -139,7 +139,6 @@
     {{-- Podcast Studio for Rent in Delhi --}}
     <section id="features" class="bg-[var(--color-surface-muted)] py-20 sm:py-28">
         <div class="mx-auto max-w-6xl px-4 sm:px-6">
-            <p class="text-xs font-semibold tracking-[0.2em] uppercase text-purple-600 mb-4">Studio Rental</p>
             <h2 class="text-3xl font-bold tracking-tight text-[var(--color-text-main)] sm:text-4xl mb-8">Podcast Studio for Rent in Delhi</h2>
             <div class="rounded-2xl lg:rounded-3xl bg-white p-8 sm:p-10 shadow-lg shadow-slate-200/50 border border-[var(--color-border-subtle)] mb-8">
                 <p class="text-lg text-[var(--color-text-muted)] leading-relaxed mb-6">
@@ -169,7 +168,6 @@
     {{-- Professional Podcast Equipment --}}
     <section class="bg-[var(--color-surface)] py-20 sm:py-28">
         <div class="mx-auto max-w-6xl px-4 sm:px-6">
-            <p class="text-xs font-semibold tracking-[0.2em] uppercase text-purple-600 mb-4">Equipment</p>
             <h2 class="text-3xl font-bold tracking-tight text-[var(--color-text-main)] sm:text-4xl mb-8">Professional Podcast Equipment</h2>
             <p class="text-lg text-[var(--color-text-muted)] leading-relaxed mb-10 max-w-3xl">
                 {{ config('company.brand') }} Podcast Studio is equipped with industry-grade audio and video equipment to ensure your podcast recordings meet professional standards.
@@ -198,7 +196,6 @@
     {{-- Multi-Camera Video Podcast Setup --}}
     <section class="bg-[var(--color-surface-muted)] py-20 sm:py-28">
         <div class="mx-auto max-w-6xl px-4 sm:px-6">
-            <p class="text-xs font-semibold tracking-[0.2em] uppercase text-purple-600 mb-4">Video Production</p>
             <h2 class="text-3xl font-bold tracking-tight text-[var(--color-text-main)] sm:text-4xl mb-8">Multi-Camera Video Podcast Setup</h2>
             <div class="rounded-2xl lg:rounded-3xl bg-white p-8 sm:p-10 shadow-lg shadow-slate-200/50 border border-[var(--color-border-subtle)] mb-8">
                 <p class="text-lg text-[var(--color-text-muted)] leading-relaxed mb-6">
@@ -225,7 +222,6 @@
     {{-- Designed for Creators, Influencers, and Brands --}}
     <section class="bg-[var(--color-surface)] py-20 sm:py-28">
         <div class="mx-auto max-w-6xl px-4 sm:px-6">
-            <p class="text-xs font-semibold tracking-[0.2em] uppercase text-purple-600 mb-4">Built for You</p>
             <h2 class="text-3xl font-bold tracking-tight text-[var(--color-text-main)] sm:text-4xl mb-8">Designed for Creators, Influencers, and Brands</h2>
             <div class="rounded-2xl lg:rounded-3xl bg-white p-8 sm:p-10 shadow-lg shadow-slate-200/50 border border-[var(--color-border-subtle)]">
                 <p class="text-lg text-[var(--color-text-muted)] leading-relaxed mb-6">
@@ -337,7 +333,6 @@
     <section class="bg-[var(--color-surface)] py-20 sm:py-28">
         <div class="mx-auto max-w-6xl px-4 sm:px-6">
             <div class="text-center mb-16">
-                <p class="text-xs font-semibold tracking-[0.2em] uppercase text-purple-600 mb-4">Support</p>
                 <h2 class="text-3xl sm:text-4xl font-bold tracking-tight text-[var(--color-text-main)]">Frequently Asked Questions</h2>
                 <p class="mt-4 text-lg text-[var(--color-text-muted)]">Everything you need to know before you book.</p>
             </div>
