@@ -115,6 +115,15 @@
     100% { transform: translateX(-50%); }
 }
 
+/* Hero headline glow */
+@keyframes hero-glow {
+    0%, 100% { filter: drop-shadow(0 0 30px rgba(220,38,38,0.3)); }
+    50% { filter: drop-shadow(0 0 50px rgba(220,38,38,0.5)); }
+}
+.hero-glow {
+    animation: hero-glow 4s ease-in-out infinite;
+}
+
 .animate-spin-slow {
     animation: spin 8s linear infinite;
 }

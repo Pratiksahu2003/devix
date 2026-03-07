@@ -3,109 +3,115 @@
 @section('title', config('company.brand').' | Premier Podcast & Content Studio in Delhi NCR')
 
 @section('content')
-    {{-- Hero Section (Fitting Frames Cinematic) --}}
-    <section class="relative w-full bg-black min-h-screen flex flex-col items-center justify-center overflow-hidden py-20"
-             x-data="{ mouseX: 0, mouseY: 0 }" 
-             @mousemove="mouseX = $event.clientX; mouseY = $event.clientY">
-        {{-- Background Texture (Parallax) --}}
-        <div class="absolute inset-0 opacity-20 bg-[url('https://www.transparenttextures.com/patterns/stardust.png')]"
-             :style="`transform: translate(${mouseX * -0.02}px, ${mouseY * -0.02}px)`"></div>
-        
-        {{-- Top Header --}}
-        <div class="relative z-10 text-center px-4 mb-12 reveal-up" x-intersect="$el.classList.add('is-visible')">
-            <h1 class="text-3xl md:text-5xl font-bold uppercase tracking-widest text-white mb-2 font-sans">
-                Studio Space Available <span class="text-red-600 animate-pulse">24/7</span> For All Your Shooting Needs
-            </h1>
-            <p class="text-red-600 text-[10px] md:text-sm font-bold tracking-[0.2em] uppercase">
-                Equipped With Professional Gear & Versatile Filming Environments
-            </p>
+    {{-- Hero Section - Cinematic & Bold --}}
+    <section class="relative w-full min-h-[85vh] md:min-h-[80vh] flex items-center overflow-hidden group"
+             x-data="{ slide: 0, total: 6, paused: false, startTimer() { return setInterval(() => { if (!this.paused) this.slide = (this.slide + 1) % this.total }, 4500) }, timer: null }"
+             x-init="timer = startTimer(); $watch('slide', () => { clearInterval(timer); timer = startTimer() })"
+             @mouseenter="paused = true"
+             @mouseleave="paused = false">
+        {{-- Background images with zoom + fade --}}
+        <div class="absolute inset-0">
+            @foreach(['IMG_0785.jpeg', 'IMG_0769.jpeg', 'IMG_0784.jpeg', 'IMG_0780.jpeg', 'IMG_0781.jpeg', 'IMG_0783.jpeg'] as $i => $img)
+                <div x-show="slide === {{ $i }}"
+                     x-transition:enter="transition ease-out duration-1200"
+                     x-transition:enter-start="opacity-0 scale-110"
+                     x-transition:enter-end="opacity-100 scale-100"
+                     x-transition:leave="transition ease-in duration-1200"
+                     x-transition:leave-start="opacity-100 scale-100"
+                     x-transition:leave-end="opacity-0 scale-105"
+                     class="absolute inset-0"
+                     :class="{ 'z-10': slide === {{ $i }} }">
+                    <img src="{{ asset('storage/room/' . $img) }}" alt="Studio {{ $i + 1 }}" class="h-full w-full object-cover object-center">
+                </div>
+            @endforeach
+            {{-- Dramatic overlay --}}
+            <div class="absolute inset-0 z-20 bg-gradient-to-r from-black via-black/90 to-black/40 pointer-events-none"></div>
+            <div class="absolute inset-0 z-20 bg-gradient-to-t from-black/60 via-transparent to-black/40 pointer-events-none"></div>
+            {{-- Film-style corner accents --}}
+            <div class="absolute inset-0 z-20 pointer-events-none border-[3px] border-white/10 md:border-white/20" style="border-radius: 2px;"></div>
+            <div class="absolute top-8 left-8 right-8 h-px bg-gradient-to-r from-transparent via-red-500/40 to-transparent z-20 pointer-events-none"></div>
+            {{-- Subtle film grain --}}
+            <div class="absolute inset-0 z-20 pointer-events-none opacity-[0.03] mix-blend-overlay" style="background-image: url('data:image/svg+xml,%3Csvg viewBox=%220 0 256 256%22 xmlns=%22http://www.w3.org/2000/svg%22%3E%3Cfilter id=%22noise%22%3E%3CfeTurbulence type=%22fractalNoise%22 baseFrequency=%220.9%22 numOctaves=%224%22 stitchTiles=%22stitch%22/%3E%3C/filter%3E%3Crect width=%22100%25%22 height=%22100%25%22 filter=%22url(%23noise)%22/%3E%3C/svg%3E');"></div>
         </div>
 
-        {{-- Main Cinematic Composition --}}
-        <div class="relative w-full max-w-[1400px] flex flex-col md:flex-row items-center justify-center my-8 gap-8 md:gap-0">
-            
-            {{-- Left Film Strip --}}
-            <div class="w-full md:w-1/3 h-32 relative overflow-hidden opacity-80 md:mr-[-40px] z-0">
-                <div class="absolute inset-y-0 left-0 w-20 bg-gradient-to-r from-black to-transparent z-10"></div>
-                <div class="flex animate-marquee-reverse hover:[animation-play-state:paused] items-center h-full border-y-4 border-dashed border-gray-800 bg-gray-900/50">
-                    @foreach(range(1, 4) as $i)
-                        <div class="flex shrink-0">
-                            <img src="{{ asset('storage/room/IMG_0769.jpeg') }}" class="h-24 w-40 object-cover mx-1 border-2 border-gray-800 transition-all duration-300">
-                            <img src="{{ asset('storage/room/IMG_0770.jpeg') }}" class="h-24 w-40 object-cover mx-1 border-2 border-gray-800 transition-all duration-300">
-                            <img src="{{ asset('storage/room/IMG_0771.jpeg') }}" class="h-24 w-40 object-cover mx-1 border-2 border-gray-800 transition-all duration-300">
-                        </div>
-                    @endforeach
-                </div>
-            </div>
-
-            {{-- Center Piece (Shutter & Text) --}}
-            <div class="relative z-20 flex items-center justify-center shrink-0 scale-90 md:scale-100 reveal-up delay-100">
-                {{-- Left Bracket --}}
-                <div class="hidden md:flex bg-red-900/90 border-l-8 border-red-600 h-24 items-center pl-6 pr-10 rounded-l-2xl shadow-[0_0_30px_rgba(220,38,38,0.3)] transform -skew-x-6 mr-[-30px] z-10">
-                    <span class="text-4xl font-serif text-white tracking-widest transform skew-x-6 drop-shadow-md">FITTING</span>
-                </div>
-
-                {{-- Central Shutter Circle --}}
-                <div class="relative w-72 h-72 md:w-96 md:h-96 rounded-full border-[6px] border-white bg-black overflow-hidden z-20 shadow-[0_0_50px_rgba(0,0,0,0.8)] group">
-                    {{-- Spinning Grid --}}
-                    <div class="absolute inset-0 grid grid-cols-2 grid-rows-2 gap-1 transform rotate-45 scale-125 transition-transform duration-[20s] ease-linear group-hover:rotate-[225deg]">
-                        <div class="overflow-hidden bg-gray-800"><img src="{{ asset('storage/room/IMG_0772.jpeg') }}" class="h-full w-full object-cover transform -rotate-45 transition-all duration-700"></div>
-                        <div class="overflow-hidden bg-gray-800"><img src="{{ asset('storage/room/IMG_0773.jpeg') }}" class="h-full w-full object-cover transform -rotate-45 transition-all duration-700"></div>
-                        <div class="overflow-hidden bg-gray-800"><img src="{{ asset('storage/room/IMG_0774.jpeg') }}" class="h-full w-full object-cover transform -rotate-45 transition-all duration-700"></div>
-                        <div class="overflow-hidden bg-gray-800"><img src="{{ asset('storage/room/IMG_0775.jpeg') }}" class="h-full w-full object-cover transform -rotate-45 transition-all duration-700"></div>
+        <div class="relative z-30 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-24">
+            <div class="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-12 lg:gap-16">
+                {{-- Left: Content --}}
+                <div class="max-w-2xl reveal-up" x-intersect="$el.classList.add('is-visible')">
+                    {{-- Live badge --}}
+                    <div class="inline-flex items-center gap-2 rounded-full border border-red-500/60 bg-red-500/15 px-4 py-2 mb-6 backdrop-blur-sm shadow-[0_0_20px_rgba(220,38,38,0.2)]">
+                        <span class="h-2 w-2 rounded-full bg-red-400 animate-pulse shadow-[0_0_8px_rgba(220,38,38,0.8)]"></span>
+                        <span class="text-[10px] font-bold tracking-[0.35em] text-red-300 uppercase">Studio Open 24/7</span>
                     </div>
-                    {{-- Center Aperture Dot --}}
-                    <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-16 h-16 bg-black/80 rounded-full border-2 border-red-600 backdrop-blur-sm z-30 flex items-center justify-center">
-                        
+
+                    <h1 class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black text-white leading-[1.05] tracking-tight">
+                        <span class="block font-sans">Your Creative</span>
+                        <span class="block mt-1 font-serif bg-gradient-to-r from-white via-red-200 to-red-500 bg-clip-text text-transparent bg-[length:200%_auto] animate-gradient" style="text-shadow: 0 0 60px rgba(220,38,38,0.4);">Space Awaits</span>
+                    </h1>
+                    <p class="mt-5 text-lg md:text-xl text-gray-300 max-w-lg leading-relaxed">
+                        Pro gear, versatile sets & 24/7 access. Fashion, product, commercial & videography — all under one roof.
+                    </p>
+
+                    <div class="mt-8 flex flex-wrap gap-4">
+                        <a href="{{ route('pages.booking') }}" class="group/btn inline-flex items-center gap-2 rounded-full bg-red-600 px-8 py-4 text-sm font-bold text-white shadow-[0_0_40px_rgba(220,38,38,0.5)] transition-all duration-300 hover:bg-red-500 hover:shadow-[0_0_50px_rgba(220,38,38,0.7)] hover:scale-105 active:scale-[0.98]">
+                            Book Now
+                            <svg class="h-5 w-5 transition-transform group-hover/btn:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
+                        </a>
+                        <a href="{{ route('pages.gallery') }}" class="inline-flex items-center gap-2 rounded-full border-2 border-white/50 bg-white/5 px-8 py-4 text-sm font-semibold text-white backdrop-blur-sm transition-all duration-300 hover:bg-white/15 hover:border-white/70">
+                            View Gallery
+                        </a>
+                    </div>
+
+                    {{-- Trust strip --}}
+                    <div class="mt-10 flex flex-wrap gap-8 text-white/60 text-sm">
+                        <span class="flex items-center gap-2"><span class="font-bold text-white">500+</span> Shoots</span>
+                        <span class="flex items-center gap-2"><span class="font-bold text-white">150+</span> Clients</span>
+                        <span class="flex items-center gap-2"><span class="font-bold text-red-400">24/7</span> Access</span>
                     </div>
                 </div>
 
-                {{-- Right Bracket --}}
-                <div class="hidden md:flex bg-red-900/90 border-r-8 border-red-600 h-24 items-center pr-6 pl-10 rounded-r-2xl shadow-[0_0_30px_rgba(220,38,38,0.3)] transform skew-x-6 ml-[-30px] z-10">
-                    <span class="text-4xl font-serif text-white tracking-widest transform -skew-x-6 drop-shadow-md">FRAMES</span>
-                </div>
-                
-                {{-- Mobile Text (Stacked) --}}
-                <div class="absolute md:hidden inset-0 flex items-center justify-center pointer-events-none z-30">
-                     <span class="text-4xl font-serif text-white font-bold tracking-widest drop-shadow-[0_2px_2px_rgba(0,0,0,0.8)]">dyWix</span>
-                </div>
-            </div>
-
-            {{-- Right Film Strip --}}
-            <div class="w-full md:w-1/3 h-32 relative overflow-hidden opacity-80 md:ml-[-40px] z-0">
-                <div class="absolute inset-y-0 right-0 w-20 bg-gradient-to-l from-black to-transparent z-10"></div>
-                <div class="flex animate-marquee hover:[animation-play-state:paused] items-center h-full border-y-4 border-dashed border-gray-800 bg-gray-900/50">
-                    @foreach(range(1, 4) as $i)
-                        <div class="flex shrink-0">
-                            <img src="{{ asset('storage/room/IMG_0776.jpeg') }}" class="h-24 w-40 object-cover mx-1 border-2 border-gray-800 transition-all duration-300">
-                            <img src="{{ asset('storage/room/IMG_0777.jpeg') }}" class="h-24 w-40 object-cover mx-1 border-2 border-gray-800 transition-all duration-300">
-                            <img src="{{ asset('storage/room/IMG_0779.jpeg') }}" class="h-24 w-40 object-cover mx-1 border-2 border-gray-800 transition-all duration-300">
+                {{-- Right: Floating image card (synced with slide) --}}
+                <div class="hidden lg:block flex-shrink-0 reveal-up delay-200" x-intersect="$el.classList.add('is-visible')">
+                    <div class="relative w-72 xl:w-80 aspect-[4/5] rounded-2xl overflow-hidden border-2 border-white/20 shadow-2xl shadow-black/50 ring-2 ring-white/10">
+                        @foreach(['IMG_0785.jpeg', 'IMG_0769.jpeg', 'IMG_0784.jpeg', 'IMG_0780.jpeg', 'IMG_0781.jpeg', 'IMG_0783.jpeg'] as $i => $img)
+                            <div x-show="slide === {{ $i }}"
+                                 x-transition:enter="transition ease-out duration-700"
+                                 x-transition:enter-start="opacity-0 scale-95"
+                                 x-transition:enter-end="opacity-100 scale-100"
+                                 x-transition:leave="transition ease-in duration-500"
+                                 x-transition:leave-start="opacity-100"
+                                 x-transition:leave-end="opacity-0"
+                                 class="absolute inset-0">
+                                <img src="{{ asset('storage/room/' . $img) }}" alt="Studio" class="h-full w-full object-cover">
+                            </div>
+                        @endforeach
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+                        <div class="absolute bottom-4 left-4 right-4">
+                            <span class="text-xs font-bold tracking-widest text-white/90 uppercase">DYWIX Studio</span>
                         </div>
-                    @endforeach
+                    </div>
                 </div>
             </div>
-        </div>
 
-        {{-- Bottom Banner --}}
-        <div class="relative z-10 w-full max-w-5xl px-4 mt-8 reveal-up delay-200">
-            <div class="bg-gradient-to-r from-red-900/80 via-red-600/90 to-red-900/80 py-3 px-6 rounded-lg text-center shadow-[0_10px_40px_-10px_rgba(220,38,38,0.5)] border border-red-500/30 backdrop-blur-sm">
-                <p class="text-[10px] md:text-sm font-bold tracking-[0.2em] text-white uppercase truncate">
-                    Fashion <span class="mx-2 text-red-300">|</span> Product <span class="mx-2 text-red-300">|</span> Maternity <span class="mx-2 text-red-300">|</span> Commercial <span class="mx-2 text-red-300">|</span> Videography & More
-                </p>
+            {{-- Slide dots --}}
+            <div class="absolute bottom-6 right-6 flex gap-2 z-30">
+                @foreach(range(0, 5) as $i)
+                    <button @click="slide = {{ $i }}" class="rounded-full transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-red-500/60 focus:ring-offset-2 focus:ring-offset-transparent"
+                            :class="slide === {{ $i }} ? 'bg-red-500 w-8 h-2' : 'bg-white/30 hover:bg-white/50 w-2 h-2'"
+                            aria-label="Slide {{ $i + 1 }}"></button>
+                @endforeach
             </div>
-        </div>
 
-        {{-- Floating CTA --}}
-        <div class="fixed bottom-8 left-8 z-50 md:absolute md:bottom-20 md:left-20 reveal-up delay-500">
-            <a href="{{ route('pages.booking') }}" class="group relative inline-flex items-center justify-center overflow-hidden rounded-full bg-red-700 px-8 py-3 font-bold text-white shadow-[0_0_20px_rgba(220,38,38,0.6)] transition-all hover:bg-red-600 hover:scale-105 hover:shadow-[0_0_30px_rgba(220,38,38,0.8)]">
-                <span class="absolute inset-0 h-full w-full bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full transition-transform duration-1000 group-hover:animate-shimmer"></span>
-                <span class="relative tracking-widest uppercase text-sm">Book Now</span>
-            </a>
+            {{-- Scroll hint --}}
+            <div class="absolute bottom-6 left-1/2 -translate-x-1/2 hidden md:flex flex-col items-center gap-1 text-white/40">
+                <span class="text-[10px] font-medium tracking-widest uppercase">Scroll</span>
+                <svg class="h-5 w-5 animate-bounce" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3" /></svg>
+            </div>
         </div>
     </section>
 
     {{-- Scrolling Text Marquee (Modern Infinite) --}}
-    <div class="relative overflow-hidden bg-black py-10 border-b border-white/10">
+    <div class="relative overflow-hidden bg-black py-6 md:py-8 border-b border-white/10">
         {{-- Gradient Masks --}}
         <div class="pointer-events-none absolute inset-y-0 left-0 w-32 bg-gradient-to-r from-black to-transparent z-10"></div>
         <div class="pointer-events-none absolute inset-y-0 right-0 w-32 bg-gradient-to-l from-black to-transparent z-10"></div>
