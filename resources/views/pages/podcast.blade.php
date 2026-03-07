@@ -191,9 +191,7 @@
                 </div>
                 @endforeach
             </div>
-            <p class="mt-10 text-lg text-[var(--color-text-muted)] leading-relaxed max-w-3xl">
-                This setup allows you to record high-quality audio podcasts for platforms like Spotify and Apple Podcasts, while also creating video podcasts suitable for YouTube and social media platforms.
-            </p>
+      
         </div>
     </section>
 
