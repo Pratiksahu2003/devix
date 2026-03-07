@@ -72,7 +72,7 @@
                 Pro gear, versatile sets &amp; 24/7 access. All under one roof.
             </p>
             <div class="mt-8 flex flex-col sm:flex-row gap-3 justify-center">
-                <a href="#contact" class="inline-flex items-center justify-center gap-2 rounded-full bg-amber-500 px-10 py-4 text-base font-bold text-slate-950 transition-all duration-300 hover:bg-amber-400 hover:scale-105">
+                <a href="{{ route('pages.contact') }}" class="inline-flex items-center justify-center gap-2 rounded-full bg-amber-500 px-10 py-4 text-base font-bold text-slate-950 transition-all duration-300 hover:bg-amber-400 hover:scale-105">
                     Book Studio Now
                     <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
                 </a>
@@ -256,32 +256,7 @@
         </div>
     </section>
 
-    {{-- Gallery Preview - Image Cards --}}
-    <section class="bg-white py-12 border-t border-slate-200">
-        <div class="mx-auto max-w-6xl px-4 sm:px-6">
-            <div class="flex flex-col md:flex-row md:items-end md:justify-between mb-8 gap-4">
-                <div>
-                    <h2 class="text-2xl font-bold text-slate-900">Shot at Our Studio</h2>
-                    <p class="mt-2 text-slate-600">Real results from recent bookings. See what's possible.</p>
-                </div>
-                <a href="{{ url('/gallery') }}" class="inline-flex items-center font-semibold text-slate-900 hover:text-slate-700 gap-2 group">
-                    View Full Gallery
-                    <svg class="h-5 w-5 transition-transform group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
-                </a>
-            </div>
-            <div class="grid grid-cols-2 md:grid-cols-3 gap-4 lg:gap-4">
-                @foreach($galleryItems as $item)
-                    <div class="group relative overflow-hidden rounded-2xl border border-slate-200 shadow-sm hover:shadow-xl transition-all duration-300 aspect-[4/5]">
-                        <img src="{{ asset($item['src']) }}" alt="{{ $item['alt'] }}" class="h-full w-full object-cover transition duration-500 group-hover:scale-110" loading="lazy">
-                        <div class="absolute inset-0 bg-gradient-to-t from-slate-900/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-5">
-                            <span class="text-white font-semibold">{{ $item['alt'] }}</span>
-                        </div>
-                    </div>
-                @endforeach
-            </div>
-        </div>
-    </section>
-
+   
     {{-- Studio Space & Infrastructure - Card --}}
     <section class="bg-white py-12 border-t border-slate-200">
         <div class="mx-auto max-w-6xl px-4 sm:px-6">
@@ -368,38 +343,45 @@
         </div>
     </section>
 
-    {{-- Book Your Studio Session - CTA Card --}}
-    <section class="bg-slate-50 py-12 border-t border-slate-200">
-        <div class="mx-auto max-w-4xl px-4 sm:px-6">
-            <div class="rounded-2xl bg-slate-900 p-6 md:p-8 text-center text-white shadow-2xl">
-                <h2 class="text-2xl md:text-3xl font-bold mb-4">Book Your Studio Session</h2>
-                <p class="text-slate-300 leading-relaxed mb-4 max-w-2xl mx-auto">If you are looking for a professional photography studio in Delhi NCR, {{ config('company.brand') }} Studio is the perfect place to bring your creative ideas to life.</p>
-                <p class="text-slate-300 leading-relaxed mb-4 max-w-2xl mx-auto">Our studio is available for photography shoots, video production, podcast recording, and content creation projects. Book for hourly sessions, half-day shoots, or full-day production projects.</p>
-                <p class="text-slate-200 font-medium mb-8">Create stunning content, build your brand, and bring your vision to life at {{ config('company.brand') }} Studio.</p>
-                <a href="#contact" class="inline-flex items-center justify-center gap-2 rounded-xl bg-white px-10 py-4 text-base font-bold text-slate-900 shadow-lg transition-all duration-300 hover:bg-slate-100 hover:scale-105">
-                    Book Studio Now
-                    <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
-                </a>
-            </div>
-        </div>
-    </section>
+ 
 
-    {{-- Gallery - Shot at Our Studio --}}
-    <section class="bg-white py-12 border-t border-slate-200">
-        <div class="mx-auto max-w-6xl px-4 sm:px-6">
-            <div class="flex flex-col md:flex-row md:items-end md:justify-between mb-8 gap-4">
+    {{-- Gallery - Shot at Our Studio (highlighted with light orange) --}}
+    <section
+        x-data="{ visible: false }"
+        x-intersect.once="visible = true"
+        class="relative py-16 border-t border-slate-200 overflow-hidden bg-gradient-to-br from-orange-50 via-white to-orange-50/50 ring-2 ring-inset ring-orange-200/40"
+    >
+        {{-- Highlight accent: light orange --}}
+        <div class="absolute left-0 top-0 bottom-0 w-1.5 bg-gradient-to-b from-orange-300 via-orange-400 to-orange-500 shadow-lg shadow-orange-300/30"></div>
+        <div class="absolute -right-20 -top-20 h-48 w-48 rounded-full bg-orange-200/30 blur-3xl"></div>
+        <div class="absolute -left-20 -bottom-20 h-48 w-48 rounded-full bg-orange-300/20 blur-3xl"></div>
+
+        <div class="relative mx-auto max-w-6xl px-4 sm:px-6">
+            <div
+                class="flex flex-col md:flex-row md:items-end md:justify-between mb-8 gap-4"
+                x-show="visible"
+                x-transition:enter="transition ease-out duration-600"
+                x-transition:enter-start="opacity-0 translate-y-6"
+                x-transition:enter-end="opacity-100 translate-y-0"
+            >
                 <div>
                     <h2 class="text-2xl font-bold text-slate-900">Shot at Our Studio</h2>
                     <p class="mt-2 text-slate-600">Real results from recent bookings. See what's possible.</p>
                 </div>
-                <a href="{{ url('/gallery') }}" class="inline-flex items-center font-semibold text-slate-900 hover:text-slate-700 gap-2 group">
+                <a href="{{ url('/gallery') }}" class="inline-flex items-center font-semibold text-orange-600 hover:text-orange-700 gap-2 group">
                     View Full Gallery
                     <svg class="h-5 w-5 transition-transform group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
                 </a>
             </div>
             <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
-                @foreach($galleryItems as $item)
-                    <div class="group rounded-2xl overflow-hidden border border-slate-200 shadow-sm hover:shadow-xl transition-all duration-300 aspect-[4/5]">
+                @foreach($galleryItems as $index => $item)
+                    <div
+                        class="group relative rounded-2xl overflow-hidden border border-slate-200 shadow-sm hover:shadow-xl hover:shadow-orange-200/50 hover:border-orange-300/60 transition-all duration-300 aspect-[4/5]"
+                        x-show="visible"
+                        x-transition:enter="transition ease-out duration-500 delay-{{ min($index * 75, 300) }}"
+                        x-transition:enter-start="opacity-0 translate-y-8 scale-95"
+                        x-transition:enter-end="opacity-100 translate-y-0 scale-100"
+                    >
                         <img src="{{ asset($item['src']) }}" alt="{{ $item['alt'] }}" class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-110" loading="lazy">
                         <div class="absolute inset-0 bg-gradient-to-t from-slate-900/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-5">
                             <span class="text-white font-semibold">{{ $item['alt'] }}</span>
@@ -421,12 +403,27 @@
             </div>
         </div>
     </section>
+       {{-- Book Your Studio Session - CTA Card --}}
+       <section class="bg-slate-50 py-12 border-t border-slate-200">
+        <div class="mx-auto max-w-4xl px-4 sm:px-6">
+            <div class="rounded-2xl bg-slate-900 p-6 md:p-8 text-center text-white shadow-2xl">
+                <h2 class="text-2xl md:text-3xl font-bold mb-4">Book Your Studio Session</h2>
+                <p class="text-slate-300 leading-relaxed mb-4 max-w-2xl mx-auto">If you are looking for a professional photography studio in Delhi NCR, {{ config('company.brand') }} Studio is the perfect place to bring your creative ideas to life.</p>
+                <p class="text-slate-300 leading-relaxed mb-4 max-w-2xl mx-auto">Our studio is available for photography shoots, video production, podcast recording, and content creation projects. Book for hourly sessions, half-day shoots, or full-day production projects.</p>
+                <p class="text-slate-200 font-medium mb-8">Create stunning content, build your brand, and bring your vision to life at {{ config('company.brand') }} Studio.</p>
+                <a href="#contact" class="inline-flex items-center justify-center gap-2 rounded-xl bg-white px-10 py-4 text-base font-bold text-slate-900 shadow-lg transition-all duration-300 hover:bg-slate-100 hover:scale-105">
+                    Book Studio Now
+                    <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
+                </a>
+            </div>
+        </div>
+    </section>
 
     {{-- Frequently Asked Questions (frequently Asked Questions) --}}
     <section class="bg-slate-50 py-10 border-t border-slate-200">
-        <div class="mx-auto max-w-3xl px-4 sm:px-6">
-            <h2 class="text-2xl font-bold text-slate-900 text-center mb-8">Frequently Asked Questions (frequently Asked Questions)</h2>
-            <div class="space-y-4" x-data="{ active: null }">
+        <div class="mx-auto max-w-6xl px-4 sm:px-6">
+            <h2 class="text-2xl font-bold text-slate-900 text-center mb-8">Frequently Asked Questions</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4" x-data="{ active: null }">
                 @foreach($faq as $index => $item)
                     <div class="overflow-hidden rounded-2xl bg-white border border-slate-200 shadow-sm hover:shadow-md transition-shadow">
                         <button 
