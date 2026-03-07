@@ -175,7 +175,7 @@
                             <div class="mt-4 flex items-center gap-4">
                                 <div class="h-10 w-10 rounded-full bg-white/20 backdrop-blur-md flex items-center justify-center font-bold">JD</div>
                                 <div>
-                                    <p class="font-bold">John Doe</p>
+                                    <p class="font-bold">Palak Tiwari </p>
                                     <p class="text-sm text-white/70">Creative Director, Agency X</p>
                                 </div>
                             </div>
