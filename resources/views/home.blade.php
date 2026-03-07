@@ -379,64 +379,80 @@
 </section>
 
 {{-- NEW SECTION 3: Life at dyWix (Modern Bento Compact) --}}
-<section class="bg-white py-20" x-data="{ mouseX: 0, mouseY: 0 }" @mousemove="mouseX = $event.clientX; mouseY = $event.clientY">
-    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div class="grid grid-cols-1 md:grid-cols-4 grid-rows-2 gap-4 h-[600px] md:h-[500px]">
+<section class="relative bg-gradient-to-b from-slate-50 to-white py-10 md:py-12 overflow-hidden" x-data="{ mouseX: 0, mouseY: 0 }" @mousemove="mouseX = $event.clientX; mouseY = $event.clientY">
+    {{-- Ambient accent --}}
+    <div class="absolute top-0 right-0 w-96 h-96 bg-red-500/5 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2"></div>
+    <div class="absolute bottom-0 left-0 w-64 h-64 bg-blue-500/5 rounded-full blur-3xl translate-y-1/2 -translate-x-1/2"></div>
+
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 relative">
+        {{-- Section header --}}
+        <div class="text-center mb-6 reveal-up" x-intersect="$el.classList.add('is-visible')">
+            <h2 class="text-xl md:text-2xl font-bold text-gray-900 tracking-tight">Where Creativity Comes Alive</h2>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-4 grid-rows-2 gap-2 md:gap-3 h-[420px] md:h-[320px]">
             {{-- Text Block (Top Left) --}}
-            <div class="md:col-span-2 md:row-span-2 rounded-3xl bg-gray-50 p-8 flex flex-col justify-between overflow-hidden relative group border border-gray-100 reveal-up"
+            <div class="md:col-span-2 md:row-span-2 rounded-2xl bg-white p-4 md:p-5 flex flex-col justify-between overflow-hidden relative group border border-gray-100 shadow-sm hover:shadow-lg transition-shadow duration-500 reveal-up"
                 x-intersect="$el.classList.add('is-visible')">
 
-                {{-- Spotlight Effect --}}
+                {{-- Spotlight Effect (red accent) --}}
                 <div class="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"
-                    :style="`background: radial-gradient(600px circle at ${mouseX - $el.getBoundingClientRect().left}px ${mouseY - $el.getBoundingClientRect().top}px, rgba(59, 130, 246, 0.1), transparent 40%);`"></div>
+                    :style="`background: radial-gradient(600px circle at ${mouseX - $el.getBoundingClientRect().left}px ${mouseY - $el.getBoundingClientRect().top}px, rgba(220, 38, 38, 0.08), transparent 40%);`"></div>
 
                 <div class="relative z-10">
-                    <span class="text-blue-600 font-bold tracking-widest uppercase text-xs"></span>
-                    <h2 class="mt-2 text-3xl font-bold text-gray-900 tracking-tight">The Energy of DyWix</h2>
-                    <p class="mt-4 text-gray-600 leading-relaxed text-sm">
+                    <h2 class="text-lg md:text-xl font-bold text-gray-900 tracking-tight">The Energy of DyWix</h2>
+                    <p class="mt-2 text-gray-600 leading-relaxed text-xs md:text-sm">
                         DyWix is more than just a studio—it’s a vibrant space where creators connect, collaborate, and bring ideas to life. Whether it’s a high-energy fashion shoot, an engaging podcast session, or a creative production, the studio is always buzzing with passion and innovation. Every corner inspires creativity, making DyWix a hub where imagination turns into reality and creators produce unforgettable work together.
                     </p>
                 </div>
-                <div class="relative z-10  grid grid-cols-3 gap-4 border-t border-gray-200">
-                    <div class="group/stat cursor-default">
-                        <p class="text-2xl font-bold text-black transition-transform group-hover/stat:-translate-y-1">1000+</p>
-                        <p class="text-[10px] text-gray-500 uppercase">Shoots</p>
+                <div class="relative z-10 grid grid-cols-3 gap-2 pt-3 mt-3 border-t border-gray-200">
+                    <div class="group/stat cursor-default p-1.5 rounded-lg -m-1.5 transition-colors group-hover/stat:bg-red-50/80">
+                        <p class="text-lg font-bold text-gray-900 transition-all group-hover/stat:-translate-y-0.5 group-hover/stat:text-red-600">1000+</p>
+                        <p class="text-[10px] text-gray-500 uppercase mt-0.5">Shoots</p>
                     </div>
-                    <div class="group/stat cursor-default">
-                        <p class="text-2xl font-bold text-black transition-transform group-hover/stat:-translate-y-1 delay-75">250+</p>
-                        <p class="text-[10px] text-gray-500 uppercase">Clients</p>
+                    <div class="group/stat cursor-default p-1.5 rounded-lg -m-1.5 transition-colors group-hover/stat:bg-red-50/80">
+                        <p class="text-lg font-bold text-gray-900 transition-all group-hover/stat:-translate-y-0.5 group-hover/stat:text-red-600 delay-75">250+</p>
+                        <p class="text-[10px] text-gray-500 uppercase mt-0.5">Clients</p>
                     </div>
-                    <div class="group/stat cursor-default">
-                        <p class="text-2xl font-bold text-black transition-transform group-hover/stat:-translate-y-1 delay-100">24/7</p>
-                        <p class="text-[10px] text-gray-500 uppercase">Access</p>
+                    <div class="group/stat cursor-default p-1.5 rounded-lg -m-1.5 transition-colors group-hover/stat:bg-red-50/80">
+                        <p class="text-lg font-bold text-gray-900 transition-all group-hover/stat:-translate-y-0.5 group-hover/stat:text-red-600 delay-100">24/7</p>
+                        <p class="text-[10px] text-gray-500 uppercase mt-0.5">Access</p>
                     </div>
                 </div>
                 {{-- Decorative bg element --}}
-                <div class="absolute -bottom-10 -right-10 h-64 w-64 bg-blue-100 rounded-full blur-3xl opacity-50 group-hover:scale-150 transition-transform duration-700"></div>
+                <div class="absolute -bottom-10 -right-10 h-64 w-64 bg-red-100 rounded-full blur-3xl opacity-40 group-hover:scale-150 transition-transform duration-700"></div>
             </div>
+
+              {{-- Image 2 (Bottom Middle) --}}
+              <div class="md:col-span-1 md:row-span-1 rounded-2xl overflow-hidden relative group reveal-up delay-200 shadow-lg shadow-gray-200/50 hover:shadow-xl hover:shadow-gray-300/50 transition-all duration-500 ring-1 ring-black/5" x-intersect="$el.classList.add('is-visible')">
+                <img src="{{ asset('storage/room/IMG_0770.jpeg') }}" alt="DyWix Studio space" class="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110">
+                <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-80 group-hover:opacity-60 transition-opacity duration-500"></div>
+                <div class="absolute bottom-3 left-3 right-3">
+                    <span class="text-xs font-medium text-white/90 drop-shadow-sm">Studio Vibes</span>
+                </div>
+            </div>
+
+            {{-- Image 3 (Bottom Right) - CTA --}}
+            <a href="{{ route('pages.booking') }}" class="md:col-span-1 md:row-span-1 rounded-2xl overflow-hidden relative group reveal-up delay-300 shadow-lg shadow-gray-200/50 hover:shadow-xl hover:shadow-red-900/20 transition-all duration-500 ring-1 ring-black/5 block" x-intersect="$el.classList.add('is-visible')">
+                <img src="{{ asset('storage/room/IMG_0773.jpeg') }}" alt="Join DyWix" class="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110">
+                <div class="absolute inset-0 flex items-center justify-center bg-black/20 group-hover:bg-black/40 transition-all duration-500">
+                    <span class="inline-flex items-center gap-1.5 rounded-full bg-white px-4 py-2 text-xs font-bold text-gray-900 shadow-lg transform translate-y-0 group-hover:scale-105 transition-transform duration-300">
+                        Join Us
+                        <svg class="h-3.5 w-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+                    </span>
+                </div>
+            </a>
 
             {{-- Image 1 (Top Right) --}}
-            <div class="md:col-span-2 md:row-span-1 rounded-3xl overflow-hidden relative group reveal-up delay-100" x-intersect="$el.classList.add('is-visible')">
-                <img src="{{ asset('storage/room/IMG_0787.jpeg') }}" class="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110">
-                <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-60 group-hover:opacity-40 transition-opacity"></div>
-                <div class="absolute bottom-4 left-4">
-                    <span class="inline-flex items-center rounded-full bg-white/20 px-3 py-1 text-xs font-medium text-white backdrop-blur-md border border-white/10 transition-transform group-hover:scale-105">BTS Action</span>
+            <div class="md:col-span-2 md:row-span-1 rounded-2xl overflow-hidden relative group reveal-up delay-100 shadow-lg shadow-gray-200/50 hover:shadow-xl hover:shadow-gray-300/50 transition-all duration-500 ring-1 ring-black/5" x-intersect="$el.classList.add('is-visible')">
+                <img src="{{ asset('storage/room/IMG_0787.jpeg') }}" alt="BTS at DyWix Studio" class="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110">
+                <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent group-hover:from-black/50 transition-all duration-500"></div>
+                <div class="absolute bottom-3 left-3 right-3 flex items-end justify-between">
+                    <span class="inline-flex items-center rounded-full bg-white/20 px-2.5 py-1 text-xs font-semibold text-white backdrop-blur-md border border-white/20">BTS Action</span>
                 </div>
             </div>
 
-            {{-- Image 2 (Bottom Middle) --}}
-            <div class="md:col-span-1 md:row-span-1 rounded-3xl overflow-hidden relative group reveal-up delay-200" x-intersect="$el.classList.add('is-visible')">
-                <img src="{{ asset('storage/room/IMG_0770.jpeg') }}" class="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110">
-                <div class="absolute inset-0 bg-black/10 group-hover:bg-transparent transition-colors"></div>
-            </div>
-
-            {{-- Image 3 (Bottom Right) --}}
-            <div class="md:col-span-1 md:row-span-1 rounded-3xl overflow-hidden relative group reveal-up delay-300" x-intersect="$el.classList.add('is-visible')">
-                <img src="{{ asset('storage/room/IMG_0773.jpeg') }}" class="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110">
-                <div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-black/30 backdrop-blur-[2px]">
-                    <span class="text-white font-bold tracking-wider text-sm transform translate-y-4 group-hover:translate-y-0 transition-transform">Join Us</span>
-                </div>
-            </div>
+          
         </div>
     </div>
 </section>
@@ -652,99 +668,93 @@
     </div>
 </section>
 
-{{-- Modern Pricing Cards (Compacted) --}}
-<section class="bg-white py-20" id="pricing">
-    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+{{-- Modern Pricing Cards (Enhanced) --}}
+<section class="relative bg-gradient-to-b from-slate-50 to-white py-20 overflow-hidden" id="pricing">
+    {{-- Ambient accents --}}
+    <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[300px] bg-red-500/5 rounded-full blur-3xl"></div>
+    <div class="absolute bottom-0 right-0 w-96 h-96 bg-blue-500/5 rounded-full blur-3xl translate-y-1/2 translate-x-1/2"></div>
+
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 relative">
         <div class="text-center mb-12 reveal-up" x-intersect="$el.classList.add('is-visible')">
-            <h2 class="text-3xl font-bold tracking-tight text-gray-900">Studio Pricing at DyWix</h2>
-            <p class="mt-2 text-gray-500">
-                Flexible plans designed for creators, brands, and podcasters.
-                Simple, transparent pricing — no hidden fees, just professional studio access.</p>
+            <span class="inline-block text-red-600 font-bold tracking-[0.2em] uppercase text-xs mb-3">Transparent Pricing</span>
+            <h2 class="text-3xl md:text-4xl font-bold tracking-tight text-gray-900">Studio Pricing at DyWix</h2>
+            <p class="mt-3 text-gray-500 max-w-xl mx-auto">
+                Flexible plans designed for creators, brands, and podcasters. Simple, transparent pricing — no hidden fees.
+            </p>
         </div>
 
-        <div class="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto">
+        <div class="grid md:grid-cols-3 gap-6 lg:gap-8 max-w-5xl mx-auto">
             {{-- Plan 1: Starter Session --}}
-            <div class="relative overflow-hidden rounded-2xl bg-gray-50 p-8 transition-all duration-300 hover:shadow-xl hover:-translate-y-2 border border-gray-100 reveal-up"
+            <div class="group relative overflow-hidden rounded-2xl bg-white p-8 border border-gray-200/80 shadow-sm transition-all duration-500 hover:shadow-2xl hover:shadow-black/20 hover:-translate-y-2 hover:border-gray-400 reveal-up"
                 x-intersect="$el.classList.add('is-visible')">
-                <h3 class="text-lg font-bold text-gray-900">Starter Session</h3>
-                <div class="mt-2 flex items-baseline">
-                    <span class="text-4xl font-bold tracking-tight text-gray-900">₹1,200</span>
-                    <span class="ml-1 text-base font-medium text-gray-500">/hr</span>
+                <div class="absolute inset-0 bg-black/0 group-hover:bg-black/90 transition-all duration-500"></div>
+                <div class="relative z-10">
+                    <h3 class="text-lg font-bold text-gray-900 group-hover:text-white transition-colors duration-300">Starter Session</h3>
+                    <div class="mt-3 flex items-baseline">
+                        <span class="text-4xl font-bold tracking-tight text-gray-900 group-hover:text-white transition-colors duration-300 origin-left">₹1,200</span>
+                        <span class="ml-1 text-base font-medium text-gray-500 group-hover:text-gray-300 transition-colors duration-300">/hr</span>
+                    </div>
+                    <p class="mt-2 text-sm text-gray-500 group-hover:text-gray-300 transition-colors duration-300">Minimum booking: 3 Hours</p>
+                    <p class="mt-3 text-xs text-gray-600 italic group-hover:text-gray-400 transition-colors duration-300">Perfect for quick podcasts, interviews, and short content shoots.</p>
+                    <ul class="mt-6 space-y-3 text-sm text-gray-600 group-hover:text-gray-200 transition-colors duration-300">
+                        <li class="flex items-center gap-3 py-1.5 rounded-lg -mx-2 px-2 transition-all duration-200 cursor-default"><svg class="h-4 w-4 text-green-500 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg> Professional podcast setup</li>
+                        <li class="flex items-center gap-3 py-1.5 rounded-lg -mx-2 px-2 transition-all duration-200 cursor-default"><svg class="h-4 w-4 text-green-500 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg> Studio lighting & basic equipment</li>
+                        <li class="flex items-center gap-3 py-1.5 rounded-lg -mx-2 px-2 transition-all duration-200 cursor-default"><svg class="h-4 w-4 text-green-500 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg> Comfortable creator space</li>
+                        <li class="flex items-center gap-3 py-1.5 rounded-lg -mx-2 px-2 transition-all duration-200 cursor-default"><svg class="h-4 w-4 text-green-500 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg> On-site support</li>
+                    </ul>
+                    <a href="{{ route('pages.booking') }}" class="mt-6 group/btn flex items-center justify-center gap-2 w-full rounded-xl border-2 border-gray-200 bg-white px-4 py-3.5 text-sm font-bold text-gray-900 transition-all duration-300 group-hover:border-white group-hover:bg-white group-hover:text-black hover:border-white hover:bg-white hover:text-black active:scale-[0.98] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-black">
+                        Book Your Session
+                        <svg class="h-4 w-4 transition-transform duration-300 group-hover/btn:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+                    </a>
                 </div>
-                <p class="mt-2 text-sm text-gray-500">Minimum booking: 3 Hours</p>
-                <p class="mt-3 text-xs text-gray-600 italic">Perfect for quick podcasts, interviews, and short content shoots.</p>
-                <ul class="mt-6 space-y-3 text-sm text-gray-600">
-                    <li class="flex items-center"><svg class="mr-3 h-4 w-4 text-green-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
-                        </svg> Professional podcast setup</li>
-                    <li class="flex items-center"><svg class="mr-3 h-4 w-4 text-green-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
-                        </svg> Studio lighting & basic equipment</li>
-                    <li class="flex items-center"><svg class="mr-3 h-4 w-4 text-green-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
-                        </svg> Comfortable creator space</li>
-                    <li class="flex items-center"><svg class="mr-3 h-4 w-4 text-green-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
-                        </svg> On-site support</li>
-                </ul>
-                <a href="{{ route('pages.booking') }}" class="mt-6 block w-full rounded-xl border border-gray-200 bg-white px-4 py-3 text-center text-sm font-bold text-gray-900 hover:bg-gray-50 transition hover:scale-105 active:scale-95">Book Your Session</a>
             </div>
 
-            {{-- Plan 2: Creator Day Pass (Featured) --}}
-            <div class="relative overflow-hidden rounded-2xl bg-black p-8 shadow-2xl scale-105 z-10 border border-gray-800 reveal-up delay-100 ring-4 ring-blue-500/20"
+            {{-- Plan 2: Creator Day Pass --}}
+            <div class="group relative overflow-hidden rounded-2xl bg-white p-8 border border-gray-200/80 shadow-sm transition-all duration-500 hover:shadow-2xl hover:shadow-black/20 hover:-translate-y-2 hover:border-gray-400 reveal-up delay-100"
                 x-intersect="$el.classList.add('is-visible')">
-                <div class="absolute top-0 right-0 bg-blue-600 px-3 py-1 rounded-bl-lg text-[10px] font-bold text-white shadow-lg animate-pulse">⭐ MOST POPULAR</div>
-                <div class="absolute inset-0 bg-gradient-to-br from-gray-900 via-black to-gray-900"></div>
-
+                <div class="absolute inset-0 bg-black/0 group-hover:bg-black/90 transition-all duration-500"></div>
                 <div class="relative z-10">
-                    <h3 class="text-lg font-bold text-white">Creator Day Pass</h3>
-                    <div class="mt-2 flex items-baseline">
-                        <span class="text-4xl font-bold tracking-tight text-white">₹10,000</span>
-                        <span class="ml-1 text-base font-medium text-gray-400">/10hr</span>
+                    <h3 class="text-lg font-bold text-gray-900 group-hover:text-white transition-colors duration-300">Creator Day Pass</h3>
+                    <div class="mt-3 flex items-baseline">
+                        <span class="text-4xl font-bold tracking-tight text-gray-900 group-hover:text-white transition-colors duration-300 origin-left">₹10,000</span>
+                        <span class="ml-1 text-base font-medium text-gray-500 group-hover:text-gray-300 transition-colors duration-300">/10hr</span>
                     </div>
-                    <p class="mt-2 text-sm text-gray-400">Ideal for full podcast episodes, content batches, and video shoots.</p>
-                    <ul class="mt-6 space-y-3 text-sm text-gray-300">
-                        <li class="flex items-center"><svg class="mr-3 h-4 w-4 text-blue-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
-                            </svg> 4 professional lights (Strobe / Video)</li>
-                        <li class="flex items-center"><svg class="mr-3 h-4 w-4 text-blue-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
-                            </svg> Full studio grip equipment</li>
-                        <li class="flex items-center"><svg class="mr-3 h-4 w-4 text-blue-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
-                            </svg> Dedicated studio assistant</li>
-                        <li class="flex items-center"><svg class="mr-3 h-4 w-4 text-blue-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
-                            </svg> Multiple camera angles available</li>
+                    <p class="mt-2 text-sm text-gray-500 group-hover:text-gray-300 transition-colors duration-300">Ideal for full podcast episodes, content batches, and video shoots.</p>
+                    <ul class="mt-6 space-y-3 text-sm text-gray-600 group-hover:text-gray-200 transition-colors duration-300">
+                        <li class="flex items-center gap-3 py-1.5 rounded-lg -mx-2 px-2 transition-all duration-200 cursor-default"><svg class="h-4 w-4 text-green-500 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg> 4 professional lights (Strobe / Video)</li>
+                        <li class="flex items-center gap-3 py-1.5 rounded-lg -mx-2 px-2 transition-all duration-200 cursor-default"><svg class="h-4 w-4 text-green-500 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg> Full studio grip equipment</li>
+                        <li class="flex items-center gap-3 py-1.5 rounded-lg -mx-2 px-2 transition-all duration-200 cursor-default"><svg class="h-4 w-4 text-green-500 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg> Dedicated studio assistant</li>
+                        <li class="flex items-center gap-3 py-1.5 rounded-lg -mx-2 px-2 transition-all duration-200 cursor-default"><svg class="h-4 w-4 text-green-500 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg> Multiple camera angles available</li>
                     </ul>
-                    <a href="{{ route('pages.booking') }}" class="mt-6 block w-full rounded-xl bg-blue-600 px-4 py-3 text-center text-sm font-bold text-white hover:bg-blue-700 transition shadow-lg shadow-blue-900/50 hover:shadow-blue-600/50 hover:scale-105 active:scale-95">Reserve Your Studio</a>
+                    <a href="{{ route('pages.booking') }}" class="mt-6 group/btn flex items-center justify-center gap-2 w-full rounded-xl border-2 border-gray-200 bg-white px-4 py-3.5 text-sm font-bold text-gray-900 transition-all duration-300 group-hover:border-white group-hover:bg-white group-hover:text-black hover:border-white hover:bg-white hover:text-black active:scale-[0.98] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-black">
+                        Reserve Your Studio
+                        <svg class="h-4 w-4 transition-transform duration-300 group-hover/btn:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+                    </a>
                 </div>
             </div>
 
             {{-- Plan 3: Elite Creator Access --}}
-            <div class="relative overflow-hidden rounded-2xl bg-gray-50 p-8 transition-all duration-300 hover:shadow-xl hover:-translate-y-2 border border-gray-100 reveal-up delay-200"
+            <div class="group relative overflow-hidden rounded-2xl bg-white p-8 border border-gray-200/80 shadow-sm transition-all duration-500 hover:shadow-2xl hover:shadow-black/20 hover:-translate-y-2 hover:border-gray-400 reveal-up delay-200"
                 x-intersect="$el.classList.add('is-visible')">
-                <h3 class="text-lg font-bold text-gray-900">Elite Creator Access</h3>
-                <div class="mt-2 flex items-baseline">
-                    <span class="text-4xl font-bold tracking-tight text-gray-900">₹20,000</span>
-                    <span class="ml-1 text-base font-medium text-gray-500">/12hr</span>
+                <div class="absolute inset-0 bg-black/0 group-hover:bg-black/90 transition-all duration-500"></div>
+                <div class="relative z-10">
+                    <h3 class="text-lg font-bold text-gray-900 group-hover:text-white transition-colors duration-300">Elite Creator Access</h3>
+                    <div class="mt-3 flex items-baseline">
+                        <span class="text-4xl font-bold tracking-tight text-gray-900 group-hover:text-white transition-colors duration-300 origin-left">₹20,000</span>
+                        <span class="ml-1 text-base font-medium text-gray-500 group-hover:text-gray-300 transition-colors duration-300">/12hr</span>
+                    </div>
+                    <p class="mt-2 text-sm text-gray-500 group-hover:text-gray-300 transition-colors duration-300">The ultimate package for serious creators and production teams.</p>
+                    <ul class="mt-6 space-y-3 text-sm text-gray-600 group-hover:text-gray-200 transition-colors duration-300">
+                        <li class="flex items-center gap-3 py-1.5 rounded-lg -mx-2 px-2 transition-all duration-200 cursor-default"><svg class="h-4 w-4 text-green-500 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg> Multi-set studio access</li>
+                        <li class="flex items-center gap-3 py-1.5 rounded-lg -mx-2 px-2 transition-all duration-200 cursor-default"><svg class="h-4 w-4 text-green-500 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg> Professional podcast recording setup</li>
+                        <li class="flex items-center gap-3 py-1.5 rounded-lg -mx-2 px-2 transition-all duration-200 cursor-default"><svg class="h-4 w-4 text-green-500 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg> Priority editing support</li>
+                        <li class="flex items-center gap-3 py-1.5 rounded-lg -mx-2 px-2 transition-all duration-200 cursor-default"><svg class="h-4 w-4 text-green-500 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg> Extended studio usage</li>
+                    </ul>
+                    <a href="{{ route('pages.booking') }}" class="mt-6 group/btn flex items-center justify-center gap-2 w-full rounded-xl border-2 border-gray-200 bg-white px-4 py-3.5 text-sm font-bold text-gray-900 transition-all duration-300 group-hover:border-white group-hover:bg-white group-hover:text-black hover:border-white hover:bg-white hover:text-black active:scale-[0.98] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-black">
+                        Upgrade Now
+                        <svg class="h-4 w-4 transition-transform duration-300 group-hover/btn:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+                    </a>
                 </div>
-                <p class="mt-2 text-sm text-gray-500">The ultimate package for serious creators and production teams.</p>
-                <ul class="mt-6 space-y-3 text-sm text-gray-600">
-                    <li class="flex items-center"><svg class="mr-3 h-4 w-4 text-green-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
-                        </svg> Multi-set studio access</li>
-                    <li class="flex items-center"><svg class="mr-3 h-4 w-4 text-green-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
-                        </svg> Professional podcast recording setup</li>
-                    <li class="flex items-center"><svg class="mr-3 h-4 w-4 text-green-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
-                        </svg> Priority editing support</li>
-                    <li class="flex items-center"><svg class="mr-3 h-4 w-4 text-green-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
-                        </svg> Extended studio usage</li>
-                </ul>
-                <a href="{{ route('pages.booking') }}" class="mt-6 block w-full rounded-xl border border-gray-200 bg-white px-4 py-3 text-center text-sm font-bold text-gray-900 hover:bg-gray-50 transition hover:scale-105 active:scale-95">Upgrade Now</a>
             </div>
         </div>
     </div>

@@ -69,10 +69,10 @@
         </div>
         <div class="relative h-full mx-auto max-w-6xl px-4 flex flex-col justify-center items-center text-center">
             <span class="inline-block rounded-full bg-blue-600/20 border border-blue-500/30 px-4 py-1.5 text-sm font-medium text-blue-200 backdrop-blur-sm mb-6">
-                Now Open in Delhi NCR
+                Photography Studio in Delhi NCR – DyWix Studio
             </span>
             <h1 class="text-4xl font-bold tracking-tight text-white sm:text-6xl md:text-7xl drop-shadow-lg">
-                Your Vision.<br/>Our Studio.
+                Professional Photography & Podcast Studio in Dwarka, Delhi
             </h1>
             <p class="mt-6 max-w-2xl text-lg sm:text-xl text-gray-200 leading-relaxed drop-shadow-md">
                 Professional photography and content creation studio in Dwarka, New Delhi. Fashion, product shoots, model portfolios, and commercial photography — all in one place.
