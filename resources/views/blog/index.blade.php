@@ -5,11 +5,18 @@
 
 @section('content')
 <!-- Modern Hero Section -->
-<div class="relative overflow-hidden bg-slate-900 pt-24 pb-32 sm:pt-32 sm:pb-40 rounded-b-[3rem] sm:rounded-b-[4rem] shadow-2xl mb-16 sm:mb-24">
-    <!-- Deep Mesh Background -->
-    <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-indigo-900 via-slate-900 to-black opacity-90"></div>
-    <div class="absolute -top-40 -right-40 w-96 h-96 bg-purple-600 rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-[pulse_8s_ease-in-out_infinite]"></div>
-    <div class="absolute -bottom-40 -left-40 w-96 h-96 bg-indigo-600 rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-[pulse_10s_ease-in-out_infinite] animation-delay-2000"></div>
+<div class="relative overflow-hidden bg-[#3a155c] pt-24 pb-32 sm:pt-32 sm:pb-40 rounded-b-[3rem] sm:rounded-b-[4rem] shadow-2xl mb-16 sm:mb-24">
+    <!-- Banner Image Background -->
+    <div class="absolute inset-0 z-0">
+        <img src="{{ asset('banner/blog.avif') }}" alt="Blog Banner" class="w-full h-full object-cover filter saturate-50 opacity-40 mix-blend-screen transform scale-105">
+    </div>
+    
+    <!-- Gradient Overlay -->
+    <div class="absolute inset-0 bg-gradient-to-br from-[#59267c]/95 to-[#3a155c]/95 z-0 mix-blend-multiply"></div>
+
+    <!-- Animated Orbs -->
+    <div class="absolute -top-40 -right-40 w-96 h-96 bg-white/10 rounded-full filter blur-3xl opacity-40 animate-[pulse_8s_ease-in-out_infinite] z-0 pointer-events-none"></div>
+    <div class="absolute -bottom-40 -left-40 w-96 h-96 bg-purple-500/30 rounded-full filter blur-3xl opacity-40 animate-[pulse_10s_ease-in-out_infinite] animation-delay-2000 z-0 pointer-events-none"></div>
     
     <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center z-10">
         <span class="inline-flex items-center px-4 py-1.5 rounded-full text-sm font-semibold text-indigo-200 bg-indigo-900/50 border border-indigo-700/50 backdrop-blur-md mb-6 shadow-lg uppercase tracking-widest text-xs">
