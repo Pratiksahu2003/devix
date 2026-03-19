@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Page;
+use App\Models\Category;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Storage;
@@ -12,13 +13,14 @@ class PageController extends Controller
 {
     public function index()
     {
-        $pages = Page::with('author')->latest()->paginate(10);
+        $pages = Page::with('author', 'category')->latest()->paginate(10);
         return view('admin.pages.index', compact('pages'));
     }
 
     public function create()
     {
-        return view('admin.pages.create');
+        $categories = Category::all();
+        return view('admin.pages.create', compact('categories'));
     }
 
     public function store(Request $request)
@@ -26,14 +28,21 @@ class PageController extends Controller
         $validated = $request->validate([
             'title' => 'required|string|max:255',
             'slug' => 'nullable|string|max:255|unique:pages',
+            'category_id' => 'nullable|exists:categories,id',
             'content' => 'required|string',
             'cover_image' => 'nullable|image|max:2048',
             'video_url' => 'nullable|url|max:255',
+            'tags' => 'nullable|string',
             'meta_title' => 'nullable|string|max:255',
             'meta_description' => 'nullable|string',
             'meta_keywords' => 'nullable|string|max:255',
-            'canonical_url' => 'nullable|url|max:255',
         ]);
+
+        if (!empty($validated['tags'])) {
+            $validated['tags'] = json_decode($validated['tags'], true);
+        } else {
+            $validated['tags'] = [];
+        }
 
         $validated['slug'] = Str::slug($validated['slug'] ?? $validated['title']);
         $validated['admin_id'] = auth('admin')->id();
@@ -55,7 +64,8 @@ class PageController extends Controller
 
     public function edit(Page $page)
     {
-        return view('admin.pages.edit', compact('page'));
+        $categories = Category::all();
+        return view('admin.pages.edit', compact('page', 'categories'));
     }
 
     public function update(Request $request, Page $page)
@@ -63,14 +73,21 @@ class PageController extends Controller
         $validated = $request->validate([
             'title' => 'required|string|max:255',
             'slug' => 'nullable|string|max:255|unique:pages,slug,' . $page->id,
+            'category_id' => 'nullable|exists:categories,id',
             'content' => 'required|string',
             'cover_image' => 'nullable|image|max:2048',
             'video_url' => 'nullable|url|max:255',
+            'tags' => 'nullable|string',
             'meta_title' => 'nullable|string|max:255',
             'meta_description' => 'nullable|string',
             'meta_keywords' => 'nullable|string|max:255',
-            'canonical_url' => 'nullable|url|max:255',
         ]);
+
+        if (!empty($validated['tags'])) {
+            $validated['tags'] = json_decode($validated['tags'], true);
+        } else {
+            $validated['tags'] = [];
+        }
 
         $validated['slug'] = Str::slug($validated['slug'] ?? $validated['title']);
         $validated['is_published'] = $request->has('is_published');
