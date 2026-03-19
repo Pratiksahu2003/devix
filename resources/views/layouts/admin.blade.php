@@ -54,6 +54,14 @@
                 </a>
                 @endif
 
+                <!-- Landing Pages -->
+                <div class="pt-4 pb-2 px-4 text-xs font-semibold text-slate-500 uppercase tracking-wider">SEO Optimization</div>
+
+                <a href="{{ route('admin.pages.index') }}" class="flex items-center px-4 py-3 {{ request()->routeIs('admin.pages.*') ? 'bg-indigo-500/10 text-indigo-400 border-indigo-500/30' : 'text-slate-400 hover:bg-slate-800/50 hover:text-slate-200 border-transparent' }} rounded-xl border transition-all group font-medium text-sm">
+                    <svg class="w-5 h-5 mr-3 {{ request()->routeIs('admin.pages.*') ? 'text-indigo-400' : 'text-slate-500 group-hover:text-slate-300' }} transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 002-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"></path></svg>
+                    Landing Pages
+                </a>
+
                 <!-- Blog Management Header -->
                 <div class="pt-4 pb-2 px-4 text-xs font-semibold text-slate-500 uppercase tracking-wider">Blog System</div>
 
