@@ -18,7 +18,7 @@
 <div class="bg-[#FAFAFA] min-h-screen pb-20 font-sans">
     
     <!-- Hero Section (Gradient with Cover Image background) -->
-    <section class="bg-[#3a155c] pt-28 pb-20 relative overflow-hidden">
+    <section class="bg-[#3a155c] pt-20 pb-10 relative overflow-hidden">
         <!-- Background Image & Gradient Overlay -->
         @if($post->cover_image)
         <div class="absolute inset-0 z-0">
@@ -35,7 +35,7 @@
 
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
             <!-- Breadcrumbs -->
-            <nav class="flex items-center text-sm font-semibold text-purple-200 mb-8 tracking-wide">
+            <nav class="flex items-center text-sm font-semibold text-purple-200 mb-4 tracking-wide">
                 <a href="/" class="hover:text-white flex items-center gap-1.5 transition-colors">
                     <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path d="M10.707 2.293a1 1 0 00-1.414 0l-7 7a1 1 0 001.414 1.414L4 10.414V17a1 1 0 001 1h2a1 1 0 001-1v-2a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 001 1h2a1 1 0 001-1v-6.586l.293.293a1 1 0 001.414-1.414l-7-7z"/></svg> 
                     Home
@@ -47,7 +47,7 @@
             </nav>
 
             <!-- Metadata -->
-            <div class="flex flex-wrap items-center gap-6 text-purple-100/90 font-medium text-sm mb-6">
+            <div class="flex flex-wrap items-center gap-6 text-purple-100/90 font-medium text-sm mb-4">
                 <div class="flex items-center gap-2">
                     <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clip-rule="evenodd"/></svg>
                     {{ optional($post->author)->name ?? 'Admin' }}
@@ -63,15 +63,15 @@
             </div>
 
             <!-- Title -->
-            <h1 class="text-3xl sm:text-5xl lg:text-6xl font-black text-white leading-[1.15] mb-6 max-w-5xl tracking-tight drop-shadow-sm">
+            <h1 class="text-3xl sm:text-4xl lg:text-5xl font-black text-white leading-[1.15] mb-4 max-w-5xl tracking-tight drop-shadow-sm">
                 {{ $post->title }}
             </h1>
 
             <!-- Excerpt / Quote Block -->
             @if($post->excerpt)
-            <div class="flex items-start gap-4 max-w-4xl mt-6">
-                <svg class="w-8 h-8 text-pink-400 shrink-0 mt-1 opacity-80" fill="currentColor" viewBox="0 0 24 24"><path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h4v10h-10z"/></svg>
-                <p class="text-lg sm:text-xl text-purple-50/90 font-medium leading-relaxed">
+            <div class="flex items-start gap-3 max-w-4xl mt-3">
+                <svg class="w-6 h-6 text-pink-400 shrink-0 mt-1 opacity-80" fill="currentColor" viewBox="0 0 24 24"><path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h4v10h-10z"/></svg>
+                <p class="text-base sm:text-lg text-purple-50/90 font-medium leading-relaxed">
                     {{ $post->excerpt }}
                 </p>
             </div>
