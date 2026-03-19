@@ -42,3 +42,7 @@ Route::post('/subscribe', [SubscriberController::class, 'store'])->name('subscri
 
 // Dynamic OG image (SVG)
 Route::get('/og', [OgController::class, 'image'])->name('og.image');
+
+// Blog public routes
+Route::get('/blog', [App\Http\Controllers\BlogController::class, 'index'])->name('blog.index');
+Route::get('/blog/{slug}', [App\Http\Controllers\BlogController::class, 'show'])->name('blog.show');
