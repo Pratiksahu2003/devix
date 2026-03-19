@@ -94,7 +94,7 @@
             </form>
             
             <div class="mt-8 text-center pt-6 border-t border-slate-700/50">
-                <p class="text-xs text-slate-500">&copy; {{ date('Y') }} Devix Studio. All rights reserved.</p>
+                <p class="text-xs text-slate-500">&copy; {{ date('Y') }} DyWix Studio. All rights reserved.</p>
             </div>
         </div>
     </div>
