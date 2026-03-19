@@ -17,22 +17,40 @@
         <h3 class="text-xl font-bold text-slate-800">Category Details</h3>
     </div>
 
-    <form action="{{ route('admin.categories.update', $category) }}" method="POST" class="p-6 sm:p-8 space-y-6">
+    <form action="{{ route('admin.categories.update', $category) }}" method="POST" class="p-6 sm:p-8 space-y-6" x-data="{
+        name: '{{ old('name', $category->name) }}',
+        slug: '{{ old('slug', $category->slug) }}',
+        autoSync: {{ old('slug', $category->slug) ? 'false' : 'true' }},
+        generateSlug(text) {
+            return text.toString().trim().toLowerCase()
+                .replace(/\s+/g, '-')           
+                .replace(/[^\w\-]+/g, '')       
+                .replace(/\-\-+/g, '-')         
+                .replace(/^-+/, '')             
+                .replace(/-+$/, '');            
+        }
+    }">
         @csrf
         @method('PUT')
 
         <div class="space-y-4">
             <div>
                 <label for="name" class="block text-sm font-semibold text-slate-700 mb-1.5">Name</label>
-                <input type="text" name="name" id="name" value="{{ old('name', $category->name) }}" class="w-full px-4 py-2.5 rounded-xl border {{ $errors->has('name') ? 'border-red-300 focus:ring-red-500' : 'border-slate-300 focus:border-indigo-500 focus:ring-indigo-500/20' }} focus:ring-2 focus:outline-none transition-colors" required>
+                <input type="text" name="name" id="name" x-model="name" @input="if(autoSync) slug = generateSlug(name)" class="w-full px-4 py-2.5 rounded-xl border {{ $errors->has('name') ? 'border-red-300 focus:ring-red-500' : 'border-slate-300 focus:border-indigo-500 focus:ring-indigo-500/20' }} focus:ring-2 focus:outline-none transition-colors" required>
                 @error('name')
                     <p class="mt-1 text-sm text-red-500">{{ $message }}</p>
                 @enderror
             </div>
 
             <div>
-                <label for="slug" class="block text-sm font-semibold text-slate-700 mb-1.5">Slug</label>
-                <input type="text" name="slug" id="slug" value="{{ old('slug', $category->slug) }}" class="w-full px-4 py-2.5 rounded-xl border {{ $errors->has('slug') ? 'border-red-300 focus:ring-red-500' : 'border-slate-300 focus:border-indigo-500 focus:ring-indigo-500/20' }} focus:ring-2 focus:outline-none transition-colors">
+                <div class="flex items-center justify-between mb-1.5">
+                    <label for="slug" class="block text-sm font-semibold text-slate-700">Slug</label>
+                    <label class="flex items-center gap-1.5 text-xs text-slate-500 cursor-pointer hover:text-indigo-600 transition-colors">
+                        <input type="checkbox" x-model="autoSync" class="w-3.5 h-3.5 text-indigo-600 border-slate-300 rounded focus:ring-indigo-500">
+                        Auto-sync with name
+                    </label>
+                </div>
+                <input type="text" name="slug" id="slug" x-model="slug" @input="autoSync = false" class="w-full px-4 py-2.5 rounded-xl border {{ $errors->has('slug') ? 'border-red-300 focus:ring-red-500' : 'border-slate-300 focus:border-indigo-500 focus:ring-indigo-500/20' }} focus:ring-2 focus:outline-none transition-colors">
                 @error('slug')
                     <p class="mt-1 text-sm text-red-500">{{ $message }}</p>
                 @enderror

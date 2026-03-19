@@ -34,6 +34,7 @@ class PostController extends Controller
             'cover_image' => 'nullable|image|max:2048',
             'meta_title' => 'nullable|string|max:255',
             'meta_description' => 'nullable|string',
+            'meta_keywords' => 'nullable|string|max:255',
         ]);
 
         $validated['slug'] = Str::slug($validated['slug'] ?? $validated['title']);
@@ -71,6 +72,7 @@ class PostController extends Controller
             'cover_image' => 'nullable|image|max:2048',
             'meta_title' => 'nullable|string|max:255',
             'meta_description' => 'nullable|string',
+            'meta_keywords' => 'nullable|string|max:255',
         ]);
 
         $validated['slug'] = Str::slug($validated['slug'] ?? $validated['title']);

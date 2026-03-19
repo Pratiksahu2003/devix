@@ -23,16 +23,19 @@
         <div x-show="sidebarOpen" x-transition.opacity class="fixed inset-0 z-20 bg-slate-900/50 backdrop-blur-sm lg:hidden" @click="sidebarOpen = false" x-cloak></div>
 
         <!-- Sidebar -->
-        <aside :class="sidebarOpen ? 'translate-x-0' : '-translate-x-full'" class="fixed inset-y-0 left-0 z-30 w-64 bg-slate-900 transition-transform duration-300 lg:translate-x-0 lg:static lg:inset-auto flex flex-col h-screen border-r border-slate-800 shadow-2xl lg:shadow-none">
+        <aside :class="sidebarOpen ? 'translate-x-0' : '-translate-x-full'" class="fixed inset-y-0 left-0 z-30 w-72 bg-slate-900 transition-transform duration-300 lg:translate-x-0 lg:static lg:inset-auto flex flex-col h-screen border-r border-slate-800 shadow-2xl lg:shadow-none">
             
             <!-- Logo area -->
-            <div class="flex items-center justify-center h-20 border-b border-slate-800 px-6 shrink-0">
+            <div class="flex items-center justify-between h-20 border-b border-slate-800 px-6 shrink-0">
                 <a href="{{ route('admin.dashboard') }}" class="text-white text-2xl font-bold tracking-tight inline-flex items-center gap-2">
                     <div class="w-8 h-8 rounded-lg bg-indigo-500 flex items-center justify-center shadow-lg shadow-indigo-500/20">
                         <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
                     </div>
                     Devix <span class="text-indigo-400 font-light">Admin</span>
                 </a>
+                <button @click="sidebarOpen = false" class="lg:hidden text-slate-400 hover:text-white focus:outline-none transition-colors ml-4">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+                </button>
             </div>
 
             <!-- Navigation -->

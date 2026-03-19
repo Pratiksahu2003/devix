@@ -4,6 +4,9 @@
 
 @section('meta')
 <meta name="description" content="{{ $post->meta_description ?: ($post->excerpt ?: Str::limit(strip_tags($post->content), 160)) }}">
+@if($post->meta_keywords)
+<meta name="keywords" content="{{ $post->meta_keywords }}">
+@endif
 @if($post->author)
 <meta name="author" content="{{ $post->author->name }}">
 @endif

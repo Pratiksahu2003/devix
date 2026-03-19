@@ -12,7 +12,19 @@
     </a>
 </div>
 
-<form action="{{ route('admin.posts.update', $post) }}" method="POST" enctype="multipart/form-data" class="grid grid-cols-1 lg:grid-cols-3 gap-6 items-start">
+<form action="{{ route('admin.posts.update', $post) }}" method="POST" enctype="multipart/form-data" class="grid grid-cols-1 lg:grid-cols-3 gap-6 items-start" x-data="{ 
+    title: '{{ old('title', $post->title) }}', 
+    slug: '{{ old('slug', $post->slug) }}', 
+    autoSync: {{ old('slug', $post->slug) ? 'false' : 'true' }},
+    generateSlug(text) {
+        return text.toString().trim().toLowerCase()
+            .replace(/\s+/g, '-')           
+            .replace(/[^\w\-]+/g, '')       
+            .replace(/\-\-+/g, '-')         
+            .replace(/^-+/, '')             
+            .replace(/-+$/, '');            
+    }
+}">
     @csrf
     @method('PUT')
 
@@ -25,7 +37,7 @@
             <div class="space-y-5">
                 <div>
                     <label for="title" class="block text-sm font-semibold text-slate-700 mb-1.5">Article Title <span class="text-red-500">*</span></label>
-                    <input type="text" name="title" id="title" value="{{ old('title', $post->title) }}" class="w-full px-4 py-2.5 rounded-xl border border-slate-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-500/20 focus:outline-none transition-colors" required>
+                    <input type="text" name="title" id="title" x-model="title" @input="if(autoSync) slug = generateSlug(title)" class="w-full px-4 py-2.5 rounded-xl border border-slate-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-500/20 focus:outline-none transition-colors" required>
                     @error('title') <p class="mt-1 text-sm text-red-500">{{ $message }}</p> @enderror
                 </div>
 
@@ -47,11 +59,18 @@
             
             <div class="space-y-5 mt-6">
                 <div>
-                    <label for="slug" class="block text-sm font-semibold text-slate-700 mb-1.5">URL Slug</label>
+                    <div class="flex items-center justify-between mb-1.5">
+                        <label for="slug" class="block text-sm font-semibold text-slate-700">URL Slug</label>
+                        <label class="flex items-center gap-1.5 text-xs text-slate-500 cursor-pointer hover:text-indigo-600 transition-colors">
+                            <input type="checkbox" x-model="autoSync" class="w-3.5 h-3.5 text-indigo-600 border-slate-300 rounded focus:ring-indigo-500">
+                            Auto-sync with title
+                        </label>
+                    </div>
                     <div class="flex">
                         <span class="inline-flex items-center px-4 rounded-l-xl border border-r-0 border-slate-300 bg-slate-50 text-slate-500 text-sm">/blog/</span>
-                        <input type="text" name="slug" id="slug" value="{{ old('slug', $post->slug) }}" class="w-full px-4 py-2.5 rounded-r-xl border border-slate-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-500/20 focus:outline-none transition-colors placeholder:text-slate-400">
+                        <input type="text" name="slug" id="slug" x-model="slug" @input="autoSync = false" class="w-full px-4 py-2.5 rounded-r-xl border border-slate-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-500/20 focus:outline-none transition-colors placeholder:text-slate-400" placeholder="e.g. top-10-trends">
                     </div>
+                    @error('slug') <p class="mt-1 text-sm text-red-500">{{ $message }}</p> @enderror
                 </div>
 
                 <div>
@@ -62,6 +81,11 @@
                 <div>
                     <label for="meta_description" class="block text-sm font-semibold text-slate-700 mb-1.5">Meta Description</label>
                     <textarea name="meta_description" id="meta_description" rows="2" class="w-full px-4 py-2.5 rounded-xl border border-slate-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-500/20 focus:outline-none transition-colors">{{ old('meta_description', $post->meta_description) }}</textarea>
+                </div>
+
+                <div>
+                    <label for="meta_keywords" class="block text-sm font-semibold text-slate-700 mb-1.5">Meta Keywords</label>
+                    <input type="text" name="meta_keywords" id="meta_keywords" value="{{ old('meta_keywords', $post->meta_keywords) }}" class="w-full px-4 py-2.5 rounded-xl border border-slate-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-500/20 focus:outline-none transition-colors" placeholder="keyword1, keyword2, keyword3">
                 </div>
             </div>
         </div>
@@ -122,4 +146,31 @@
 
     </div>
 </form>
+
+<style>
+/* Style adjustments for CKEditor to match Tailwind rounding */
+.ck-editor__editable {
+    min-height: 400px;
+    border-bottom-left-radius: 0.75rem !important;
+    border-bottom-right-radius: 0.75rem !important;
+}
+.ck-toolbar {
+    border-top-left-radius: 0.75rem !important;
+    border-top-right-radius: 0.75rem !important;
+    background: #f8fafc !important;
+}
+</style>
+
+<script src="https://cdn.ckeditor.com/ckeditor5/39.0.1/classic/ckeditor.js"></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        ClassicEditor
+            .create(document.querySelector('#content'), {
+                toolbar: [ 'heading', '|', 'bold', 'italic', 'link', 'bulletedList', 'numberedList', 'blockQuote', 'undo', 'redo' ]
+            })
+            .catch(error => {
+                console.error(error);
+            });
+    });
+</script>
 @endsection
