@@ -37,6 +37,13 @@ class BlogController extends Controller
         $previous = Post::where('is_published', true)->where('id', '<', $post->id)->orderBy('id', 'desc')->first();
         $next = Post::where('is_published', true)->where('id', '>', $post->id)->orderBy('id', 'asc')->first();
 
-        return view('blog.show', compact('post', 'previous', 'next'));
+        $relatedPosts = Post::with(['category', 'author'])
+            ->where('is_published', true)
+            ->where('id', '!=', $post->id)
+            ->latest('published_at')
+            ->take(5)
+            ->get();
+
+        return view('blog.show', compact('post', 'previous', 'next', 'relatedPosts'));
     }
 }
