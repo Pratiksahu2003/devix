@@ -19,7 +19,7 @@
     
     @if($post->video_url)
     <!-- Cinematic Video Header -->
-    <header class="relative bg-black h-[90vh] min-h-[600px] overflow-hidden flex flex-col items-center justify-center rounded-b-[3rem] sm:rounded-b-[4rem] shadow-2xl z-10">
+    <header class="relative bg-black h-[60vh] min-h-[400px] overflow-hidden flex flex-col items-center justify-center rounded-b-[3rem] shadow-2xl z-10">
         <div class="absolute inset-0 z-0">
             @php
                 $embedUrl = $post->video_url;
@@ -32,8 +32,8 @@
         <div class="absolute inset-0 bg-gradient-to-t from-slate-900 via-slate-900/50 to-transparent z-10"></div>
         <div class="absolute inset-0 bg-gradient-to-r from-indigo-900/30 to-purple-900/30 z-10 mix-blend-multiply"></div>
         
-        <div class="relative z-20 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center pt-20 mt-10">
-            <div class="flex items-center justify-center gap-4 mb-8">
+        <div class="relative z-20 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center pt-20 mt-4">
+            <div class="flex items-center justify-center gap-4 mb-6">
                 <span class="bg-white/10 backdrop-blur-md text-white border border-white/20 text-xs font-bold uppercase tracking-widest py-1.5 px-4 rounded-full shadow-lg">
                     {{ optional($post->category)->name ?? 'Uncategorized' }}
                 </span>
@@ -42,7 +42,7 @@
                     {{ $post->published_at ? $post->published_at->format('M j, Y') : 'Draft' }}
                 </span>
             </div>
-            <h1 class="text-5xl sm:text-6xl lg:text-7xl xl:text-8xl font-black tracking-tight mb-10 text-transparent bg-clip-text bg-gradient-to-b from-white to-slate-300 drop-shadow-2xl leading-[1.1]">
+            <h1 class="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-black tracking-tight mb-8 text-transparent bg-clip-text bg-gradient-to-b from-white to-slate-300 drop-shadow-2xl leading-[1.1]">
                 {{ $post->title }}
             </h1>
             <div class="flex items-center justify-center gap-4 bg-black/20 backdrop-blur-sm inline-flex mx-auto p-2 pr-6 rounded-full border border-white/10 shadow-xl">
@@ -58,15 +58,15 @@
     </header>
     @elseif($post->cover_image)
     <!-- Standard Hero Image Banner -->
-    <header class="relative bg-slate-900 h-[80vh] min-h-[500px] overflow-hidden flex flex-col items-center justify-center rounded-b-[3rem] sm:rounded-b-[4rem] shadow-2xl z-10">
+    <header class="relative bg-slate-900 h-[50vh] min-h-[400px] overflow-hidden flex flex-col items-center justify-center rounded-b-[3rem] shadow-2xl z-10">
         <div class="absolute inset-0">
             <img src="{{ asset('storage/' . $post->cover_image) }}" alt="{{ $post->title }}" class="w-full h-full object-cover opacity-50 filter saturate-100 transform scale-105">
         </div>
         <div class="absolute inset-0 bg-gradient-to-t from-slate-900 via-slate-900/60 to-slate-900/10"></div>
         <div class="absolute inset-0 bg-gradient-to-br from-indigo-900/40 to-black/20 mix-blend-multiply"></div>
         
-        <div class="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center pt-16 mt-10">
-            <div class="flex items-center justify-center gap-4 mb-8">
+        <div class="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center pt-16 mt-4">
+            <div class="flex items-center justify-center gap-4 mb-6">
                 <span class="bg-indigo-600/80 backdrop-blur-md text-white border border-indigo-400/30 text-xs font-bold uppercase tracking-widest py-1.5 px-4 rounded-full shadow-lg">
                     {{ optional($post->category)->name ?? 'Uncategorized' }}
                 </span>
@@ -75,7 +75,7 @@
                     {{ $post->published_at ? $post->published_at->format('M j, Y') : 'Draft' }}
                 </span>
             </div>
-            <h1 class="text-4xl sm:text-5xl lg:text-7xl font-black tracking-tight mb-10 text-white drop-shadow-2xl leading-[1.15]">
+            <h1 class="text-4xl sm:text-5xl lg:text-6xl font-black tracking-tight mb-8 text-white drop-shadow-2xl leading-[1.15]">
                 {{ $post->title }}
             </h1>
             <div class="flex items-center justify-center gap-4 bg-white/10 backdrop-blur-md inline-flex mx-auto p-2 pr-6 rounded-full border border-white/20 shadow-xl">
@@ -91,13 +91,13 @@
     </header>
     @else
     <!-- Minimalist Typography Header -->
-    <header class="bg-white pt-48 pb-32 text-center rounded-b-[3rem] sm:rounded-b-[4rem] shadow-sm border-b border-slate-100 z-10 relative overflow-hidden">
+    <header class="bg-white pt-32 pb-24 text-center rounded-b-[3rem] shadow-sm border-b border-slate-100 z-10 relative overflow-hidden">
         <!-- Abstract Decoration -->
         <div class="absolute top-0 right-0 w-96 h-96 bg-indigo-50 rounded-full mix-blend-multiply filter blur-3xl opacity-70 transform translate-x-1/2 -translate-y-1/2 pointer-events-none"></div>
-        <div class="absolute top-40 left-0 w-72 h-72 bg-purple-50 rounded-full mix-blend-multiply filter blur-3xl opacity-70 transform -translate-x-1/2 pointer-events-none"></div>
+        <div class="absolute top-20 left-0 w-72 h-72 bg-purple-50 rounded-full mix-blend-multiply filter blur-3xl opacity-70 transform -translate-x-1/2 pointer-events-none"></div>
         
         <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-20">
-            <div class="flex items-center justify-center gap-4 mb-8">
+            <div class="flex items-center justify-center gap-4 mb-6">
                 <span class="bg-indigo-50 text-indigo-700 border border-indigo-100 text-xs font-bold uppercase tracking-widest py-1.5 px-4 rounded-full shadow-sm">
                     {{ optional($post->category)->name ?? 'Uncategorized' }}
                 </span>
@@ -106,7 +106,7 @@
                     {{ $post->published_at ? $post->published_at->format('M j, Y') : 'Draft' }}
                 </span>
             </div>
-            <h1 class="text-4xl sm:text-5xl lg:text-7xl font-black tracking-tight text-slate-900 mb-10 leading-[1.15] drop-shadow-sm">
+            <h1 class="text-4xl sm:text-5xl lg:text-6xl font-black tracking-tight text-slate-900 mb-8 leading-[1.15] drop-shadow-sm">
                 {{ $post->title }}
             </h1>
             <div class="flex items-center justify-center gap-4 inline-flex mx-auto p-2 pr-6 rounded-full border border-slate-100 bg-white shadow-sm hover:shadow-md transition-shadow">
@@ -152,9 +152,38 @@
             </div>
             @endif
         </div>
+
+        <!-- Next / Previous Post Navigation -->
+        @if(isset($previous) || isset($next))
+        <div class="mt-16 pt-10 border-t border-slate-100 grid grid-cols-1 sm:grid-cols-2 gap-6">
+            @if(isset($previous))
+            <a href="{{ route('blog.show', $previous->slug) }}" class="group block p-6 bg-white/70 backdrop-blur-md rounded-2xl border border-slate-200 hover:border-indigo-300 hover:bg-white hover:shadow-lg transition-all duration-300 relative overflow-hidden">
+                <div class="absolute inset-0 bg-gradient-to-r from-indigo-50/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                <div class="relative z-10 flex flex-col h-full justify-center">
+                    <span class="text-xs font-bold text-slate-400 uppercase tracking-widest mb-2 flex items-center gap-1.5"><svg class="w-4 h-4 transition-transform group-hover:-translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg> Previous Post</span>
+                    <h4 class="text-lg font-bold text-slate-800 group-hover:text-indigo-600 transition-colors line-clamp-2 leading-snug">{{ $previous->title }}</h4>
+                </div>
+            </a>
+            @else
+            <div></div> <!-- Spacer -->
+            @endif
+
+            @if(isset($next))
+            <a href="{{ route('blog.show', $next->slug) }}" class="group block p-6 bg-white/70 backdrop-blur-md rounded-2xl border border-slate-200 hover:border-indigo-300 hover:bg-white hover:shadow-lg transition-all duration-300 relative overflow-hidden text-right">
+                <div class="absolute inset-0 bg-gradient-to-l from-indigo-50/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                <div class="relative z-10 flex flex-col h-full justify-center text-right">
+                    <span class="text-xs font-bold text-slate-400 uppercase tracking-widest mb-2 flex items-center justify-end gap-1.5">Next Post <svg class="w-4 h-4 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg></span>
+                    <h4 class="text-lg font-bold text-slate-800 group-hover:text-indigo-600 transition-colors line-clamp-2 leading-snug">{{ $next->title }}</h4>
+                </div>
+            </a>
+            @else
+            <div></div> <!-- Spacer -->
+            @endif
+        </div>
+        @endif
         
         <!-- Back to Blog Button -->
-        <div class="mt-16 text-center">
+        <div class="mt-12 text-center">
             <a href="{{ route('blog.index') }}" class="inline-flex items-center gap-3 px-8 py-4 bg-white border border-slate-200 hover:border-indigo-200 text-slate-700 hover:text-indigo-600 font-bold rounded-2xl shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 focus:ring-4 focus:ring-indigo-100 group">
                 <svg class="w-5 h-5 group-hover:-translate-x-1 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path></svg>
                 Back to All Articles

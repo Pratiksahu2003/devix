@@ -34,6 +34,9 @@ class BlogController extends Controller
             ->where('is_published', true)
             ->firstOrFail();
 
-        return view('blog.show', compact('post'));
+        $previous = Post::where('is_published', true)->where('id', '<', $post->id)->orderBy('id', 'desc')->first();
+        $next = Post::where('is_published', true)->where('id', '>', $post->id)->orderBy('id', 'asc')->first();
+
+        return view('blog.show', compact('post', 'previous', 'next'));
     }
 }
