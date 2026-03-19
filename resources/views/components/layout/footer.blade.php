@@ -35,7 +35,7 @@
                     <li><a href="{{ route('pages.about') }}" class="hover:text-white transition-colors">About studio</a></li>
                     <li><a href="{{ route('pages.contact') }}" class="hover:text-white transition-colors">Contact us</a></li>
                     <li><a href="{{ route('pages.gallery') }}" class="hover:text-white transition-colors">Gallery</a></li>
-                    <li><a href="{{ route('pages.pricing') }}" class="hover:text-white transition-colors">Studio rates</a></li>
+                    <li><a href="{{ route('blog.index') }}" class="hover:text-white transition-colors">Our Blog</a></li>
                 </ul>
             </div>
 
