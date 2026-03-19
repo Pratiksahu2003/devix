@@ -24,7 +24,7 @@ Route::view('/help', 'pages.help')->name('pages.help');
 Route::view('/booking', 'pages.booking')->name('pages.booking');
 Route::view('/location', 'pages.location')->name('pages.location');
 
-Route::view('/studio-specs', 'pages.studio-specs')->name('pages.studio-specs');
+Route::view('/studio-spaces', 'pages.studio-specs')->name('pages.studio-specs');
 Route::view('/use-cases', 'pages.use-cases')->name('pages.use-cases');
 Route::view('/collaborations', 'pages.collaborations')->name('pages.collaborations');
 
@@ -37,18 +37,18 @@ Route::view('/studio-rules', 'pages.studio-rules')->name('pages.studio-rules');
 Route::view('/cancellation-policy', 'pages.cancellation')->name('pages.cancellation');
 
 // Contact form submission
-Route::post('/contact', [ContactController::class, 'store'])->name('contact.submit');
-Route::post('/subscribe', [SubscriberController::class, 'store'])->name('subscribe.store');
+Route::post('/contact', [ContactController::class , 'store'])->name('contact.submit');
+Route::post('/subscribe', [SubscriberController::class , 'store'])->name('subscribe.store');
 
 // Dynamic OG image (SVG)
-Route::get('/og', [OgController::class, 'image'])->name('og.image');
+Route::get('/og', [OgController::class , 'image'])->name('og.image');
 
 // Blog public routes
-Route::get('/blog', [App\Http\Controllers\BlogController::class, 'index'])->name('blog.index');
-Route::get('/blog/{slug}', [App\Http\Controllers\BlogController::class, 'show'])->name('blog.show');
+Route::get('/blog', [App\Http\Controllers\BlogController::class , 'index'])->name('blog.index');
+Route::get('/blog/{slug}', [App\Http\Controllers\BlogController::class , 'show'])->name('blog.show');
 
 // ==========================================
 // CATCH-ALL ROUTE FOR SEO LANDING PAGES
 // ==========================================
 // Must remain at the absolute bottom.
-Route::get('/{slug}', [\App\Http\Controllers\PageController::class, 'show'])->name('pages.show');
+Route::get('/{slug}', [\App\Http\Controllers\PageController::class , 'show'])->name('pages.show');
