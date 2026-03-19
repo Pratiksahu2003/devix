@@ -14,6 +14,11 @@ Route::view('/videography-studio', 'pages.videography')->name('pages.videography
 Route::view('/podcast-studio', 'pages.podcast')->name('pages.podcast');
 Route::view('/edit-room', 'pages.edit-room')->name('pages.edit-room');
 
+// Additional commercial & content routes
+Route::view('/tv-commercials', 'pages.tvc')->name('pages.tvc');
+Route::view('/corporate-films', 'pages.corporate-films')->name('pages.corporate-films');
+Route::view('/instagram-reels', 'pages.reels')->name('pages.reels');
+
 Route::view('/services', 'pages.services')->name('pages.services');
 Route::view('/pricing', 'pages.pricing')->name('pages.pricing');
 Route::view('/about', 'pages.about')->name('pages.about');
