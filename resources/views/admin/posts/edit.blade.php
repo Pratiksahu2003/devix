@@ -118,17 +118,20 @@
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
                     <div>
                         <label for="meta_title" class="block text-sm font-semibold text-slate-700 mb-1.5">Meta Title</label>
-                        <input type="text" name="meta_title" id="meta_title" value="{{ old('meta_title', $post->meta_title) }}" class="w-full px-4 py-2.5 rounded-xl border border-slate-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-500/20 focus:outline-none transition-colors" placeholder="SEO Title">
+                        <input type="text" name="meta_title" id="meta_title" value="{{ old('meta_title', $post->meta_title) }}" class="w-full px-4 py-2.5 rounded-xl border {{ $errors->has('meta_title') ? 'border-red-500 ring-1 ring-red-500' : 'border-slate-300' }} focus:border-indigo-500 focus:ring-2 focus:ring-indigo-500/20 focus:outline-none transition-colors" placeholder="SEO Title">
+                        @error('meta_title') <p class="mt-1 text-sm text-red-500">{{ $message }}</p> @enderror
                     </div>
                     <div>
                         <label for="meta_keywords" class="block text-sm font-semibold text-slate-700 mb-1.5">Meta Keywords</label>
-                        <input type="text" name="meta_keywords" id="meta_keywords" value="{{ old('meta_keywords', $post->meta_keywords) }}" class="w-full px-4 py-2.5 rounded-xl border border-slate-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-500/20 focus:outline-none transition-colors" placeholder="news, article, blog">
+                        <input type="text" name="meta_keywords" id="meta_keywords" value="{{ old('meta_keywords', $post->meta_keywords) }}" class="w-full px-4 py-2.5 rounded-xl border {{ $errors->has('meta_keywords') ? 'border-red-500 ring-1 ring-red-500' : 'border-slate-300' }} focus:border-indigo-500 focus:ring-2 focus:ring-indigo-500/20 focus:outline-none transition-colors" placeholder="news, article, blog">
+                        @error('meta_keywords') <p class="mt-1 text-sm text-red-500">{{ $message }}</p> @enderror
                     </div>
                 </div>
 
                 <div>
                     <label for="meta_description" class="block text-sm font-semibold text-slate-700 mb-1.5">Meta Description</label>
-                    <textarea name="meta_description" id="meta_description" rows="2" class="w-full px-4 py-2.5 rounded-xl border border-slate-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-500/20 focus:outline-none transition-colors">{{ old('meta_description', $post->meta_description) }}</textarea>
+                    <textarea name="meta_description" id="meta_description" rows="2" class="w-full px-4 py-2.5 rounded-xl border {{ $errors->has('meta_description') ? 'border-red-500 ring-1 ring-red-500' : 'border-slate-300' }} focus:border-indigo-500 focus:ring-2 focus:ring-indigo-500/20 focus:outline-none transition-colors">{{ old('meta_description', $post->meta_description) }}</textarea>
+                    @error('meta_description') <p class="mt-1 text-sm text-red-500">{{ $message }}</p> @enderror
                 </div>
             </div>
         </div>
@@ -192,11 +195,22 @@
 
 <style>
 /* Style adjustments for CKEditor */
-.ck-editor__editable {
+.ck-editor__editable_inline {
     min-height: 500px;
+    max-height: 600px;
+    overflow-y: auto;
     border-bottom-left-radius: 0.75rem !important;
     border-bottom-right-radius: 0.75rem !important;
 }
+@error('content')
+.ck-editor__editable_inline {
+    border-color: #ef4444 !important;
+    box-shadow: 0 0 0 1px #ef4444 !important;
+}
+.ck-toolbar {
+    border-color: #ef4444 !important;
+}
+@enderror
 .ck-toolbar {
     border-top-left-radius: 0.75rem !important;
     border-top-right-radius: 0.75rem !important;
