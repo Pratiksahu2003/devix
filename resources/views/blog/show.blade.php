@@ -17,11 +17,21 @@
 @section('content')
 <div class="bg-[#FAFAFA] min-h-screen pb-20 font-sans">
     
-    <!-- Hero Section (Gradient text-only block) -->
-    <section class="bg-gradient-to-br from-[#59267c] to-[#3a155c] pt-28 pb-20 relative overflow-hidden">
+    <!-- Hero Section (Gradient with Cover Image background) -->
+    <section class="bg-[#3a155c] pt-28 pb-20 relative overflow-hidden">
+        <!-- Background Image & Gradient Overlay -->
+        @if($post->cover_image)
+        <div class="absolute inset-0 z-0">
+            <img src="{{ asset('storage/' . $post->cover_image) }}" alt="{{ $post->title }}" class="w-full h-full object-cover filter saturate-50 opacity-30 mix-blend-screen">
+        </div>
+        <div class="absolute inset-0 bg-gradient-to-br from-[#59267c]/95 to-[#3a155c]/95 z-0 mix-blend-multiply"></div>
+        @else
+        <div class="absolute inset-0 bg-gradient-to-br from-[#59267c] to-[#3a155c] z-0"></div>
+        @endif
+
         <!-- Abstract Decorations -->
-        <div class="absolute top-0 right-0 w-[600px] h-[600px] bg-white/5 rounded-full filter blur-3xl transform translate-x-1/3 -translate-y-1/3 pointer-events-none"></div>
-        <div class="absolute bottom-0 left-0 w-[400px] h-[400px] bg-purple-500/10 rounded-full filter blur-3xl transform -translate-x-1/2 translate-y-1/2 pointer-events-none"></div>
+        <div class="absolute top-0 right-0 w-[600px] h-[600px] bg-white/10 rounded-full filter blur-3xl transform translate-x-1/3 -translate-y-1/3 pointer-events-none z-0"></div>
+        <div class="absolute bottom-0 left-0 w-[400px] h-[400px] bg-purple-500/20 rounded-full filter blur-3xl transform -translate-x-1/2 translate-y-1/2 pointer-events-none z-0"></div>
 
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
             <!-- Breadcrumbs -->
