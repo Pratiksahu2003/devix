@@ -287,7 +287,6 @@ document.addEventListener("DOMContentLoaded", function () {
                 window.CKEditorPlugins.TableColumnResize,
                 window.CKEditorPlugins.Code,
                 window.CKEditorPlugins.CodeBlock,
-                window.CKEditorPlugins.FindAndReplace,
                 window.CKEditorPlugins.RemoveFormat,
                 window.CKEditorPlugins.SourceEditing,
                 window.CKEditorPlugins.Alignment,
@@ -303,7 +302,7 @@ document.addEventListener("DOMContentLoaded", function () {
                     'link', 'insertImage', 'insertTable', 'mediaEmbed', 'blockQuote', 'horizontalLine', '|',
                     'bulletedList', 'numberedList', 'todoList', 'outdent', 'indent', '|',
                     'code', 'codeBlock', '|',
-                    'undo', 'redo', 'findAndReplace', '|',
+                    'undo', 'redo', '|',
                     'removeFormat', 'sourceEditing'
                 ],
                 shouldNotGroupWhenFull: true
