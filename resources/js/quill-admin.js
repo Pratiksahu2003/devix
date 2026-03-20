@@ -18,22 +18,27 @@ function patchQuillBetterTableWidth() {
         TableContainerReal.prototype.__ckTableWidthPatched = true;
         TableContainerReal.prototype.updateTableWidth = function () {
             setTimeout(() => {
-                const colGroup = this.colGroup && this.colGroup();
-                if (!colGroup || !colGroup.children) return;
+                try {
+                    const colGroup = this.colGroup && this.colGroup();
+                    if (!colGroup || !colGroup.children) return;
 
-                const tableWidth = colGroup.children.reduce((sumWidth, col) => {
-                    const formats =
-                        typeof col.formats === 'function' ? col.formats() : {};
+                    const tableWidth = colGroup.children.reduce((sumWidth, col) => {
+                        const formats =
+                            typeof col.formats === 'function' ? col.formats() : {};
 
-                    // quill-better-table expects `formats[table-col].width`,
-                    // but in practice `col.formats()` is `{ width: <number> }`.
-                    const widthRaw = formats?.width ?? formats?.['table-col']?.width;
-                    const width = parseInt(widthRaw, 10);
-                    return sumWidth + (Number.isFinite(width) ? width : 0);
-                }, 0);
+                        // quill-better-table expects `formats[table-col].width`,
+                        // but in practice `col.formats()` is `{ width: <number> }`.
+                        const widthRaw = formats?.width ?? formats?.['table-col']?.width;
+                        const width = parseInt(widthRaw, 10);
+                        return sumWidth + (Number.isFinite(width) ? width : 0);
+                    }, 0);
 
-                if (this.domNode && this.domNode.style) {
-                    this.domNode.style.width = `${tableWidth}px`;
+                    if (this.domNode && this.domNode.style) {
+                        this.domNode.style.width = `${tableWidth}px`;
+                    }
+                } catch (e) {
+                    // Never crash on width calculations.
+                    // Width resizing is optional; insertion must always work.
                 }
             }, 0);
         };
@@ -175,9 +180,10 @@ function initQuillForTextarea(textarea) {
             <span class="ql-formats">
                 <button
                     type="button"
-                    class="ql-table"
+                    class="ql-insertTable"
+                    aria-label="Insert Table"
                 >
-                   table
+                    Insert Table
                 </button>
             </span>
         </div>
@@ -218,8 +224,23 @@ function initQuillForTextarea(textarea) {
     });
 
     // Apply the fix right after Quill + better-table loads,
-    // so the next click on "Insert Table" can't crash.
+    // and re-apply shortly after in case blots register lazily.
     patchQuillBetterTableWidth();
+    setTimeout(() => patchQuillBetterTableWidth(), 0);
+    setTimeout(() => patchQuillBetterTableWidth(), 50);
+
+    // Extra reliability: ensure our button always inserts a table.
+    // (If Quill doesn't bind the toolbar handler for any reason.)
+    const insertBtn = toolbarEl.querySelector('button.ql-insertTable');
+    if (insertBtn) {
+        insertBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            const mod = quill.getModule('better-table');
+            if (mod && typeof mod.insertTable === 'function') {
+                mod.insertTable(3, 3);
+            }
+        });
+    }
 
     // Paste initial HTML into the editor.
     const initial = textarea.value || '';
