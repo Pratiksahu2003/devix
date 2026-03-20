@@ -12,6 +12,36 @@ function initQuillForTextarea(textarea) {
     if (textarea.dataset.quillInitialized === '1') return;
     textarea.dataset.quillInitialized = '1';
 
+    // Style the Quill toolbar + editor to look closer to your CKEditor 5 UI.
+    // This is injected once per page load.
+    const styleId = 'quill-ckeditor-like-style';
+    if (!document.getElementById(styleId)) {
+        const style = document.createElement('style');
+        style.id = styleId;
+        style.innerHTML = `
+            .quill-editor-wrapper .ql-toolbar.ql-snow {
+                background: #f8fafc !important;
+                border-color: #e2e8f0 !important;
+                flex-wrap: wrap !important;
+                padding: 6px !important;
+                border-top-left-radius: 0.75rem !important;
+                border-top-right-radius: 0.75rem !important;
+            }
+            .quill-editor-wrapper .ql-toolbar.ql-snow .ql-formats {
+                margin-right: 8px !important;
+            }
+            .quill-editor-wrapper .ql-editor {
+                min-height: 320px !important;
+                max-height: 650px !important;
+                overflow-y: auto !important;
+                font-size: 1rem !important;
+                line-height: 1.7 !important;
+                padding: 1.25rem 1.5rem !important;
+            }
+        `;
+        document.head.appendChild(style);
+    }
+
     // Hide textarea and create editor wrapper.
     const wrapper = document.createElement('div');
     wrapper.className = 'quill-editor-wrapper';
@@ -19,26 +49,51 @@ function initQuillForTextarea(textarea) {
     textarea.style.display = 'none';
     textarea.insertAdjacentElement('afterend', wrapper);
 
-    // Build a small toolbar with a custom "Table" button.
+    // Build a CKEditor-like toolbar:
+    // - Heading dropdown (Paragraph + H1..H4)
+    // - Lists (bullet + numbered)
+    // - Basic formatting + link + clear all formatting
+    // - Custom "Insert Table" button
     const toolbarId = `quill-toolbar-${Math.random().toString(16).slice(2)}`;
     wrapper.innerHTML = `
-        <div id="${toolbarId}" class="mb-2 flex flex-wrap gap-2 items-center">
+        <div id="${toolbarId}" class="ql-toolbar ql-snow mb-3">
+            <span class="ql-formats">
+                <select class="ql-header" aria-label="Paragraph heading">
+                    <option selected value="">Paragraph (All)</option>
+                    <option value="1">Heading 1</option>
+                    <option value="2">Heading 2</option>
+                    <option value="3">Heading 3</option>
+                    <option value="4">Heading 4</option>
+                </select>
+            </span>
+
             <span class="ql-formats">
                 <button type="button" class="ql-bold" aria-label="Bold"></button>
                 <button type="button" class="ql-italic" aria-label="Italic"></button>
                 <button type="button" class="ql-underline" aria-label="Underline"></button>
                 <button type="button" class="ql-strike" aria-label="Strike"></button>
             </span>
+
+            <span class="ql-formats">
+                <button type="button" class="ql-list" value="bullet" aria-label="Bulleted list"></button>
+                <button type="button" class="ql-list" value="ordered" aria-label="Numbered list"></button>
+            </span>
+
             <span class="ql-formats">
                 <button type="button" class="ql-link" aria-label="Link"></button>
-                <button type="button" class="ql-clean" aria-label="Clear formatting"></button>
+                <button type="button" class="ql-clean" aria-label="Clear all formatting"></button>
             </span>
+
             <span class="ql-formats">
-                <button type="button" class="ql-insertTable px-3 py-1.5 text-xs font-semibold bg-indigo-50 hover:bg-indigo-100 text-indigo-700 rounded border border-indigo-100">
+                <button
+                    type="button"
+                    class="ql-insertTable px-3 py-1.5 text-xs font-semibold bg-indigo-50 hover:bg-indigo-100 text-indigo-700 rounded border border-indigo-100"
+                >
                     Insert Table
                 </button>
             </span>
         </div>
+
         <div class="rounded-xl border border-slate-300 bg-white"></div>
     `;
 
