@@ -219,7 +219,7 @@
 }
 </style>
 
-<script src="https://cdn.ckeditor.com/ckeditor5/42.0.2/classic/ckeditor.js"></script>
+@vite(['resources/js/ckeditor.js'])
 <script>
 document.addEventListener("DOMContentLoaded", function () {
     const contentTextarea = document.querySelector('#content');
@@ -240,7 +240,48 @@ document.addEventListener("DOMContentLoaded", function () {
 
     ClassicEditor
         .create(contentTextarea, {
-            extraPlugins: [Base64UploadAdapterPlugin],
+            plugins: [
+                window.CKEditorPlugins.Essentials,
+                window.CKEditorPlugins.Autoformat,
+                window.CKEditorPlugins.Bold,
+                window.CKEditorPlugins.Italic,
+                window.CKEditorPlugins.Underline,
+                window.CKEditorPlugins.Strikethrough,
+                window.CKEditorPlugins.FontSize,
+                window.CKEditorPlugins.FontColor,
+                window.CKEditorPlugins.FontBackgroundColor,
+                window.CKEditorPlugins.Heading,
+                window.CKEditorPlugins.Link,
+                window.CKEditorPlugins.List,
+                window.CKEditorPlugins.ListProperties,
+                window.CKEditorPlugins.TodoList,
+                window.CKEditorPlugins.Indent,
+                window.CKEditorPlugins.IndentBlock,
+                window.CKEditorPlugins.BlockQuote,
+                window.CKEditorPlugins.HorizontalLine,
+                window.CKEditorPlugins.Image,
+                window.CKEditorPlugins.ImageCaption,
+                window.CKEditorPlugins.ImageStyle,
+                window.CKEditorPlugins.ImageToolbar,
+                window.CKEditorPlugins.ImageUpload,
+                window.CKEditorPlugins.ImageResize,
+                window.CKEditorPlugins.LinkImage,
+                window.CKEditorPlugins.Base64UploadAdapter,
+                window.CKEditorPlugins.MediaEmbed,
+                window.CKEditorPlugins.Table,
+                window.CKEditorPlugins.TableToolbar,
+                window.CKEditorPlugins.TableCellProperties,
+                window.CKEditorPlugins.TableProperties,
+                window.CKEditorPlugins.TableColumnResize,
+                window.CKEditorPlugins.Code,
+                window.CKEditorPlugins.CodeBlock,
+                window.CKEditorPlugins.FindAndReplace,
+                window.CKEditorPlugins.RemoveFormat,
+                window.CKEditorPlugins.SourceEditing,
+                window.CKEditorPlugins.Alignment,
+                window.CKEditorPlugins.PasteFromOffice,
+                window.CKEditorPlugins.Paragraph,
+            ],
             toolbar: {
                 items: [
                     'heading', '|',
