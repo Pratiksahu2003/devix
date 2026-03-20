@@ -1,45 +1,19 @@
 /**
- * CKEditor 5 — NPM build entry
- * Exposes ClassicEditor on window so inline blade scripts work unchanged.
+ * CKEditor 5 (modular)
+ * Fix for `ckeditor-duplicated-modules`: avoid importing from the `ckeditor5` umbrella package.
  */
-import {
-    ClassicEditor,
-    Autoformat,
-    Bold,
-    Essentials,
-    FontColor,
-    FontSize,
-    Heading,
-    Italic,
-    Link,
-    List,
-    Paragraph,
-    Strikethrough,
-    Underline,
-} from 'ckeditor5';
-
+import { ClassicEditor } from '@ckeditor/ckeditor5-editor-classic';
+import { Essentials } from '@ckeditor/ckeditor5-essentials';
+import { Autoformat } from '@ckeditor/ckeditor5-autoformat';
+import { Bold, Italic, Underline, Strikethrough } from '@ckeditor/ckeditor5-basic-styles';
+import { FontColor, FontSize } from '@ckeditor/ckeditor5-font';
+import { Heading } from '@ckeditor/ckeditor5-heading';
+import { Link } from '@ckeditor/ckeditor5-link';
+import { List } from '@ckeditor/ckeditor5-list';
+import { Paragraph } from '@ckeditor/ckeditor5-paragraph';
 import { Table, TableToolbar } from '@ckeditor/ckeditor5-table';
 
 import 'ckeditor5/ckeditor5.css';
-
-// Make ClassicEditor available globally so inline blade <script> blocks work.
-window.ClassicEditor = ClassicEditor;
-window.CKEditorPlugins = {
-    Autoformat,
-    Bold,
-    Essentials,
-    FontColor,
-    FontSize,
-    Heading,
-    Italic,
-    Link,
-    List,
-    Paragraph,
-    Strikethrough,
-    Underline,
-    Table,
-    TableToolbar,
-};
 
 function debounce(fn, wait) {
     let t = null;
@@ -51,6 +25,8 @@ function debounce(fn, wait) {
 
 function initCKEditorForTextarea(textarea) {
     if (!textarea) return;
+    if (textarea.dataset.ckeditorInitialized === '1') return;
+    textarea.dataset.ckeditorInitialized = '1';
 
     // Create an editor host (CKEditor will render UI inside it).
     // We keep the original textarea for form submission.
@@ -64,19 +40,34 @@ function initCKEditorForTextarea(textarea) {
     textarea.insertAdjacentElement('afterend', wrapper);
     wrapper.appendChild(editorHost);
 
+    let editorInstance = null;
+
     const form = textarea.closest('form');
     const syncTextarea = debounce(() => {
         // editor.getData() is HTML string.
+        if (!editorInstance) return;
         textarea.value = editorInstance.getData();
     }, 150);
 
-    // If CKEditor is created again (shouldn't happen), avoid double-sync refs.
-    // Also helps with hot reload during development.
-    let editorInstance = null;
-
-    return window.ClassicEditor.create(editorHost, {
+    return ClassicEditor.create(editorHost, {
         // Add Table support.
         extraPlugins: [Table, TableToolbar],
+        plugins: [
+            Essentials,
+            Autoformat,
+            Paragraph,
+            Heading,
+            Bold,
+            Italic,
+            Underline,
+            Strikethrough,
+            FontColor,
+            FontSize,
+            Link,
+            List,
+            Table,
+            TableToolbar,
+        ],
         toolbar: {
             items: [
                 'heading',
