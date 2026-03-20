@@ -3,53 +3,78 @@
 @section('title', 'Our Work | '.config('company.brand'))
 
 @section('meta')
-    <meta name="description" content="Explore the studio's latest work with a featured YouTube video and a curated image gallery created at {{ config('company.brand') }} in Delhi NCR." />
+    <meta name="description" content="Explore the studio's latest work with a featured video and a curated gallery created at {{ config('company.brand') }} in Delhi NCR." />
 @endsection
 
 @section('content')
-    <section class="border-b border-[var(--color-border-subtle)] bg-[var(--color-surface)]">
-        <div class="mx-auto max-w-6xl px-4 py-1.5 sm:px-6 lg:py-2">
-            <h1 class="text-lg font-semibold tracking-tight sm:text-xl">
-                Our Work
-            </h1>
-            <p class="mt-1.5 max-w-2xl text-xs leading-relaxed text-[var(--color-text-muted)]">
-                A curated mix of latest shoots, campaigns, and frames. Admin can optionally add a YouTube showcase video
-                and upload images that appear here dynamically.
-            </p>
+    {{-- Hero --}}
+    <section class="relative overflow-hidden border-b border-[var(--color-border-subtle)] bg-[var(--color-surface)]">
+        <div aria-hidden="true" class="pointer-events-none absolute inset-0 bg-gradient-to-br from-[var(--color-brand-lens-blue)]/15 via-transparent to-transparent"></div>
+        <div class="relative mx-auto max-w-6xl px-4 py-10 sm:px-6 sm:py-14 lg:py-16">
+            <div class="flex flex-col gap-8 lg:flex-row lg:items-end lg:justify-between">
+                <div class="max-w-2xl">
+                    <h1 class="text-3xl font-semibold tracking-tight sm:text-4xl">Our Work</h1>
+                    <p class="mt-3 text-sm leading-relaxed text-[var(--color-text-muted)]">
+                        A curated gallery of recent shoots, campaigns, and frames from {{ config('company.brand') }}.
+                        Filter by category and open any image for a quick zoom view.
+                    </p>
+                    <div class="mt-5 flex flex-wrap items-center gap-3">
+                        <a href="{{ route('pages.contact') }}"
+                           class="inline-flex items-center rounded-full bg-[var(--color-brand-lens-blue)] px-4 py-2 text-xs font-semibold text-white shadow-sm transition hover:shadow-md hover:bg-[var(--color-brand-lens-blue)]/90">
+                            Book a Session
+                        </a>
+                        <a href="{{ route('pages.services') }}"
+                           class="inline-flex items-center rounded-full border border-[var(--color-border-subtle)] bg-white/60 px-4 py-2 text-xs font-semibold text-[var(--color-text-main)] transition hover:border-[var(--color-brand-lens-blue)] hover:text-[var(--color-brand-lens-blue)] hover:bg-white">
+                            View Services
+                        </a>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-2 gap-3 sm:grid-cols-3">
+                    <div class="rounded-2xl border border-[var(--color-border-subtle)] bg-white/60 p-4 backdrop-blur">
+                        <div class="text-xs font-semibold text-[var(--color-text-muted)]">Gallery</div>
+                        <div class="mt-2 text-2xl font-semibold">{{ $ourWorkImages?->count() ?? 0 }}</div>
+                        <div class="mt-1 text-xs text-[var(--color-text-muted)]">Images</div>
+                    </div>
+                    <div class="rounded-2xl border border-[var(--color-border-subtle)] bg-white/60 p-4 backdrop-blur">
+                        <div class="text-xs font-semibold text-[var(--color-text-muted)]">Studio</div>
+                        <div class="mt-2 text-2xl font-semibold">Delhi NCR</div>
+                        <div class="mt-1 text-xs text-[var(--color-text-muted)]">All sets included</div>
+                    </div>
+                    <div class="hidden rounded-2xl border border-[var(--color-border-subtle)] bg-white/60 p-4 backdrop-blur sm:block">
+                        <div class="text-xs font-semibold text-[var(--color-text-muted)]">Featured</div>
+                        <div class="mt-2 text-2xl font-semibold">{{ !empty($ourWork?->youtube_url) ? 'Yes' : 'Optional' }}</div>
+                        <div class="mt-1 text-xs text-[var(--color-text-muted)]">YouTube showcase</div>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
 
     @if(!empty($ourWork?->youtube_url))
-        <section class="bg-white py-12 border-b border-[var(--color-border-subtle)]">
+        @php
+            $rawUrl = (string) $ourWork->youtube_url;
+            $videoId = null;
+            if (preg_match('/(?:youtube\\.com\\/(?:watch\\?v=|embed\\/)|youtu\\.be\\/)([A-Za-z0-9_-]{6,})/', $rawUrl, $m)) {
+                $videoId = $m[1] ?? null;
+            }
+            $embedUrl = $videoId ? ('https://www.youtube.com/embed/' . $videoId) : $rawUrl;
+        @endphp
+
+        <section class="bg-white py-10 sm:py-12 border-b border-[var(--color-border-subtle)]">
             <div class="mx-auto max-w-6xl px-4 sm:px-6">
-                <div class="flex items-end justify-between gap-4">
-                    <h2 class="text-lg font-semibold tracking-tight sm:text-xl">Featured Work Video</h2>
-                    <a
-                        href="{{ $ourWork->youtube_url }}"
-                        target="_blank"
-                        rel="noreferrer"
-                        class="text-xs font-semibold text-indigo-600 hover:text-indigo-700"
-                    >
+                <div class="flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
+                    <div>
+                        <h2 class="text-lg font-semibold tracking-tight sm:text-xl">Featured Work Video</h2>
+                        <p class="mt-1 text-xs text-[var(--color-text-muted)]">A quick reel of recent studio highlights.</p>
+                    </div>
+                    <a href="{{ $ourWork->youtube_url }}" target="_blank" rel="noreferrer"
+                       class="text-xs font-semibold text-indigo-600 hover:text-indigo-700">
                         Watch on YouTube
                     </a>
                 </div>
 
-                @php
-                    $rawUrl = $ourWork->youtube_url;
-                    $videoId = null;
-
-                    // Robust extraction for:
-                    // - https://www.youtube.com/watch?v=VIDEO_ID
-                    // - https://youtu.be/VIDEO_ID
-                    // - https://www.youtube.com/embed/VIDEO_ID
-                    if (preg_match('/(?:youtube\\.com\\/(?:watch\\?v=|embed\\/)|youtu\\.be\\/)([A-Za-z0-9_-]{6,})/', $rawUrl, $m)) {
-                        $videoId = $m[1] ?? null;
-                    }
-
-                    $embedUrl = $videoId ? ('https://www.youtube.com/embed/' . $videoId) : $rawUrl;
-                @endphp
-
-                <div class="mt-6 rounded-2xl overflow-hidden border border-slate-200 bg-black aspect-video">
+                <div class="mt-6 overflow-hidden rounded-2xl border border-slate-200 bg-black aspect-video">
                     <iframe
                         src="{{ $embedUrl }}"
                         class="w-full h-full"
@@ -64,132 +89,143 @@
     @endif
 
     @php
-        $galleryCats = ['All','Fashion','Portraits','Studio'];
-        $items = [
-            // Pooja Session (Fashion)
-            ['alt' => 'Fashion session - DSC00956', 'cat' => 'Fashion', 'color' => '#fef3c7', 'src' => 'storage/pooja/DSC00956.JPG'],
-            ['alt' => 'Fashion session - DSC00957', 'cat' => 'Fashion', 'color' => '#fde68a', 'src' => 'storage/pooja/DSC00957.JPG'],
-            ['alt' => 'Fashion session - DSC00958', 'cat' => 'Fashion', 'color' => '#dbeafe', 'src' => 'storage/pooja/DSC00958.JPG'],
-            ['alt' => 'Fashion session - DSC00959', 'cat' => 'Fashion', 'color' => '#dbeafe', 'src' => 'storage/pooja/DSC00959.JPG'],
-            ['alt' => 'Fashion session - DSC00960', 'cat' => 'Fashion', 'color' => '#fde68a', 'src' => 'storage/pooja/DSC00960.JPG'],
-            ['alt' => 'Fashion session - DSC00961', 'cat' => 'Fashion', 'color' => '#e5e7eb', 'src' => 'storage/pooja/DSC00961.JPG'],
-            ['alt' => 'Fashion session - DSC00962', 'cat' => 'Fashion', 'color' => '#dbeafe', 'src' => 'storage/pooja/DSC00962.JPG'],
-            ['alt' => 'Fashion session - DSC00963', 'cat' => 'Fashion', 'color' => '#f5f5f7', 'src' => 'storage/pooja/DSC00963.JPG'],
-            ['alt' => 'Fashion session - DSC00964', 'cat' => 'Fashion', 'color' => '#e5e7eb', 'src' => 'storage/pooja/DSC00964.JPG'],
-            ['alt' => 'Fashion session - DSC00965', 'cat' => 'Fashion', 'color' => '#f5f5f7', 'src' => 'storage/pooja/DSC00965.JPG'],
-            ['alt' => 'Fashion session - DSC00966', 'cat' => 'Fashion', 'color' => '#e5e7eb', 'src' => 'storage/pooja/DSC00966.JPG'],
-            ['alt' => 'Fashion session - DSC00968', 'cat' => 'Fashion', 'color' => '#fef3c7', 'src' => 'storage/pooja/DSC00968.JPG'],
-            ['alt' => 'Fashion session - DSC00969', 'cat' => 'Fashion', 'color' => '#e5e7eb', 'src' => 'storage/pooja/DSC00969.JPG'],
-            ['alt' => 'Fashion session - DSC00970', 'cat' => 'Fashion', 'color' => '#dbeafe', 'src' => 'storage/pooja/DSC00970.JPG'],
-            ['alt' => 'Fashion session - DSC00971', 'cat' => 'Fashion', 'color' => '#fde68a', 'src' => 'storage/pooja/DSC00971.JPG'],
-            ['alt' => 'Fashion session - DSC00972', 'cat' => 'Fashion', 'color' => '#e5e7eb', 'src' => 'storage/pooja/DSC00972.JPG'],
-            ['alt' => 'Fashion session - DSC00973', 'cat' => 'Fashion', 'color' => '#f5f5f7', 'src' => 'storage/pooja/DSC00973.JPG'],
-            ['alt' => 'Fashion session - DSC00974', 'cat' => 'Fashion', 'color' => '#fef3c7', 'src' => 'storage/pooja/DSC00974.JPG'],
-            ['alt' => 'Fashion session - DSC00975', 'cat' => 'Fashion', 'color' => '#fde68a', 'src' => 'storage/pooja/DSC00975.JPG'],
-            ['alt' => 'Fashion session - DSC00976', 'cat' => 'Fashion', 'color' => '#f5f5f7', 'src' => 'storage/pooja/DSC00976.JPG'],
-            ['alt' => 'Fashion session - DSC00977', 'cat' => 'Fashion', 'color' => '#dbeafe', 'src' => 'storage/pooja/DSC00977.JPG'],
-            ['alt' => 'Fashion session - DSC00978', 'cat' => 'Fashion', 'color' => '#dbeafe', 'src' => 'storage/pooja/DSC00978.JPG'],
-            ['alt' => 'Fashion session - DSC00979', 'cat' => 'Fashion', 'color' => '#ede9fe', 'src' => 'storage/pooja/DSC00979.JPG'],
-            ['alt' => 'Fashion session - DSC00980', 'cat' => 'Fashion', 'color' => '#f5f5f7', 'src' => 'storage/pooja/DSC00980.JPG'],
-            ['alt' => 'Fashion session - DSC00981', 'cat' => 'Fashion', 'color' => '#dbeafe', 'src' => 'storage/pooja/DSC00981.JPG'],
+        use Illuminate\Support\Str;
 
-            // Vidhu Session (Portraits)
-            ['alt' => 'Portraits session - DSC00982', 'cat' => 'Portraits', 'color' => '#ede9fe', 'src' => 'storage/vidhu/DSC00982.JPG'],
-            ['alt' => 'Portraits session - DSC00983', 'cat' => 'Portraits', 'color' => '#fde68a', 'src' => 'storage/vidhu/DSC00983.JPG'],
-            ['alt' => 'Portraits session - DSC00984', 'cat' => 'Portraits', 'color' => '#e5e7eb', 'src' => 'storage/vidhu/DSC00984.JPG'],
-            ['alt' => 'Portraits session - DSC00985', 'cat' => 'Portraits', 'color' => '#f5f5f7', 'src' => 'storage/vidhu/DSC00985.JPG'],
-            ['alt' => 'Portraits session - DSC00986', 'cat' => 'Portraits', 'color' => '#e5e7eb', 'src' => 'storage/vidhu/DSC00986.JPG'],
-            ['alt' => 'Portraits session - DSC00987', 'cat' => 'Portraits', 'color' => '#f5f5f7', 'src' => 'storage/vidhu/DSC00987.JPG'],
-            ['alt' => 'Portraits session - DSC00988', 'cat' => 'Portraits', 'color' => '#dbeafe', 'src' => 'storage/vidhu/DSC00988.JPG'],
-            ['alt' => 'Portraits session - DSC00989', 'cat' => 'Portraits', 'color' => '#e5e7eb', 'src' => 'storage/vidhu/DSC00989.JPG'],
-            ['alt' => 'Portraits session - DSC00990', 'cat' => 'Portraits', 'color' => '#fde68a', 'src' => 'storage/vidhu/DSC00990.JPG'],
-            ['alt' => 'Portraits session - DSC00991', 'cat' => 'Portraits', 'color' => '#ede9fe', 'src' => 'storage/vidhu/DSC00991.JPG'],
-            ['alt' => 'Portraits session - DSC00992', 'cat' => 'Portraits', 'color' => '#fef3c7', 'src' => 'storage/vidhu/DSC00992.JPG'],
-            ['alt' => 'Portraits session - DSC00993', 'cat' => 'Portraits', 'color' => '#dbeafe', 'src' => 'storage/vidhu/DSC00993.JPG'],
-            ['alt' => 'Portraits session - DSC00994', 'cat' => 'Portraits', 'color' => '#fde68a', 'src' => 'storage/vidhu/DSC00994.JPG'],
-            ['alt' => 'Portraits session - DSC00995', 'cat' => 'Portraits', 'color' => '#ede9fe', 'src' => 'storage/vidhu/DSC00995.JPG'],
-            ['alt' => 'Portraits session - DSC00996', 'cat' => 'Portraits', 'color' => '#f5f5f7', 'src' => 'storage/vidhu/DSC00996.JPG'],
-            ['alt' => 'Portraits session - DSC00997', 'cat' => 'Portraits', 'color' => '#e5e7eb', 'src' => 'storage/vidhu/DSC00997.JPG'],
-
-             // Studio Session
-             ['alt' => 'Studio session - DSC01002', 'cat' => 'Studio', 'color' => '#ede9fe', 'src' => 'storage/studio/DSC01002.JPG'],
-             ['alt' => 'Studio session - DSC01003', 'cat' => 'Studio', 'color' => '#fde68a', 'src' => 'storage/studio/DSC01003.JPG'],
-             ['alt' => 'Studio session - DSC01007', 'cat' => 'Studio', 'color' => '#fef3c7', 'src' => 'storage/studio/DSC01007.JPG'],
-             ['alt' => 'Studio session - DSC01008', 'cat' => 'Studio', 'color' => '#ede9fe', 'src' => 'storage/studio/DSC01008.JPG'],
-             ['alt' => 'Studio session - DSC01009', 'cat' => 'Studio', 'color' => '#f5f5f7', 'src' => 'storage/studio/DSC01009.JPG'],
-             ['alt' => 'Studio session - DSC01010', 'cat' => 'Studio', 'color' => '#dbeafe', 'src' => 'storage/studio/DSC01010.JPG'],
-             ['alt' => 'Studio session - DSC01012', 'cat' => 'Studio', 'color' => '#e5e7eb', 'src' => 'storage/studio/DSC01012.JPG'],
+        $categoryColors = [
+            'Fashion' => '#fef3c7',
+            'Portraits' => '#ede9fe',
+            'Studio' => '#e0f2fe',
+            'Other' => '#e5e7eb',
         ];
 
-        // If admin uploaded "Our Work" images, replace the hardcoded fallback list.
-        if (isset($ourWorkImages) && $ourWorkImages && $ourWorkImages->count() > 0) {
-            $galleryCats = ['All'];
+        $ourWorkNormalizePath = function (?string $imagePath): string {
+            $imagePath = (string) ($imagePath ?? '');
+            $imagePath = ltrim($imagePath, '/');
 
-            $items = $ourWorkImages
-                ->sortBy('sort_order')
-                ->values()
-                ->map(function ($img) {
-                    $imgPath = (string) ($img->image_path ?? '');
-                    $src = \Illuminate\Support\Str::startsWith($imgPath, 'storage/')
-                        ? $imgPath
-                        : ('storage/' . ltrim($imgPath, '/'));
+            // If the admin stored a full URL, keep it as-is.
+            if (preg_match('/^https?:\/\//i', $imagePath) === 1) {
+                return $imagePath;
+            }
 
-                    return [
-                        'alt' => $img->alt_text ?: 'Our Work',
-                        'cat' => 'All',
-                        'color' => '#e5e7eb',
-                        'src' => $src,
-                    ];
-                })
-                ->toArray();
-        }
-         function lqip($color) {
-            $svg = '<svg xmlns="http://www.w3.org/2000/svg" width="20" height="12"><rect width="100%" height="100%" fill="'.$color.'"/></svg>';
-            return 'data:image/svg+xml;charset=UTF-8,'.rawurlencode($svg);
-        }
-        function srcset($base) {
-            // For optimized images, we might not have different sizes generated yet, 
-            // but the resize script ensures they are max 1200px.
-            // We can just return the base image for now as we overwrote the originals with optimized versions.
-            return $base.' 1200w';
-        }
+            return Str::startsWith($imagePath, 'storage/') ? $imagePath : ('storage/' . $imagePath);
+        };
+
+        $ourWorkCategoryFromPath = function (?string $imagePath) use ($ourWorkNormalizePath): string {
+            $imagePath = (string) ($imagePath ?? '');
+            if ($imagePath === '') return 'Other';
+
+            $normalized = $ourWorkNormalizePath($imagePath);
+            $after = Str::after($normalized, 'storage/');
+            $firstDir = Str::before($after, '/');
+            $key = Str::lower($firstDir);
+
+            return match ($key) {
+                'pooja' => 'Fashion',
+                'vidhu' => 'Portraits',
+                'studio' => 'Studio',
+                default => ($key ? Str::title(str_replace(['-', '_'], ' ', $key)) : 'Other'),
+            };
+        };
+
+        $ourWorkCategoryColor = function (string $category, array $categoryColors): string {
+            return $categoryColors[$category] ?? $categoryColors['Other'];
+        };
+
+        $galleryItems = $ourWorkImages
+            ?->sortBy('sort_order')
+            ?->values()
+            ?->map(function ($img) use ($categoryColors) {
+                $imagePath = $img->image_path ?? null;
+                if (!$imagePath) return null;
+
+                $category = $ourWorkCategoryFromPath((string) $imagePath);
+                $normalized = $ourWorkNormalizePath((string) $imagePath);
+                $src = preg_match('/^https?:\/\//i', $normalized) === 1 ? $normalized : asset($normalized);
+
+                return [
+                    'id' => $img->id,
+                    'src' => $src,
+                    'alt' => (string) ($img->alt_text ?: 'Our Work'),
+                    'caption' => (string) (($img->alt_text ?: 'Our Work') . ' • ' . $category),
+                    'category' => $category,
+                    'bg' => $ourWorkCategoryColor($category, $categoryColors),
+                ];
+            })
+            ?->filter()
+            ?->values()
+            ?->toArray() ?? [];
+
+        $galleryCats = array_values(array_unique(array_map(function ($it) {
+            return $it['category'] ?? 'Other';
+        }, $galleryItems)));
+        array_unshift($galleryCats, 'All');
+
+        $imageObjects = collect($galleryItems)->map(function ($it) {
+            return [
+                '@type' => 'ImageObject',
+                'contentUrl' => $it['src'],
+                'caption' => $it['caption'],
+            ];
+        })->toArray();
+
+        $galleryLd = [
+            '@context' => 'https://schema.org',
+            '@type' => 'CollectionPage',
+            'name' => 'Gallery | ' . config('company.brand'),
+            'hasPart' => $imageObjects,
+        ];
     @endphp
+
     <script>
-        window.galleryLightbox = (cats) => ({
+        window.galleryComponent = (items, categories) => ({
+            items: items || [],
+            categories: categories || [],
             cat: 'All',
-            show: 12,
-            cats: cats,
+
             lightboxOpen: false,
             lightboxSrc: '',
             lightboxAlt: '',
+            lightboxCaption: '',
             scale: 1,
             panning: false,
             pointX: 0,
             pointY: 0,
             startX: 0,
             startY: 0,
-            openLightbox(src, alt) {
+
+            get filteredItems() {
+                if (!this.cat || this.cat === 'All') return this.items;
+                return this.items.filter(i => i.category === this.cat);
+            },
+
+            openLightbox(src, alt, caption) {
                 this.lightboxSrc = src;
                 this.lightboxAlt = alt;
+                this.lightboxCaption = caption || '';
                 this.lightboxOpen = true;
                 this.scale = 1;
                 this.pointX = 0;
                 this.pointY = 0;
                 document.body.style.overflow = 'hidden';
             },
+
             closeLightbox() {
                 this.lightboxOpen = false;
                 document.body.style.overflow = '';
                 setTimeout(() => {
                     this.lightboxSrc = '';
+                    this.lightboxAlt = '';
+                    this.lightboxCaption = '';
                     this.scale = 1;
                     this.pointX = 0;
                     this.pointY = 0;
-                }, 300);
+                }, 200);
             },
+
             zoomIn() {
                 this.scale = Math.min(this.scale + 0.5, 4);
             },
+
             zoomOut() {
                 this.scale = Math.max(this.scale - 0.5, 1);
                 if (this.scale === 1) {
@@ -197,6 +233,7 @@
                     this.pointY = 0;
                 }
             },
+
             startDrag(e) {
                 if (this.scale <= 1) return;
                 e.preventDefault();
@@ -204,109 +241,139 @@
                 this.startX = e.clientX - this.pointX;
                 this.startY = e.clientY - this.pointY;
             },
+
             drag(e) {
                 if (!this.panning) return;
                 e.preventDefault();
                 this.pointX = e.clientX - this.startX;
                 this.pointY = e.clientY - this.startY;
             },
+
             stopDrag() {
                 this.panning = false;
             }
         });
     </script>
 
-    <section class="bg-[var(--color-surface-muted)]" x-data="window.galleryLightbox(@json($galleryCats))">
-        {{-- Lightbox Overlay --}}
-        <div x-show="lightboxOpen" 
-             x-transition:enter="transition ease-out duration-300"
-             x-transition:enter-start="opacity-0"
-             x-transition:enter-end="opacity-100"
-             x-transition:leave="transition ease-in duration-200"
-             x-transition:leave-start="opacity-100"
-             x-transition:leave-end="opacity-0"
-             class="fixed inset-0 z-[100] flex items-center justify-center bg-black/95 p-4 backdrop-blur-sm"
-             @keydown.escape.window="closeLightbox()"
-             @mouseup.window="stopDrag()"
-             @mousemove.window="drag($event)"
-             style="display: none;">
-            
-            <div class="absolute top-6 right-6 flex items-center gap-4 z-50">
-                <div class="flex items-center gap-2 rounded-full bg-white/10 px-3 py-1.5 backdrop-blur-md">
-                    <button @click="zoomOut()" class="text-white hover:text-[var(--color-brand-lens-blue)] transition" title="Zoom Out">
-                        <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 12H4" /></svg>
-                    </button>
-                    <span class="text-xs font-medium text-white/80 w-8 text-center" x-text="Math.round(scale * 100) + '%'"></span>
-                    <button @click="zoomIn()" class="text-white hover:text-[var(--color-brand-lens-blue)] transition" title="Zoom In">
-                        <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4" /></svg>
-                    </button>
+    <section class="bg-[var(--color-surface-muted)] py-10 sm:py-14">
+        <div class="mx-auto max-w-7xl px-4 sm:px-6">
+            <div class="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
+                <div class="max-w-2xl">
+                    <h2 class="text-lg font-semibold tracking-tight sm:text-xl">Gallery</h2>
+                    <p class="mt-1 text-xs text-[var(--color-text-muted)]">
+                        {{ count($galleryItems) }} images • Click any image to open the lightbox.
+                    </p>
                 </div>
-                
-                <button @click="closeLightbox()" class="text-white hover:text-gray-300 transition">
-                    <svg class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" /></svg>
-                </button>
             </div>
 
-            <img :src="lightboxSrc" :alt="lightboxAlt" 
-                 class="max-h-[90vh] max-w-full rounded-lg shadow-2xl object-contain transition-transform duration-200 ease-out"
-                 :style="`transform: scale(${scale}) translate(${pointX/scale}px, ${pointY/scale}px); cursor: ${scale > 1 ? 'grab' : 'default'}`"
-                 @mousedown="startDrag($event)"
-                 @click.outside="closeLightbox()"
-                 @wheel.prevent="if($event.deltaY < 0) zoomIn(); else zoomOut();">
-        </div>
+            @if(count($galleryItems) > 0)
+                <div class="mt-6" x-data="window.galleryComponent(@json($galleryItems), @json($galleryCats))">
+                    {{-- Filters --}}
+                    <div class="mb-5 flex flex-wrap gap-2">
+                        <template x-for="c in categories" :key="c">
+                            <button type="button"
+                                    class="rounded-full border border-[var(--color-border-subtle)] bg-white/70 px-3 py-1.5 text-xs font-medium text-[var(--color-text-main)] transition hover:border-[var(--color-brand-lens-blue)] hover:text-[var(--color-brand-lens-blue)] hover:bg-white"
+                                    :class="cat === c ? 'border-[var(--color-brand-lens-blue)] bg-[var(--color-brand-lens-blue)]/10 text-[var(--color-brand-lens-blue)]' : ''"
+                                    @click="cat = c">
+                                <span x-text="c"></span>
+                            </button>
+                        </template>
+                    </div>
 
-        <div class="mx-auto max-w-7xl px-4 py-1.5 sm:px-6 lg:py-2">
-            <div class="mb-2 flex flex-wrap justify-center gap-1">
-                <template x-for="c in cats" :key="c">
-                    <button type="button"
-                        class="rounded-full border border-[var(--color-border-subtle)] bg-white px-3 py-1.5 text-xs font-medium text-[var(--color-text-main)] transition hover:border-[var(--color-brand-lens-blue)] hover:text-[var(--color-brand-lens-blue)] hover:shadow-sm"
-                        :class="cat === c ? 'border-[var(--color-brand-lens-blue)] bg-blue-50 text-[var(--color-brand-lens-blue)]' : ''"
-                        @click="cat = c; show = 12">
-                        <span x-text="c"></span>
-                    </button>
-                </template>
-            </div>
+                    {{-- Grid --}}
+                    <div class="grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-4">
+                        <template x-for="it in filteredItems" :key="it.id">
+                            <button type="button"
+                                    class="group relative overflow-hidden rounded-2xl bg-white border border-[var(--color-border-subtle)] shadow-sm transition hover:shadow-md focus:outline-none focus:ring-2 focus:ring-[var(--color-brand-lens-blue)]/40"
+                                    @click="openLightbox(it.src, it.alt, it.caption)">
+                                <div class="relative aspect-[4/3]">
+                                    <img
+                                        :src="it.src"
+                                        :alt="it.alt"
+                                        loading="lazy"
+                                        decoding="async"
+                                        class="h-full w-full object-cover transition duration-700 ease-out group-hover:scale-[1.04]"
+                                        :style="`background-color:${it.bg};`"
+                                    />
+                                    <div aria-hidden="true" class="absolute inset-0 bg-gradient-to-t from-black/45 via-black/10 to-transparent opacity-0 transition group-hover:opacity-100"></div>
+                                    <div aria-hidden="true" class="absolute inset-x-3 bottom-3 flex items-center justify-between gap-3 opacity-0 transition group-hover:opacity-100">
+                                        <span class="truncate text-xs font-semibold text-white/90" x-text="it.category"></span>
+                                        <span class="shrink-0 text-xs font-semibold text-white/90">View</span>
+                                    </div>
+                                </div>
+                            </button>
+                        </template>
+                    </div>
 
-            {{-- Masonry Layout --}}
-            <div class="columns-3 sm:columns-4 md:columns-5 lg:columns-6 xl:columns-8 2xl:columns-9 gap-1 space-y-1">
-                @foreach($items as $it)
-                    <figure class="group break-inside-avoid overflow-hidden rounded-md bg-white shadow-sm transition hover:shadow-md cursor-zoom-in"
-                        x-show="cat === 'All' || $el.dataset.cat === cat"
-                        x-transition
-                        data-cat="{{ $it['cat'] }}"
-                        @click="openLightbox('{{ asset($it['src']) }}', '{{ $it['alt'] }}')">
-                        <div class="relative overflow-hidden">
-                            <img
-                                alt="{{ $it['alt'] }}"
-                                loading="lazy"
-                                decoding="async"
-                                class="block w-full h-auto object-cover transition duration-700 ease-out group-hover:scale-[1.03]"
-                                src="{{ asset($it['src']) }}"
-                                style="background: url('{{ lqip($it['color']) }}') center/cover no-repeat;"
-                                onload="this.style.background='none';"
-                            />
-                            <div class="absolute inset-0 bg-black/0 transition group-hover:bg-black/10"></div>
+                    {{-- Lightbox Overlay --}}
+                    <div x-show="lightboxOpen"
+                         x-transition:enter="transition ease-out duration-300"
+                         x-transition:enter-start="opacity-0"
+                         x-transition:enter-end="opacity-100"
+                         x-transition:leave="transition ease-in duration-200"
+                         x-transition:leave-start="opacity-100"
+                         x-transition:leave-end="opacity-0"
+                         class="fixed inset-0 z-[100] flex items-center justify-center bg-black/95 p-4 backdrop-blur-sm"
+                         @keydown.escape.window="closeLightbox()"
+                         @mouseup.window="stopDrag()"
+                         @mousemove.window="drag($event)"
+                         style="display: none;">
+
+                        <div class="absolute top-4 right-4 z-[101] flex items-center gap-3">
+                            <div class="flex items-center gap-2 rounded-full bg-white/10 px-3 py-1.5 backdrop-blur-md">
+                                <button @click="zoomOut()"
+                                        class="text-white hover:text-[var(--color-brand-lens-blue)] transition"
+                                        type="button" title="Zoom Out">
+                                    <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 12H4" />
+                                    </svg>
+                                </button>
+                                <span class="text-xs font-medium text-white/80 w-10 text-center" x-text="Math.round(scale * 100) + '%'"></span>
+                                <button @click="zoomIn()"
+                                        class="text-white hover:text-[var(--color-brand-lens-blue)] transition"
+                                        type="button" title="Zoom In">
+                                    <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4" />
+                                    </svg>
+                                </button>
+                            </div>
+
+                            <button @click="closeLightbox()"
+                                    class="rounded-full text-white hover:text-gray-300 transition focus:outline-none"
+                                    type="button" aria-label="Close">
+                                <svg class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                                </svg>
+                            </button>
                         </div>
-                    </figure>
-                @endforeach
-            </div>
+
+                        <div class="absolute left-4 bottom-4 right-4 z-[101]">
+                            <div class="mx-auto max-w-3xl rounded-2xl bg-white/10 border border-white/10 px-4 py-3 backdrop-blur">
+                                <div class="text-xs font-semibold text-white/90" x-text="lightboxCaption"></div>
+                            </div>
+                        </div>
+
+                        <img
+                            :src="lightboxSrc"
+                            :alt="lightboxAlt"
+                            class="max-h-[90vh] max-w-full rounded-xl shadow-2xl object-contain transition-transform duration-200 ease-out"
+                            :style="`transform: scale(${scale}) translate(${pointX/scale}px, ${pointY/scale}px); cursor: ${scale > 1 ? 'grab' : 'default'}`"
+                            @mousedown="startDrag($event)"
+                            @click.outside="closeLightbox()"
+                            @wheel.prevent="if($event.deltaY < 0) zoomIn(); else zoomOut();"
+                        >
+                    </div>
+                </div>
+            @else
+                <div class="mt-10 rounded-3xl border border-[var(--color-border-subtle)] bg-white/60 p-8 text-center">
+                    <p class="text-sm font-semibold">No images uploaded yet</p>
+                    <p class="mt-2 text-xs text-[var(--color-text-muted)]">
+                        Once the admin adds `Our Work` images, they will appear here automatically.
+                    </p>
+                </div>
+            @endif
         </div>
     </section>
 
-    @php
-        $imageObjects = collect($items)->map(function($it) {
-            return [
-                '@type' => 'ImageObject',
-                'contentUrl' => asset($it['src']),
-                'caption' => $it['alt'].' ('.$it['cat'].')',
-            ];
-        })->toArray();
-        $galleryLd = [
-            '@context' => 'https://schema.org',
-            '@type' => 'CollectionPage',
-            'name' => 'Gallery | '.config('company.brand'),
-            'hasPart' => $imageObjects,
-        ];
-    @endphp
     <script type="application/ld+json">{!! json_encode($galleryLd, JSON_UNESCAPED_SLASHES|JSON_UNESCAPED_UNICODE) !!}</script>
 @endsection
