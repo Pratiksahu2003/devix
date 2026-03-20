@@ -12,6 +12,8 @@ import { Link } from '@ckeditor/ckeditor5-link';
 import { List } from '@ckeditor/ckeditor5-list';
 import { Paragraph } from '@ckeditor/ckeditor5-paragraph';
 import { Table } from '@ckeditor/ckeditor5-table';
+import { Plugin } from '@ckeditor/ckeditor5-core';
+import { ButtonView } from '@ckeditor/ckeditor5-ui';
 
 import 'ckeditor5/ckeditor5.css';
 
@@ -53,8 +55,28 @@ function initCKEditorForTextarea(textarea) {
         // Required by CKEditor 5 for self-hosted npm usage.
         // Allows GPL usage and removes `license-key-missing` runtime error.
         licenseKey: 'GPL',
-        // Add Table support.
-        extraPlugins: [Table],
+        // Add Table support + our safe toolbar button.
+        extraPlugins: [
+            Table,
+            class TableInsertButtonPlugin extends Plugin {
+                init() {
+                    const editor = this.editor;
+                    editor.ui.componentFactory.add('tableInsert', (locale) => {
+                        const view = new ButtonView(locale);
+                        view.set({
+                            label: 'Table',
+                            tooltip: true,
+                        });
+
+                        view.on('execute', () => {
+                            editor.execute('insertTable');
+                        });
+
+                        return view;
+                    });
+                }
+            },
+        ],
         toolbar: {
             items: [
                 'heading',
@@ -65,7 +87,7 @@ function initCKEditorForTextarea(textarea) {
                 'link',
                 'bulletedList',
                 'numberedList',
-                'insertTable',
+                'tableInsert',
                 'undo',
                 'redo',
             ],
