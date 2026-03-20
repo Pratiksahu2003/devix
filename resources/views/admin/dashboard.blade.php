@@ -89,7 +89,7 @@
     </div>
 </div>
 
-<div class="mt-6 bg-white rounded-3xl shadow-sm border border-slate-100 overflow-hidden relative overflow-hidden">
+<div id="our-work" class="mt-6 bg-white rounded-3xl shadow-sm border border-slate-100 overflow-hidden relative overflow-hidden">
     <div class="absolute top-0 right-0 w-64 h-64 bg-indigo-100 rounded-full mix-blend-multiply filter blur-3xl opacity-50 -translate-y-1/2 translate-x-1/2 pointer-events-none"></div>
 
     <div class="p-8 border-b border-slate-100 relative z-10 text-left">

@@ -220,5 +220,5 @@
 }
 </style>
 
-@vite(['resources/js/tiptap-admin.js'])
+@vite(['resources/js/ckeditor.js'])
 @endsection
