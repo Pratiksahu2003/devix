@@ -12,8 +12,6 @@ import { Link } from '@ckeditor/ckeditor5-link';
 import { List } from '@ckeditor/ckeditor5-list';
 import { Paragraph } from '@ckeditor/ckeditor5-paragraph';
 import { Table } from '@ckeditor/ckeditor5-table';
-import { Plugin } from '@ckeditor/ckeditor5-core';
-import { ButtonView } from '@ckeditor/ckeditor5-ui';
 
 import 'ckeditor5/ckeditor5.css';
 
@@ -23,94 +21,6 @@ function debounce(fn, wait) {
         if (t) clearTimeout(t);
         t = setTimeout(() => fn(...args), wait);
     };
-}
-
-function openTablePicker(editor) {
-    // Small modal UI so user can choose table rows/columns (CKEditor-like behavior).
-    // After confirm, we execute the real `insertTable` command with dimensions.
-    const existing = document.getElementById('ck-table-picker-modal');
-    if (existing) existing.remove();
-
-    const overlay = document.createElement('div');
-    overlay.id = 'ck-table-picker-modal';
-    overlay.style.position = 'fixed';
-    overlay.style.inset = '0';
-    overlay.style.background = 'rgba(15, 23, 42, 0.35)';
-    overlay.style.display = 'flex';
-    overlay.style.alignItems = 'center';
-    overlay.style.justifyContent = 'center';
-    overlay.style.zIndex = '99999';
-
-    const modal = document.createElement('div');
-    modal.style.width = '360px';
-    modal.style.background = '#fff';
-    modal.style.border = '1px solid #e2e8f0';
-    modal.style.borderRadius = '12px';
-    modal.style.padding = '14px';
-    modal.style.boxShadow = '0 20px 60px rgba(0,0,0,0.15)';
-
-    modal.innerHTML = `
-        <div style="font-weight:700; margin-bottom:10px; color:#0f172a;">Insert Table</div>
-        <div style="display:flex; gap:10px; margin-bottom:12px;">
-            <label style="flex:1;">
-                <div style="font-size:12px; font-weight:600; color:#475569; margin-bottom:6px;">Rows</div>
-                <select id="ck-table-rows" style="width:100%; padding:8px 10px; border:1px solid #e2e8f0; border-radius:10px;">
-                </select>
-            </label>
-            <label style="flex:1;">
-                <div style="font-size:12px; font-weight:600; color:#475569; margin-bottom:6px;">Columns</div>
-                <select id="ck-table-cols" style="width:100%; padding:8px 10px; border:1px solid #e2e8f0; border-radius:10px;">
-                </select>
-            </label>
-        </div>
-        <div style="display:flex; justify-content:flex-end; gap:10px;">
-            <button id="ck-table-cancel" type="button" style="padding:8px 12px; border:1px solid #e2e8f0; border-radius:10px; background:#fff; cursor:pointer; color:#334155;">Cancel</button>
-            <button id="ck-table-insert" type="button" style="padding:8px 12px; border:1px solid #4f46e5; border-radius:10px; background:#4f46e5; cursor:pointer; color:#fff; font-weight:600;">Insert</button>
-        </div>
-    `;
-
-    overlay.appendChild(modal);
-    document.body.appendChild(overlay);
-
-    const rowsSelect = modal.querySelector('#ck-table-rows');
-    const colsSelect = modal.querySelector('#ck-table-cols');
-    const cancelBtn = modal.querySelector('#ck-table-cancel');
-    const insertBtn = modal.querySelector('#ck-table-insert');
-
-    const max = 10;
-    for (let i = 1; i <= max; i++) {
-        const rOpt = document.createElement('option');
-        rOpt.value = String(i);
-        rOpt.textContent = String(i);
-        rowsSelect.appendChild(rOpt);
-
-        const cOpt = document.createElement('option');
-        cOpt.value = String(i);
-        cOpt.textContent = String(i);
-        colsSelect.appendChild(cOpt);
-    }
-    rowsSelect.value = '2';
-    colsSelect.value = '2';
-
-    const close = () => overlay.remove();
-
-    cancelBtn.addEventListener('click', close);
-    overlay.addEventListener('click', (e) => {
-        if (e.target === overlay) close();
-    });
-
-    insertBtn.addEventListener('click', () => {
-        const rows = Number(rowsSelect.value);
-        const columns = Number(colsSelect.value);
-        if (!Number.isFinite(rows) || !Number.isFinite(columns) || rows < 1 || columns < 1) {
-            close();
-            return;
-        }
-
-        close();
-        // Insert table at current selection.
-        editor.execute('insertTable', { rows, columns });
-    });
 }
 
 function initCKEditorForTextarea(textarea) {
@@ -146,25 +56,6 @@ function initCKEditorForTextarea(textarea) {
         // Add Table support + our safe toolbar button.
         extraPlugins: [
             Table,
-            class TableInsertButtonPlugin extends Plugin {
-                init() {
-                    const editor = this.editor;
-                    editor.ui.componentFactory.add('tableInsert', (locale) => {
-                        const view = new ButtonView(locale);
-                        view.set({
-                            label: 'Table',
-                            tooltip: true,
-                        });
-
-                        view.on('execute', () => {
-                            // Let user choose row/column count before inserting.
-                            openTablePicker(editor);
-                        });
-
-                        return view;
-                    });
-                }
-            },
         ],
         toolbar: {
             items: [
@@ -176,7 +67,7 @@ function initCKEditorForTextarea(textarea) {
                 'link',
                 'bulletedList',
                 'numberedList',
-                'tableInsert',
+                'insertTable',
                 'undo',
                 'redo',
             ],

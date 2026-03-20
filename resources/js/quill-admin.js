@@ -89,7 +89,7 @@ function initQuillForTextarea(textarea) {
         <div id="${toolbarId}" class="ql-toolbar ql-snow mb-3">
             <span class="ql-formats">
                 <select class="ql-header" aria-label="Paragraph heading">
-                    <option selected value="">Paragraph (All)</option>
+                    <option selected value="">Paragraph</option>
                     <option value="1">Heading 1</option>
                     <option value="2">Heading 2</option>
                     <option value="3">Heading 3</option>
@@ -139,7 +139,7 @@ function initQuillForTextarea(textarea) {
             <span class="ql-formats">
                 <button
                     type="button"
-                    class="ql-insertTable"
+                    class="ql-table"
                 >
                    table
                 </button>
