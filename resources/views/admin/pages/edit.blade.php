@@ -72,8 +72,11 @@
                         </template>
                     </div>
                     <div class="flex gap-2">
-                        <input type="text" x-model="newTag" @keydown.enter.prevent="if(newTag.trim() !== '' && !tags.includes(newTag.trim())) { tags.push(newTag.trim()); newTag = ''; }" class="w-full px-4 py-2 border border-slate-300 rounded-xl focus:ring-2 focus:ring-indigo-500/20 focus:border-indigo-500 transition-colors text-sm" placeholder="Type a tag and press Add or Enter">
-                        <button type="button" @click="if(newTag.trim() !== '' && !tags.includes(newTag.trim())) { tags.push(newTag.trim()); newTag = ''; }" class="px-4 py-2 bg-slate-100 hover:bg-slate-200 font-semibold rounded-xl text-slate-600 transition-colors text-sm shadow-sm border border-slate-200">Add</button>
+                        <input type="text" x-model="newTag" 
+                            @keydown.enter.prevent="if(newTag.trim() !== '') { newTag.split(',').map(t => t.trim()).filter(t => t && !tags.includes(t)).forEach(t => tags.push(t)); newTag = ''; }"
+                            @input="if(newTag.includes(',')) { newTag.split(',').map(t => t.trim()).filter(t => t && !tags.includes(t)).forEach(t => tags.push(t)); newTag = ''; }"
+                            class="w-full px-4 py-2 border border-slate-300 rounded-xl focus:ring-2 focus:ring-indigo-500/20 focus:border-indigo-500 transition-colors text-sm" placeholder="Type a tag and press Add, Enter, or comma">
+                        <button type="button" @click="if(newTag.trim() !== '') { newTag.split(',').map(t => t.trim()).filter(t => t && !tags.includes(t)).forEach(t => tags.push(t)); newTag = ''; }" class="px-4 py-2 bg-slate-100 hover:bg-slate-200 font-semibold rounded-xl text-slate-600 transition-colors text-sm shadow-sm border border-slate-200">Add</button>
                     </div>
                     <input type="hidden" name="tags" :value="JSON.stringify(tags)">
                 </div>
@@ -182,7 +185,7 @@
                 </div>
 
                 <div>
-                    <label for="video_url" class="block text-sm font-semibold text-slate-700 mb-1.5">Or Hero Video URL</label>
+                    <label for="video_url" class="block text-sm font-semibold text-slate-700 mb-1.5">Hero Video URL (Optional)</label>
                     <input type="url" name="video_url" id="video_url" value="{{ old('video_url', $page->video_url) }}" class="w-full px-4 py-2 rounded-lg border border-slate-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-500/20 focus:outline-none transition-colors text-sm" placeholder="https://youtube.com/...">
                     @error('video_url') <p class="mt-1 text-sm text-red-500">{{ $message }}</p> @enderror
                 </div>

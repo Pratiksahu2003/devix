@@ -30,7 +30,7 @@ class PageController extends Controller
             'slug' => 'nullable|string|max:255|unique:pages',
             'category_id' => 'nullable|exists:categories,id',
             'content' => 'required|string',
-            'cover_image' => 'nullable|image|max:2048',
+            'cover_image' => 'required|image|max:2048',
             'video_url' => 'nullable|url|max:255',
             'tags' => 'nullable|string',
             'meta_title' => 'nullable|string|max:255',
