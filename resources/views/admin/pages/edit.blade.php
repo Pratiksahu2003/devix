@@ -231,5 +231,5 @@
 }
 </style>
 
-@vite(['resources/js/ckeditor.js'])
+@vite(['resources/js/quill-admin.js'])
 @endsection
