@@ -22,7 +22,7 @@
     
     @if($page->cover_image)
     <!-- Standard Hero Image Banner -->
-    <header class="relative bg-slate-900 text-white overflow-hidden py-32 sm:py-48 text-center">
+    <header class="relative bg-slate-900 text-white overflow-hidden py-20 sm:py-24 text-center">
         <div class="absolute inset-0">
             <img src="{{ asset('storage/' . $page->cover_image) }}" alt="{{ $page->title }}" class="w-full h-full object-cover opacity-60 mix-blend-overlay">
         </div>
@@ -36,14 +36,14 @@
                     &bull; Published {{ $page->published_at ? $page->published_at->format('M Y') : 'Draft' }}
                 </span>
             </div>
-            <h1 class="text-4xl sm:text-5xl lg:text-7xl font-extrabold tracking-tight mb-8 drop-shadow-2xl leading-[1.15]">
+            <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight mb-6 drop-shadow-2xl leading-[1.15]">
                 {{ $page->title }}
             </h1>
         </div>
     </header>
     @else
     <!-- Minimalist Typography Header for Pages -->
-    <header class="bg-slate-50 pt-40 pb-20 text-center border-b border-slate-200">
+    <header class="bg-slate-50 pt-32 pb-16 text-center border-b border-slate-200">
         <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex items-center justify-center gap-2 mb-4">
                 <span class="bg-indigo-100 text-indigo-700 text-xs font-bold uppercase tracking-widest py-1 px-3 rounded-full border border-indigo-200">
