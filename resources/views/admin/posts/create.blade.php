@@ -184,40 +184,110 @@
 </form>
 
 <style>
-/* Style adjustments for CKEditor */
+/* CKEditor 5 custom styles */
 .ck-editor__editable_inline {
     min-height: 500px;
-    max-height: 600px;
+    max-height: 700px;
     overflow-y: auto;
     border-bottom-left-radius: 0.75rem !important;
     border-bottom-right-radius: 0.75rem !important;
+    font-size: 1rem;
+    line-height: 1.7;
+    padding: 1.25rem 1.5rem !important;
 }
-@error('content')
-.ck-editor__editable_inline {
-    border-color: #ef4444 !important;
-    box-shadow: 0 0 0 1px #ef4444 !important;
-}
-.ck-toolbar {
-    border-color: #ef4444 !important;
-}
-@enderror
 .ck-toolbar {
     border-top-left-radius: 0.75rem !important;
     border-top-right-radius: 0.75rem !important;
     background: #f8fafc !important;
+    border-color: #e2e8f0 !important;
+    flex-wrap: wrap !important;
+    padding: 6px !important;
+}
+.ck-editor__main .ck-editor__editable {
+    border-color: #e2e8f0 !important;
+}
+.ck-editor__main .ck-editor__editable:focus {
+    border-color: #6366f1 !important;
+    box-shadow: 0 0 0 3px rgba(99,102,241,0.12) !important;
+}
+.ck-editor--has-error .ck-editor__editable,
+.ck-editor--has-error .ck-toolbar {
+    border-color: #ef4444 !important;
+}
+.ck-editor--has-error .ck-toolbar {
+    box-shadow: 0 0 0 1px #ef4444 !important;
 }
 </style>
 
-<script src="https://cdn.ckeditor.com/ckeditor5/39.0.1/classic/ckeditor.js"></script>
+<script src="https://cdn.ckeditor.com/ckeditor5/42.0.2/classic/ckeditor.js"></script>
 <script>
-    document.addEventListener("DOMContentLoaded", function() {
-        ClassicEditor
-            .create(document.querySelector('#content'), {
-                toolbar: [ 'heading', '|', 'bold', 'italic', 'link', 'bulletedList', 'numberedList', 'blockQuote', 'undo', 'redo' ]
-            })
-            .catch(error => {
-                console.error(error);
-            });
-    });
+document.addEventListener("DOMContentLoaded", function () {
+    const contentTextarea = document.querySelector('#content');
+
+    function Base64UploadAdapter(loader) { this.loader = loader; }
+    Base64UploadAdapter.prototype.upload = function () {
+        return this.loader.file.then(file => new Promise((resolve, reject) => {
+            const reader = new FileReader();
+            reader.onload = () => resolve({ default: reader.result });
+            reader.onerror = err => reject(err);
+            reader.readAsDataURL(file);
+        }));
+    };
+    Base64UploadAdapter.prototype.abort = function () {};
+    function Base64UploadAdapterPlugin(editor) {
+        editor.plugins.get('FileRepository').createUploadAdapter = loader => new Base64UploadAdapter(loader);
+    }
+
+    ClassicEditor
+        .create(contentTextarea, {
+            extraPlugins: [Base64UploadAdapterPlugin],
+            toolbar: {
+                items: [
+                    'heading', '|',
+                    'bold', 'italic', 'underline', 'strikethrough', '|',
+                    'fontSize', 'fontColor', 'fontBackgroundColor', '|',
+                    'alignment', '|',
+                    'link', 'insertImage', 'insertTable', 'mediaEmbed', 'blockQuote', 'horizontalLine', '|',
+                    'bulletedList', 'numberedList', 'todoList', 'outdent', 'indent', '|',
+                    'code', 'codeBlock', '|',
+                    'undo', 'redo', 'findAndReplace', '|',
+                    'removeFormat', 'sourceEditing'
+                ],
+                shouldNotGroupWhenFull: true
+            },
+            image: {
+                toolbar: ['imageStyle:inline', 'imageStyle:block', 'imageStyle:side', '|', 'toggleImageCaption', 'imageTextAlternative', '|', 'resizeImage']
+            },
+            table: {
+                contentToolbar: ['tableColumn', 'tableRow', 'mergeTableCells', 'tableCellProperties', 'tableProperties']
+            },
+            heading: {
+                options: [
+                    { model: 'paragraph', title: 'Paragraph', class: 'ck-heading_paragraph' },
+                    { model: 'heading1', view: 'h1', title: 'Heading 1', class: 'ck-heading_heading1' },
+                    { model: 'heading2', view: 'h2', title: 'Heading 2', class: 'ck-heading_heading2' },
+                    { model: 'heading3', view: 'h3', title: 'Heading 3', class: 'ck-heading_heading3' },
+                    { model: 'heading4', view: 'h4', title: 'Heading 4', class: 'ck-heading_heading4' }
+                ]
+            },
+            placeholder: 'Write your full article content here...',
+            language: 'en'
+        })
+        .then(editor => {
+            window._postEditor = editor;
+
+            @if($errors->has('content'))
+            editor.ui.view.element.classList.add('ck-editor--has-error');
+            @endif
+
+            const form = contentTextarea.closest('form');
+            if (form) {
+                form.addEventListener('submit', function () {
+                    contentTextarea.value = editor.getData();
+                });
+            }
+        })
+        .catch(error => { console.error('CKEditor init error:', error); });
+});
 </script>
 @endsection

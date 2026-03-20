@@ -3,14 +3,20 @@
 @section('title', $category->name . ' - Categories - ' . config('app.name'))
 
 @section('content')
-<header class="bg-indigo-900 text-white pt-32 pb-20 text-center">
-    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-        <span class="text-indigo-300 font-bold tracking-widest uppercase text-sm mb-4 block">Topic / Category</span>
-        <h1 class="text-5xl md:text-6xl font-black tracking-tight mb-6">
+<header class="relative text-white pt-36 pb-24 text-center overflow-hidden">
+    {{-- Hero Banner Image --}}
+    <div class="absolute inset-0 z-0">
+        <img src="{{ asset('banner/categories.avif') }}" alt="Categories Hero"
+             class="w-full h-full object-cover object-center">
+        <div class="absolute inset-0 bg-gradient-to-b from-indigo-950/80 via-slate-900/70 to-slate-900/90"></div>
+    </div>
+    <div class="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        <span class="inline-block text-indigo-300 font-bold tracking-widest uppercase text-sm mb-4 px-4 py-1.5 bg-white/10 backdrop-blur-sm rounded-full border border-white/15">Topic / Category</span>
+        <h1 class="text-5xl md:text-6xl font-black tracking-tight mb-6 drop-shadow-lg">
             {{ $category->name }}
         </h1>
         @if($category->description)
-        <p class="text-xl text-indigo-100 max-w-2xl mx-auto">{{ $category->description }}</p>
+        <p class="text-xl text-indigo-100 max-w-2xl mx-auto leading-relaxed">{{ $category->description }}</p>
         @endif
     </div>
 </header>
