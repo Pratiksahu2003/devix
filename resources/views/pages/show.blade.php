@@ -20,34 +20,7 @@
 @section('content')
 <article class="bg-white min-h-screen">
     
-    @if($page->video_url)
-    <!-- Cinematic Video Header -->
-    <header class="relative bg-black h-screen overflow-hidden flex flex-col items-center justify-center">
-        <div class="absolute inset-0 z-0">
-            @php
-                $embedUrl = $page->video_url;
-                if (Str::contains($embedUrl, 'youtube.com/watch?v=')) {
-                    $embedUrl = Str::replace('watch?v=', 'embed/', $embedUrl) . '?autoplay=1&mute=1&loop=1&controls=0&showinfo=0';
-                }
-            @endphp
-            <iframe class="w-full h-[150%] sm:h-full object-cover pointer-events-none opacity-40 scale-150 sm:scale-125 md:scale-100" src="{{ $embedUrl }}" frameborder="0" allowfullscreen></iframe>
-        </div>
-        <div class="absolute inset-0 bg-gradient-to-t from-slate-900 via-slate-900/40 to-transparent z-10"></div>
-        <div class="relative z-20 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center pt-20">
-            <div class="flex items-center justify-center gap-2 mb-4">
-                <span class="bg-indigo-600 text-white text-xs font-bold uppercase tracking-widest py-1 px-3 rounded-full">
-                    {{ optional($page->category)->name ?? 'Page' }}
-                </span>
-                <span class="text-slate-300 text-sm font-medium">
-                    &bull; Published {{ $page->published_at ? $page->published_at->format('M Y') : 'Draft' }}
-                </span>
-            </div>
-            <h1 class="text-5xl sm:text-6xl lg:text-7xl xl:text-8xl font-black tracking-tight mb-8 drop-shadow-2xl text-white leading-[1.1]">
-                {{ $page->title }}
-            </h1>
-        </div>
-    </header>
-    @elseif($page->cover_image)
+    @if($page->cover_image)
     <!-- Standard Hero Image Banner -->
     <header class="relative bg-slate-900 text-white overflow-hidden py-32 sm:py-48 text-center">
         <div class="absolute inset-0">
@@ -102,6 +75,21 @@
                 <div class="prose prose-lg sm:prose-xl prose-indigo max-w-none text-slate-700 font-medium">
                     {!! $page->content !!}
                 </div>
+                
+                @if($page->video_url)
+                <!-- Associated Video -->
+                <div class="mt-16 rounded-3xl overflow-hidden shadow-2xl ring-1 ring-slate-900/5 aspect-video w-full bg-slate-900 relative group">
+                    @php
+                        $embedUrl = $page->video_url;
+                        if (Str::contains($embedUrl, 'youtube.com/watch?v=')) {
+                            $embedUrl = Str::replace('watch?v=', 'embed/', $embedUrl);
+                        } elseif (Str::contains($embedUrl, 'youtu.be/')) {
+                            $embedUrl = Str::replace('youtu.be/', 'youtube.com/embed/', $embedUrl);
+                        }
+                    @endphp
+                    <iframe src="{{ $embedUrl }}" class="absolute inset-0 w-full h-full border-0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+                </div>
+                @endif
 
                 <!-- Tags Module -->
                 @if(!empty($page->tags) && count($page->tags) > 0)
