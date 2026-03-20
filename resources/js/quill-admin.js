@@ -22,13 +22,43 @@ function initQuillForTextarea(textarea) {
             .quill-editor-wrapper .ql-toolbar.ql-snow {
                 background: #f8fafc !important;
                 border-color: #e2e8f0 !important;
+                display: flex !important;
                 flex-wrap: wrap !important;
                 padding: 6px !important;
                 border-top-left-radius: 0.75rem !important;
                 border-top-right-radius: 0.75rem !important;
+                align-items: center !important;
+                gap: 6px 10px !important;
             }
             .quill-editor-wrapper .ql-toolbar.ql-snow .ql-formats {
                 margin-right: 8px !important;
+                display: flex !important;
+                align-items: center !important;
+                gap: 6px !important;
+                margin-right: 0 !important;
+            }
+            .quill-editor-wrapper .ql-toolbar.ql-snow .ql-header {
+                max-width: 210px !important;
+            }
+            .quill-editor-wrapper .ql-toolbar.ql-snow .ql-size {
+                max-width: 120px !important;
+            }
+            .quill-editor-wrapper .ql-toolbar.ql-snow select,
+            .quill-editor-wrapper .ql-toolbar.ql-snow button {
+                height: 28px !important;
+            }
+            .quill-editor-wrapper .ql-toolbar.ql-snow button.ql-insertTable {
+                white-space: nowrap !important;
+                padding: 3px 10px !important;
+                border-radius: 8px !important;
+                background: #eef2ff !important;
+                border: 1px solid #e0e7ff !important;
+                color: #4f46e5 !important;
+                font-weight: 600 !important;
+                line-height: 1.2 !important;
+            }
+            .quill-editor-wrapper .ql-toolbar.ql-snow button.ql-insertTable:hover {
+                background: #e0e7ff !important;
             }
             .quill-editor-wrapper .ql-editor {
                 min-height: 320px !important;
@@ -68,6 +98,15 @@ function initQuillForTextarea(textarea) {
             </span>
 
             <span class="ql-formats">
+                <select class="ql-size" aria-label="Font size">
+                    <option selected value="normal">Normal</option>
+                    <option value="small">Small</option>
+                    <option value="large">Large</option>
+                    <option value="huge">Huge</option>
+                </select>
+            </span>
+
+            <span class="ql-formats">
                 <button type="button" class="ql-bold" aria-label="Bold"></button>
                 <button type="button" class="ql-italic" aria-label="Italic"></button>
                 <button type="button" class="ql-underline" aria-label="Underline"></button>
@@ -80,14 +119,27 @@ function initQuillForTextarea(textarea) {
             </span>
 
             <span class="ql-formats">
+                <button type="button" class="ql-blockquote" aria-label="Blockquote"></button>
+                <button type="button" class="ql-code-block" aria-label="Code block"></button>
+            </span>
+
+            <span class="ql-formats">
+                <button type="button" class="ql-align" value="" aria-label="Align left"></button>
+                <button type="button" class="ql-align" value="center" aria-label="Align center"></button>
+                <button type="button" class="ql-align" value="right" aria-label="Align right"></button>
+                <button type="button" class="ql-align" value="justify" aria-label="Align justify"></button>
+            </span>
+
+            <span class="ql-formats">
                 <button type="button" class="ql-link" aria-label="Link"></button>
+                <button type="button" class="ql-image" aria-label="Insert image"></button>
                 <button type="button" class="ql-clean" aria-label="Clear all formatting"></button>
             </span>
 
             <span class="ql-formats">
                 <button
                     type="button"
-                    class="ql-insertTable px-3 py-1.5 text-xs font-semibold bg-indigo-50 hover:bg-indigo-100 text-indigo-700 rounded border border-indigo-100"
+                    class="ql-insertTable"
                 >
                     Insert Table
                 </button>
