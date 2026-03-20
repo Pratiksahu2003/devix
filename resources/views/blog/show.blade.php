@@ -141,7 +141,6 @@
                         </div>
                         Post Details
                     </h3>
-                    
                     <div class="space-y-4 text-sm font-bold">
                         <div class="flex items-center justify-between py-3 border-b border-slate-100">
                             <span class="text-slate-500">Status</span>
@@ -149,7 +148,11 @@
                         </div>
                         <div class="flex items-center justify-between py-3 border-b border-slate-100">
                             <span class="text-slate-500">Category</span>
-                            <span class="px-3 py-1 bg-indigo-50 text-indigo-600 rounded-full text-xs font-black border border-indigo-100 uppercase tracking-wider">{{ optional($post->category)->name ?? 'General' }}</span>
+                            @if($post->category)
+                            <a href="{{ route('category.show', $post->category->slug) }}" class="px-3 py-1 bg-indigo-50 text-indigo-600 rounded-full text-xs font-black border border-indigo-100 uppercase tracking-wider hover:bg-indigo-100 transition-colors">{{ $post->category->name }}</a>
+                            @else
+                            <span class="px-3 py-1 bg-indigo-50 text-indigo-600 rounded-full text-xs font-black border border-indigo-100 uppercase tracking-wider">General</span>
+                            @endif
                         </div>
                         <div class="flex items-center justify-between py-3">
                             <span class="text-slate-500">Comments</span>
@@ -157,6 +160,76 @@
                         </div>
                     </div>
                 </div>
+
+                <!-- Categories Card -->
+                @if(isset($categories) && $categories->count() > 0)
+                <div class="bg-white rounded-3xl p-7 border border-slate-200/60 shadow-sm">
+                    <h3 class="font-extrabold text-slate-900 text-lg mb-6 flex items-center gap-3">
+                        <div class="w-10 h-10 rounded-xl bg-violet-50 text-violet-600 flex items-center justify-center">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M7 7h.01M7 3h5c.512 0 1.024.195 1.414.586l7 7a2 2 0 010 2.828l-7 7a2 2 0 01-2.828 0l-7-7A1.994 1.994 0 013 12V7a4 4 0 014-4z"></path></svg>
+                        </div>
+                        Categories
+                    </h3>
+                    <div class="space-y-2">
+                        @foreach($categories as $cat)
+                        <a href="{{ route('category.show', $cat->slug) }}"
+                           class="flex items-center justify-between px-4 py-3 rounded-2xl border {{ optional($post->category)->id === $cat->id ? 'bg-violet-50 border-violet-200 text-violet-700' : 'bg-slate-50 border-slate-100 text-slate-700 hover:bg-violet-50 hover:border-violet-200 hover:text-violet-700' }} group transition-all duration-200">
+                            <span class="font-bold text-sm flex items-center gap-2.5">
+                                <span class="w-2 h-2 rounded-full {{ optional($post->category)->id === $cat->id ? 'bg-violet-500' : 'bg-slate-300 group-hover:bg-violet-400' }} transition-colors flex-shrink-0"></span>
+                                {{ $cat->name }}
+                            </span>
+                            <span class="text-xs font-black {{ optional($post->category)->id === $cat->id ? 'bg-violet-200 text-violet-700' : 'bg-slate-200 text-slate-500 group-hover:bg-violet-200 group-hover:text-violet-700' }} px-2.5 py-1 rounded-full transition-colors">
+                                {{ $cat->posts_count }}
+                            </span>
+                        </a>
+                        @endforeach
+                    </div>
+                </div>
+                @endif
+
+                <!-- Latest Posts Card -->
+                @if(isset($latestPosts) && $latestPosts->count() > 0)
+                <div class="bg-white rounded-3xl p-7 border border-slate-200/60 shadow-sm">
+                    <h3 class="font-extrabold text-slate-900 text-lg mb-6 flex items-center gap-3">
+                        <div class="w-10 h-10 rounded-xl bg-amber-50 text-amber-600 flex items-center justify-center">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
+                        </div>
+                        Latest Posts
+                    </h3>
+                    <div class="space-y-5">
+                        @foreach($latestPosts as $lPost)
+                        <a href="{{ route('blog.show', $lPost->slug) }}" class="flex gap-4 group items-center">
+                            <div class="w-16 h-16 rounded-2xl overflow-hidden flex-shrink-0 bg-slate-100 relative border border-slate-200 group-hover:border-amber-400 transition-colors">
+                                @if($lPost->cover_image)
+                                    <img src="{{ asset('storage/' . $lPost->cover_image) }}" alt="{{ $lPost->title }}" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500">
+                                @else
+                                    <div class="absolute inset-0 bg-gradient-to-br from-amber-100 to-orange-100 flex items-center justify-center">
+                                        <svg class="w-6 h-6 text-amber-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
+                                    </div>
+                                @endif
+                            </div>
+                            <div class="flex flex-col flex-1">
+                                <h4 class="font-extrabold text-slate-900 text-sm leading-tight line-clamp-2 group-hover:text-amber-600 transition-colors mb-1">
+                                    {{ $lPost->title }}
+                                </h4>
+                                <div class="text-[11px] font-bold text-slate-400 uppercase tracking-wider">
+                                    {{ $lPost->published_at ? $lPost->published_at->format('M d, Y') : 'Draft' }}
+                                    @if($lPost->category)
+                                    <span class="mx-1">&bull;</span><span class="text-amber-500">{{ $lPost->category->name }}</span>
+                                    @endif
+                                </div>
+                            </div>
+                        </a>
+                        @endforeach
+                        <div class="pt-2">
+                            <a href="{{ route('blog.index') }}" class="flex items-center justify-center gap-2 w-full py-3 rounded-2xl bg-slate-50 border border-slate-200 text-slate-600 font-bold text-sm hover:bg-amber-50 hover:border-amber-300 hover:text-amber-700 transition-all group">
+                                View All Posts
+                                <svg class="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                @endif
 
                 <!-- Related Articles Card -->
                 @if(isset($relatedPosts) && $relatedPosts->count() > 0)
@@ -167,7 +240,6 @@
                         </div>
                         Related Articles
                     </h3>
-                    
                     <div class="space-y-6">
                         @foreach($relatedPosts as $relPost)
                         <a href="{{ route('blog.show', $relPost->slug) }}" class="flex gap-4 group items-center">
@@ -202,26 +274,75 @@
             </aside>
         </div>
 
-        <!-- Next / Previous Article Bottom Navigation -->
+        <!-- Next / Previous Article — Premium Editorial Navigation -->
         @if(isset($previous) || isset($next))
-        <div class="mt-20 pt-10 border-t border-slate-200/60 max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-6">
-            @if(isset($previous))
-            <a href="{{ route('blog.show', $previous->slug) }}" class="group block p-6 bg-white rounded-3xl border border-slate-200/60 hover:border-indigo-300 hover:shadow-lg transition-all relative overflow-hidden text-left">
-                <span class="text-xs font-black text-slate-400 uppercase tracking-widest mb-3 flex items-center gap-1.5"><svg class="w-4 h-4 transition-transform group-hover:-translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M15 19l-7-7 7-7"></path></svg> Previous Article</span>
-                <h4 class="text-lg font-bold text-slate-800 group-hover:text-indigo-600 transition-colors line-clamp-2">{{ $previous->title }}</h4>
-            </a>
-            @else
-            <div></div> <!-- Blank Spacer -->
-            @endif
+        <div class="mt-16 pt-12 border-t border-slate-200/60">
+            <p class="text-center text-xs font-black text-slate-400 uppercase tracking-widest mb-8">Continue Reading</p>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
 
-            @if(isset($next))
-            <a href="{{ route('blog.show', $next->slug) }}" class="group block p-6 bg-white rounded-3xl border border-slate-200/60 hover:border-indigo-300 hover:shadow-lg transition-all relative overflow-hidden text-right">
-                <span class="text-xs font-black text-slate-400 uppercase tracking-widest mb-3 flex items-center justify-end gap-1.5">Next Article <svg class="w-4 h-4 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 5l7 7-7 7"></path></svg></span>
-                <h4 class="text-lg font-bold text-slate-800 group-hover:text-indigo-600 transition-colors line-clamp-2">{{ $next->title }}</h4>
-            </a>
-            @else
-            <div></div>
-            @endif
+                @if(isset($previous))
+                <a href="{{ route('blog.show', $previous->slug) }}" class="group relative flex flex-col bg-white rounded-3xl border border-slate-200/60 hover:border-indigo-300 hover:shadow-xl transition-all duration-300 overflow-hidden">
+                    <div class="h-40 relative overflow-hidden bg-gradient-to-br from-slate-100 to-slate-200 flex-shrink-0">
+                        @if($previous->cover_image)
+                            <img src="{{ asset('storage/' . $previous->cover_image) }}" alt="{{ $previous->title }}" class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                            <div class="absolute inset-0 bg-gradient-to-t from-slate-900/60 to-transparent"></div>
+                        @else
+                            <div class="absolute inset-0 bg-gradient-to-br from-indigo-500/10 to-purple-500/10 flex items-center justify-center">
+                                <svg class="w-12 h-12 text-slate-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
+                            </div>
+                        @endif
+                        <div class="absolute top-4 left-4 flex items-center gap-2 bg-white/95 backdrop-blur-sm px-3 py-1.5 rounded-full shadow-sm border border-white/50 text-xs font-black text-slate-500 uppercase tracking-widest">
+                            <svg class="w-3.5 h-3.5 group-hover:-translate-x-0.5 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M15 19l-7-7 7-7"></path></svg>
+                            Previous
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        @if($previous->category)
+                        <span class="inline-block text-[11px] font-black text-indigo-500 uppercase tracking-widest mb-2">{{ $previous->category->name }}</span>
+                        @endif
+                        <h4 class="text-base font-extrabold text-slate-900 group-hover:text-indigo-600 transition-colors line-clamp-2 leading-tight mb-2">{{ $previous->title }}</h4>
+                        <div class="flex items-center gap-2 text-xs text-slate-400 font-semibold">
+                            <svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z" clip-rule="evenodd"/></svg>
+                            {{ $previous->published_at ? $previous->published_at->format('M d, Y') : 'Draft' }}
+                        </div>
+                    </div>
+                </a>
+                @else
+                <div></div>
+                @endif
+
+                @if(isset($next))
+                <a href="{{ route('blog.show', $next->slug) }}" class="group relative flex flex-col bg-white rounded-3xl border border-slate-200/60 hover:border-indigo-300 hover:shadow-xl transition-all duration-300 overflow-hidden">
+                    <div class="h-40 relative overflow-hidden bg-gradient-to-br from-slate-100 to-slate-200 flex-shrink-0">
+                        @if($next->cover_image)
+                            <img src="{{ asset('storage/' . $next->cover_image) }}" alt="{{ $next->title }}" class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                            <div class="absolute inset-0 bg-gradient-to-t from-slate-900/60 to-transparent"></div>
+                        @else
+                            <div class="absolute inset-0 bg-gradient-to-br from-indigo-500/10 to-purple-500/10 flex items-center justify-center">
+                                <svg class="w-12 h-12 text-slate-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
+                            </div>
+                        @endif
+                        <div class="absolute top-4 right-4 flex items-center gap-2 bg-white/95 backdrop-blur-sm px-3 py-1.5 rounded-full shadow-sm border border-white/50 text-xs font-black text-slate-500 uppercase tracking-widest">
+                            Next
+                            <svg class="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 5l7 7-7 7"></path></svg>
+                        </div>
+                    </div>
+                    <div class="p-6 text-right">
+                        @if($next->category)
+                        <span class="inline-block text-[11px] font-black text-indigo-500 uppercase tracking-widest mb-2">{{ $next->category->name }}</span>
+                        @endif
+                        <h4 class="text-base font-extrabold text-slate-900 group-hover:text-indigo-600 transition-colors line-clamp-2 leading-tight mb-2">{{ $next->title }}</h4>
+                        <div class="flex items-center justify-end gap-2 text-xs text-slate-400 font-semibold">
+                            <svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z" clip-rule="evenodd"/></svg>
+                            {{ $next->published_at ? $next->published_at->format('M d, Y') : 'Draft' }}
+                        </div>
+                    </div>
+                </a>
+                @else
+                <div></div>
+                @endif
+
+            </div>
         </div>
         @endif
         

@@ -44,6 +44,15 @@ class BlogController extends Controller
             ->take(5)
             ->get();
 
-        return view('blog.show', compact('post', 'previous', 'next', 'relatedPosts'));
+        $categories = Category::has('posts')->withCount('posts')->get();
+
+        $latestPosts = Post::with(['category'])
+            ->where('is_published', true)
+            ->where('id', '!=', $post->id)
+            ->latest('published_at')
+            ->take(5)
+            ->get();
+
+        return view('blog.show', compact('post', 'previous', 'next', 'relatedPosts', 'categories', 'latestPosts'));
     }
 }
