@@ -1,7 +1,6 @@
 @extends('layouts.app')
 
 @section('title', 'Blog | ' . config('company.brand'))
-@section('meta', 'Read the latest photography and videography tips, studio news, and updates from ' . config('company.brand'))
 
 @section('content')
 <!-- Modern Hero Section -->
