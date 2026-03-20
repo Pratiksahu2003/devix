@@ -259,54 +259,21 @@ document.addEventListener("DOMContentLoaded", function () {
                 window.CKEditorPlugins.Strikethrough,
                 window.CKEditorPlugins.FontSize,
                 window.CKEditorPlugins.FontColor,
-                window.CKEditorPlugins.FontBackgroundColor,
                 window.CKEditorPlugins.Heading,
                 window.CKEditorPlugins.Link,
                 window.CKEditorPlugins.List,
-                // NOTE: ListProperties is a premium plugin (licenseFeatureCode=LP).
-                window.CKEditorPlugins.TodoList,
-                window.CKEditorPlugins.Indent,
-                window.CKEditorPlugins.IndentBlock,
-                window.CKEditorPlugins.BlockQuote,
-                window.CKEditorPlugins.HorizontalLine,
-                window.CKEditorPlugins.Image,
-                window.CKEditorPlugins.ImageCaption,
-                window.CKEditorPlugins.ImageStyle,
-                window.CKEditorPlugins.ImageToolbar,
-                window.CKEditorPlugins.ImageUpload,
-                // NOTE: ImageResize is a premium plugin (licenseFeatureCode=IR).
-                window.CKEditorPlugins.LinkImage,
-                // Free base64 upload adapter (custom, no CKEditor license needed).
-                Base64UploadAdapterPlugin,
-                window.CKEditorPlugins.MediaEmbed,
-                window.CKEditorPlugins.Table,
-                window.CKEditorPlugins.TableToolbar,
-                // NOTE: Table cell/table properties + resize are premium plugins.
-                window.CKEditorPlugins.Code,
-                window.CKEditorPlugins.CodeBlock,
-                window.CKEditorPlugins.SourceEditing,
-                window.CKEditorPlugins.Alignment,
                 window.CKEditorPlugins.Paragraph,
             ],
             toolbar: {
                 items: [
                     'heading', '|',
                     'bold', 'italic', 'underline', 'strikethrough', '|',
-                    'fontSize', 'fontColor', 'fontBackgroundColor', '|',
-                    'alignment', '|',
-                    'link', 'insertImage', 'insertTable', 'mediaEmbed', 'blockQuote', 'horizontalLine', '|',
-                    'bulletedList', 'numberedList', 'todoList', 'outdent', 'indent', '|',
-                    'code', 'codeBlock', '|',
-                    'undo', 'redo', '|',
-                    'sourceEditing'
+                    'fontSize', 'fontColor', '|',
+                    'link', '|',
+                    'bulletedList', 'numberedList', '|',
+                    'undo', 'redo'
                 ],
                 shouldNotGroupWhenFull: true
-            },
-            image: {
-                toolbar: ['imageStyle:inline', 'imageStyle:block', 'imageStyle:side', '|', 'toggleImageCaption', 'imageTextAlternative']
-            },
-            table: {
-                contentToolbar: ['tableColumn', 'tableRow', 'mergeTableCells']
             },
             heading: {
                 options: [
