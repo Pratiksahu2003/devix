@@ -1,25 +1,64 @@
 @extends('layouts.app')
 
-@section('title', 'Gallery | '.config('company.brand'))
+@section('title', 'Our Work | '.config('company.brand'))
 
 @section('meta')
-    <meta name="description" content="A curated gallery of portraits, campaigns, product frames, videography sets and podcast stills created at {{ config('company.brand') }} in Delhi NCR." />
+    <meta name="description" content="Explore the studio's latest work with a featured YouTube video and a curated image gallery created at {{ config('company.brand') }} in Delhi NCR." />
 @endsection
 
 @section('content')
     <section class="border-b border-[var(--color-border-subtle)] bg-[var(--color-surface)]">
         <div class="mx-auto max-w-6xl px-4 py-1.5 sm:px-6 lg:py-2">
             <h1 class="text-lg font-semibold tracking-tight sm:text-xl">
-                Gallery
+                Our Work
             </h1>
             <p class="mt-1.5 max-w-2xl text-xs leading-relaxed text-[var(--color-text-muted)]">
-                Explore sample frames across portraits, fashion, e‑commerce, interviews and podcasts. Images are optimized
-                with responsive sizes, lazy loading and low‑quality placeholders for a fast experience on any network.
+                A curated mix of latest shoots, campaigns, and frames. Admin can optionally add a YouTube showcase video
+                and upload images that appear here dynamically.
             </p>
         </div>
     </section>
 
+    @if(!empty($ourWork?->youtube_url))
+        <section class="bg-white py-12 border-b border-[var(--color-border-subtle)]">
+            <div class="mx-auto max-w-6xl px-4 sm:px-6">
+                <div class="flex items-end justify-between gap-4">
+                    <h2 class="text-lg font-semibold tracking-tight sm:text-xl">Featured Work Video</h2>
+                    <a
+                        href="{{ $ourWork->youtube_url }}"
+                        target="_blank"
+                        rel="noreferrer"
+                        class="text-xs font-semibold text-indigo-600 hover:text-indigo-700"
+                    >
+                        Watch on YouTube
+                    </a>
+                </div>
+
+                @php
+                    $embedUrl = $ourWork->youtube_url;
+                    if (\Illuminate\Support\Str::contains($embedUrl, 'youtube.com/watch?v=')) {
+                        $embedUrl = \Illuminate\Support\Str::replace('watch?v=', 'embed/', $embedUrl);
+                    } elseif (\Illuminate\Support\Str::contains($embedUrl, 'youtu.be/')) {
+                        $embedUrl = \Illuminate\Support\Str::replace('youtu.be/', 'youtube.com/embed/', $embedUrl);
+                    }
+                @endphp
+
+                <div class="mt-6 rounded-2xl overflow-hidden border border-slate-200 bg-black aspect-video">
+                    <iframe
+                        src="{{ $embedUrl }}"
+                        class="w-full h-full"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowfullscreen
+                        loading="lazy"
+                        referrerpolicy="strict-origin-when-cross-origin"
+                    ></iframe>
+                </div>
+            </div>
+        </section>
+    @endif
+
     @php
+        $galleryCats = ['All','Fashion','Portraits','Studio'];
         $items = [
             // Pooja Session (Fashion)
             ['alt' => 'Fashion session - DSC00956', 'cat' => 'Fashion', 'color' => '#fef3c7', 'src' => 'storage/pooja/DSC00956.JPG'],
@@ -74,7 +113,25 @@
              ['alt' => 'Studio session - DSC01009', 'cat' => 'Studio', 'color' => '#f5f5f7', 'src' => 'storage/studio/DSC01009.JPG'],
              ['alt' => 'Studio session - DSC01010', 'cat' => 'Studio', 'color' => '#dbeafe', 'src' => 'storage/studio/DSC01010.JPG'],
              ['alt' => 'Studio session - DSC01012', 'cat' => 'Studio', 'color' => '#e5e7eb', 'src' => 'storage/studio/DSC01012.JPG'],
-         ];
+        ];
+
+        // If admin uploaded "Our Work" images, replace the hardcoded fallback list.
+        if (isset($ourWorkImages) && $ourWorkImages && $ourWorkImages->count() > 0) {
+            $galleryCats = ['All'];
+
+            $items = $ourWorkImages
+                ->sortBy('sort_order')
+                ->values()
+                ->map(function ($img) {
+                    return [
+                        'alt' => $img->alt_text ?: 'Our Work',
+                        'cat' => 'All',
+                        'color' => '#e5e7eb',
+                        'src' => 'storage/' . ltrim($img->image_path, '/'),
+                    ];
+                })
+                ->toArray();
+        }
          function lqip($color) {
             $svg = '<svg xmlns="http://www.w3.org/2000/svg" width="20" height="12"><rect width="100%" height="100%" fill="'.$color.'"/></svg>';
             return 'data:image/svg+xml;charset=UTF-8,'.rawurlencode($svg);
@@ -89,7 +146,7 @@
     <section class="bg-[var(--color-surface-muted)]" x-data="{ 
         cat: 'All', 
         show: 12, 
-        cats: ['All','Fashion','Portraits','Studio'],
+        cats: @json($galleryCats),
         lightboxOpen: false,
         lightboxSrc: '',
         lightboxAlt: '',

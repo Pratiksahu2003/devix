@@ -88,4 +88,133 @@
         </div>
     </div>
 </div>
+
+<div class="mt-6 bg-white rounded-3xl shadow-sm border border-slate-100 overflow-hidden relative overflow-hidden">
+    <div class="absolute top-0 right-0 w-64 h-64 bg-indigo-100 rounded-full mix-blend-multiply filter blur-3xl opacity-50 -translate-y-1/2 translate-x-1/2 pointer-events-none"></div>
+
+    <div class="p-8 border-b border-slate-100 relative z-10 text-left">
+        <h3 class="text-xl font-bold text-slate-800">Our Work</h3>
+        <p class="text-sm text-slate-500 mt-1.5 max-w-2xl">Add a YouTube link (video) and upload images for the Gallery/Our Work section.</p>
+    </div>
+
+    <div class="p-8 relative z-10 space-y-6">
+        @if(!empty($ourWork?->youtube_url))
+            @php
+                $embedUrl = $ourWork->youtube_url;
+                if (\Illuminate\Support\Str::contains($embedUrl, 'youtube.com/watch?v=')) {
+                    $embedUrl = \Illuminate\Support\Str::replace('watch?v=', 'embed/', $embedUrl);
+                } elseif (\Illuminate\Support\Str::contains($embedUrl, 'youtu.be/')) {
+                    $embedUrl = \Illuminate\Support\Str::replace('youtu.be/', 'youtube.com/embed/', $embedUrl);
+                }
+            @endphp
+            <div class="rounded-2xl overflow-hidden border border-slate-200 bg-slate-50">
+                <div class="p-4 border-b border-slate-200 flex items-center justify-between gap-4">
+                    <p class="text-sm font-semibold text-slate-700">Current Video</p>
+                    <a href="{{ $ourWork->youtube_url }}" target="_blank" rel="noreferrer" class="text-xs font-semibold text-indigo-600 hover:text-indigo-700">
+                        Open on YouTube
+                    </a>
+                </div>
+                <div class="aspect-video bg-black">
+                    <iframe
+                        src="{{ $embedUrl }}"
+                        class="w-full h-full"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowfullscreen
+                        loading="lazy"
+                        referrerpolicy="strict-origin-when-cross-origin"
+                    ></iframe>
+                </div>
+            </div>
+        @endif
+
+        <form method="POST" action="{{ route('admin.dashboard.our-work.update') }}" class="space-y-4">
+            @csrf
+
+            <div class="space-y-2">
+                <label for="youtube_url" class="block text-sm font-semibold text-slate-700">YouTube Video Link (Optional)</label>
+                <input
+                    type="url"
+                    name="youtube_url"
+                    id="youtube_url"
+                    value="{{ old('youtube_url', $ourWork?->youtube_url ?? '') }}"
+                    class="w-full px-4 py-2 rounded-lg border border-slate-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-500/20 focus:outline-none transition-colors text-sm"
+                    placeholder="https://youtube.com/watch?v=..."
+                />
+                @error('youtube_url')
+                    <p class="text-sm text-red-500">{{ $message }}</p>
+                @enderror
+            </div>
+
+            <div class="flex flex-wrap gap-3 items-center">
+                <button type="submit" class="inline-flex items-center justify-center gap-2 bg-indigo-600 hover:bg-indigo-700 text-white font-semibold px-5 py-2.5 rounded-xl transition-colors shadow-sm">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"/></svg>
+                    Save YouTube Link
+                </button>
+            </div>
+        </form>
+
+        <form method="POST" action="{{ route('admin.dashboard.our-work.update') }}" enctype="multipart/form-data" class="space-y-4">
+            @csrf
+
+            <div class="space-y-2">
+                <label for="images" class="block text-sm font-semibold text-slate-700">Upload Images (Optional)</label>
+                <input
+                    type="file"
+                    name="images[]"
+                    id="images"
+                    accept="image/*"
+                    multiple
+                    class="block w-full text-sm text-slate-500 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-indigo-50 file:text-indigo-700 hover:file:bg-indigo-100 transition-colors"
+                />
+                @error('images.*')
+                    <p class="text-sm text-red-500">{{ $message }}</p>
+                @enderror
+                <p class="text-xs text-slate-500">You can upload multiple images at once. They will appear on the Gallery/Our Work page.</p>
+            </div>
+
+            <div class="flex flex-wrap gap-3 items-center">
+                <button type="submit" class="inline-flex items-center justify-center gap-2 bg-indigo-600 hover:bg-indigo-700 text-white font-semibold px-5 py-2.5 rounded-xl transition-colors shadow-sm">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"/></svg>
+                    Upload Images
+                </button>
+            </div>
+        </form>
+
+        <div class="space-y-3">
+            <div class="flex items-center justify-between gap-4">
+                <p class="text-sm font-semibold text-slate-700">Uploaded Images</p>
+            </div>
+
+            @if(isset($ourWorkImages) && $ourWorkImages->count() > 0)
+                <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3">
+                    @foreach($ourWorkImages as $img)
+                        <div class="relative rounded-xl overflow-hidden border border-slate-200 bg-white">
+                            <img
+                                src="{{ asset('storage/' . $img->image_path) }}"
+                                alt="{{ $img->alt_text ?? 'Our Work' }}"
+                                class="w-full h-24 object-cover"
+                                loading="lazy"
+                            />
+
+                            <form method="POST" action="{{ route('admin.dashboard.our-work.images.destroy', $img->id) }}" class="absolute top-2 right-2">
+                                @csrf
+                                @method('DELETE')
+                                <button
+                                    type="submit"
+                                    class="rounded-full bg-red-600 hover:bg-red-700 text-white w-8 h-8 flex items-center justify-center text-sm shadow-md"
+                                    onclick="return confirm('Delete this image?')"
+                                    title="Delete image"
+                                >
+                                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+                                </button>
+                            </form>
+                        </div>
+                    @endforeach
+                </div>
+            @else
+                <p class="text-sm text-slate-500">No images uploaded yet.</p>
+            @endif
+        </div>
+    </div>
+</div>
 @endsection

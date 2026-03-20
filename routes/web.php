@@ -5,6 +5,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\SubscriberController;
 use App\Http\Controllers\OgController;
+use App\Http\Controllers\GalleryController;
 
 Route::get('/', HomeController::class)->name('home');
 
@@ -23,7 +24,7 @@ Route::view('/services', 'pages.services')->name('pages.services');
 Route::view('/pricing', 'pages.pricing')->name('pages.pricing');
 Route::view('/about', 'pages.about')->name('pages.about');
 Route::view('/contact', 'pages.contact')->name('pages.contact');
-Route::view('/gallery', 'pages.gallery')->name('pages.gallery');
+Route::get('/gallery', [GalleryController::class, 'index'])->name('pages.gallery');
 
 Route::view('/help', 'pages.help')->name('pages.help');
 Route::view('/booking', 'pages.booking')->name('pages.booking');
