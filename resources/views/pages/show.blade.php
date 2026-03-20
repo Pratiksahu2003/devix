@@ -72,7 +72,11 @@
                 @endif
                 
                 <!-- Content Body -->
-                <div class="prose prose-lg sm:prose-xl prose-indigo max-w-none text-slate-700 font-medium">
+                <div class="prose prose-lg sm:prose-xl prose-indigo max-w-none text-slate-700 font-medium
+                    [&_a]:font-semibold [&_a]:text-indigo-600 hover:[&_a]:text-indigo-700 [&_a]:underline [&_a]:underline-offset-2
+                    [&_table]:w-full [&_table]:table-auto [&_table]:border-collapse [&_table]:block [&_table]:overflow-x-auto
+                    [&_thead]:bg-slate-100 [&_th]:border [&_th]:border-slate-300 [&_th]:px-4 [&_th]:py-2 [&_th]:text-left [&_th]:font-semibold
+                    [&_td]:border [&_td]:border-slate-200 [&_td]:px-4 [&_td]:py-2">
                     {!! $page->content !!}
                 </div>
                 
