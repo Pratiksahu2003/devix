@@ -11,7 +11,7 @@ import { Heading } from '@ckeditor/ckeditor5-heading';
 import { Link } from '@ckeditor/ckeditor5-link';
 import { List } from '@ckeditor/ckeditor5-list';
 import { Paragraph } from '@ckeditor/ckeditor5-paragraph';
-import { Table, TableToolbar } from '@ckeditor/ckeditor5-table';
+import { Table } from '@ckeditor/ckeditor5-table';
 
 import 'ckeditor5/ckeditor5.css';
 
@@ -54,7 +54,7 @@ function initCKEditorForTextarea(textarea) {
         // Allows GPL usage and removes `license-key-missing` runtime error.
         licenseKey: 'GPL',
         // Add Table support.
-        extraPlugins: [Table, TableToolbar],
+        extraPlugins: [Table],
         plugins: [
             Essentials,
             Autoformat,
@@ -69,7 +69,6 @@ function initCKEditorForTextarea(textarea) {
             Link,
             List,
             Table,
-            TableToolbar,
         ],
         toolbar: {
             items: [
