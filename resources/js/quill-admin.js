@@ -16,31 +16,11 @@ function patchQuillBetterTableWidth() {
         if (TableContainerReal.prototype.__ckTableWidthPatched) return;
 
         TableContainerReal.prototype.__ckTableWidthPatched = true;
+        // Alternate handling approach:
+        // Disable the buggy width recalculation completely.
+        // This prevents insertion/tool-click crashes and keeps basic table operations working.
         TableContainerReal.prototype.updateTableWidth = function () {
-            setTimeout(() => {
-                try {
-                    const colGroup = this.colGroup && this.colGroup();
-                    if (!colGroup || !colGroup.children) return;
-
-                    const tableWidth = colGroup.children.reduce((sumWidth, col) => {
-                        const formats =
-                            typeof col.formats === 'function' ? col.formats() : {};
-
-                        // quill-better-table expects `formats[table-col].width`,
-                        // but in practice `col.formats()` is `{ width: <number> }`.
-                        const widthRaw = formats?.width ?? formats?.['table-col']?.width;
-                        const width = parseInt(widthRaw, 10);
-                        return sumWidth + (Number.isFinite(width) ? width : 0);
-                    }, 0);
-
-                    if (this.domNode && this.domNode.style) {
-                        this.domNode.style.width = `${tableWidth}px`;
-                    }
-                } catch (e) {
-                    // Never crash on width calculations.
-                    // Width resizing is optional; insertion must always work.
-                }
-            }, 0);
+            // Intentionally no-op.
         };
     } catch (e) {
         // If the blot isn't registered yet, we just skip; table insertion may still work.
