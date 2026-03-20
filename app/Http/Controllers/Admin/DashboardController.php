@@ -12,7 +12,7 @@ class DashboardController extends Controller
 {
     public function index()
     {
-        $ourWork = OurWork::query()->first();
+        $ourWork = OurWork::query()->latest('id')->first();
         $ourWorkImages = OurWorkImage::query()->orderBy('sort_order')->get();
 
         return view('admin.dashboard', compact('ourWork', 'ourWorkImages'));
@@ -26,11 +26,13 @@ class DashboardController extends Controller
             'images.*' => 'nullable|image|max:4096',
         ]);
 
+        // Make sure there is always an OurWork record before we attach images.
+        $ourWork = OurWork::query()->latest('id')->first();
+
         // Option 1: YouTube link (single value)
         // Only update it if the request actually contains the field,
         // so image uploads won't accidentally overwrite the video.
         if ($request->has('youtube_url')) {
-            $ourWork = OurWork::query()->first();
             if (! $ourWork) {
                 $ourWork = OurWork::create([
                     'admin_id' => auth('admin')->id(),
@@ -44,6 +46,13 @@ class DashboardController extends Controller
 
         // Option 2: Upload images (multiple)
         if ($request->hasFile('images')) {
+            if (! $ourWork) {
+                $ourWork = OurWork::create([
+                    'admin_id' => auth('admin')->id(),
+                    'youtube_url' => null,
+                ]);
+            }
+
             $files = $request->file('images');
             if (is_array($files) || $files instanceof \Illuminate\Http\UploadedFile) {
                 $files = is_array($files) ? $files : [$files];
@@ -60,6 +69,7 @@ class DashboardController extends Controller
                 $alt = pathinfo($file->getClientOriginalName(), PATHINFO_FILENAME);
 
                 OurWorkImage::create([
+                    'our_work_id' => $ourWork->id,
                     'image_path' => $path,
                     'alt_text' => $alt ?: null,
                     'sort_order' => $nextSortOrder,

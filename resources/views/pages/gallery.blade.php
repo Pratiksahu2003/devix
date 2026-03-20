@@ -35,12 +35,18 @@
                 </div>
 
                 @php
-                    $embedUrl = $ourWork->youtube_url;
-                    if (\Illuminate\Support\Str::contains($embedUrl, 'youtube.com/watch?v=')) {
-                        $embedUrl = \Illuminate\Support\Str::replace('watch?v=', 'embed/', $embedUrl);
-                    } elseif (\Illuminate\Support\Str::contains($embedUrl, 'youtu.be/')) {
-                        $embedUrl = \Illuminate\Support\Str::replace('youtu.be/', 'youtube.com/embed/', $embedUrl);
+                    $rawUrl = $ourWork->youtube_url;
+                    $videoId = null;
+
+                    // Robust extraction for:
+                    // - https://www.youtube.com/watch?v=VIDEO_ID
+                    // - https://youtu.be/VIDEO_ID
+                    // - https://www.youtube.com/embed/VIDEO_ID
+                    if (preg_match('/(?:youtube\\.com\\/(?:watch\\?v=|embed\\/)|youtu\\.be\\/)([A-Za-z0-9_-]{6,})/', $rawUrl, $m)) {
+                        $videoId = $m[1] ?? null;
                     }
+
+                    $embedUrl = $videoId ? ('https://www.youtube.com/embed/' . $videoId) : $rawUrl;
                 @endphp
 
                 <div class="mt-6 rounded-2xl overflow-hidden border border-slate-200 bg-black aspect-video">
@@ -123,11 +129,16 @@
                 ->sortBy('sort_order')
                 ->values()
                 ->map(function ($img) {
+                    $imgPath = (string) ($img->image_path ?? '');
+                    $src = \Illuminate\Support\Str::startsWith($imgPath, 'storage/')
+                        ? $imgPath
+                        : ('storage/' . ltrim($imgPath, '/'));
+
                     return [
                         'alt' => $img->alt_text ?: 'Our Work',
                         'cat' => 'All',
                         'color' => '#e5e7eb',
-                        'src' => 'storage/' . ltrim($img->image_path, '/'),
+                        'src' => $src,
                     ];
                 })
                 ->toArray();
@@ -259,14 +270,14 @@
                         x-show="cat === 'All' || $el.dataset.cat === cat"
                         x-transition
                         data-cat="{{ $it['cat'] }}"
-                        @click="openLightbox('{{ $it['src'] }}', '{{ $it['alt'] }}')">
+                        @click="openLightbox('{{ asset($it['src']) }}', '{{ $it['alt'] }}')">
                         <div class="relative overflow-hidden">
                             <img
                                 alt="{{ $it['alt'] }}"
                                 loading="lazy"
                                 decoding="async"
                                 class="block w-full h-auto object-cover transition duration-700 ease-out group-hover:scale-[1.03]"
-                                src="{{ $it['src'] }}"
+                                src="{{ asset($it['src']) }}"
                                 style="background: url('{{ lqip($it['color']) }}') center/cover no-repeat;"
                                 onload="this.style.background='none';"
                             />
@@ -282,7 +293,7 @@
         $imageObjects = collect($items)->map(function($it) {
             return [
                 '@type' => 'ImageObject',
-                'contentUrl' => url($it['src']),
+                'contentUrl' => asset($it['src']),
                 'caption' => $it['alt'].' ('.$it['cat'].')',
             ];
         })->toArray();

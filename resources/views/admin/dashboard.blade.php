@@ -100,12 +100,12 @@
     <div class="p-8 relative z-10 space-y-6">
         @if(!empty($ourWork?->youtube_url))
             @php
-                $embedUrl = $ourWork->youtube_url;
-                if (\Illuminate\Support\Str::contains($embedUrl, 'youtube.com/watch?v=')) {
-                    $embedUrl = \Illuminate\Support\Str::replace('watch?v=', 'embed/', $embedUrl);
-                } elseif (\Illuminate\Support\Str::contains($embedUrl, 'youtu.be/')) {
-                    $embedUrl = \Illuminate\Support\Str::replace('youtu.be/', 'youtube.com/embed/', $embedUrl);
+                $rawUrl = $ourWork->youtube_url;
+                $videoId = null;
+                if (preg_match('/(?:youtube\\.com\\/(?:watch\\?v=|embed\\/)|youtu\\.be\\/)([A-Za-z0-9_-]{6,})/', $rawUrl, $m)) {
+                    $videoId = $m[1] ?? null;
                 }
+                $embedUrl = $videoId ? ('https://www.youtube.com/embed/' . $videoId) : $rawUrl;
             @endphp
             <div class="rounded-2xl overflow-hidden border border-slate-200 bg-slate-50">
                 <div class="p-4 border-b border-slate-200 flex items-center justify-between gap-4">
