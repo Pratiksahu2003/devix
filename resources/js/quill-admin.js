@@ -203,9 +203,21 @@ function initQuillForTextarea(textarea) {
                 container: toolbarEl,
                 handlers: {
                     insertTable: () => {
-                        const mod = quill.getModule('better-table');
-                        // Create a default 3x3 table.
-                        mod.insertTable(3, 3);
+                        try {
+                            // Ensure Quill has a selection before inserting.
+                            quill.focus();
+                            const range = quill.getSelection(true);
+                            if (!range) {
+                                const index = Math.max(0, quill.getLength() - 1);
+                                quill.setSelection(index, 0, Quill.sources.SILENT);
+                            }
+
+                            const mod = quill.getModule('better-table');
+                            // Create a default 3x3 table.
+                            mod.insertTable(3, 3);
+                        } catch (e) {
+                            console.error('Quill table insert failed:', e);
+                        }
                     },
                 },
             },
@@ -223,21 +235,35 @@ function initQuillForTextarea(textarea) {
         },
     });
 
-    // Apply the fix right after Quill + better-table loads,
-    // and re-apply shortly after in case blots register lazily.
-    patchQuillBetterTableWidth();
-    setTimeout(() => patchQuillBetterTableWidth(), 0);
-    setTimeout(() => patchQuillBetterTableWidth(), 50);
+    // Apply the crash-fix patch.
+    // Retry because some blot registration can happen slightly after Quill init.
+    let attempts = 0;
+    const maxAttempts = 10;
+    const retry = () => {
+        attempts += 1;
+        patchQuillBetterTableWidth();
+        if (attempts < maxAttempts) setTimeout(retry, 30);
+    };
+    retry();
 
     // Extra reliability: ensure our button always inserts a table.
-    // (If Quill doesn't bind the toolbar handler for any reason.)
     const insertBtn = toolbarEl.querySelector('button.ql-insertTable');
     if (insertBtn) {
         insertBtn.addEventListener('click', (e) => {
             e.preventDefault();
-            const mod = quill.getModule('better-table');
-            if (mod && typeof mod.insertTable === 'function') {
-                mod.insertTable(3, 3);
+            try {
+                quill.focus();
+                const range = quill.getSelection(true);
+                if (!range) {
+                    const index = Math.max(0, quill.getLength() - 1);
+                    quill.setSelection(index, 0, Quill.sources.SILENT);
+                }
+                const mod = quill.getModule('better-table');
+                if (mod && typeof mod.insertTable === 'function') {
+                    mod.insertTable(3, 3);
+                }
+            } catch (err) {
+                console.error('Quill table insert failed:', err);
             }
         });
     }
