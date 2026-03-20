@@ -141,7 +141,7 @@ function initQuillForTextarea(textarea) {
                     type="button"
                     class="ql-insertTable"
                 >
-                    Insert Table
+                   table
                 </button>
             </span>
         </div>
