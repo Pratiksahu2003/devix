@@ -134,7 +134,7 @@
         $galleryItems = $ourWorkImages
             ?->sortBy('sort_order')
             ?->values()
-            ?->map(function ($img) use ($categoryColors) {
+            ?->map(function ($img) use ($categoryColors, $ourWorkCategoryFromPath, $ourWorkNormalizePath, $ourWorkCategoryColor) {
                 $imagePath = $img->image_path ?? null;
                 if (!$imagePath) return null;
 
@@ -267,7 +267,7 @@
             </div>
 
             @if(count($galleryItems) > 0)
-                <div class="mt-6" x-data="window.galleryComponent(@json($galleryItems), @json($galleryCats))">
+                <div class="mt-6" x-data='window.galleryComponent(@json($galleryItems), @json($galleryCats))'>
                     {{-- Filters --}}
                     <div class="mb-5 flex flex-wrap gap-2">
                         <template x-for="c in categories" :key="c">
