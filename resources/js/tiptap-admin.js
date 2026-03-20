@@ -1,8 +1,14 @@
 import { Editor } from '@tiptap/core';
 import StarterKit from '@tiptap/starter-kit';
+import TextAlign from '@tiptap/extension-text-align';
 import Underline from '@tiptap/extension-underline';
 import Link from '@tiptap/extension-link';
+import { TextStyle } from '@tiptap/extension-text-style';
+import Color from '@tiptap/extension-color';
 import Image from '@tiptap/extension-image';
+import Superscript from '@tiptap/extension-superscript';
+import Subscript from '@tiptap/extension-subscript';
+import HorizontalRule from '@tiptap/extension-horizontal-rule';
 
 function fileToDataURL(file) {
     return new Promise((resolve, reject) => {
@@ -72,6 +78,7 @@ function ensureToolbar(editor, mountEl) {
         makeBtn('Bold', () => editor.chain().focus().toggleBold().run()),
         makeBtn('Italic', () => editor.chain().focus().toggleItalic().run()),
         makeBtn('Underline', () => editor.chain().focus().toggleUnderline().run()),
+        makeBtn('Strike', () => editor.chain().focus().toggleStrike().run()),
         makeBtn('Link', () => {
             const href = window.prompt('Enter URL');
             if (!href) return;
@@ -82,9 +89,47 @@ function ensureToolbar(editor, mountEl) {
                 .setLink({ href })
                 .run();
         }),
+        makeBtn('Unlink', () => editor.chain().focus().unsetLink().run()),
         addInputButton,
+        makeBtn('Paragraph', () => editor.chain().focus().setParagraph().run()),
+        makeBtn('H1', () => editor.chain().focus().setHeading({ level: 1 }).run()),
+        makeBtn('H2', () => editor.chain().focus().setHeading({ level: 2 }).run()),
+        makeBtn('H3', () => editor.chain().focus().setHeading({ level: 3 }).run()),
+        makeBtn('H4', () => editor.chain().focus().setHeading({ level: 4 }).run()),
+        makeBtn('Blockquote', () => editor.chain().focus().toggleBlockquote().run()),
+        makeBtn('Code Block', () => editor.chain().focus().toggleCodeBlock().run()),
+        makeBtn('HR', () => editor.chain().focus().setHorizontalRule().run()),
+        // List controls (free OSS).
+        makeBtn('List', () => {
+            const choice =
+                (window.prompt('List type: bullets or numbered', 'bullets') || '')
+                    .trim()
+                    .toLowerCase();
+            if (!choice) return;
+            if (choice.startsWith('n')) {
+                editor.chain().focus().toggleOrderedList().run();
+            } else {
+                editor.chain().focus().toggleBulletList().run();
+            }
+        }),
         makeBtn('Bullets', () => editor.chain().focus().toggleBulletList().run()),
         makeBtn('Numbered', () => editor.chain().focus().toggleOrderedList().run()),
+        makeBtn('Indent', () => editor.chain().focus().sinkListItem().run()),
+        makeBtn('Outdent', () => editor.chain().focus().liftListItem().run()),
+        makeBtn('Superscript', () => editor.chain().focus().toggleSuperscript().run()),
+        makeBtn('Subscript', () => editor.chain().focus().toggleSubscript().run()),
+        makeBtn('Color', () => {
+            const color = (window.prompt('Text color (hex), e.g. #ff0000', '#1f2937') || '')
+                .trim();
+            if (!color) return;
+            editor.chain().focus().setColor(color).run();
+        }),
+        makeBtn('Clear Color', () => editor.chain().focus().unsetColor().run()),
+        makeBtn('Align Left', () => editor.chain().focus().setTextAlign('left').run()),
+        makeBtn('Align Center', () => editor.chain().focus().setTextAlign('center').run()),
+        makeBtn('Align Right', () => editor.chain().focus().setTextAlign('right').run()),
+        makeBtn('Align Justify', () => editor.chain().focus().setTextAlign('justify').run()),
+        makeBtn('Clear Formatting', () => editor.chain().focus().unsetAllMarks().run()),
         makeBtn('Undo', () => editor.chain().focus().undo().run()),
         makeBtn('Redo', () => editor.chain().focus().redo().run()),
     ];
@@ -112,10 +157,21 @@ function initTiptapForTextarea(textarea) {
             StarterKit.configure({
                 // Keep to basic formatting; avoid premium CKEditor-style features.
                 // (Tiptap is OSS-based here: StarterKit + basic extensions only.)
+                heading: {
+                    levels: [1, 2, 3, 4],
+                },
+            }),
+            TextAlign.configure({
+                types: ['heading', 'paragraph'],
             }),
             Underline,
             Link.configure({ openOnClick: false, HTMLAttributes: { rel: 'noopener noreferrer' } }),
+            TextStyle,
+            Color,
+            Superscript,
+            Subscript,
             Image.configure({ inline: false }),
+            HorizontalRule,
         ],
         content: textarea.value || '',
         editorProps: {
