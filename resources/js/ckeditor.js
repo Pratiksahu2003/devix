@@ -50,6 +50,9 @@ function initCKEditorForTextarea(textarea) {
     }, 150);
 
     return ClassicEditor.create(editorHost, {
+        // Required by CKEditor 5 for self-hosted npm usage.
+        // Allows GPL usage and removes `license-key-missing` runtime error.
+        licenseKey: 'GPL',
         // Add Table support.
         extraPlugins: [Table, TableToolbar],
         plugins: [
