@@ -253,7 +253,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 window.CKEditorPlugins.Heading,
                 window.CKEditorPlugins.Link,
                 window.CKEditorPlugins.List,
-                window.CKEditorPlugins.ListProperties,
+: ListProperties is a premium plugin (licenseFeatureCode=LP).                // NOTE
                 window.CKEditorPlugins.TodoList,
                 window.CKEditorPlugins.Indent,
                 window.CKEditorPlugins.IndentBlock,
@@ -264,21 +264,18 @@ document.addEventListener("DOMContentLoaded", function () {
                 window.CKEditorPlugins.ImageStyle,
                 window.CKEditorPlugins.ImageToolbar,
                 window.CKEditorPlugins.ImageUpload,
-                window.CKEditorPlugins.ImageResize,
+                // NOTE: ImageResize is a premium plugin (licenseFeatureCode=IR).
                 window.CKEditorPlugins.LinkImage,
-                window.CKEditorPlugins.Base64UploadAdapter,
+                // Free base64 upload adapter (custom, no CKEditor license needed).
+                Base64UploadAdapterPlugin,
                 window.CKEditorPlugins.MediaEmbed,
                 window.CKEditorPlugins.Table,
                 window.CKEditorPlugins.TableToolbar,
-                window.CKEditorPlugins.TableCellProperties,
-                window.CKEditorPlugins.TableProperties,
-                window.CKEditorPlugins.TableColumnResize,
+                // NOTE: Table cell/table properties + resize are premium plugins.
                 window.CKEditorPlugins.Code,
                 window.CKEditorPlugins.CodeBlock,
-                window.CKEditorPlugins.RemoveFormat,
                 window.CKEditorPlugins.SourceEditing,
                 window.CKEditorPlugins.Alignment,
-                window.CKEditorPlugins.PasteFromOffice,
                 window.CKEditorPlugins.Paragraph,
             ],
             toolbar: {
@@ -291,15 +288,15 @@ document.addEventListener("DOMContentLoaded", function () {
                     'bulletedList', 'numberedList', 'todoList', 'outdent', 'indent', '|',
                     'code', 'codeBlock', '|',
                     'undo', 'redo', '|',
-                    'removeFormat', 'sourceEditing'
+                    'sourceEditing'
                 ],
                 shouldNotGroupWhenFull: true
             },
             image: {
-                toolbar: ['imageStyle:inline', 'imageStyle:block', 'imageStyle:side', '|', 'toggleImageCaption', 'imageTextAlternative', '|', 'resizeImage']
+                toolbar: ['imageStyle:inline', 'imageStyle:block', 'imageStyle:side', '|', 'toggleImageCaption', 'imageTextAlternative']
             },
             table: {
-                contentToolbar: ['tableColumn', 'tableRow', 'mergeTableCells', 'tableCellProperties', 'tableProperties']
+                contentToolbar: ['tableColumn', 'tableRow', 'mergeTableCells']
             },
             heading: {
                 options: [
