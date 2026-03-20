@@ -76,19 +76,58 @@
                     {!! $page->content !!}
                 </div>
                 
-                @if($page->video_url)
-                <!-- Associated Video -->
-                <div class="mt-16 rounded-3xl overflow-hidden shadow-2xl ring-1 ring-slate-900/5 aspect-video w-full bg-slate-900 relative group">
-                    @php
-                        $embedUrl = $page->video_url;
-                        if (Str::contains($embedUrl, 'youtube.com/watch?v=')) {
-                            $embedUrl = Str::replace('watch?v=', 'embed/', $embedUrl);
-                        } elseif (Str::contains($embedUrl, 'youtu.be/')) {
-                            $embedUrl = Str::replace('youtu.be/', 'youtube.com/embed/', $embedUrl);
+                @if(!empty($page->video_url))
+
+                @php
+                if (!function_exists('getYoutubeEmbedUrl')) {
+                    function getYoutubeEmbedUrl($url) {
+                        if (!$url) return null;
+                
+                        $parsed = parse_url($url);
+                
+                        // Case 1: youtu.be/VIDEO_ID
+                        if (isset($parsed['host']) && str_contains($parsed['host'], 'youtu.be')) {
+                            return 'https://www.youtube.com/embed/' . ltrim($parsed['path'], '/');
                         }
-                    @endphp
-                    <iframe src="{{ $embedUrl }}" class="absolute inset-0 w-full h-full border-0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
-                </div>
+                
+                        // Case 2: youtube.com/watch?v=VIDEO_ID
+                        if (isset($parsed['query'])) {
+                            parse_str($parsed['query'], $query);
+                            if (isset($query['v'])) {
+                                return 'https://www.youtube.com/embed/' . $query['v'];
+                            }
+                        }
+                
+                        // Case 3: youtube.com/shorts/VIDEO_ID
+                        if (isset($parsed['path']) && str_contains($parsed['path'], '/shorts/')) {
+                            return 'https://www.youtube.com/embed/' . basename($parsed['path']);
+                        }
+                
+                        // Case 4: already embed
+                        if (str_contains($url, 'youtube.com/embed/')) {
+                            return $url;
+                        }
+                
+                        return null;
+                    }
+                }
+                
+                $embedUrl = getYoutubeEmbedUrl($page->video_url);
+                @endphp
+                
+                @if($embedUrl)
+                    <!-- YouTube Video -->
+                    <div class="mt-16 rounded-3xl overflow-hidden shadow-2xl ring-1 ring-slate-900/5 aspect-video w-full bg-slate-900 relative group">
+                        <iframe 
+                            src="{{ $embedUrl }}" 
+                            class="absolute inset-0 w-full h-full border-0"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                            allowfullscreen
+                            loading="lazy">
+                        </iframe>
+                    </div>
+                @endif
+                
                 @endif
 
                 <!-- Tags Module -->
