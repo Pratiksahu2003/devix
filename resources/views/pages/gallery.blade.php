@@ -154,65 +154,69 @@
             return $base.' 1200w';
         }
     @endphp
-    <section class="bg-[var(--color-surface-muted)]" x-data="{ 
-        cat: 'All', 
-        show: 12, 
-        cats: @json($galleryCats),
-        lightboxOpen: false,
-        lightboxSrc: '',
-        lightboxAlt: '',
-        scale: 1,
-        panning: false,
-        pointX: 0,
-        pointY: 0,
-        startX: 0,
-        startY: 0,
-        openLightbox(src, alt) {
-            this.lightboxSrc = src;
-            this.lightboxAlt = alt;
-            this.lightboxOpen = true;
-            this.scale = 1;
-            this.pointX = 0;
-            this.pointY = 0;
-            document.body.style.overflow = 'hidden';
-        },
-        closeLightbox() {
-            this.lightboxOpen = false;
-            document.body.style.overflow = '';
-            setTimeout(() => { 
-                this.lightboxSrc = ''; 
+    <script>
+        window.galleryLightbox = (cats) => ({
+            cat: 'All',
+            show: 12,
+            cats: cats,
+            lightboxOpen: false,
+            lightboxSrc: '',
+            lightboxAlt: '',
+            scale: 1,
+            panning: false,
+            pointX: 0,
+            pointY: 0,
+            startX: 0,
+            startY: 0,
+            openLightbox(src, alt) {
+                this.lightboxSrc = src;
+                this.lightboxAlt = alt;
+                this.lightboxOpen = true;
                 this.scale = 1;
                 this.pointX = 0;
                 this.pointY = 0;
-            }, 300);
-        },
-        zoomIn() {
-            this.scale = Math.min(this.scale + 0.5, 4);
-        },
-        zoomOut() {
-            this.scale = Math.max(this.scale - 0.5, 1);
-            if (this.scale === 1) {
-                this.pointX = 0;
-                this.pointY = 0;
+                document.body.style.overflow = 'hidden';
+            },
+            closeLightbox() {
+                this.lightboxOpen = false;
+                document.body.style.overflow = '';
+                setTimeout(() => {
+                    this.lightboxSrc = '';
+                    this.scale = 1;
+                    this.pointX = 0;
+                    this.pointY = 0;
+                }, 300);
+            },
+            zoomIn() {
+                this.scale = Math.min(this.scale + 0.5, 4);
+            },
+            zoomOut() {
+                this.scale = Math.max(this.scale - 0.5, 1);
+                if (this.scale === 1) {
+                    this.pointX = 0;
+                    this.pointY = 0;
+                }
+            },
+            startDrag(e) {
+                if (this.scale <= 1) return;
+                e.preventDefault();
+                this.panning = true;
+                this.startX = e.clientX - this.pointX;
+                this.startY = e.clientY - this.pointY;
+            },
+            drag(e) {
+                if (!this.panning) return;
+                e.preventDefault();
+                this.pointX = e.clientX - this.startX;
+                this.pointY = e.clientY - this.startY;
+            },
+            stopDrag() {
+                this.panning = false;
             }
-        },
-        startDrag(e) {
-            if (this.scale <= 1) return;
-            e.preventDefault();
-            this.panning = true;
-            this.startX = e.clientX - this.pointX;
-            this.startY = e.clientY - this.pointY;
-        },
-        drag(e) {
-            if (!this.panning) return;
-            e.preventDefault();
-            this.pointX = e.clientX - this.startX;
-            this.pointY = e.clientY - this.startY;
-        },
-        stopDrag() {
-            this.panning = false;
-        }
-    }">
+        });
+    </script>
+
+    <section class="bg-[var(--color-surface-muted)]" x-data="window.galleryLightbox(@json($galleryCats))">
         {{-- Lightbox Overlay --}}
         <div x-show="lightboxOpen" 
              x-transition:enter="transition ease-out duration-300"
