@@ -1,6 +1,5 @@
 import Quill from 'quill';
 import QuillBetterTable from 'quill-better-table';
-import { TableContainer, TableCol } from 'quill-better-table/src/formats/table';
 
 import 'quill/dist/quill.snow.css';
 import 'quill-better-table/dist/quill-better-table.css';
@@ -8,34 +7,40 @@ import 'quill-better-table/dist/quill-better-table.css';
 // quill-better-table uses Quill.register internally in examples.
 Quill.register({ 'modules/better-table': QuillBetterTable }, true);
 
-// Workaround for quill-better-table v1.2.10: updateTableWidth assumes
-// `col.formats()[TableCol.blotName].width` exists, but `col.formats()` returns `{ width }`.
-// This makes table insertion crash when clicking the table button.
-if (!TableContainer?.prototype?.__ckTableWidthPatched) {
-    TableContainer.prototype.__ckTableWidthPatched = true;
-    TableContainer.prototype.updateTableWidth = function () {
-        setTimeout(() => {
-            const colGroup = this.colGroup && this.colGroup();
-            if (!colGroup || !colGroup.children) return;
+function patchQuillBetterTableWidth() {
+    // Important: patch the SAME TableContainer class that Quill registers at runtime.
+    // In Quill, the module formats are registered under `formats/<blotName>`.
+    try {
+        const TableContainerReal = Quill.import('formats/table-container');
+        if (!TableContainerReal || !TableContainerReal.prototype) return;
+        if (TableContainerReal.prototype.__ckTableWidthPatched) return;
 
-            const tableWidth = colGroup.children.reduce((sumWidth, col) => {
-                const formats = typeof col.formats === 'function' ? col.formats() : null;
-                // Expected: formats.width. Old buggy path: formats[TableCol.blotName].width.
-                const widthRaw =
-                    (formats && formats.width != null ? formats.width : null) ??
-                    (formats && formats[TableCol.blotName]
-                        ? formats[TableCol.blotName].width
-                        : null);
+        TableContainerReal.prototype.__ckTableWidthPatched = true;
+        TableContainerReal.prototype.updateTableWidth = function () {
+            setTimeout(() => {
+                const colGroup = this.colGroup && this.colGroup();
+                if (!colGroup || !colGroup.children) return;
 
-                const width = parseInt(widthRaw, 10);
-                return sumWidth + (Number.isFinite(width) ? width : 0);
+                const tableWidth = colGroup.children.reduce((sumWidth, col) => {
+                    const formats =
+                        typeof col.formats === 'function' ? col.formats() : {};
+
+                    // quill-better-table expects `formats[table-col].width`,
+                    // but in practice `col.formats()` is `{ width: <number> }`.
+                    const widthRaw = formats?.width ?? formats?.['table-col']?.width;
+                    const width = parseInt(widthRaw, 10);
+                    return sumWidth + (Number.isFinite(width) ? width : 0);
+                }, 0);
+
+                if (this.domNode && this.domNode.style) {
+                    this.domNode.style.width = `${tableWidth}px`;
+                }
             }, 0);
-
-            if (this.domNode && this.domNode.style) {
-                this.domNode.style.width = `${tableWidth}px`;
-            }
-        }, 0);
-    };
+        };
+    } catch (e) {
+        // If the blot isn't registered yet, we just skip; table insertion may still work.
+        console.warn('patchQuillBetterTableWidth skipped:', e);
+    }
 }
 
 function initQuillForTextarea(textarea) {
@@ -211,6 +216,10 @@ function initQuillForTextarea(textarea) {
             },
         },
     });
+
+    // Apply the fix right after Quill + better-table loads,
+    // so the next click on "Insert Table" can't crash.
+    patchQuillBetterTableWidth();
 
     // Paste initial HTML into the editor.
     const initial = textarea.value || '';
