@@ -84,35 +84,108 @@
     </header>
     @endif
 
-    <!-- Main Rich Text Content Area -->
-    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-20 lg:py-24">
-        <!-- Content Body -->
-        <div class="prose prose-lg sm:prose-xl prose-indigo mx-auto text-slate-700 font-medium">
-            {!! $page->content !!}
-        </div>
+    <!-- Main Content & Sidebar Grid -->
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 lg:py-24">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
+            
+            <!-- Left: Primary Content (8 Columns) -->
+            <div class="lg:col-span-8 space-y-12">
+                
+                @if($page->cover_image)
+                <!-- In-content Hero Image Re-display -->
+                <div class="rounded-3xl overflow-hidden shadow-2xl ring-1 ring-slate-900/5 mb-10">
+                    <img src="{{ asset('storage/' . $page->cover_image) }}" alt="{{ $page->title }} cover" class="w-full h-auto object-cover transform hover:scale-105 transition-transform duration-700 ease-in-out">
+                </div>
+                @endif
+                
+                <!-- Content Body -->
+                <div class="prose prose-lg sm:prose-xl prose-indigo max-w-none text-slate-700 font-medium">
+                    {!! $page->content !!}
+                </div>
 
-        <!-- Tags Module -->
-        @if(!empty($page->tags) && count($page->tags) > 0)
-        <div class="mt-16 pt-10 border-t border-slate-200">
-            <h3 class="text-sm font-bold text-slate-400 uppercase tracking-widest mb-4">Related Tags</h3>
-            <div class="flex flex-wrap gap-2">
-                @foreach($page->tags as $tag)
-                <span class="inline-flex items-center px-4 py-2 bg-slate-50 text-slate-600 font-semibold border border-slate-200 rounded-xl text-sm hover:bg-indigo-50 hover:text-indigo-600 hover:border-indigo-100 transition-colors cursor-default shadow-sm">
-                    #{{ $tag }}
-                </span>
-                @endforeach
+                <!-- Tags Module -->
+                @if(!empty($page->tags) && count($page->tags) > 0)
+                <div class="mt-16 pt-10 border-t border-slate-200">
+                    <h3 class="text-sm font-bold text-slate-400 uppercase tracking-widest mb-4">Related Tags</h3>
+                    <div class="flex flex-wrap gap-2">
+                        @foreach($page->tags as $tag)
+                        <span class="inline-flex items-center px-4 py-2 bg-slate-50 text-slate-600 font-semibold border border-slate-200 rounded-xl text-sm hover:bg-indigo-50 hover:text-indigo-600 hover:border-indigo-100 transition-colors cursor-default shadow-sm">
+                            #{{ $tag }}
+                        </span>
+                        @endforeach
+                    </div>
+                </div>
+                @endif
+                
+                <!-- Back Home / Actions Navigation -->
+                <div class="mt-16 pt-8 flex flex-wrap gap-4">
+                    <a href="/" class="inline-flex items-center justify-center gap-2 px-6 py-3 bg-white border border-slate-300 hover:border-indigo-500 text-slate-600 hover:text-indigo-600 font-semibold rounded-xl shadow-sm transition-all focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">
+                        &larr; Return Header
+                    </a>
+                </div>
             </div>
-        </div>
-        @endif
-        
-        <!-- Back Home / Actions Navigation -->
-        <div class="mt-16 pt-8 text-center flex justify-center gap-4">
-            <a href="/" class="inline-flex items-center justify-center gap-2 px-6 py-3 bg-white border border-slate-300 hover:border-indigo-500 text-slate-600 hover:text-indigo-600 font-semibold rounded-xl shadow-sm transition-all focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">
-                &larr; Return to Home
-            </a>
-            <a href="{{ route('blog.index') }}" class="inline-flex items-center justify-center gap-2 px-6 py-3 bg-indigo-600 border border-transparent hover:bg-indigo-700 text-white font-semibold rounded-xl shadow-sm shadow-indigo-500/30 transition-all focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">
-                Read our Blog &rarr;
-            </a>
+
+            <!-- Right: Sidebar (4 Columns) -->
+            <aside class="lg:col-span-4 space-y-12 lg:sticky lg:top-8">
+                
+                <!-- Latest Blogs Widget -->
+                @if(isset($latestPosts) && $latestPosts->count() > 0)
+                <div class="bg-white rounded-3xl p-8 shadow-xl shadow-slate-200/40 ring-1 ring-slate-900/5">
+                    <h3 class="text-xl font-bold text-slate-900 mb-6 flex items-center gap-2">
+                        <svg class="w-5 h-5 text-indigo-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9a2 2 0 00-2-2h-2m-4-3H9M7 16h6M7 8h6v4H7V8z"></path></svg>
+                        Latest on the Blog
+                    </h3>
+                    <div class="space-y-6">
+                        @foreach($latestPosts as $post)
+                        <a href="{{ route('blog.show', $post->slug) }}" class="group block">
+                            <article class="flex gap-4">
+                                @if($post->cover_image)
+                                <div class="shrink-0 w-20 h-20 rounded-xl overflow-hidden shadow-sm">
+                                    <img src="{{ asset('storage/' . $post->cover_image) }}" alt="{{ $post->title }}" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                                </div>
+                                @endif
+                                <div class="flex flex-col justify-center">
+                                    <h4 class="font-bold text-slate-800 leading-tight group-hover:text-indigo-600 transition-colors line-clamp-2">{{ $post->title }}</h4>
+                                    <time class="text-xs font-semibold text-slate-500 mt-1 uppercase tracking-wider">{{ $post->published_at->format('M d, Y') }}</time>
+                                </div>
+                            </article>
+                        </a>
+                        @endforeach
+                    </div>
+                </div>
+                @endif
+
+                <!-- Categories Widget -->
+                @if(isset($categories) && $categories->count() > 0)
+                <div class="bg-indigo-50 rounded-3xl p-8 ring-1 ring-indigo-100">
+                    <h3 class="text-xl font-bold text-slate-900 mb-6 flex items-center gap-2">
+                        <svg class="w-5 h-5 text-indigo-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 7h.01M7 3h5c.512 0 1.024.195 1.414.586l7 7a2 2 0 010 2.828l-7 7a2 2 0 01-2.828 0l-7-7A1.994 1.994 0 013 12V7a4 4 0 014-4z"></path></svg>
+                        Explore Topics
+                    </h3>
+                    <div class="flex flex-wrap gap-2">
+                        @foreach($categories as $cat)
+                        <a href="{{ route('category.show', $cat->slug) }}" class="inline-flex items-center px-4 py-2 bg-white text-slate-700 hover:text-indigo-600 font-semibold border border-indigo-100 hover:border-indigo-300 rounded-xl text-sm transition-all shadow-sm hover:shadow-md">
+                            {{ $cat->name }}
+                        </a>
+                        @endforeach
+                    </div>
+                </div>
+                @endif
+
+                <!-- Call to Action Banner -->
+                <div class="bg-gradient-to-br from-slate-900 to-slate-800 rounded-3xl p-8 text-center text-white shadow-2xl relative overflow-hidden">
+                    <div class="absolute -right-10 -top-10 w-40 h-40 bg-indigo-500/20 rounded-full blur-3xl"></div>
+                    <div class="relative z-10 block">
+                        <h4 class="text-2xl font-bold mb-3">Ready to Create?</h4>
+                        <p class="text-slate-300 mb-6 text-sm font-medium">Book our studio spaces and let your vision come to life with top-tier equipment.</p>
+                        <a href="{{ route('pages.booking') }}" class="inline-block w-full text-center px-6 py-3.5 bg-indigo-500 hover:bg-indigo-400 text-white font-bold rounded-xl transition-colors shadow-lg shadow-indigo-500/30">
+                            Book Now
+                        </a>
+                    </div>
+                </div>
+
+            </aside>
+            
         </div>
     </div>
     

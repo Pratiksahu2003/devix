@@ -52,6 +52,9 @@ Route::get('/og', [OgController::class , 'image'])->name('og.image');
 Route::get('/blog', [App\Http\Controllers\BlogController::class , 'index'])->name('blog.index');
 Route::get('/blog/{slug}', [App\Http\Controllers\BlogController::class , 'show'])->name('blog.show');
 
+// Category public routes
+Route::get('/category/{slug}', [App\Http\Controllers\CategoryController::class, 'show'])->name('category.show');
+
 // ==========================================
 // CATCH-ALL ROUTE FOR SEO LANDING PAGES
 // ==========================================
