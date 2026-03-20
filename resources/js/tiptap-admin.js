@@ -10,6 +10,9 @@ import Superscript from '@tiptap/extension-superscript';
 import Subscript from '@tiptap/extension-subscript';
 import HorizontalRule from '@tiptap/extension-horizontal-rule';
 
+import Placeholder from '@tiptap/extension-placeholder';
+import CharacterCount from '@tiptap/extension-character-count';
+
 function fileToDataURL(file) {
     return new Promise((resolve, reject) => {
         const reader = new FileReader();
@@ -112,10 +115,51 @@ function ensureToolbar(editor, mountEl) {
                 editor.chain().focus().toggleBulletList().run();
             }
         }),
-        makeBtn('Bullets', () => editor.chain().focus().toggleBulletList().run()),
-        makeBtn('Numbered', () => editor.chain().focus().toggleOrderedList().run()),
-        makeBtn('Indent', () => editor.chain().focus().sinkListItem().run()),
-        makeBtn('Outdent', () => editor.chain().focus().liftListItem().run()),
+        makeBtn('UL', () => {
+            editor.chain().focus().toggleBulletList().run();
+            // Ensure a list item is created immediately.
+            setTimeout(() => {
+                editor.view.dom.dispatchEvent(
+                    new KeyboardEvent('keydown', {
+                        key: 'Enter',
+                        code: 'Enter',
+                        bubbles: true,
+                    })
+                );
+            }, 0);
+        }),
+        makeBtn('LI', () => {
+            editor.chain().focus().run();
+            editor.view.dom.dispatchEvent(
+                new KeyboardEvent('keydown', {
+                    key: 'Enter',
+                    code: 'Enter',
+                    bubbles: true,
+                })
+            );
+        }),
+        makeBtn('OL', () => editor.chain().focus().toggleOrderedList().run()),
+        makeBtn('Indent', () => {
+            editor.chain().focus().run();
+            editor.view.dom.dispatchEvent(
+                new KeyboardEvent('keydown', {
+                    key: 'Tab',
+                    code: 'Tab',
+                    bubbles: true,
+                })
+            );
+        }),
+        makeBtn('Outdent', () => {
+            editor.chain().focus().run();
+            editor.view.dom.dispatchEvent(
+                new KeyboardEvent('keydown', {
+                    key: 'Tab',
+                    code: 'Tab',
+                    shiftKey: true,
+                    bubbles: true,
+                })
+            );
+        }),
         makeBtn('Superscript', () => editor.chain().focus().toggleSuperscript().run()),
         makeBtn('Subscript', () => editor.chain().focus().toggleSubscript().run()),
         makeBtn('Color', () => {
@@ -136,6 +180,31 @@ function ensureToolbar(editor, mountEl) {
 
     buttons.forEach((b) => toolbar.appendChild(b));
     mountEl.prepend(toolbar);
+
+    const counter = document.createElement('div');
+    counter.className =
+        'tiptap-counter text-[11px] text-slate-500 mt-2 px-3 pb-1';
+    counter.textContent = '0 chars';
+    mountEl.appendChild(counter);
+
+    // CharacterCount is enabled, so we can update it from editor.storage.
+    const updateCounter = () => {
+        // extension-character-count puts values in editor.storage.characterCount
+        const storage = editor.storage && editor.storage.characterCount;
+        const chars = storage && typeof storage.characters === 'number' ? storage.characters : 0;
+        const words = storage && typeof storage.words === 'number' ? storage.words : 0;
+        counter.textContent = `${words} words • ${chars} chars`;
+    };
+    editor.on('update', updateCounter);
+    updateCounter();
+}
+
+function debounce(fn, wait) {
+    let t = null;
+    return (...args) => {
+        if (t) clearTimeout(t);
+        t = setTimeout(() => fn(...args), wait);
+    };
 }
 
 function initTiptapForTextarea(textarea) {
@@ -170,8 +239,15 @@ function initTiptapForTextarea(textarea) {
             Color,
             Superscript,
             Subscript,
+            Placeholder.configure({
+                placeholder: 'Write here...'
+            }),
             Image.configure({ inline: false }),
             HorizontalRule,
+            CharacterCount.configure({
+                // No hard limit; just shows counts.
+                limit: 0,
+            }),
         ],
         content: textarea.value || '',
         editorProps: {
@@ -198,6 +274,13 @@ function initTiptapForTextarea(textarea) {
     });
 
     ensureToolbar(editor, wrapper);
+
+    // Live sync (debounced) so content is never lost before submit.
+    const syncToTextarea = debounce(() => {
+        textarea.value = editor.getHTML();
+    }, 200);
+
+    editor.on('update', syncToTextarea);
 
     const form = textarea.closest('form');
     if (form) {
