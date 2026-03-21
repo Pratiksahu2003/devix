@@ -71,13 +71,17 @@
                 </div>
                 @endif
                 
-                <!-- Content Body -->
+                <!-- Content Body: scroll wrapper keeps wide tables usable on small screens without breaking table layout -->
                 <div class="prose prose-lg sm:prose-xl prose-indigo max-w-none text-slate-700 font-medium
                     [&_a]:font-semibold [&_a]:text-indigo-600 hover:[&_a]:text-indigo-700 [&_a]:underline [&_a]:underline-offset-2
-                    [&_table]:w-full [&_table]:table-auto [&_table]:border-collapse [&_table]:block [&_table]:overflow-x-auto
-                    [&_thead]:bg-slate-100 [&_th]:border [&_th]:border-slate-300 [&_th]:px-4 [&_th]:py-2 [&_th]:text-left [&_th]:font-semibold
-                    [&_td]:border [&_td]:border-slate-200 [&_td]:px-4 [&_td]:py-2">
-                    {!! $page->content !!}
+                    [&_table]:w-full [&_table]:min-w-0 [&_table]:table-auto [&_table]:border-collapse [&_table]:text-left
+                    [&_table]:text-sm sm:[&_table]:text-base
+                    [&_thead]:bg-slate-100 [&_th]:border [&_th]:border-slate-300 [&_th]:px-3 sm:[&_th]:px-4 [&_th]:py-2 [&_th]:text-left [&_th]:font-semibold [&_th]:align-middle
+                    [&_td]:border [&_td]:border-slate-200 [&_td]:px-3 sm:[&_td]:px-4 [&_td]:py-2 [&_td]:align-middle
+                    [&_tbody_tr:nth-child(even)]:bg-slate-50/70">
+                    <div class="w-full max-w-full overflow-x-auto overscroll-x-contain [-webkit-overflow-scrolling:touch]">
+                        {!! $page->content !!}
+                    </div>
                 </div>
                 
                 @if(!empty($page->video_url))
