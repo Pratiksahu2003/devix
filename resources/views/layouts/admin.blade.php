@@ -47,8 +47,9 @@
                 </a>
 
                 <!-- Our Work Link -->
-                <a href="{{ route('admin.dashboard') }}#our-work" class="flex items-center px-4 py-3 text-slate-400 hover:bg-slate-800/50 hover:text-slate-200 border-transparent rounded-xl border transition-all group font-medium text-sm">
-                    <svg class="w-5 h-5 mr-3 text-slate-500 group-hover:text-slate-300 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <a href="{{ route('admin.dashboard.our-work.index') }}"
+                   class="flex items-center px-4 py-3 {{ request()->routeIs('admin.dashboard.our-work.*') ? 'bg-indigo-500/10 text-indigo-400 border-indigo-500/30' : 'text-slate-400 hover:bg-slate-800/50 hover:text-slate-200 border-transparent' }} rounded-xl border transition-all group font-medium text-sm">
+                    <svg class="w-5 h-5 mr-3 {{ request()->routeIs('admin.dashboard.our-work.*') ? 'text-indigo-400' : 'text-slate-500 group-hover:text-slate-300' }} transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7h8m-8 4h8m-8 4h8M4 3h16a1 1 0 011 1v16a1 1 0 01-1 1H4a1 1 0 01-1-1V4a1 1 0 011-1z" />
                     </svg>
                     Our Work

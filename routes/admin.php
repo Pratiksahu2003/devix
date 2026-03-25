@@ -17,6 +17,7 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.'], function () {
 
     Route::middleware('auth:admin')->group(function () {
         Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
+        Route::get('/dashboard/our-work', [DashboardController::class, 'ourWork'])->name('dashboard.our-work.index');
         Route::post('/dashboard/our-work', [DashboardController::class, 'updateOurWork'])->name('dashboard.our-work.update');
         Route::delete('/dashboard/our-work/images/{image}', [DashboardController::class, 'deleteOurWorkImage'])->name('dashboard.our-work.images.destroy');
         Route::post('/logout', [AuthController::class, 'logout'])->name('logout');

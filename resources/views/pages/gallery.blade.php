@@ -43,7 +43,7 @@
                     </div>
                     <div class="hidden rounded-2xl border border-[var(--color-border-subtle)] bg-white/60 p-4 backdrop-blur sm:block">
                         <div class="text-xs font-semibold text-[var(--color-text-muted)]">Featured</div>
-                        <div class="mt-2 text-2xl font-semibold">{{ !empty($ourWork?->youtube_url) ? 'Yes' : 'Optional' }}</div>
+                        <div class="mt-2 text-2xl font-semibold">{{ ($ourWorkVideos?->count() ?? 0) > 0 || !empty($ourWork?->youtube_url) ? 'Yes' : 'Optional' }}</div>
                         <div class="mt-1 text-xs text-[var(--color-text-muted)]">YouTube showcase</div>
                     </div>
                 </div>
@@ -51,38 +51,49 @@
         </div>
     </section>
 
-    @if(!empty($ourWork?->youtube_url))
-        @php
-            $rawUrl = (string) $ourWork->youtube_url;
+    @php
+        $youtubeUrls = $ourWorkVideos?->sortBy('sort_order')->values()->pluck('youtube_url')->all() ?? [];
+        if (empty($youtubeUrls) && !empty($ourWork?->youtube_url)) {
+            $youtubeUrls = [$ourWork->youtube_url];
+        }
+
+        $parseYoutubeEmbedUrl = function (string $rawUrl): string {
             $videoId = null;
             if (preg_match('/(?:youtube\\.com\\/(?:watch\\?v=|embed\\/)|youtu\\.be\\/)([A-Za-z0-9_-]{6,})/', $rawUrl, $m)) {
                 $videoId = $m[1] ?? null;
             }
-            $embedUrl = $videoId ? ('https://www.youtube.com/embed/' . $videoId) : $rawUrl;
-        @endphp
 
+            return $videoId ? ('https://www.youtube.com/embed/' . $videoId) : $rawUrl;
+        };
+    @endphp
+
+    @if(count($youtubeUrls) > 0)
         <section class="bg-white py-10 sm:py-12 border-b border-[var(--color-border-subtle)]">
             <div class="mx-auto max-w-6xl px-4 sm:px-6">
                 <div class="flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
                     <div>
-                        <h2 class="text-lg font-semibold tracking-tight sm:text-xl">Featured Work Video</h2>
+                        <h2 class="text-lg font-semibold tracking-tight sm:text-xl">Featured Work Videos</h2>
                         <p class="mt-1 text-xs text-[var(--color-text-muted)]">A quick reel of recent studio highlights.</p>
                     </div>
-                    <a href="{{ $ourWork->youtube_url }}" target="_blank" rel="noreferrer"
+                    <a href="{{ $youtubeUrls[0] }}" target="_blank" rel="noreferrer"
                        class="text-xs font-semibold text-indigo-600 hover:text-indigo-700">
                         Watch on YouTube
                     </a>
                 </div>
 
-                <div class="mt-6 overflow-hidden rounded-2xl border border-slate-200 bg-black aspect-video">
-                    <iframe
-                        src="{{ $embedUrl }}"
-                        class="w-full h-full"
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                        allowfullscreen
-                        loading="lazy"
-                        referrerpolicy="strict-origin-when-cross-origin"
-                    ></iframe>
+                <div class="mt-6 grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    @foreach($youtubeUrls as $url)
+                        <div class="overflow-hidden rounded-2xl border border-slate-200 bg-black aspect-video">
+                            <iframe
+                                src="{{ $parseYoutubeEmbedUrl($url) }}"
+                                class="w-full h-full"
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                allowfullscreen
+                                loading="lazy"
+                                referrerpolicy="strict-origin-when-cross-origin"
+                            ></iframe>
+                        </div>
+                    @endforeach
                 </div>
             </div>
         </section>
