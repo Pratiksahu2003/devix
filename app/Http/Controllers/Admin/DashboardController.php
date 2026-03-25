@@ -207,6 +207,15 @@ class DashboardController extends Controller
             'images.*' => 'nullable|image|max:4096',
         ]);
 
+        // Redirect back to the relevant "show" page after submit.
+        // Videos-create page posts `youtube_url`, images-create page posts `images[]`.
+        $redirectRoute = 'admin.dashboard';
+        if ($request->filled('youtube_url') || $request->filled('youtube_urls')) {
+            $redirectRoute = 'admin.dashboard.our-work.videos.show';
+        } elseif ($request->hasFile('images')) {
+            $redirectRoute = 'admin.dashboard.our-work.images.show';
+        }
+
         // Make sure there is always an OurWork record before we attach videos/images.
         $ourWork = OurWork::query()->latest('id')->first();
 
@@ -350,7 +359,9 @@ class DashboardController extends Controller
             }
         }
 
-        return redirect()->route('admin.dashboard')->with('success', 'Our Work updated successfully.');
+        return redirect()
+            ->route($redirectRoute)
+            ->with('success', 'Our Work updated successfully.');
     }
 
     public function deleteOurWorkImage(OurWorkImage $image)
