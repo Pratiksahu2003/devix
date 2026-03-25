@@ -26,7 +26,21 @@ class DashboardController extends Controller
         return view('admin.dashboard', compact('ourWork', 'ourWorkImages', 'ourWorkVideos'));
     }
 
-    public function ourWork(): View
+    public function ourWorkShow(): View
+    {
+        $ourWork = OurWork::query()->latest('id')->first();
+        $ourWorkImages = OurWorkImage::query()->orderBy('sort_order')->get();
+        $ourWorkVideos = $ourWork
+            ? OurWorkVideo::query()
+                ->where('our_work_id', $ourWork->id)
+                ->orderBy('sort_order')
+                ->get()
+            : collect();
+
+        return view('admin.our-work-show', compact('ourWork', 'ourWorkImages', 'ourWorkVideos'));
+    }
+
+    public function ourWorkCreate(): View
     {
         $ourWork = OurWork::query()->latest('id')->first();
         $ourWorkImages = OurWorkImage::query()->orderBy('sort_order')->get();
