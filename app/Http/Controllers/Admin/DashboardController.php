@@ -54,6 +54,148 @@ class DashboardController extends Controller
         return view('admin.our-work', compact('ourWork', 'ourWorkImages', 'ourWorkVideos'));
     }
 
+    public function ourWorkVideosShow(): View
+    {
+        $ourWork = OurWork::query()->latest('id')->first();
+        $ourWorkVideos = $ourWork
+            ? OurWorkVideo::query()
+                ->where('our_work_id', $ourWork->id)
+                ->orderBy('sort_order')
+                ->get()
+            : collect();
+
+        return view('admin.our-work-videos-show', compact('ourWork', 'ourWorkVideos'));
+    }
+
+    public function ourWorkVideosCreate(): View
+    {
+        $ourWork = OurWork::query()->latest('id')->first();
+        $ourWorkVideos = $ourWork
+            ? OurWorkVideo::query()
+                ->where('our_work_id', $ourWork->id)
+                ->orderBy('sort_order')
+                ->get()
+            : collect();
+
+        return view('admin.our-work-videos-create', compact('ourWork', 'ourWorkVideos'));
+    }
+
+    public function ourWorkImagesShow(): View
+    {
+        $ourWork = OurWork::query()->latest('id')->first();
+        $ourWorkImages = OurWorkImage::query()->orderBy('sort_order')->get();
+
+        return view('admin.our-work-images-show', compact('ourWork', 'ourWorkImages'));
+    }
+
+    public function ourWorkImagesCreate(): View
+    {
+        $ourWork = OurWork::query()->latest('id')->first();
+        $ourWorkImages = OurWorkImage::query()->orderBy('sort_order')->get();
+
+        return view('admin.our-work-images-create', compact('ourWork', 'ourWorkImages'));
+    }
+
+    public function ourWorkVideosEdit(OurWorkVideo $video): View
+    {
+        $ourWork = OurWork::query()->find($video->our_work_id);
+        return view('admin.our-work-videos-edit', compact('ourWork', 'video'));
+    }
+
+    public function updateOurWorkVideo(Request $request, OurWorkVideo $video)
+    {
+        $validated = $request->validate([
+            'youtube_url' => 'required|url|max:255',
+            'sort_order' => 'nullable|integer|min:0',
+        ]);
+
+        $video->youtube_url = $validated['youtube_url'];
+        if (array_key_exists('sort_order', $validated) && $validated['sort_order'] !== null) {
+            $video->sort_order = (int) $validated['sort_order'];
+        }
+        $video->save();
+
+        // Re-sync "featured" url from the first video by sort order.
+        $this->syncFeaturedVideoFromWorkId($video->our_work_id);
+
+        return redirect()
+            ->route('admin.dashboard.our-work.videos.show')
+            ->with('success', 'Video updated successfully.');
+    }
+
+    public function deleteOurWorkVideo(OurWorkVideo $video)
+    {
+        $workId = $video->our_work_id;
+        $video->delete();
+
+        // Re-order after delete to keep sort_order clean.
+        $videos = OurWorkVideo::query()
+            ->where('our_work_id', $workId)
+            ->orderBy('sort_order')
+            ->get();
+
+        $i = 1;
+        foreach ($videos as $v) {
+            $v->sort_order = $i;
+            $v->save();
+            $i++;
+        }
+
+        $this->syncFeaturedVideoFromWorkId($workId);
+
+        return redirect()
+            ->route('admin.dashboard.our-work.videos.show')
+            ->with('success', 'Video deleted successfully.');
+    }
+
+    public function ourWorkImagesEdit(OurWorkImage $image): View
+    {
+        $ourWork = OurWork::query()->find($image->our_work_id);
+        return view('admin.our-work-images-edit', compact('ourWork', 'image'));
+    }
+
+    public function updateOurWorkImage(Request $request, OurWorkImage $image)
+    {
+        $validated = $request->validate([
+            'alt_text' => 'nullable|string|max:255',
+            'sort_order' => 'nullable|integer|min:0',
+            'image' => 'nullable|image|max:4096',
+        ]);
+
+        if ($request->hasFile('image')) {
+            if ($image->image_path) {
+                Storage::disk('public')->delete($image->image_path);
+            }
+
+            $path = $request->file('image')->store('our-work', 'public');
+            $image->image_path = $path;
+        }
+
+        $image->alt_text = $validated['alt_text'] ?? null;
+        if (array_key_exists('sort_order', $validated) && $validated['sort_order'] !== null) {
+            $image->sort_order = (int) $validated['sort_order'];
+        }
+        $image->save();
+
+        return redirect()
+            ->route('admin.dashboard.our-work.images.show')
+            ->with('success', 'Image updated successfully.');
+    }
+
+    private function syncFeaturedVideoFromWorkId(int $ourWorkId): void
+    {
+        $featured = OurWorkVideo::query()
+            ->where('our_work_id', $ourWorkId)
+            ->orderBy('sort_order')
+            ->value('youtube_url');
+
+        $work = OurWork::query()->find($ourWorkId);
+        if ($work) {
+            $work->youtube_url = $featured ?: null;
+            $work->save();
+        }
+    }
+
     public function updateOurWork(Request $request)
     {
         $validated = $request->validate([
@@ -72,6 +214,9 @@ class DashboardController extends Controller
         $shouldUpdateVideos = $request->filled('youtube_urls') || $request->filled('youtube_url');
 
         if ($shouldUpdateVideos) {
+            // If the admin provided multiline URLs, errors should show under `youtube_urls`.
+            $invalidErrorKey = $request->filled('youtube_urls') ? 'youtube_urls' : 'youtube_url';
+
             if ($request->filled('youtube_urls')) {
                 $raw = (string) ($validated['youtube_urls'] ?? '');
                 $parts = preg_split('/[\r\n,]+/', $raw) ?: [];
@@ -107,7 +252,7 @@ class DashboardController extends Controller
                 if (!empty($invalid)) {
                     return redirect()
                         ->back()
-                        ->withErrors(['youtube_urls' => implode("\n", $invalid)])
+                        ->withErrors([$invalidErrorKey => implode("\n", $invalid)])
                         ->withInput();
                 }
 
@@ -118,23 +263,52 @@ class DashboardController extends Controller
                     ]);
                 }
 
-                OurWorkVideo::query()
+                $existingVideos = OurWorkVideo::query()
                     ->where('our_work_id', $ourWork->id)
-                    ->delete();
+                    ->orderBy('sort_order')
+                    ->get(['youtube_url', 'sort_order']);
 
-                $sortOrder = 1;
+                $existingSet = [];
+                foreach ($existingVideos as $vid) {
+                    $existingSet[$vid->youtube_url] = true;
+                }
+
+                $sortOrder = $existingVideos->max('sort_order') ?? 0;
+
+                // If this is the first time we are saving videos but legacy `our_works.youtube_url` exists,
+                // preserve it as featured by inserting it as the first video row.
+                if ($existingVideos->isEmpty() && !empty($ourWork->youtube_url) && !isset($existingSet[$ourWork->youtube_url])) {
+                    $sortOrder = 1;
+                    OurWorkVideo::create([
+                        'our_work_id' => $ourWork->id,
+                        'youtube_url' => $ourWork->youtube_url,
+                        'sort_order' => $sortOrder,
+                    ]);
+                    $existingSet[$ourWork->youtube_url] = true;
+                }
+
                 foreach ($youtubeUrls as $url) {
+                    // Allow one-by-one uploads by appending instead of deleting/replacing existing rows.
+                    if (isset($existingSet[$url])) {
+                        continue;
+                    }
+
+                    $sortOrder++;
                     OurWorkVideo::create([
                         'our_work_id' => $ourWork->id,
                         'youtube_url' => $url,
                         'sort_order' => $sortOrder,
                     ]);
-
-                    $sortOrder++;
+                    $existingSet[$url] = true;
                 }
 
-                // Keep the legacy `our_works.youtube_url` as "featured" (first URL)
-                $ourWork->youtube_url = $youtubeUrls[0];
+                // Keep `our_works.youtube_url` in sync with the first video row.
+                $featured = OurWorkVideo::query()
+                    ->where('our_work_id', $ourWork->id)
+                    ->orderBy('sort_order')
+                    ->value('youtube_url');
+
+                $ourWork->youtube_url = $featured ?: $ourWork->youtube_url;
                 $ourWork->save();
             }
         }
@@ -185,8 +359,24 @@ class DashboardController extends Controller
             Storage::disk('public')->delete($image->image_path);
         }
 
+        $workId = (int) $image->our_work_id;
         $image->delete();
 
-        return redirect()->route('admin.dashboard')->with('success', 'Image deleted successfully.');
+        // Re-order after delete to keep sort_order clean.
+        $images = OurWorkImage::query()
+            ->where('our_work_id', $workId)
+            ->orderBy('sort_order')
+            ->get();
+
+        $i = 1;
+        foreach ($images as $img) {
+            $img->sort_order = $i;
+            $img->save();
+            $i++;
+        }
+
+        return redirect()
+            ->route('admin.dashboard.our-work.images.show')
+            ->with('success', 'Image deleted successfully.');
     }
 }

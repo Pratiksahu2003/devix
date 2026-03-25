@@ -85,23 +85,24 @@
             @csrf
 
             <div class="space-y-2">
-                <label for="youtube_urls" class="block text-sm font-semibold text-slate-700">YouTube Video Links (Optional)</label>
-                <textarea
-                    name="youtube_urls"
-                    id="youtube_urls"
-                    rows="4"
+                <label for="youtube_url" class="block text-sm font-semibold text-slate-700">Add YouTube Video (Optional)</label>
+                <input
+                    type="url"
+                    name="youtube_url"
+                    id="youtube_url"
+                    value="{{ old('youtube_url', '') }}"
                     class="w-full px-4 py-2 rounded-lg border border-slate-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-500/20 focus:outline-none transition-colors text-sm"
-                    placeholder="Paste one YouTube URL per line. Example: https://youtube.com/watch?v=..."
-                >{{ old('youtube_urls', !empty($youtubeUrls) ? implode("\n", $youtubeUrls) : '') }}</textarea>
-                @error('youtube_urls')
-                    <p class="text-sm text-red-500 whitespace-pre-line">{{ $message }}</p>
+                    placeholder="https://youtube.com/watch?v=..."
+                />
+                @error('youtube_url')
+                    <p class="text-sm text-red-500">{{ $message }}</p>
                 @enderror
             </div>
 
             <div class="flex flex-wrap gap-3 items-center">
                 <button type="submit" class="inline-flex items-center justify-center gap-2 bg-indigo-600 hover:bg-indigo-700 text-white font-semibold px-5 py-2.5 rounded-xl transition-colors shadow-sm">
                     <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"/></svg>
-                    Save YouTube Links
+                    Add Video
                 </button>
             </div>
         </form>

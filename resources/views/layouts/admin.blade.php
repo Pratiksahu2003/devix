@@ -46,13 +46,22 @@
                     Dashboard
                 </a>
 
-                <!-- Our Work Link -->
-                <a href="{{ route('admin.dashboard.our-work.show') }}"
-                   class="flex items-center px-4 py-3 {{ request()->routeIs('admin.dashboard.our-work.*') ? 'bg-indigo-500/10 text-indigo-400 border-indigo-500/30' : 'text-slate-400 hover:bg-slate-800/50 hover:text-slate-200 border-transparent' }} rounded-xl border transition-all group font-medium text-sm">
-                    <svg class="w-5 h-5 mr-3 {{ request()->routeIs('admin.dashboard.our-work.*') ? 'text-indigo-400' : 'text-slate-500 group-hover:text-slate-300' }} transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7h8m-8 4h8m-8 4h8M4 3h16a1 1 0 011 1v16a1 1 0 01-1 1H4a1 1 0 01-1-1V4a1 1 0 011-1z" />
+                <!-- Our Work: Videos -->
+                <a href="{{ route('admin.dashboard.our-work.videos.show') }}"
+                   class="flex items-center px-4 py-3 {{ request()->routeIs('admin.dashboard.our-work.videos.*') ? 'bg-indigo-500/10 text-indigo-400 border-indigo-500/30' : 'text-slate-400 hover:bg-slate-800/50 hover:text-slate-200 border-transparent' }} rounded-xl border transition-all group font-medium text-sm">
+                    <svg class="w-5 h-5 mr-3 {{ request()->routeIs('admin.dashboard.our-work.videos.*') ? 'text-indigo-400' : 'text-slate-500 group-hover:text-slate-300' }} transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4" />
                     </svg>
-                    Our Work
+                    Our Work Videos
+                </a>
+
+                <!-- Our Work: Images -->
+                <a href="{{ route('admin.dashboard.our-work.images.show') }}"
+                   class="flex items-center px-4 py-3 {{ request()->routeIs('admin.dashboard.our-work.images.*') ? 'bg-indigo-500/10 text-indigo-400 border-indigo-500/30' : 'text-slate-400 hover:bg-slate-800/50 hover:text-slate-200 border-transparent' }} rounded-xl border transition-all group font-medium text-sm">
+                    <svg class="w-5 h-5 mr-3 {{ request()->routeIs('admin.dashboard.our-work.images.*') ? 'text-indigo-400' : 'text-slate-500 group-hover:text-slate-300' }} transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 7h18M3 17h18M4 7V5a2 2 0 012-2h12a2 2 0 012 2v2M4 17v2a2 2 0 002 2h12a2 2 0 002-2v-2" />
+                    </svg>
+                    Our Work Images
                 </a>
 
                 <!-- Admin Users Link -->
