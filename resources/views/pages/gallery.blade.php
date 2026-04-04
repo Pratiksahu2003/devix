@@ -156,8 +156,8 @@
                 return [
                     'id' => $img->id,
                     'src' => $src,
-                    'alt' => (string) ($img->alt_text ?: 'Our Work'),
-                    'caption' => (string) (($img->alt_text ?: 'Our Work') . ' • ' . $category),
+                    'alt' => (string) ('Our Work'),
+                    'caption' => (string) ($category),
                     'category' => $category,
                     'bg' => $ourWorkCategoryColor($category, $categoryColors),
                 ];
