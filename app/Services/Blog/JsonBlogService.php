@@ -143,6 +143,8 @@ class JsonBlogService
                     'name' => $blog['author'] ?? $brand.' Studio Team',
                 ];
 
+                $post->faqs = $blog['faqs'] ?? [];
+
                 return $post;
             })
             ->sortByDesc('published_at')

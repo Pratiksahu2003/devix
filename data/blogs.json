@@ -1,17 +1,1858 @@
 [
-  {"slug": "how-to-start-a-podcast", "title": "How to Start a Podcast in 2026", "category": "podcast", "excerpt": "Complete guide to launching your podcast from equipment to distribution.", "service": "podcast-studio"},
-  {"slug": "best-podcast-microphones", "title": "Best Podcast Microphones for Studio Recording", "category": "equipment", "excerpt": "Compare Rode, Shure, and Audio-Technica mics for professional podcast audio.", "service": "podcast-studio"},
-  {"slug": "podcast-marketing-guide", "title": "Podcast Marketing Guide for Indian Creators", "category": "marketing", "excerpt": "Grow your podcast audience with proven marketing strategies for the Indian market.", "service": "podcast-studio"},
-  {"slug": "video-production-cost-india", "title": "Video Production Cost in India — Complete Breakdown", "category": "pricing", "excerpt": "Understand video production pricing for corporate, commercial, and social content.", "service": "video-production"},
-  {"slug": "product-photography-tips", "title": "Product Photography Tips for E-Commerce", "category": "photography", "excerpt": "Shoot conversion-ready product photos for Amazon, Flipkart, and D2C stores.", "service": "product-photography"},
-  {"slug": "green-screen-setup-guide", "title": "Green Screen Setup Guide for Content Creators", "category": "video", "excerpt": "Master chroma key lighting, spill control, and background replacement.", "service": "green-screen-studio"},
-  {"slug": "youtube-studio-setup", "title": "YouTube Studio Setup on a Budget", "category": "creator", "excerpt": "Build a professional YouTube studio without breaking the bank.", "service": "youtube-studio-rental"},
-  {"slug": "instagram-reels-production", "title": "Instagram Reels Production Workflow", "category": "creator", "excerpt": "From concept to publish — streamline your reels production process.", "service": "reel-shoot-studio"},
-  {"slug": "corporate-video-types", "title": "Types of Corporate Videos Every Business Needs", "category": "video", "excerpt": "Explainer, testimonial, training, and brand films — which does your business need?", "service": "video-production"},
-  {"slug": "fashion-photoshoot-checklist", "title": "Fashion Photoshoot Checklist for Designers", "category": "photography", "excerpt": "Pre-production to delivery — everything you need for a successful fashion shoot.", "service": "fashion-photography"},
-  {"slug": "podcast-studio-delhi-guide", "title": "Best Podcast Studios in Delhi NCR", "category": "location", "excerpt": "Compare podcast studio options across Delhi, Noida, and Gurugram.", "service": "podcast-studio"},
-  {"slug": "influencer-content-strategy", "title": "Influencer Content Strategy for 2026", "category": "marketing", "excerpt": "Plan, shoot, and publish content that grows your personal brand.", "service": "influencer-studio"},
-  {"slug": "tv-commercial-production-process", "title": "TV Commercial Production Process Explained", "category": "video", "excerpt": "From storyboard to broadcast — how TV ad films are made.", "service": "tv-commercial-studio"},
-  {"slug": "headshot-photography-guide", "title": "Professional Headshot Photography Guide", "category": "photography", "excerpt": "Prepare for your corporate headshot session with wardrobe, posing, and lighting tips.", "service": "corporate-photography"},
-  {"slug": "studio-lighting-basics", "title": "Studio Lighting Basics for Beginners", "category": "equipment", "excerpt": "Key, fill, and back light — understand three-point lighting for photo and video.", "service": "product-photography"}
+    {
+        "slug": "how-to-start-podcast-delhi-ncr",
+        "title": "How to Start a Podcast in Delhi NCR (Complete 2026 Guide)",
+        "category": "podcast",
+        "service": "podcast-studio",
+        "excerpt": "Launch your podcast from concept to distribution with a Delhi NCR studio workflow.",
+        "published_at": "2025-01-10",
+        "faqs": [
+            {
+                "q": "How much does How to Start a Podcast in Delhi NCR (Complete 2026 Guide) cost in Delhi NCR?",
+                "a": "Pricing depends on session length, crew, and deliverables. Hourly, half-day, and full-day packages are available at our Dwarka studio with equipment included. See <a href=\"/podcast-studio-cost-in-delhi\">Delhi pricing</a> or <a href=\"/pricing\">full rate card</a> for current ranges."
+            },
+            {
+                "q": "What is included in a studio booking?",
+                "a": "Standard bookings include the studio space, professional lighting, core microphones or cameras, climate control, Wi-Fi, and on-site engineer support. Makeup room and teleprompter access are included where applicable."
+            },
+            {
+                "q": "Where is the studio located?",
+                "a": "DyWix is in Dwarka Sector 13, Delhi — near Blue Line metro stations and parking at Radisson Blu Dwarka. See our <a href=\"/location\">location page</a> and <a href=\"/studio-locations-delhi-ncr\">NCR location hub</a>."
+            },
+            {
+                "q": "Can I book for teams travelling from Noida or Gurugram?",
+                "a": "Yes. Many clients travel from Noida, Gurugram, and Faridabad. Half-day minimum is popular for out-of-city teams. See <a href=\"/podcast-studio-in-noida\">Noida</a> and <a href=\"/podcast-studio-in-gurugram\">Gurugram</a> hub pages for drive times."
+            },
+            {
+                "q": "Do you help with pre-production planning?",
+                "a": "Our team reviews your brief before the session — shot lists, scripts, wardrobe, and export specs. Share materials 48 hours ahead for best results."
+            },
+            {
+                "q": "What file formats do you deliver?",
+                "a": "We export platform-ready files and RAW masters on request: WAV for audio, high-res JPEG/TIFF for photo, and standard video codecs. Cloud transfer is included."
+            },
+            {
+                "q": "Is the studio available on weekends and nights?",
+                "a": "Yes — 24×7 booking with engineer on call. Weekend slots fill fast; book early for batch production days."
+            },
+            {
+                "q": "How do I book a session?",
+                "a": "Use our <a href=\"/booking\">online booking form</a>, call the studio line, or WhatsApp us. Confirm your slot with a brief description of your project."
+            },
+            {
+                "q": "Is this guide relevant for how-to-start-podcast-delhi-ncr?",
+                "a": "This article is part of our verified studio knowledge base. Explore <a href=\"/podcast-studio\">podcast-studio</a> service pages and related posts on our <a href=\"/blog\">blog</a>."
+            },
+            {
+                "q": "Can agencies and brands get recurring package rates?",
+                "a": "Yes. Production houses and D2C brands with monthly content needs qualify for package pricing. Contact us with your volume estimate."
+            }
+        ],
+        "tags": [
+            "podcast",
+            "delhi ncr",
+            "podcast-studio",
+            "studio guide",
+            "2026"
+        ],
+        "author": "DyWix Studio Team"
+    },
+    {
+        "slug": "best-podcast-microphones-studio",
+        "title": "Best Podcast Microphones for Professional Studio Recording",
+        "category": "equipment",
+        "service": "podcast-studio",
+        "excerpt": "Compare dynamic and condenser mics for broadcast-quality podcast audio in treated rooms.",
+        "published_at": "2025-01-20",
+        "faqs": [
+            {
+                "q": "What is included in a studio booking?",
+                "a": "Standard bookings include the studio space, professional lighting, core microphones or cameras, climate control, Wi-Fi, and on-site engineer support. Makeup room and teleprompter access are included where applicable."
+            },
+            {
+                "q": "Where is the studio located?",
+                "a": "DyWix is in Dwarka Sector 13, Delhi — near Blue Line metro stations and parking at Radisson Blu Dwarka. See our <a href=\"/location\">location page</a> and <a href=\"/studio-locations-delhi-ncr\">NCR location hub</a>."
+            },
+            {
+                "q": "Can I book for teams travelling from Noida or Gurugram?",
+                "a": "Yes. Many clients travel from Noida, Gurugram, and Faridabad. Half-day minimum is popular for out-of-city teams. See <a href=\"/podcast-studio-in-noida\">Noida</a> and <a href=\"/podcast-studio-in-gurugram\">Gurugram</a> hub pages for drive times."
+            },
+            {
+                "q": "Do you help with pre-production planning?",
+                "a": "Our team reviews your brief before the session — shot lists, scripts, wardrobe, and export specs. Share materials 48 hours ahead for best results."
+            },
+            {
+                "q": "What file formats do you deliver?",
+                "a": "We export platform-ready files and RAW masters on request: WAV for audio, high-res JPEG/TIFF for photo, and standard video codecs. Cloud transfer is included."
+            },
+            {
+                "q": "Is the studio available on weekends and nights?",
+                "a": "Yes — 24×7 booking with engineer on call. Weekend slots fill fast; book early for batch production days."
+            },
+            {
+                "q": "How do I book a session?",
+                "a": "Use our <a href=\"/booking\">online booking form</a>, call the studio line, or WhatsApp us. Confirm your slot with a brief description of your project."
+            },
+            {
+                "q": "Is this guide relevant for best-podcast-microphones-studio?",
+                "a": "This article is part of our verified studio knowledge base. Explore <a href=\"/podcast-studio\">podcast-studio</a> service pages and related posts on our <a href=\"/blog\">blog</a>."
+            },
+            {
+                "q": "Can agencies and brands get recurring package rates?",
+                "a": "Yes. Production houses and D2C brands with monthly content needs qualify for package pricing. Contact us with your volume estimate."
+            },
+            {
+                "q": "How much does Best Podcast Microphones for Professional Studio Recording cost in Delhi NCR?",
+                "a": "Pricing depends on session length, crew, and deliverables. Hourly, half-day, and full-day packages are available at our Dwarka studio with equipment included. See <a href=\"/podcast-studio-cost-in-delhi\">Delhi pricing</a> or <a href=\"/pricing\">full rate card</a> for current ranges."
+            }
+        ],
+        "tags": [
+            "equipment",
+            "delhi ncr",
+            "podcast-studio",
+            "studio guide",
+            "2026"
+        ],
+        "author": "DyWix Studio Team"
+    },
+    {
+        "slug": "podcast-marketing-india-2026",
+        "title": "Podcast Marketing Strategy for Indian Creators in 2026",
+        "category": "marketing",
+        "service": "podcast-studio",
+        "excerpt": "Grow downloads with SEO, Shorts clips, guest swaps, and platform-specific promotion.",
+        "published_at": "2025-01-30",
+        "faqs": [
+            {
+                "q": "Where is the studio located?",
+                "a": "DyWix is in Dwarka Sector 13, Delhi — near Blue Line metro stations and parking at Radisson Blu Dwarka. See our <a href=\"/location\">location page</a> and <a href=\"/studio-locations-delhi-ncr\">NCR location hub</a>."
+            },
+            {
+                "q": "Can I book for teams travelling from Noida or Gurugram?",
+                "a": "Yes. Many clients travel from Noida, Gurugram, and Faridabad. Half-day minimum is popular for out-of-city teams. See <a href=\"/podcast-studio-in-noida\">Noida</a> and <a href=\"/podcast-studio-in-gurugram\">Gurugram</a> hub pages for drive times."
+            },
+            {
+                "q": "Do you help with pre-production planning?",
+                "a": "Our team reviews your brief before the session — shot lists, scripts, wardrobe, and export specs. Share materials 48 hours ahead for best results."
+            },
+            {
+                "q": "What file formats do you deliver?",
+                "a": "We export platform-ready files and RAW masters on request: WAV for audio, high-res JPEG/TIFF for photo, and standard video codecs. Cloud transfer is included."
+            },
+            {
+                "q": "Is the studio available on weekends and nights?",
+                "a": "Yes — 24×7 booking with engineer on call. Weekend slots fill fast; book early for batch production days."
+            },
+            {
+                "q": "How do I book a session?",
+                "a": "Use our <a href=\"/booking\">online booking form</a>, call the studio line, or WhatsApp us. Confirm your slot with a brief description of your project."
+            },
+            {
+                "q": "Is this guide relevant for podcast-marketing-india-2026?",
+                "a": "This article is part of our verified studio knowledge base. Explore <a href=\"/podcast-studio\">podcast-studio</a> service pages and related posts on our <a href=\"/blog\">blog</a>."
+            },
+            {
+                "q": "Can agencies and brands get recurring package rates?",
+                "a": "Yes. Production houses and D2C brands with monthly content needs qualify for package pricing. Contact us with your volume estimate."
+            },
+            {
+                "q": "How much does Podcast Marketing Strategy for Indian Creators in 2026 cost in Delhi NCR?",
+                "a": "Pricing depends on session length, crew, and deliverables. Hourly, half-day, and full-day packages are available at our Dwarka studio with equipment included. See <a href=\"/podcast-studio-cost-in-delhi\">Delhi pricing</a> or <a href=\"/pricing\">full rate card</a> for current ranges."
+            },
+            {
+                "q": "What is included in a studio booking?",
+                "a": "Standard bookings include the studio space, professional lighting, core microphones or cameras, climate control, Wi-Fi, and on-site engineer support. Makeup room and teleprompter access are included where applicable."
+            }
+        ],
+        "tags": [
+            "marketing",
+            "delhi ncr",
+            "podcast-studio",
+            "studio guide",
+            "2026"
+        ],
+        "author": "DyWix Studio Team"
+    },
+    {
+        "slug": "video-production-cost-delhi",
+        "title": "Video Production Cost in Delhi — Complete 2026 Breakdown",
+        "category": "pricing",
+        "service": "video-production",
+        "excerpt": "Understand corporate, commercial, and social video pricing across Delhi NCR studios.",
+        "published_at": "2025-02-09",
+        "faqs": [
+            {
+                "q": "How much does Video Production Cost in Delhi — Complete 2026 Breakdown cost in Delhi NCR?",
+                "a": "Pricing depends on session length, crew, and deliverables. Hourly, half-day, and full-day packages are available at our Dwarka studio with equipment included. See <a href=\"/video-production-cost-in-delhi\">Delhi pricing</a> or <a href=\"/pricing\">full rate card</a> for current ranges."
+            },
+            {
+                "q": "What is included in a studio booking?",
+                "a": "Standard bookings include the studio space, professional lighting, core microphones or cameras, climate control, Wi-Fi, and on-site engineer support. Makeup room and teleprompter access are included where applicable."
+            },
+            {
+                "q": "Where is the studio located?",
+                "a": "DyWix is in Dwarka Sector 13, Delhi — near Blue Line metro stations and parking at Radisson Blu Dwarka. See our <a href=\"/location\">location page</a> and <a href=\"/studio-locations-delhi-ncr\">NCR location hub</a>."
+            },
+            {
+                "q": "Can I book for teams travelling from Noida or Gurugram?",
+                "a": "Yes. Many clients travel from Noida, Gurugram, and Faridabad. Half-day minimum is popular for out-of-city teams. See <a href=\"/video-production-in-noida\">Noida</a> and <a href=\"/video-production-in-gurugram\">Gurugram</a> hub pages for drive times."
+            },
+            {
+                "q": "Do you help with pre-production planning?",
+                "a": "Our team reviews your brief before the session — shot lists, scripts, wardrobe, and export specs. Share materials 48 hours ahead for best results."
+            },
+            {
+                "q": "What file formats do you deliver?",
+                "a": "We export platform-ready files and RAW masters on request: WAV for audio, high-res JPEG/TIFF for photo, and standard video codecs. Cloud transfer is included."
+            },
+            {
+                "q": "Is the studio available on weekends and nights?",
+                "a": "Yes — 24×7 booking with engineer on call. Weekend slots fill fast; book early for batch production days."
+            },
+            {
+                "q": "How do I book a session?",
+                "a": "Use our <a href=\"/booking\">online booking form</a>, call the studio line, or WhatsApp us. Confirm your slot with a brief description of your project."
+            },
+            {
+                "q": "Is this guide relevant for video-production-cost-delhi?",
+                "a": "This article is part of our verified studio knowledge base. Explore <a href=\"/video-production\">video-production</a> service pages and related posts on our <a href=\"/blog\">blog</a>."
+            },
+            {
+                "q": "Can agencies and brands get recurring package rates?",
+                "a": "Yes. Production houses and D2C brands with monthly content needs qualify for package pricing. Contact us with your volume estimate."
+            }
+        ],
+        "tags": [
+            "pricing",
+            "delhi ncr",
+            "video-production",
+            "studio guide",
+            "2026"
+        ],
+        "author": "DyWix Studio Team"
+    },
+    {
+        "slug": "product-photography-ecommerce-guide",
+        "title": "Product Photography for Amazon, Flipkart & D2C Brands",
+        "category": "photography",
+        "service": "product-photography",
+        "excerpt": "Shoot conversion-ready catalog and lifestyle images for Indian marketplaces.",
+        "published_at": "2025-02-19",
+        "faqs": [
+            {
+                "q": "What is included in a studio booking?",
+                "a": "Standard bookings include the studio space, professional lighting, core microphones or cameras, climate control, Wi-Fi, and on-site engineer support. Makeup room and teleprompter access are included where applicable."
+            },
+            {
+                "q": "Where is the studio located?",
+                "a": "DyWix is in Dwarka Sector 13, Delhi — near Blue Line metro stations and parking at Radisson Blu Dwarka. See our <a href=\"/location\">location page</a> and <a href=\"/studio-locations-delhi-ncr\">NCR location hub</a>."
+            },
+            {
+                "q": "Can I book for teams travelling from Noida or Gurugram?",
+                "a": "Yes. Many clients travel from Noida, Gurugram, and Faridabad. Half-day minimum is popular for out-of-city teams. See <a href=\"/product-photography-in-noida\">Noida</a> and <a href=\"/product-photography-in-gurugram\">Gurugram</a> hub pages for drive times."
+            },
+            {
+                "q": "Do you help with pre-production planning?",
+                "a": "Our team reviews your brief before the session — shot lists, scripts, wardrobe, and export specs. Share materials 48 hours ahead for best results."
+            },
+            {
+                "q": "What file formats do you deliver?",
+                "a": "We export platform-ready files and RAW masters on request: WAV for audio, high-res JPEG/TIFF for photo, and standard video codecs. Cloud transfer is included."
+            },
+            {
+                "q": "Is the studio available on weekends and nights?",
+                "a": "Yes — 24×7 booking with engineer on call. Weekend slots fill fast; book early for batch production days."
+            },
+            {
+                "q": "How do I book a session?",
+                "a": "Use our <a href=\"/booking\">online booking form</a>, call the studio line, or WhatsApp us. Confirm your slot with a brief description of your project."
+            },
+            {
+                "q": "Is this guide relevant for product-photography-ecommerce-guide?",
+                "a": "This article is part of our verified studio knowledge base. Explore <a href=\"/product-photography\">product-photography</a> service pages and related posts on our <a href=\"/blog\">blog</a>."
+            },
+            {
+                "q": "Can agencies and brands get recurring package rates?",
+                "a": "Yes. Production houses and D2C brands with monthly content needs qualify for package pricing. Contact us with your volume estimate."
+            },
+            {
+                "q": "How much does Product Photography for Amazon, Flipkart & D2C Brands cost in Delhi NCR?",
+                "a": "Pricing depends on session length, crew, and deliverables. Hourly, half-day, and full-day packages are available at our Dwarka studio with equipment included. See <a href=\"/product-photography-cost-in-delhi\">Delhi pricing</a> or <a href=\"/pricing\">full rate card</a> for current ranges."
+            }
+        ],
+        "tags": [
+            "photography",
+            "delhi ncr",
+            "product-photography",
+            "studio guide",
+            "2026"
+        ],
+        "author": "DyWix Studio Team"
+    },
+    {
+        "slug": "green-screen-chroma-key-guide",
+        "title": "Green Screen & Chroma Key Setup — Complete Studio Guide",
+        "category": "video",
+        "service": "green-screen-studio",
+        "excerpt": "Master spill control, even lighting, and clean keying for video and Reels.",
+        "published_at": "2025-03-01",
+        "faqs": [
+            {
+                "q": "Where is the studio located?",
+                "a": "DyWix is in Dwarka Sector 13, Delhi — near Blue Line metro stations and parking at Radisson Blu Dwarka. See our <a href=\"/location\">location page</a> and <a href=\"/studio-locations-delhi-ncr\">NCR location hub</a>."
+            },
+            {
+                "q": "Can I book for teams travelling from Noida or Gurugram?",
+                "a": "Yes. Many clients travel from Noida, Gurugram, and Faridabad. Half-day minimum is popular for out-of-city teams. See <a href=\"/green-screen-studio-in-noida\">Noida</a> and <a href=\"/green-screen-studio-in-gurugram\">Gurugram</a> hub pages for drive times."
+            },
+            {
+                "q": "Do you help with pre-production planning?",
+                "a": "Our team reviews your brief before the session — shot lists, scripts, wardrobe, and export specs. Share materials 48 hours ahead for best results."
+            },
+            {
+                "q": "What file formats do you deliver?",
+                "a": "We export platform-ready files and RAW masters on request: WAV for audio, high-res JPEG/TIFF for photo, and standard video codecs. Cloud transfer is included."
+            },
+            {
+                "q": "Is the studio available on weekends and nights?",
+                "a": "Yes — 24×7 booking with engineer on call. Weekend slots fill fast; book early for batch production days."
+            },
+            {
+                "q": "How do I book a session?",
+                "a": "Use our <a href=\"/booking\">online booking form</a>, call the studio line, or WhatsApp us. Confirm your slot with a brief description of your project."
+            },
+            {
+                "q": "Is this guide relevant for green-screen-chroma-key-guide?",
+                "a": "This article is part of our verified studio knowledge base. Explore <a href=\"/green-screen-studio\">green-screen-studio</a> service pages and related posts on our <a href=\"/blog\">blog</a>."
+            },
+            {
+                "q": "Can agencies and brands get recurring package rates?",
+                "a": "Yes. Production houses and D2C brands with monthly content needs qualify for package pricing. Contact us with your volume estimate."
+            },
+            {
+                "q": "How much does Green Screen & Chroma Key Setup — Complete Studio Guide cost in Delhi NCR?",
+                "a": "Pricing depends on session length, crew, and deliverables. Hourly, half-day, and full-day packages are available at our Dwarka studio with equipment included. See <a href=\"/green-screen-studio-cost-in-delhi\">Delhi pricing</a> or <a href=\"/pricing\">full rate card</a> for current ranges."
+            },
+            {
+                "q": "What is included in a studio booking?",
+                "a": "Standard bookings include the studio space, professional lighting, core microphones or cameras, climate control, Wi-Fi, and on-site engineer support. Makeup room and teleprompter access are included where applicable."
+            }
+        ],
+        "tags": [
+            "video",
+            "delhi ncr",
+            "green-screen-studio",
+            "studio guide",
+            "2026"
+        ],
+        "author": "DyWix Studio Team"
+    },
+    {
+        "slug": "youtube-studio-setup-budget",
+        "title": "YouTube Studio Setup on a Budget in India",
+        "category": "creator",
+        "service": "youtube-studio-rental",
+        "excerpt": "Build a scalable YouTube workflow using professional studio rental instead of home gear.",
+        "published_at": "2025-03-11",
+        "faqs": [
+            {
+                "q": "How much does YouTube Studio Setup on a Budget in India cost in Delhi NCR?",
+                "a": "Pricing depends on session length, crew, and deliverables. Hourly, half-day, and full-day packages are available at our Dwarka studio with equipment included. See <a href=\"/youtube-studio-rental-cost-in-delhi\">Delhi pricing</a> or <a href=\"/pricing\">full rate card</a> for current ranges."
+            },
+            {
+                "q": "What is included in a studio booking?",
+                "a": "Standard bookings include the studio space, professional lighting, core microphones or cameras, climate control, Wi-Fi, and on-site engineer support. Makeup room and teleprompter access are included where applicable."
+            },
+            {
+                "q": "Where is the studio located?",
+                "a": "DyWix is in Dwarka Sector 13, Delhi — near Blue Line metro stations and parking at Radisson Blu Dwarka. See our <a href=\"/location\">location page</a> and <a href=\"/studio-locations-delhi-ncr\">NCR location hub</a>."
+            },
+            {
+                "q": "Can I book for teams travelling from Noida or Gurugram?",
+                "a": "Yes. Many clients travel from Noida, Gurugram, and Faridabad. Half-day minimum is popular for out-of-city teams. See <a href=\"/youtube-studio-rental-in-noida\">Noida</a> and <a href=\"/youtube-studio-rental-in-gurugram\">Gurugram</a> hub pages for drive times."
+            },
+            {
+                "q": "Do you help with pre-production planning?",
+                "a": "Our team reviews your brief before the session — shot lists, scripts, wardrobe, and export specs. Share materials 48 hours ahead for best results."
+            },
+            {
+                "q": "What file formats do you deliver?",
+                "a": "We export platform-ready files and RAW masters on request: WAV for audio, high-res JPEG/TIFF for photo, and standard video codecs. Cloud transfer is included."
+            },
+            {
+                "q": "Is the studio available on weekends and nights?",
+                "a": "Yes — 24×7 booking with engineer on call. Weekend slots fill fast; book early for batch production days."
+            },
+            {
+                "q": "How do I book a session?",
+                "a": "Use our <a href=\"/booking\">online booking form</a>, call the studio line, or WhatsApp us. Confirm your slot with a brief description of your project."
+            },
+            {
+                "q": "Is this guide relevant for youtube-studio-setup-budget?",
+                "a": "This article is part of our verified studio knowledge base. Explore <a href=\"/youtube-studio-rental\">youtube-studio-rental</a> service pages and related posts on our <a href=\"/blog\">blog</a>."
+            },
+            {
+                "q": "Can agencies and brands get recurring package rates?",
+                "a": "Yes. Production houses and D2C brands with monthly content needs qualify for package pricing. Contact us with your volume estimate."
+            }
+        ],
+        "tags": [
+            "creator",
+            "delhi ncr",
+            "youtube-studio-rental",
+            "studio guide",
+            "2026"
+        ],
+        "author": "DyWix Studio Team"
+    },
+    {
+        "slug": "instagram-reels-studio-workflow",
+        "title": "Instagram Reels Production Workflow in a Professional Studio",
+        "category": "creator",
+        "service": "reel-shoot-studio",
+        "excerpt": "Batch vertical content with lighting, multi-cam, and export specs for the algorithm.",
+        "published_at": "2025-03-21",
+        "faqs": [
+            {
+                "q": "What is included in a studio booking?",
+                "a": "Standard bookings include the studio space, professional lighting, core microphones or cameras, climate control, Wi-Fi, and on-site engineer support. Makeup room and teleprompter access are included where applicable."
+            },
+            {
+                "q": "Where is the studio located?",
+                "a": "DyWix is in Dwarka Sector 13, Delhi — near Blue Line metro stations and parking at Radisson Blu Dwarka. See our <a href=\"/location\">location page</a> and <a href=\"/studio-locations-delhi-ncr\">NCR location hub</a>."
+            },
+            {
+                "q": "Can I book for teams travelling from Noida or Gurugram?",
+                "a": "Yes. Many clients travel from Noida, Gurugram, and Faridabad. Half-day minimum is popular for out-of-city teams. See <a href=\"/reel-shoot-studio-in-noida\">Noida</a> and <a href=\"/reel-shoot-studio-in-gurugram\">Gurugram</a> hub pages for drive times."
+            },
+            {
+                "q": "Do you help with pre-production planning?",
+                "a": "Our team reviews your brief before the session — shot lists, scripts, wardrobe, and export specs. Share materials 48 hours ahead for best results."
+            },
+            {
+                "q": "What file formats do you deliver?",
+                "a": "We export platform-ready files and RAW masters on request: WAV for audio, high-res JPEG/TIFF for photo, and standard video codecs. Cloud transfer is included."
+            },
+            {
+                "q": "Is the studio available on weekends and nights?",
+                "a": "Yes — 24×7 booking with engineer on call. Weekend slots fill fast; book early for batch production days."
+            },
+            {
+                "q": "How do I book a session?",
+                "a": "Use our <a href=\"/booking\">online booking form</a>, call the studio line, or WhatsApp us. Confirm your slot with a brief description of your project."
+            },
+            {
+                "q": "Is this guide relevant for instagram-reels-studio-workflow?",
+                "a": "This article is part of our verified studio knowledge base. Explore <a href=\"/reel-shoot-studio\">reel-shoot-studio</a> service pages and related posts on our <a href=\"/blog\">blog</a>."
+            },
+            {
+                "q": "Can agencies and brands get recurring package rates?",
+                "a": "Yes. Production houses and D2C brands with monthly content needs qualify for package pricing. Contact us with your volume estimate."
+            },
+            {
+                "q": "How much does Instagram Reels Production Workflow in a Professional Studio cost in Delhi NCR?",
+                "a": "Pricing depends on session length, crew, and deliverables. Hourly, half-day, and full-day packages are available at our Dwarka studio with equipment included. See <a href=\"/reel-shoot-studio-cost-in-delhi\">Delhi pricing</a> or <a href=\"/pricing\">full rate card</a> for current ranges."
+            }
+        ],
+        "tags": [
+            "creator",
+            "delhi ncr",
+            "reel-shoot-studio",
+            "studio guide",
+            "2026"
+        ],
+        "author": "DyWix Studio Team"
+    },
+    {
+        "slug": "corporate-video-types-guide",
+        "title": "Types of Corporate Videos Every Business Needs in 2026",
+        "category": "video",
+        "service": "video-production",
+        "excerpt": "Explainer, testimonial, training, and brand films — plan your corporate video stack.",
+        "published_at": "2025-03-31",
+        "faqs": [
+            {
+                "q": "Where is the studio located?",
+                "a": "DyWix is in Dwarka Sector 13, Delhi — near Blue Line metro stations and parking at Radisson Blu Dwarka. See our <a href=\"/location\">location page</a> and <a href=\"/studio-locations-delhi-ncr\">NCR location hub</a>."
+            },
+            {
+                "q": "Can I book for teams travelling from Noida or Gurugram?",
+                "a": "Yes. Many clients travel from Noida, Gurugram, and Faridabad. Half-day minimum is popular for out-of-city teams. See <a href=\"/video-production-in-noida\">Noida</a> and <a href=\"/video-production-in-gurugram\">Gurugram</a> hub pages for drive times."
+            },
+            {
+                "q": "Do you help with pre-production planning?",
+                "a": "Our team reviews your brief before the session — shot lists, scripts, wardrobe, and export specs. Share materials 48 hours ahead for best results."
+            },
+            {
+                "q": "What file formats do you deliver?",
+                "a": "We export platform-ready files and RAW masters on request: WAV for audio, high-res JPEG/TIFF for photo, and standard video codecs. Cloud transfer is included."
+            },
+            {
+                "q": "Is the studio available on weekends and nights?",
+                "a": "Yes — 24×7 booking with engineer on call. Weekend slots fill fast; book early for batch production days."
+            },
+            {
+                "q": "How do I book a session?",
+                "a": "Use our <a href=\"/booking\">online booking form</a>, call the studio line, or WhatsApp us. Confirm your slot with a brief description of your project."
+            },
+            {
+                "q": "Is this guide relevant for corporate-video-types-guide?",
+                "a": "This article is part of our verified studio knowledge base. Explore <a href=\"/video-production\">video-production</a> service pages and related posts on our <a href=\"/blog\">blog</a>."
+            },
+            {
+                "q": "Can agencies and brands get recurring package rates?",
+                "a": "Yes. Production houses and D2C brands with monthly content needs qualify for package pricing. Contact us with your volume estimate."
+            },
+            {
+                "q": "How much does Types of Corporate Videos Every Business Needs in 2026 cost in Delhi NCR?",
+                "a": "Pricing depends on session length, crew, and deliverables. Hourly, half-day, and full-day packages are available at our Dwarka studio with equipment included. See <a href=\"/video-production-cost-in-delhi\">Delhi pricing</a> or <a href=\"/pricing\">full rate card</a> for current ranges."
+            },
+            {
+                "q": "What is included in a studio booking?",
+                "a": "Standard bookings include the studio space, professional lighting, core microphones or cameras, climate control, Wi-Fi, and on-site engineer support. Makeup room and teleprompter access are included where applicable."
+            }
+        ],
+        "tags": [
+            "video",
+            "delhi ncr",
+            "video-production",
+            "studio guide",
+            "2026"
+        ],
+        "author": "DyWix Studio Team"
+    },
+    {
+        "slug": "fashion-photoshoot-checklist",
+        "title": "Fashion Photoshoot Checklist for Designers & Brands",
+        "category": "photography",
+        "service": "fashion-photography",
+        "excerpt": "Pre-production to delivery for lookbooks, editorials, and campaign shoots.",
+        "published_at": "2025-04-10",
+        "faqs": [
+            {
+                "q": "How much does Fashion Photoshoot Checklist for Designers & Brands cost in Delhi NCR?",
+                "a": "Pricing depends on session length, crew, and deliverables. Hourly, half-day, and full-day packages are available at our Dwarka studio with equipment included. See <a href=\"/fashion-photography-cost-in-delhi\">Delhi pricing</a> or <a href=\"/pricing\">full rate card</a> for current ranges."
+            },
+            {
+                "q": "What is included in a studio booking?",
+                "a": "Standard bookings include the studio space, professional lighting, core microphones or cameras, climate control, Wi-Fi, and on-site engineer support. Makeup room and teleprompter access are included where applicable."
+            },
+            {
+                "q": "Where is the studio located?",
+                "a": "DyWix is in Dwarka Sector 13, Delhi — near Blue Line metro stations and parking at Radisson Blu Dwarka. See our <a href=\"/location\">location page</a> and <a href=\"/studio-locations-delhi-ncr\">NCR location hub</a>."
+            },
+            {
+                "q": "Can I book for teams travelling from Noida or Gurugram?",
+                "a": "Yes. Many clients travel from Noida, Gurugram, and Faridabad. Half-day minimum is popular for out-of-city teams. See <a href=\"/fashion-photography-in-noida\">Noida</a> and <a href=\"/fashion-photography-in-gurugram\">Gurugram</a> hub pages for drive times."
+            },
+            {
+                "q": "Do you help with pre-production planning?",
+                "a": "Our team reviews your brief before the session — shot lists, scripts, wardrobe, and export specs. Share materials 48 hours ahead for best results."
+            },
+            {
+                "q": "What file formats do you deliver?",
+                "a": "We export platform-ready files and RAW masters on request: WAV for audio, high-res JPEG/TIFF for photo, and standard video codecs. Cloud transfer is included."
+            },
+            {
+                "q": "Is the studio available on weekends and nights?",
+                "a": "Yes — 24×7 booking with engineer on call. Weekend slots fill fast; book early for batch production days."
+            },
+            {
+                "q": "How do I book a session?",
+                "a": "Use our <a href=\"/booking\">online booking form</a>, call the studio line, or WhatsApp us. Confirm your slot with a brief description of your project."
+            },
+            {
+                "q": "Is this guide relevant for fashion-photoshoot-checklist?",
+                "a": "This article is part of our verified studio knowledge base. Explore <a href=\"/fashion-photography\">fashion-photography</a> service pages and related posts on our <a href=\"/blog\">blog</a>."
+            },
+            {
+                "q": "Can agencies and brands get recurring package rates?",
+                "a": "Yes. Production houses and D2C brands with monthly content needs qualify for package pricing. Contact us with your volume estimate."
+            }
+        ],
+        "tags": [
+            "photography",
+            "delhi ncr",
+            "fashion-photography",
+            "studio guide",
+            "2026"
+        ],
+        "author": "DyWix Studio Team"
+    },
+    {
+        "slug": "podcast-studio-delhi-comparison",
+        "title": "Best Podcast Studios in Delhi NCR — How to Compare & Book",
+        "category": "location",
+        "service": "podcast-studio",
+        "excerpt": "Evaluate acoustics, equipment, pricing, and location before booking a podcast studio.",
+        "published_at": "2025-04-20",
+        "faqs": [
+            {
+                "q": "What is included in a studio booking?",
+                "a": "Standard bookings include the studio space, professional lighting, core microphones or cameras, climate control, Wi-Fi, and on-site engineer support. Makeup room and teleprompter access are included where applicable."
+            },
+            {
+                "q": "Where is the studio located?",
+                "a": "DyWix is in Dwarka Sector 13, Delhi — near Blue Line metro stations and parking at Radisson Blu Dwarka. See our <a href=\"/location\">location page</a> and <a href=\"/studio-locations-delhi-ncr\">NCR location hub</a>."
+            },
+            {
+                "q": "Can I book for teams travelling from Noida or Gurugram?",
+                "a": "Yes. Many clients travel from Noida, Gurugram, and Faridabad. Half-day minimum is popular for out-of-city teams. See <a href=\"/podcast-studio-in-noida\">Noida</a> and <a href=\"/podcast-studio-in-gurugram\">Gurugram</a> hub pages for drive times."
+            },
+            {
+                "q": "Do you help with pre-production planning?",
+                "a": "Our team reviews your brief before the session — shot lists, scripts, wardrobe, and export specs. Share materials 48 hours ahead for best results."
+            },
+            {
+                "q": "What file formats do you deliver?",
+                "a": "We export platform-ready files and RAW masters on request: WAV for audio, high-res JPEG/TIFF for photo, and standard video codecs. Cloud transfer is included."
+            },
+            {
+                "q": "Is the studio available on weekends and nights?",
+                "a": "Yes — 24×7 booking with engineer on call. Weekend slots fill fast; book early for batch production days."
+            },
+            {
+                "q": "How do I book a session?",
+                "a": "Use our <a href=\"/booking\">online booking form</a>, call the studio line, or WhatsApp us. Confirm your slot with a brief description of your project."
+            },
+            {
+                "q": "Is this guide relevant for podcast-studio-delhi-comparison?",
+                "a": "This article is part of our verified studio knowledge base. Explore <a href=\"/podcast-studio\">podcast-studio</a> service pages and related posts on our <a href=\"/blog\">blog</a>."
+            },
+            {
+                "q": "Can agencies and brands get recurring package rates?",
+                "a": "Yes. Production houses and D2C brands with monthly content needs qualify for package pricing. Contact us with your volume estimate."
+            },
+            {
+                "q": "How much does Best Podcast Studios in Delhi NCR — How to Compare & Book cost in Delhi NCR?",
+                "a": "Pricing depends on session length, crew, and deliverables. Hourly, half-day, and full-day packages are available at our Dwarka studio with equipment included. See <a href=\"/podcast-studio-cost-in-delhi\">Delhi pricing</a> or <a href=\"/pricing\">full rate card</a> for current ranges."
+            }
+        ],
+        "tags": [
+            "location",
+            "delhi ncr",
+            "podcast-studio",
+            "studio guide",
+            "2026"
+        ],
+        "author": "DyWix Studio Team"
+    },
+    {
+        "slug": "influencer-content-strategy-2026",
+        "title": "Influencer Content Strategy for 2026 — Studio Production Playbook",
+        "category": "marketing",
+        "service": "influencer-studio",
+        "excerpt": "Plan, batch-shoot, and repurpose influencer content for growth across platforms.",
+        "published_at": "2025-04-30",
+        "faqs": [
+            {
+                "q": "Where is the studio located?",
+                "a": "DyWix is in Dwarka Sector 13, Delhi — near Blue Line metro stations and parking at Radisson Blu Dwarka. See our <a href=\"/location\">location page</a> and <a href=\"/studio-locations-delhi-ncr\">NCR location hub</a>."
+            },
+            {
+                "q": "Can I book for teams travelling from Noida or Gurugram?",
+                "a": "Yes. Many clients travel from Noida, Gurugram, and Faridabad. Half-day minimum is popular for out-of-city teams. See <a href=\"/influencer-studio-in-noida\">Noida</a> and <a href=\"/influencer-studio-in-gurugram\">Gurugram</a> hub pages for drive times."
+            },
+            {
+                "q": "Do you help with pre-production planning?",
+                "a": "Our team reviews your brief before the session — shot lists, scripts, wardrobe, and export specs. Share materials 48 hours ahead for best results."
+            },
+            {
+                "q": "What file formats do you deliver?",
+                "a": "We export platform-ready files and RAW masters on request: WAV for audio, high-res JPEG/TIFF for photo, and standard video codecs. Cloud transfer is included."
+            },
+            {
+                "q": "Is the studio available on weekends and nights?",
+                "a": "Yes — 24×7 booking with engineer on call. Weekend slots fill fast; book early for batch production days."
+            },
+            {
+                "q": "How do I book a session?",
+                "a": "Use our <a href=\"/booking\">online booking form</a>, call the studio line, or WhatsApp us. Confirm your slot with a brief description of your project."
+            },
+            {
+                "q": "Is this guide relevant for influencer-content-strategy-2026?",
+                "a": "This article is part of our verified studio knowledge base. Explore <a href=\"/influencer-studio\">influencer-studio</a> service pages and related posts on our <a href=\"/blog\">blog</a>."
+            },
+            {
+                "q": "Can agencies and brands get recurring package rates?",
+                "a": "Yes. Production houses and D2C brands with monthly content needs qualify for package pricing. Contact us with your volume estimate."
+            },
+            {
+                "q": "How much does Influencer Content Strategy for 2026 — Studio Production Playbook cost in Delhi NCR?",
+                "a": "Pricing depends on session length, crew, and deliverables. Hourly, half-day, and full-day packages are available at our Dwarka studio with equipment included. See <a href=\"/influencer-studio-cost-in-delhi\">Delhi pricing</a> or <a href=\"/pricing\">full rate card</a> for current ranges."
+            },
+            {
+                "q": "What is included in a studio booking?",
+                "a": "Standard bookings include the studio space, professional lighting, core microphones or cameras, climate control, Wi-Fi, and on-site engineer support. Makeup room and teleprompter access are included where applicable."
+            }
+        ],
+        "tags": [
+            "marketing",
+            "delhi ncr",
+            "influencer-studio",
+            "studio guide",
+            "2026"
+        ],
+        "author": "DyWix Studio Team"
+    },
+    {
+        "slug": "tv-commercial-production-india",
+        "title": "TV Commercial Production Process in India Explained",
+        "category": "video",
+        "service": "tv-commercial-studio",
+        "excerpt": "From storyboard and pre-production to broadcast delivery for TVC shoots.",
+        "published_at": "2025-05-10",
+        "faqs": [
+            {
+                "q": "How much does TV Commercial Production Process in India Explained cost in Delhi NCR?",
+                "a": "Pricing depends on session length, crew, and deliverables. Hourly, half-day, and full-day packages are available at our Dwarka studio with equipment included. See <a href=\"/tv-commercial-studio-cost-in-delhi\">Delhi pricing</a> or <a href=\"/pricing\">full rate card</a> for current ranges."
+            },
+            {
+                "q": "What is included in a studio booking?",
+                "a": "Standard bookings include the studio space, professional lighting, core microphones or cameras, climate control, Wi-Fi, and on-site engineer support. Makeup room and teleprompter access are included where applicable."
+            },
+            {
+                "q": "Where is the studio located?",
+                "a": "DyWix is in Dwarka Sector 13, Delhi — near Blue Line metro stations and parking at Radisson Blu Dwarka. See our <a href=\"/location\">location page</a> and <a href=\"/studio-locations-delhi-ncr\">NCR location hub</a>."
+            },
+            {
+                "q": "Can I book for teams travelling from Noida or Gurugram?",
+                "a": "Yes. Many clients travel from Noida, Gurugram, and Faridabad. Half-day minimum is popular for out-of-city teams. See <a href=\"/tv-commercial-studio-in-noida\">Noida</a> and <a href=\"/tv-commercial-studio-in-gurugram\">Gurugram</a> hub pages for drive times."
+            },
+            {
+                "q": "Do you help with pre-production planning?",
+                "a": "Our team reviews your brief before the session — shot lists, scripts, wardrobe, and export specs. Share materials 48 hours ahead for best results."
+            },
+            {
+                "q": "What file formats do you deliver?",
+                "a": "We export platform-ready files and RAW masters on request: WAV for audio, high-res JPEG/TIFF for photo, and standard video codecs. Cloud transfer is included."
+            },
+            {
+                "q": "Is the studio available on weekends and nights?",
+                "a": "Yes — 24×7 booking with engineer on call. Weekend slots fill fast; book early for batch production days."
+            },
+            {
+                "q": "How do I book a session?",
+                "a": "Use our <a href=\"/booking\">online booking form</a>, call the studio line, or WhatsApp us. Confirm your slot with a brief description of your project."
+            },
+            {
+                "q": "Is this guide relevant for tv-commercial-production-india?",
+                "a": "This article is part of our verified studio knowledge base. Explore <a href=\"/tv-commercial-studio\">tv-commercial-studio</a> service pages and related posts on our <a href=\"/blog\">blog</a>."
+            },
+            {
+                "q": "Can agencies and brands get recurring package rates?",
+                "a": "Yes. Production houses and D2C brands with monthly content needs qualify for package pricing. Contact us with your volume estimate."
+            }
+        ],
+        "tags": [
+            "video",
+            "delhi ncr",
+            "tv-commercial-studio",
+            "studio guide",
+            "2026"
+        ],
+        "author": "DyWix Studio Team"
+    },
+    {
+        "slug": "corporate-headshot-photography-guide",
+        "title": "Corporate Headshot Photography — Wardrobe, Posing & Lighting Guide",
+        "category": "photography",
+        "service": "corporate-photography",
+        "excerpt": "Prepare executives and teams for consistent, on-brand headshot sessions.",
+        "published_at": "2025-05-20",
+        "faqs": [
+            {
+                "q": "What is included in a studio booking?",
+                "a": "Standard bookings include the studio space, professional lighting, core microphones or cameras, climate control, Wi-Fi, and on-site engineer support. Makeup room and teleprompter access are included where applicable."
+            },
+            {
+                "q": "Where is the studio located?",
+                "a": "DyWix is in Dwarka Sector 13, Delhi — near Blue Line metro stations and parking at Radisson Blu Dwarka. See our <a href=\"/location\">location page</a> and <a href=\"/studio-locations-delhi-ncr\">NCR location hub</a>."
+            },
+            {
+                "q": "Can I book for teams travelling from Noida or Gurugram?",
+                "a": "Yes. Many clients travel from Noida, Gurugram, and Faridabad. Half-day minimum is popular for out-of-city teams. See <a href=\"/corporate-photography-in-noida\">Noida</a> and <a href=\"/corporate-photography-in-gurugram\">Gurugram</a> hub pages for drive times."
+            },
+            {
+                "q": "Do you help with pre-production planning?",
+                "a": "Our team reviews your brief before the session — shot lists, scripts, wardrobe, and export specs. Share materials 48 hours ahead for best results."
+            },
+            {
+                "q": "What file formats do you deliver?",
+                "a": "We export platform-ready files and RAW masters on request: WAV for audio, high-res JPEG/TIFF for photo, and standard video codecs. Cloud transfer is included."
+            },
+            {
+                "q": "Is the studio available on weekends and nights?",
+                "a": "Yes — 24×7 booking with engineer on call. Weekend slots fill fast; book early for batch production days."
+            },
+            {
+                "q": "How do I book a session?",
+                "a": "Use our <a href=\"/booking\">online booking form</a>, call the studio line, or WhatsApp us. Confirm your slot with a brief description of your project."
+            },
+            {
+                "q": "Is this guide relevant for corporate-headshot-photography-guide?",
+                "a": "This article is part of our verified studio knowledge base. Explore <a href=\"/corporate-photography\">corporate-photography</a> service pages and related posts on our <a href=\"/blog\">blog</a>."
+            },
+            {
+                "q": "Can agencies and brands get recurring package rates?",
+                "a": "Yes. Production houses and D2C brands with monthly content needs qualify for package pricing. Contact us with your volume estimate."
+            },
+            {
+                "q": "How much does Corporate Headshot Photography — Wardrobe, Posing & Lighting Guide cost in Delhi NCR?",
+                "a": "Pricing depends on session length, crew, and deliverables. Hourly, half-day, and full-day packages are available at our Dwarka studio with equipment included. See <a href=\"/corporate-photography-cost-in-delhi\">Delhi pricing</a> or <a href=\"/pricing\">full rate card</a> for current ranges."
+            }
+        ],
+        "tags": [
+            "photography",
+            "delhi ncr",
+            "corporate-photography",
+            "studio guide",
+            "2026"
+        ],
+        "author": "DyWix Studio Team"
+    },
+    {
+        "slug": "studio-lighting-three-point-guide",
+        "title": "Three-Point Studio Lighting Masterclass for Photo & Video",
+        "category": "equipment",
+        "service": "product-photography",
+        "excerpt": "Key, fill, and rim light ratios for portraits, products, and interviews.",
+        "published_at": "2025-05-30",
+        "faqs": [
+            {
+                "q": "Where is the studio located?",
+                "a": "DyWix is in Dwarka Sector 13, Delhi — near Blue Line metro stations and parking at Radisson Blu Dwarka. See our <a href=\"/location\">location page</a> and <a href=\"/studio-locations-delhi-ncr\">NCR location hub</a>."
+            },
+            {
+                "q": "Can I book for teams travelling from Noida or Gurugram?",
+                "a": "Yes. Many clients travel from Noida, Gurugram, and Faridabad. Half-day minimum is popular for out-of-city teams. See <a href=\"/product-photography-in-noida\">Noida</a> and <a href=\"/product-photography-in-gurugram\">Gurugram</a> hub pages for drive times."
+            },
+            {
+                "q": "Do you help with pre-production planning?",
+                "a": "Our team reviews your brief before the session — shot lists, scripts, wardrobe, and export specs. Share materials 48 hours ahead for best results."
+            },
+            {
+                "q": "What file formats do you deliver?",
+                "a": "We export platform-ready files and RAW masters on request: WAV for audio, high-res JPEG/TIFF for photo, and standard video codecs. Cloud transfer is included."
+            },
+            {
+                "q": "Is the studio available on weekends and nights?",
+                "a": "Yes — 24×7 booking with engineer on call. Weekend slots fill fast; book early for batch production days."
+            },
+            {
+                "q": "How do I book a session?",
+                "a": "Use our <a href=\"/booking\">online booking form</a>, call the studio line, or WhatsApp us. Confirm your slot with a brief description of your project."
+            },
+            {
+                "q": "Is this guide relevant for studio-lighting-three-point-guide?",
+                "a": "This article is part of our verified studio knowledge base. Explore <a href=\"/product-photography\">product-photography</a> service pages and related posts on our <a href=\"/blog\">blog</a>."
+            },
+            {
+                "q": "Can agencies and brands get recurring package rates?",
+                "a": "Yes. Production houses and D2C brands with monthly content needs qualify for package pricing. Contact us with your volume estimate."
+            },
+            {
+                "q": "How much does Three-Point Studio Lighting Masterclass for Photo & Video cost in Delhi NCR?",
+                "a": "Pricing depends on session length, crew, and deliverables. Hourly, half-day, and full-day packages are available at our Dwarka studio with equipment included. See <a href=\"/product-photography-cost-in-delhi\">Delhi pricing</a> or <a href=\"/pricing\">full rate card</a> for current ranges."
+            },
+            {
+                "q": "What is included in a studio booking?",
+                "a": "Standard bookings include the studio space, professional lighting, core microphones or cameras, climate control, Wi-Fi, and on-site engineer support. Makeup room and teleprompter access are included where applicable."
+            }
+        ],
+        "tags": [
+            "equipment",
+            "delhi ncr",
+            "product-photography",
+            "studio guide",
+            "2026"
+        ],
+        "author": "DyWix Studio Team"
+    },
+    {
+        "slug": "podcast-editing-workflow-guide",
+        "title": "Podcast Editing Workflow — From RAW Audio to Published Episode",
+        "category": "podcast",
+        "service": "podcast-studio",
+        "excerpt": "Edit, mix, master, and distribute podcasts with professional loudness standards.",
+        "published_at": "2025-06-09",
+        "faqs": [
+            {
+                "q": "How much does Podcast Editing Workflow — From RAW Audio to Published Episode cost in Delhi NCR?",
+                "a": "Pricing depends on session length, crew, and deliverables. Hourly, half-day, and full-day packages are available at our Dwarka studio with equipment included. See <a href=\"/podcast-studio-cost-in-delhi\">Delhi pricing</a> or <a href=\"/pricing\">full rate card</a> for current ranges."
+            },
+            {
+                "q": "What is included in a studio booking?",
+                "a": "Standard bookings include the studio space, professional lighting, core microphones or cameras, climate control, Wi-Fi, and on-site engineer support. Makeup room and teleprompter access are included where applicable."
+            },
+            {
+                "q": "Where is the studio located?",
+                "a": "DyWix is in Dwarka Sector 13, Delhi — near Blue Line metro stations and parking at Radisson Blu Dwarka. See our <a href=\"/location\">location page</a> and <a href=\"/studio-locations-delhi-ncr\">NCR location hub</a>."
+            },
+            {
+                "q": "Can I book for teams travelling from Noida or Gurugram?",
+                "a": "Yes. Many clients travel from Noida, Gurugram, and Faridabad. Half-day minimum is popular for out-of-city teams. See <a href=\"/podcast-studio-in-noida\">Noida</a> and <a href=\"/podcast-studio-in-gurugram\">Gurugram</a> hub pages for drive times."
+            },
+            {
+                "q": "Do you help with pre-production planning?",
+                "a": "Our team reviews your brief before the session — shot lists, scripts, wardrobe, and export specs. Share materials 48 hours ahead for best results."
+            },
+            {
+                "q": "What file formats do you deliver?",
+                "a": "We export platform-ready files and RAW masters on request: WAV for audio, high-res JPEG/TIFF for photo, and standard video codecs. Cloud transfer is included."
+            },
+            {
+                "q": "Is the studio available on weekends and nights?",
+                "a": "Yes — 24×7 booking with engineer on call. Weekend slots fill fast; book early for batch production days."
+            },
+            {
+                "q": "How do I book a session?",
+                "a": "Use our <a href=\"/booking\">online booking form</a>, call the studio line, or WhatsApp us. Confirm your slot with a brief description of your project."
+            },
+            {
+                "q": "Is this guide relevant for podcast-editing-workflow-guide?",
+                "a": "This article is part of our verified studio knowledge base. Explore <a href=\"/podcast-studio\">podcast-studio</a> service pages and related posts on our <a href=\"/blog\">blog</a>."
+            },
+            {
+                "q": "Can agencies and brands get recurring package rates?",
+                "a": "Yes. Production houses and D2C brands with monthly content needs qualify for package pricing. Contact us with your volume estimate."
+            }
+        ],
+        "tags": [
+            "podcast",
+            "delhi ncr",
+            "podcast-studio",
+            "studio guide",
+            "2026"
+        ],
+        "author": "DyWix Studio Team"
+    },
+    {
+        "slug": "ecommerce-catalog-photography-ncr",
+        "title": "E-Commerce Catalog Photography in Delhi NCR — SKU Pipeline Guide",
+        "category": "photography",
+        "service": "product-photography",
+        "excerpt": "High-volume product shoots with consistent lighting and fast turnaround.",
+        "published_at": "2025-06-19",
+        "faqs": [
+            {
+                "q": "What is included in a studio booking?",
+                "a": "Standard bookings include the studio space, professional lighting, core microphones or cameras, climate control, Wi-Fi, and on-site engineer support. Makeup room and teleprompter access are included where applicable."
+            },
+            {
+                "q": "Where is the studio located?",
+                "a": "DyWix is in Dwarka Sector 13, Delhi — near Blue Line metro stations and parking at Radisson Blu Dwarka. See our <a href=\"/location\">location page</a> and <a href=\"/studio-locations-delhi-ncr\">NCR location hub</a>."
+            },
+            {
+                "q": "Can I book for teams travelling from Noida or Gurugram?",
+                "a": "Yes. Many clients travel from Noida, Gurugram, and Faridabad. Half-day minimum is popular for out-of-city teams. See <a href=\"/product-photography-in-noida\">Noida</a> and <a href=\"/product-photography-in-gurugram\">Gurugram</a> hub pages for drive times."
+            },
+            {
+                "q": "Do you help with pre-production planning?",
+                "a": "Our team reviews your brief before the session — shot lists, scripts, wardrobe, and export specs. Share materials 48 hours ahead for best results."
+            },
+            {
+                "q": "What file formats do you deliver?",
+                "a": "We export platform-ready files and RAW masters on request: WAV for audio, high-res JPEG/TIFF for photo, and standard video codecs. Cloud transfer is included."
+            },
+            {
+                "q": "Is the studio available on weekends and nights?",
+                "a": "Yes — 24×7 booking with engineer on call. Weekend slots fill fast; book early for batch production days."
+            },
+            {
+                "q": "How do I book a session?",
+                "a": "Use our <a href=\"/booking\">online booking form</a>, call the studio line, or WhatsApp us. Confirm your slot with a brief description of your project."
+            },
+            {
+                "q": "Is this guide relevant for ecommerce-catalog-photography-ncr?",
+                "a": "This article is part of our verified studio knowledge base. Explore <a href=\"/product-photography\">product-photography</a> service pages and related posts on our <a href=\"/blog\">blog</a>."
+            },
+            {
+                "q": "Can agencies and brands get recurring package rates?",
+                "a": "Yes. Production houses and D2C brands with monthly content needs qualify for package pricing. Contact us with your volume estimate."
+            },
+            {
+                "q": "How much does E-Commerce Catalog Photography in Delhi NCR — SKU Pipeline Guide cost in Delhi NCR?",
+                "a": "Pricing depends on session length, crew, and deliverables. Hourly, half-day, and full-day packages are available at our Dwarka studio with equipment included. See <a href=\"/product-photography-cost-in-delhi\">Delhi pricing</a> or <a href=\"/pricing\">full rate card</a> for current ranges."
+            }
+        ],
+        "tags": [
+            "photography",
+            "delhi ncr",
+            "product-photography",
+            "studio guide",
+            "2026"
+        ],
+        "author": "DyWix Studio Team"
+    },
+    {
+        "slug": "interview-podcast-recording-tips",
+        "title": "Interview Podcast Recording — Guest Prep & Multi-Mic Setup",
+        "category": "podcast",
+        "service": "podcast-studio",
+        "excerpt": "Record polished interview podcasts with remote and in-studio guests.",
+        "published_at": "2025-06-29",
+        "faqs": [
+            {
+                "q": "Where is the studio located?",
+                "a": "DyWix is in Dwarka Sector 13, Delhi — near Blue Line metro stations and parking at Radisson Blu Dwarka. See our <a href=\"/location\">location page</a> and <a href=\"/studio-locations-delhi-ncr\">NCR location hub</a>."
+            },
+            {
+                "q": "Can I book for teams travelling from Noida or Gurugram?",
+                "a": "Yes. Many clients travel from Noida, Gurugram, and Faridabad. Half-day minimum is popular for out-of-city teams. See <a href=\"/podcast-studio-in-noida\">Noida</a> and <a href=\"/podcast-studio-in-gurugram\">Gurugram</a> hub pages for drive times."
+            },
+            {
+                "q": "Do you help with pre-production planning?",
+                "a": "Our team reviews your brief before the session — shot lists, scripts, wardrobe, and export specs. Share materials 48 hours ahead for best results."
+            },
+            {
+                "q": "What file formats do you deliver?",
+                "a": "We export platform-ready files and RAW masters on request: WAV for audio, high-res JPEG/TIFF for photo, and standard video codecs. Cloud transfer is included."
+            },
+            {
+                "q": "Is the studio available on weekends and nights?",
+                "a": "Yes — 24×7 booking with engineer on call. Weekend slots fill fast; book early for batch production days."
+            },
+            {
+                "q": "How do I book a session?",
+                "a": "Use our <a href=\"/booking\">online booking form</a>, call the studio line, or WhatsApp us. Confirm your slot with a brief description of your project."
+            },
+            {
+                "q": "Is this guide relevant for interview-podcast-recording-tips?",
+                "a": "This article is part of our verified studio knowledge base. Explore <a href=\"/podcast-studio\">podcast-studio</a> service pages and related posts on our <a href=\"/blog\">blog</a>."
+            },
+            {
+                "q": "Can agencies and brands get recurring package rates?",
+                "a": "Yes. Production houses and D2C brands with monthly content needs qualify for package pricing. Contact us with your volume estimate."
+            },
+            {
+                "q": "How much does Interview Podcast Recording — Guest Prep & Multi-Mic Setup cost in Delhi NCR?",
+                "a": "Pricing depends on session length, crew, and deliverables. Hourly, half-day, and full-day packages are available at our Dwarka studio with equipment included. See <a href=\"/podcast-studio-cost-in-delhi\">Delhi pricing</a> or <a href=\"/pricing\">full rate card</a> for current ranges."
+            },
+            {
+                "q": "What is included in a studio booking?",
+                "a": "Standard bookings include the studio space, professional lighting, core microphones or cameras, climate control, Wi-Fi, and on-site engineer support. Makeup room and teleprompter access are included where applicable."
+            }
+        ],
+        "tags": [
+            "podcast",
+            "delhi ncr",
+            "podcast-studio",
+            "studio guide",
+            "2026"
+        ],
+        "author": "DyWix Studio Team"
+    },
+    {
+        "slug": "brand-film-production-delhi",
+        "title": "Brand Film Production in Delhi — Concept to Final Cut",
+        "category": "video",
+        "service": "video-production",
+        "excerpt": "Produce cinematic brand films with script, crew, studio, and post pipeline.",
+        "published_at": "2025-07-09",
+        "faqs": [
+            {
+                "q": "How much does Brand Film Production in Delhi — Concept to Final Cut cost in Delhi NCR?",
+                "a": "Pricing depends on session length, crew, and deliverables. Hourly, half-day, and full-day packages are available at our Dwarka studio with equipment included. See <a href=\"/video-production-cost-in-delhi\">Delhi pricing</a> or <a href=\"/pricing\">full rate card</a> for current ranges."
+            },
+            {
+                "q": "What is included in a studio booking?",
+                "a": "Standard bookings include the studio space, professional lighting, core microphones or cameras, climate control, Wi-Fi, and on-site engineer support. Makeup room and teleprompter access are included where applicable."
+            },
+            {
+                "q": "Where is the studio located?",
+                "a": "DyWix is in Dwarka Sector 13, Delhi — near Blue Line metro stations and parking at Radisson Blu Dwarka. See our <a href=\"/location\">location page</a> and <a href=\"/studio-locations-delhi-ncr\">NCR location hub</a>."
+            },
+            {
+                "q": "Can I book for teams travelling from Noida or Gurugram?",
+                "a": "Yes. Many clients travel from Noida, Gurugram, and Faridabad. Half-day minimum is popular for out-of-city teams. See <a href=\"/video-production-in-noida\">Noida</a> and <a href=\"/video-production-in-gurugram\">Gurugram</a> hub pages for drive times."
+            },
+            {
+                "q": "Do you help with pre-production planning?",
+                "a": "Our team reviews your brief before the session — shot lists, scripts, wardrobe, and export specs. Share materials 48 hours ahead for best results."
+            },
+            {
+                "q": "What file formats do you deliver?",
+                "a": "We export platform-ready files and RAW masters on request: WAV for audio, high-res JPEG/TIFF for photo, and standard video codecs. Cloud transfer is included."
+            },
+            {
+                "q": "Is the studio available on weekends and nights?",
+                "a": "Yes — 24×7 booking with engineer on call. Weekend slots fill fast; book early for batch production days."
+            },
+            {
+                "q": "How do I book a session?",
+                "a": "Use our <a href=\"/booking\">online booking form</a>, call the studio line, or WhatsApp us. Confirm your slot with a brief description of your project."
+            },
+            {
+                "q": "Is this guide relevant for brand-film-production-delhi?",
+                "a": "This article is part of our verified studio knowledge base. Explore <a href=\"/video-production\">video-production</a> service pages and related posts on our <a href=\"/blog\">blog</a>."
+            },
+            {
+                "q": "Can agencies and brands get recurring package rates?",
+                "a": "Yes. Production houses and D2C brands with monthly content needs qualify for package pricing. Contact us with your volume estimate."
+            }
+        ],
+        "tags": [
+            "video",
+            "delhi ncr",
+            "video-production",
+            "studio guide",
+            "2026"
+        ],
+        "author": "DyWix Studio Team"
+    },
+    {
+        "slug": "amazon-listing-photography-guide",
+        "title": "Amazon Product Listing Photography — Compliance & Conversion Guide",
+        "category": "photography",
+        "service": "product-photography",
+        "excerpt": "Meet Amazon India image requirements while maximising click-through and conversion.",
+        "published_at": "2025-07-19",
+        "faqs": [
+            {
+                "q": "What is included in a studio booking?",
+                "a": "Standard bookings include the studio space, professional lighting, core microphones or cameras, climate control, Wi-Fi, and on-site engineer support. Makeup room and teleprompter access are included where applicable."
+            },
+            {
+                "q": "Where is the studio located?",
+                "a": "DyWix is in Dwarka Sector 13, Delhi — near Blue Line metro stations and parking at Radisson Blu Dwarka. See our <a href=\"/location\">location page</a> and <a href=\"/studio-locations-delhi-ncr\">NCR location hub</a>."
+            },
+            {
+                "q": "Can I book for teams travelling from Noida or Gurugram?",
+                "a": "Yes. Many clients travel from Noida, Gurugram, and Faridabad. Half-day minimum is popular for out-of-city teams. See <a href=\"/product-photography-in-noida\">Noida</a> and <a href=\"/product-photography-in-gurugram\">Gurugram</a> hub pages for drive times."
+            },
+            {
+                "q": "Do you help with pre-production planning?",
+                "a": "Our team reviews your brief before the session — shot lists, scripts, wardrobe, and export specs. Share materials 48 hours ahead for best results."
+            },
+            {
+                "q": "What file formats do you deliver?",
+                "a": "We export platform-ready files and RAW masters on request: WAV for audio, high-res JPEG/TIFF for photo, and standard video codecs. Cloud transfer is included."
+            },
+            {
+                "q": "Is the studio available on weekends and nights?",
+                "a": "Yes — 24×7 booking with engineer on call. Weekend slots fill fast; book early for batch production days."
+            },
+            {
+                "q": "How do I book a session?",
+                "a": "Use our <a href=\"/booking\">online booking form</a>, call the studio line, or WhatsApp us. Confirm your slot with a brief description of your project."
+            },
+            {
+                "q": "Is this guide relevant for amazon-listing-photography-guide?",
+                "a": "This article is part of our verified studio knowledge base. Explore <a href=\"/product-photography\">product-photography</a> service pages and related posts on our <a href=\"/blog\">blog</a>."
+            },
+            {
+                "q": "Can agencies and brands get recurring package rates?",
+                "a": "Yes. Production houses and D2C brands with monthly content needs qualify for package pricing. Contact us with your volume estimate."
+            },
+            {
+                "q": "How much does Amazon Product Listing Photography — Compliance & Conversion Guide cost in Delhi NCR?",
+                "a": "Pricing depends on session length, crew, and deliverables. Hourly, half-day, and full-day packages are available at our Dwarka studio with equipment included. See <a href=\"/product-photography-cost-in-delhi\">Delhi pricing</a> or <a href=\"/pricing\">full rate card</a> for current ranges."
+            }
+        ],
+        "tags": [
+            "photography",
+            "delhi ncr",
+            "product-photography",
+            "studio guide",
+            "2026"
+        ],
+        "author": "DyWix Studio Team"
+    },
+    {
+        "slug": "podcast-studio-cost-delhi",
+        "title": "Podcast Studio Cost in Delhi — Hourly, Half-Day & Full-Day Rates",
+        "category": "pricing",
+        "service": "podcast-studio",
+        "excerpt": "Transparent podcast studio pricing factors for creators and brands in Delhi NCR.",
+        "published_at": "2025-07-29",
+        "faqs": [
+            {
+                "q": "Where is the studio located?",
+                "a": "DyWix is in Dwarka Sector 13, Delhi — near Blue Line metro stations and parking at Radisson Blu Dwarka. See our <a href=\"/location\">location page</a> and <a href=\"/studio-locations-delhi-ncr\">NCR location hub</a>."
+            },
+            {
+                "q": "Can I book for teams travelling from Noida or Gurugram?",
+                "a": "Yes. Many clients travel from Noida, Gurugram, and Faridabad. Half-day minimum is popular for out-of-city teams. See <a href=\"/podcast-studio-in-noida\">Noida</a> and <a href=\"/podcast-studio-in-gurugram\">Gurugram</a> hub pages for drive times."
+            },
+            {
+                "q": "Do you help with pre-production planning?",
+                "a": "Our team reviews your brief before the session — shot lists, scripts, wardrobe, and export specs. Share materials 48 hours ahead for best results."
+            },
+            {
+                "q": "What file formats do you deliver?",
+                "a": "We export platform-ready files and RAW masters on request: WAV for audio, high-res JPEG/TIFF for photo, and standard video codecs. Cloud transfer is included."
+            },
+            {
+                "q": "Is the studio available on weekends and nights?",
+                "a": "Yes — 24×7 booking with engineer on call. Weekend slots fill fast; book early for batch production days."
+            },
+            {
+                "q": "How do I book a session?",
+                "a": "Use our <a href=\"/booking\">online booking form</a>, call the studio line, or WhatsApp us. Confirm your slot with a brief description of your project."
+            },
+            {
+                "q": "Is this guide relevant for podcast-studio-cost-delhi?",
+                "a": "This article is part of our verified studio knowledge base. Explore <a href=\"/podcast-studio\">podcast-studio</a> service pages and related posts on our <a href=\"/blog\">blog</a>."
+            },
+            {
+                "q": "Can agencies and brands get recurring package rates?",
+                "a": "Yes. Production houses and D2C brands with monthly content needs qualify for package pricing. Contact us with your volume estimate."
+            },
+            {
+                "q": "How much does Podcast Studio Cost in Delhi — Hourly, Half-Day & Full-Day Rates cost in Delhi NCR?",
+                "a": "Pricing depends on session length, crew, and deliverables. Hourly, half-day, and full-day packages are available at our Dwarka studio with equipment included. See <a href=\"/podcast-studio-cost-in-delhi\">Delhi pricing</a> or <a href=\"/pricing\">full rate card</a> for current ranges."
+            },
+            {
+                "q": "What is included in a studio booking?",
+                "a": "Standard bookings include the studio space, professional lighting, core microphones or cameras, climate control, Wi-Fi, and on-site engineer support. Makeup room and teleprompter access are included where applicable."
+            }
+        ],
+        "tags": [
+            "pricing",
+            "delhi ncr",
+            "podcast-studio",
+            "studio guide",
+            "2026"
+        ],
+        "author": "DyWix Studio Team"
+    },
+    {
+        "slug": "video-production-studio-noida",
+        "title": "Video Production Studio in Noida — Services, Pricing & Access",
+        "category": "location",
+        "service": "video-production",
+        "excerpt": "Professional video production for Noida corporates with easy Dwarka studio access.",
+        "published_at": "2025-08-08",
+        "faqs": [
+            {
+                "q": "How much does Video Production Studio in Noida — Services, Pricing & Access cost in Delhi NCR?",
+                "a": "Pricing depends on session length, crew, and deliverables. Hourly, half-day, and full-day packages are available at our Dwarka studio with equipment included. See <a href=\"/video-production-cost-in-delhi\">Delhi pricing</a> or <a href=\"/pricing\">full rate card</a> for current ranges."
+            },
+            {
+                "q": "What is included in a studio booking?",
+                "a": "Standard bookings include the studio space, professional lighting, core microphones or cameras, climate control, Wi-Fi, and on-site engineer support. Makeup room and teleprompter access are included where applicable."
+            },
+            {
+                "q": "Where is the studio located?",
+                "a": "DyWix is in Dwarka Sector 13, Delhi — near Blue Line metro stations and parking at Radisson Blu Dwarka. See our <a href=\"/location\">location page</a> and <a href=\"/studio-locations-delhi-ncr\">NCR location hub</a>."
+            },
+            {
+                "q": "Can I book for teams travelling from Noida or Gurugram?",
+                "a": "Yes. Many clients travel from Noida, Gurugram, and Faridabad. Half-day minimum is popular for out-of-city teams. See <a href=\"/video-production-in-noida\">Noida</a> and <a href=\"/video-production-in-gurugram\">Gurugram</a> hub pages for drive times."
+            },
+            {
+                "q": "Do you help with pre-production planning?",
+                "a": "Our team reviews your brief before the session — shot lists, scripts, wardrobe, and export specs. Share materials 48 hours ahead for best results."
+            },
+            {
+                "q": "What file formats do you deliver?",
+                "a": "We export platform-ready files and RAW masters on request: WAV for audio, high-res JPEG/TIFF for photo, and standard video codecs. Cloud transfer is included."
+            },
+            {
+                "q": "Is the studio available on weekends and nights?",
+                "a": "Yes — 24×7 booking with engineer on call. Weekend slots fill fast; book early for batch production days."
+            },
+            {
+                "q": "How do I book a session?",
+                "a": "Use our <a href=\"/booking\">online booking form</a>, call the studio line, or WhatsApp us. Confirm your slot with a brief description of your project."
+            },
+            {
+                "q": "Is this guide relevant for video-production-studio-noida?",
+                "a": "This article is part of our verified studio knowledge base. Explore <a href=\"/video-production\">video-production</a> service pages and related posts on our <a href=\"/blog\">blog</a>."
+            },
+            {
+                "q": "Can agencies and brands get recurring package rates?",
+                "a": "Yes. Production houses and D2C brands with monthly content needs qualify for package pricing. Contact us with your volume estimate."
+            }
+        ],
+        "tags": [
+            "location",
+            "delhi ncr",
+            "video-production",
+            "studio guide",
+            "2026"
+        ],
+        "author": "DyWix Studio Team"
+    },
+    {
+        "slug": "reel-shoot-studio-gurugram",
+        "title": "Reel Shoot Studio Near Gurugram — Vertical Content Production",
+        "category": "location",
+        "service": "reel-shoot-studio",
+        "excerpt": "Batch Instagram Reels and Shorts with studio lighting and multi-camera setups.",
+        "published_at": "2025-08-18",
+        "faqs": [
+            {
+                "q": "What is included in a studio booking?",
+                "a": "Standard bookings include the studio space, professional lighting, core microphones or cameras, climate control, Wi-Fi, and on-site engineer support. Makeup room and teleprompter access are included where applicable."
+            },
+            {
+                "q": "Where is the studio located?",
+                "a": "DyWix is in Dwarka Sector 13, Delhi — near Blue Line metro stations and parking at Radisson Blu Dwarka. See our <a href=\"/location\">location page</a> and <a href=\"/studio-locations-delhi-ncr\">NCR location hub</a>."
+            },
+            {
+                "q": "Can I book for teams travelling from Noida or Gurugram?",
+                "a": "Yes. Many clients travel from Noida, Gurugram, and Faridabad. Half-day minimum is popular for out-of-city teams. See <a href=\"/reel-shoot-studio-in-noida\">Noida</a> and <a href=\"/reel-shoot-studio-in-gurugram\">Gurugram</a> hub pages for drive times."
+            },
+            {
+                "q": "Do you help with pre-production planning?",
+                "a": "Our team reviews your brief before the session — shot lists, scripts, wardrobe, and export specs. Share materials 48 hours ahead for best results."
+            },
+            {
+                "q": "What file formats do you deliver?",
+                "a": "We export platform-ready files and RAW masters on request: WAV for audio, high-res JPEG/TIFF for photo, and standard video codecs. Cloud transfer is included."
+            },
+            {
+                "q": "Is the studio available on weekends and nights?",
+                "a": "Yes — 24×7 booking with engineer on call. Weekend slots fill fast; book early for batch production days."
+            },
+            {
+                "q": "How do I book a session?",
+                "a": "Use our <a href=\"/booking\">online booking form</a>, call the studio line, or WhatsApp us. Confirm your slot with a brief description of your project."
+            },
+            {
+                "q": "Is this guide relevant for reel-shoot-studio-gurugram?",
+                "a": "This article is part of our verified studio knowledge base. Explore <a href=\"/reel-shoot-studio\">reel-shoot-studio</a> service pages and related posts on our <a href=\"/blog\">blog</a>."
+            },
+            {
+                "q": "Can agencies and brands get recurring package rates?",
+                "a": "Yes. Production houses and D2C brands with monthly content needs qualify for package pricing. Contact us with your volume estimate."
+            },
+            {
+                "q": "How much does Reel Shoot Studio Near Gurugram — Vertical Content Production cost in Delhi NCR?",
+                "a": "Pricing depends on session length, crew, and deliverables. Hourly, half-day, and full-day packages are available at our Dwarka studio with equipment included. See <a href=\"/reel-shoot-studio-cost-in-delhi\">Delhi pricing</a> or <a href=\"/pricing\">full rate card</a> for current ranges."
+            }
+        ],
+        "tags": [
+            "location",
+            "delhi ncr",
+            "reel-shoot-studio",
+            "studio guide",
+            "2026"
+        ],
+        "author": "DyWix Studio Team"
+    },
+    {
+        "slug": "fashion-lookbook-photography-delhi",
+        "title": "Fashion Lookbook Photography in Delhi — Seasonal Campaign Guide",
+        "category": "photography",
+        "service": "fashion-photography",
+        "excerpt": "Shoot cohesive lookbooks with styling, makeup room, and editorial lighting.",
+        "published_at": "2025-08-28",
+        "faqs": [
+            {
+                "q": "Where is the studio located?",
+                "a": "DyWix is in Dwarka Sector 13, Delhi — near Blue Line metro stations and parking at Radisson Blu Dwarka. See our <a href=\"/location\">location page</a> and <a href=\"/studio-locations-delhi-ncr\">NCR location hub</a>."
+            },
+            {
+                "q": "Can I book for teams travelling from Noida or Gurugram?",
+                "a": "Yes. Many clients travel from Noida, Gurugram, and Faridabad. Half-day minimum is popular for out-of-city teams. See <a href=\"/fashion-photography-in-noida\">Noida</a> and <a href=\"/fashion-photography-in-gurugram\">Gurugram</a> hub pages for drive times."
+            },
+            {
+                "q": "Do you help with pre-production planning?",
+                "a": "Our team reviews your brief before the session — shot lists, scripts, wardrobe, and export specs. Share materials 48 hours ahead for best results."
+            },
+            {
+                "q": "What file formats do you deliver?",
+                "a": "We export platform-ready files and RAW masters on request: WAV for audio, high-res JPEG/TIFF for photo, and standard video codecs. Cloud transfer is included."
+            },
+            {
+                "q": "Is the studio available on weekends and nights?",
+                "a": "Yes — 24×7 booking with engineer on call. Weekend slots fill fast; book early for batch production days."
+            },
+            {
+                "q": "How do I book a session?",
+                "a": "Use our <a href=\"/booking\">online booking form</a>, call the studio line, or WhatsApp us. Confirm your slot with a brief description of your project."
+            },
+            {
+                "q": "Is this guide relevant for fashion-lookbook-photography-delhi?",
+                "a": "This article is part of our verified studio knowledge base. Explore <a href=\"/fashion-photography\">fashion-photography</a> service pages and related posts on our <a href=\"/blog\">blog</a>."
+            },
+            {
+                "q": "Can agencies and brands get recurring package rates?",
+                "a": "Yes. Production houses and D2C brands with monthly content needs qualify for package pricing. Contact us with your volume estimate."
+            },
+            {
+                "q": "How much does Fashion Lookbook Photography in Delhi — Seasonal Campaign Guide cost in Delhi NCR?",
+                "a": "Pricing depends on session length, crew, and deliverables. Hourly, half-day, and full-day packages are available at our Dwarka studio with equipment included. See <a href=\"/fashion-photography-cost-in-delhi\">Delhi pricing</a> or <a href=\"/pricing\">full rate card</a> for current ranges."
+            },
+            {
+                "q": "What is included in a studio booking?",
+                "a": "Standard bookings include the studio space, professional lighting, core microphones or cameras, climate control, Wi-Fi, and on-site engineer support. Makeup room and teleprompter access are included where applicable."
+            }
+        ],
+        "tags": [
+            "photography",
+            "delhi ncr",
+            "fashion-photography",
+            "studio guide",
+            "2026"
+        ],
+        "author": "DyWix Studio Team"
+    },
+    {
+        "slug": "youtube-thumbnail-shoot-tips",
+        "title": "YouTube Thumbnail & Talking-Head Shoot Tips in Studio",
+        "category": "creator",
+        "service": "youtube-studio-rental",
+        "excerpt": "Capture high-CTR thumbnails and A-roll in one efficient studio session.",
+        "published_at": "2025-09-07",
+        "faqs": [
+            {
+                "q": "How much does YouTube Thumbnail & Talking-Head Shoot Tips in Studio cost in Delhi NCR?",
+                "a": "Pricing depends on session length, crew, and deliverables. Hourly, half-day, and full-day packages are available at our Dwarka studio with equipment included. See <a href=\"/youtube-studio-rental-cost-in-delhi\">Delhi pricing</a> or <a href=\"/pricing\">full rate card</a> for current ranges."
+            },
+            {
+                "q": "What is included in a studio booking?",
+                "a": "Standard bookings include the studio space, professional lighting, core microphones or cameras, climate control, Wi-Fi, and on-site engineer support. Makeup room and teleprompter access are included where applicable."
+            },
+            {
+                "q": "Where is the studio located?",
+                "a": "DyWix is in Dwarka Sector 13, Delhi — near Blue Line metro stations and parking at Radisson Blu Dwarka. See our <a href=\"/location\">location page</a> and <a href=\"/studio-locations-delhi-ncr\">NCR location hub</a>."
+            },
+            {
+                "q": "Can I book for teams travelling from Noida or Gurugram?",
+                "a": "Yes. Many clients travel from Noida, Gurugram, and Faridabad. Half-day minimum is popular for out-of-city teams. See <a href=\"/youtube-studio-rental-in-noida\">Noida</a> and <a href=\"/youtube-studio-rental-in-gurugram\">Gurugram</a> hub pages for drive times."
+            },
+            {
+                "q": "Do you help with pre-production planning?",
+                "a": "Our team reviews your brief before the session — shot lists, scripts, wardrobe, and export specs. Share materials 48 hours ahead for best results."
+            },
+            {
+                "q": "What file formats do you deliver?",
+                "a": "We export platform-ready files and RAW masters on request: WAV for audio, high-res JPEG/TIFF for photo, and standard video codecs. Cloud transfer is included."
+            },
+            {
+                "q": "Is the studio available on weekends and nights?",
+                "a": "Yes — 24×7 booking with engineer on call. Weekend slots fill fast; book early for batch production days."
+            },
+            {
+                "q": "How do I book a session?",
+                "a": "Use our <a href=\"/booking\">online booking form</a>, call the studio line, or WhatsApp us. Confirm your slot with a brief description of your project."
+            },
+            {
+                "q": "Is this guide relevant for youtube-thumbnail-shoot-tips?",
+                "a": "This article is part of our verified studio knowledge base. Explore <a href=\"/youtube-studio-rental\">youtube-studio-rental</a> service pages and related posts on our <a href=\"/blog\">blog</a>."
+            },
+            {
+                "q": "Can agencies and brands get recurring package rates?",
+                "a": "Yes. Production houses and D2C brands with monthly content needs qualify for package pricing. Contact us with your volume estimate."
+            }
+        ],
+        "tags": [
+            "creator",
+            "delhi ncr",
+            "youtube-studio-rental",
+            "studio guide",
+            "2026"
+        ],
+        "author": "DyWix Studio Team"
+    },
+    {
+        "slug": "healthcare-video-production-guide",
+        "title": "Healthcare Video Production — Compliance-Friendly Studio Guide",
+        "category": "video",
+        "service": "video-production",
+        "excerpt": "Patient education and doctor videos with privacy-aware studio workflows.",
+        "published_at": "2025-09-17",
+        "faqs": [
+            {
+                "q": "What is included in a studio booking?",
+                "a": "Standard bookings include the studio space, professional lighting, core microphones or cameras, climate control, Wi-Fi, and on-site engineer support. Makeup room and teleprompter access are included where applicable."
+            },
+            {
+                "q": "Where is the studio located?",
+                "a": "DyWix is in Dwarka Sector 13, Delhi — near Blue Line metro stations and parking at Radisson Blu Dwarka. See our <a href=\"/location\">location page</a> and <a href=\"/studio-locations-delhi-ncr\">NCR location hub</a>."
+            },
+            {
+                "q": "Can I book for teams travelling from Noida or Gurugram?",
+                "a": "Yes. Many clients travel from Noida, Gurugram, and Faridabad. Half-day minimum is popular for out-of-city teams. See <a href=\"/video-production-in-noida\">Noida</a> and <a href=\"/video-production-in-gurugram\">Gurugram</a> hub pages for drive times."
+            },
+            {
+                "q": "Do you help with pre-production planning?",
+                "a": "Our team reviews your brief before the session — shot lists, scripts, wardrobe, and export specs. Share materials 48 hours ahead for best results."
+            },
+            {
+                "q": "What file formats do you deliver?",
+                "a": "We export platform-ready files and RAW masters on request: WAV for audio, high-res JPEG/TIFF for photo, and standard video codecs. Cloud transfer is included."
+            },
+            {
+                "q": "Is the studio available on weekends and nights?",
+                "a": "Yes — 24×7 booking with engineer on call. Weekend slots fill fast; book early for batch production days."
+            },
+            {
+                "q": "How do I book a session?",
+                "a": "Use our <a href=\"/booking\">online booking form</a>, call the studio line, or WhatsApp us. Confirm your slot with a brief description of your project."
+            },
+            {
+                "q": "Is this guide relevant for healthcare-video-production-guide?",
+                "a": "This article is part of our verified studio knowledge base. Explore <a href=\"/video-production\">video-production</a> service pages and related posts on our <a href=\"/blog\">blog</a>."
+            },
+            {
+                "q": "Can agencies and brands get recurring package rates?",
+                "a": "Yes. Production houses and D2C brands with monthly content needs qualify for package pricing. Contact us with your volume estimate."
+            },
+            {
+                "q": "How much does Healthcare Video Production — Compliance-Friendly Studio Guide cost in Delhi NCR?",
+                "a": "Pricing depends on session length, crew, and deliverables. Hourly, half-day, and full-day packages are available at our Dwarka studio with equipment included. See <a href=\"/video-production-cost-in-delhi\">Delhi pricing</a> or <a href=\"/pricing\">full rate card</a> for current ranges."
+            }
+        ],
+        "tags": [
+            "video",
+            "delhi ncr",
+            "video-production",
+            "studio guide",
+            "2026"
+        ],
+        "author": "DyWix Studio Team"
+    },
+    {
+        "slug": "legal-firm-podcast-studio-guide",
+        "title": "Podcast Studio for Law Firms — Thought Leadership Production",
+        "category": "podcast",
+        "service": "podcast-studio",
+        "excerpt": "Record authoritative legal podcasts with professional audio and video.",
+        "published_at": "2025-09-27",
+        "faqs": [
+            {
+                "q": "Where is the studio located?",
+                "a": "DyWix is in Dwarka Sector 13, Delhi — near Blue Line metro stations and parking at Radisson Blu Dwarka. See our <a href=\"/location\">location page</a> and <a href=\"/studio-locations-delhi-ncr\">NCR location hub</a>."
+            },
+            {
+                "q": "Can I book for teams travelling from Noida or Gurugram?",
+                "a": "Yes. Many clients travel from Noida, Gurugram, and Faridabad. Half-day minimum is popular for out-of-city teams. See <a href=\"/podcast-studio-in-noida\">Noida</a> and <a href=\"/podcast-studio-in-gurugram\">Gurugram</a> hub pages for drive times."
+            },
+            {
+                "q": "Do you help with pre-production planning?",
+                "a": "Our team reviews your brief before the session — shot lists, scripts, wardrobe, and export specs. Share materials 48 hours ahead for best results."
+            },
+            {
+                "q": "What file formats do you deliver?",
+                "a": "We export platform-ready files and RAW masters on request: WAV for audio, high-res JPEG/TIFF for photo, and standard video codecs. Cloud transfer is included."
+            },
+            {
+                "q": "Is the studio available on weekends and nights?",
+                "a": "Yes — 24×7 booking with engineer on call. Weekend slots fill fast; book early for batch production days."
+            },
+            {
+                "q": "How do I book a session?",
+                "a": "Use our <a href=\"/booking\">online booking form</a>, call the studio line, or WhatsApp us. Confirm your slot with a brief description of your project."
+            },
+            {
+                "q": "Is this guide relevant for legal-firm-podcast-studio-guide?",
+                "a": "This article is part of our verified studio knowledge base. Explore <a href=\"/podcast-studio\">podcast-studio</a> service pages and related posts on our <a href=\"/blog\">blog</a>."
+            },
+            {
+                "q": "Can agencies and brands get recurring package rates?",
+                "a": "Yes. Production houses and D2C brands with monthly content needs qualify for package pricing. Contact us with your volume estimate."
+            },
+            {
+                "q": "How much does Podcast Studio for Law Firms — Thought Leadership Production cost in Delhi NCR?",
+                "a": "Pricing depends on session length, crew, and deliverables. Hourly, half-day, and full-day packages are available at our Dwarka studio with equipment included. See <a href=\"/podcast-studio-cost-in-delhi\">Delhi pricing</a> or <a href=\"/pricing\">full rate card</a> for current ranges."
+            },
+            {
+                "q": "What is included in a studio booking?",
+                "a": "Standard bookings include the studio space, professional lighting, core microphones or cameras, climate control, Wi-Fi, and on-site engineer support. Makeup room and teleprompter access are included where applicable."
+            }
+        ],
+        "tags": [
+            "podcast",
+            "delhi ncr",
+            "podcast-studio",
+            "studio guide",
+            "2026"
+        ],
+        "author": "DyWix Studio Team"
+    },
+    {
+        "slug": "startup-explainer-video-guide",
+        "title": "Startup Explainer Video Production — Script to Studio Delivery",
+        "category": "video",
+        "service": "video-production",
+        "excerpt": "Produce investor-ready explainer videos with motion-ready studio footage.",
+        "published_at": "2025-10-07",
+        "faqs": [
+            {
+                "q": "How much does Startup Explainer Video Production — Script to Studio Delivery cost in Delhi NCR?",
+                "a": "Pricing depends on session length, crew, and deliverables. Hourly, half-day, and full-day packages are available at our Dwarka studio with equipment included. See <a href=\"/video-production-cost-in-delhi\">Delhi pricing</a> or <a href=\"/pricing\">full rate card</a> for current ranges."
+            },
+            {
+                "q": "What is included in a studio booking?",
+                "a": "Standard bookings include the studio space, professional lighting, core microphones or cameras, climate control, Wi-Fi, and on-site engineer support. Makeup room and teleprompter access are included where applicable."
+            },
+            {
+                "q": "Where is the studio located?",
+                "a": "DyWix is in Dwarka Sector 13, Delhi — near Blue Line metro stations and parking at Radisson Blu Dwarka. See our <a href=\"/location\">location page</a> and <a href=\"/studio-locations-delhi-ncr\">NCR location hub</a>."
+            },
+            {
+                "q": "Can I book for teams travelling from Noida or Gurugram?",
+                "a": "Yes. Many clients travel from Noida, Gurugram, and Faridabad. Half-day minimum is popular for out-of-city teams. See <a href=\"/video-production-in-noida\">Noida</a> and <a href=\"/video-production-in-gurugram\">Gurugram</a> hub pages for drive times."
+            },
+            {
+                "q": "Do you help with pre-production planning?",
+                "a": "Our team reviews your brief before the session — shot lists, scripts, wardrobe, and export specs. Share materials 48 hours ahead for best results."
+            },
+            {
+                "q": "What file formats do you deliver?",
+                "a": "We export platform-ready files and RAW masters on request: WAV for audio, high-res JPEG/TIFF for photo, and standard video codecs. Cloud transfer is included."
+            },
+            {
+                "q": "Is the studio available on weekends and nights?",
+                "a": "Yes — 24×7 booking with engineer on call. Weekend slots fill fast; book early for batch production days."
+            },
+            {
+                "q": "How do I book a session?",
+                "a": "Use our <a href=\"/booking\">online booking form</a>, call the studio line, or WhatsApp us. Confirm your slot with a brief description of your project."
+            },
+            {
+                "q": "Is this guide relevant for startup-explainer-video-guide?",
+                "a": "This article is part of our verified studio knowledge base. Explore <a href=\"/video-production\">video-production</a> service pages and related posts on our <a href=\"/blog\">blog</a>."
+            },
+            {
+                "q": "Can agencies and brands get recurring package rates?",
+                "a": "Yes. Production houses and D2C brands with monthly content needs qualify for package pricing. Contact us with your volume estimate."
+            }
+        ],
+        "tags": [
+            "video",
+            "delhi ncr",
+            "video-production",
+            "studio guide",
+            "2026"
+        ],
+        "author": "DyWix Studio Team"
+    },
+    {
+        "slug": "d2c-brand-photography-playbook",
+        "title": "D2C Brand Photography Playbook — Lifestyle + Product in One Day",
+        "category": "photography",
+        "service": "product-photography",
+        "excerpt": "Unified visual identity for D2C ads, website, and marketplace listings.",
+        "published_at": "2025-10-17",
+        "faqs": [
+            {
+                "q": "What is included in a studio booking?",
+                "a": "Standard bookings include the studio space, professional lighting, core microphones or cameras, climate control, Wi-Fi, and on-site engineer support. Makeup room and teleprompter access are included where applicable."
+            },
+            {
+                "q": "Where is the studio located?",
+                "a": "DyWix is in Dwarka Sector 13, Delhi — near Blue Line metro stations and parking at Radisson Blu Dwarka. See our <a href=\"/location\">location page</a> and <a href=\"/studio-locations-delhi-ncr\">NCR location hub</a>."
+            },
+            {
+                "q": "Can I book for teams travelling from Noida or Gurugram?",
+                "a": "Yes. Many clients travel from Noida, Gurugram, and Faridabad. Half-day minimum is popular for out-of-city teams. See <a href=\"/product-photography-in-noida\">Noida</a> and <a href=\"/product-photography-in-gurugram\">Gurugram</a> hub pages for drive times."
+            },
+            {
+                "q": "Do you help with pre-production planning?",
+                "a": "Our team reviews your brief before the session — shot lists, scripts, wardrobe, and export specs. Share materials 48 hours ahead for best results."
+            },
+            {
+                "q": "What file formats do you deliver?",
+                "a": "We export platform-ready files and RAW masters on request: WAV for audio, high-res JPEG/TIFF for photo, and standard video codecs. Cloud transfer is included."
+            },
+            {
+                "q": "Is the studio available on weekends and nights?",
+                "a": "Yes — 24×7 booking with engineer on call. Weekend slots fill fast; book early for batch production days."
+            },
+            {
+                "q": "How do I book a session?",
+                "a": "Use our <a href=\"/booking\">online booking form</a>, call the studio line, or WhatsApp us. Confirm your slot with a brief description of your project."
+            },
+            {
+                "q": "Is this guide relevant for d2c-brand-photography-playbook?",
+                "a": "This article is part of our verified studio knowledge base. Explore <a href=\"/product-photography\">product-photography</a> service pages and related posts on our <a href=\"/blog\">blog</a>."
+            },
+            {
+                "q": "Can agencies and brands get recurring package rates?",
+                "a": "Yes. Production houses and D2C brands with monthly content needs qualify for package pricing. Contact us with your volume estimate."
+            },
+            {
+                "q": "How much does D2C Brand Photography Playbook — Lifestyle + Product in One Day cost in Delhi NCR?",
+                "a": "Pricing depends on session length, crew, and deliverables. Hourly, half-day, and full-day packages are available at our Dwarka studio with equipment included. See <a href=\"/product-photography-cost-in-delhi\">Delhi pricing</a> or <a href=\"/pricing\">full rate card</a> for current ranges."
+            }
+        ],
+        "tags": [
+            "photography",
+            "delhi ncr",
+            "product-photography",
+            "studio guide",
+            "2026"
+        ],
+        "author": "DyWix Studio Team"
+    },
+    {
+        "slug": "multi-camera-podcast-setup",
+        "title": "Multi-Camera Podcast Setup — Angles, Sync & Clipping for Shorts",
+        "category": "podcast",
+        "service": "podcast-studio",
+        "excerpt": "Configure multi-cam podcast rigs for YouTube, Spotify video, and vertical clips.",
+        "published_at": "2025-10-27",
+        "faqs": [
+            {
+                "q": "Where is the studio located?",
+                "a": "DyWix is in Dwarka Sector 13, Delhi — near Blue Line metro stations and parking at Radisson Blu Dwarka. See our <a href=\"/location\">location page</a> and <a href=\"/studio-locations-delhi-ncr\">NCR location hub</a>."
+            },
+            {
+                "q": "Can I book for teams travelling from Noida or Gurugram?",
+                "a": "Yes. Many clients travel from Noida, Gurugram, and Faridabad. Half-day minimum is popular for out-of-city teams. See <a href=\"/podcast-studio-in-noida\">Noida</a> and <a href=\"/podcast-studio-in-gurugram\">Gurugram</a> hub pages for drive times."
+            },
+            {
+                "q": "Do you help with pre-production planning?",
+                "a": "Our team reviews your brief before the session — shot lists, scripts, wardrobe, and export specs. Share materials 48 hours ahead for best results."
+            },
+            {
+                "q": "What file formats do you deliver?",
+                "a": "We export platform-ready files and RAW masters on request: WAV for audio, high-res JPEG/TIFF for photo, and standard video codecs. Cloud transfer is included."
+            },
+            {
+                "q": "Is the studio available on weekends and nights?",
+                "a": "Yes — 24×7 booking with engineer on call. Weekend slots fill fast; book early for batch production days."
+            },
+            {
+                "q": "How do I book a session?",
+                "a": "Use our <a href=\"/booking\">online booking form</a>, call the studio line, or WhatsApp us. Confirm your slot with a brief description of your project."
+            },
+            {
+                "q": "Is this guide relevant for multi-camera-podcast-setup?",
+                "a": "This article is part of our verified studio knowledge base. Explore <a href=\"/podcast-studio\">podcast-studio</a> service pages and related posts on our <a href=\"/blog\">blog</a>."
+            },
+            {
+                "q": "Can agencies and brands get recurring package rates?",
+                "a": "Yes. Production houses and D2C brands with monthly content needs qualify for package pricing. Contact us with your volume estimate."
+            },
+            {
+                "q": "How much does Multi-Camera Podcast Setup — Angles, Sync & Clipping for Shorts cost in Delhi NCR?",
+                "a": "Pricing depends on session length, crew, and deliverables. Hourly, half-day, and full-day packages are available at our Dwarka studio with equipment included. See <a href=\"/podcast-studio-cost-in-delhi\">Delhi pricing</a> or <a href=\"/pricing\">full rate card</a> for current ranges."
+            },
+            {
+                "q": "What is included in a studio booking?",
+                "a": "Standard bookings include the studio space, professional lighting, core microphones or cameras, climate control, Wi-Fi, and on-site engineer support. Makeup room and teleprompter access are included where applicable."
+            }
+        ],
+        "tags": [
+            "podcast",
+            "delhi ncr",
+            "podcast-studio",
+            "studio guide",
+            "2026"
+        ],
+        "author": "DyWix Studio Team"
+    },
+    {
+        "slug": "studio-booking-checklist-beginners",
+        "title": "First Studio Booking Checklist — What to Bring & Expect",
+        "category": "creator",
+        "service": "podcast-studio",
+        "excerpt": "Everything first-time studio clients need before their DyWix session.",
+        "published_at": "2025-11-06",
+        "faqs": [
+            {
+                "q": "How much does First Studio Booking Checklist — What to Bring & Expect cost in Delhi NCR?",
+                "a": "Pricing depends on session length, crew, and deliverables. Hourly, half-day, and full-day packages are available at our Dwarka studio with equipment included. See <a href=\"/podcast-studio-cost-in-delhi\">Delhi pricing</a> or <a href=\"/pricing\">full rate card</a> for current ranges."
+            },
+            {
+                "q": "What is included in a studio booking?",
+                "a": "Standard bookings include the studio space, professional lighting, core microphones or cameras, climate control, Wi-Fi, and on-site engineer support. Makeup room and teleprompter access are included where applicable."
+            },
+            {
+                "q": "Where is the studio located?",
+                "a": "DyWix is in Dwarka Sector 13, Delhi — near Blue Line metro stations and parking at Radisson Blu Dwarka. See our <a href=\"/location\">location page</a> and <a href=\"/studio-locations-delhi-ncr\">NCR location hub</a>."
+            },
+            {
+                "q": "Can I book for teams travelling from Noida or Gurugram?",
+                "a": "Yes. Many clients travel from Noida, Gurugram, and Faridabad. Half-day minimum is popular for out-of-city teams. See <a href=\"/podcast-studio-in-noida\">Noida</a> and <a href=\"/podcast-studio-in-gurugram\">Gurugram</a> hub pages for drive times."
+            },
+            {
+                "q": "Do you help with pre-production planning?",
+                "a": "Our team reviews your brief before the session — shot lists, scripts, wardrobe, and export specs. Share materials 48 hours ahead for best results."
+            },
+            {
+                "q": "What file formats do you deliver?",
+                "a": "We export platform-ready files and RAW masters on request: WAV for audio, high-res JPEG/TIFF for photo, and standard video codecs. Cloud transfer is included."
+            },
+            {
+                "q": "Is the studio available on weekends and nights?",
+                "a": "Yes — 24×7 booking with engineer on call. Weekend slots fill fast; book early for batch production days."
+            },
+            {
+                "q": "How do I book a session?",
+                "a": "Use our <a href=\"/booking\">online booking form</a>, call the studio line, or WhatsApp us. Confirm your slot with a brief description of your project."
+            },
+            {
+                "q": "Is this guide relevant for studio-booking-checklist-beginners?",
+                "a": "This article is part of our verified studio knowledge base. Explore <a href=\"/podcast-studio\">podcast-studio</a> service pages and related posts on our <a href=\"/blog\">blog</a>."
+            },
+            {
+                "q": "Can agencies and brands get recurring package rates?",
+                "a": "Yes. Production houses and D2C brands with monthly content needs qualify for package pricing. Contact us with your volume estimate."
+            }
+        ],
+        "tags": [
+            "creator",
+            "delhi ncr",
+            "podcast-studio",
+            "studio guide",
+            "2026"
+        ],
+        "author": "DyWix Studio Team"
+    },
+    {
+        "slug": "content-batch-production-ncr",
+        "title": "Content Batch Production in Delhi NCR — One Day, One Month of Content",
+        "category": "creator",
+        "service": "influencer-studio",
+        "excerpt": "Batch podcasts, Reels, and photos in a single disciplined studio day.",
+        "published_at": "2025-11-16",
+        "faqs": [
+            {
+                "q": "What is included in a studio booking?",
+                "a": "Standard bookings include the studio space, professional lighting, core microphones or cameras, climate control, Wi-Fi, and on-site engineer support. Makeup room and teleprompter access are included where applicable."
+            },
+            {
+                "q": "Where is the studio located?",
+                "a": "DyWix is in Dwarka Sector 13, Delhi — near Blue Line metro stations and parking at Radisson Blu Dwarka. See our <a href=\"/location\">location page</a> and <a href=\"/studio-locations-delhi-ncr\">NCR location hub</a>."
+            },
+            {
+                "q": "Can I book for teams travelling from Noida or Gurugram?",
+                "a": "Yes. Many clients travel from Noida, Gurugram, and Faridabad. Half-day minimum is popular for out-of-city teams. See <a href=\"/influencer-studio-in-noida\">Noida</a> and <a href=\"/influencer-studio-in-gurugram\">Gurugram</a> hub pages for drive times."
+            },
+            {
+                "q": "Do you help with pre-production planning?",
+                "a": "Our team reviews your brief before the session — shot lists, scripts, wardrobe, and export specs. Share materials 48 hours ahead for best results."
+            },
+            {
+                "q": "What file formats do you deliver?",
+                "a": "We export platform-ready files and RAW masters on request: WAV for audio, high-res JPEG/TIFF for photo, and standard video codecs. Cloud transfer is included."
+            },
+            {
+                "q": "Is the studio available on weekends and nights?",
+                "a": "Yes — 24×7 booking with engineer on call. Weekend slots fill fast; book early for batch production days."
+            },
+            {
+                "q": "How do I book a session?",
+                "a": "Use our <a href=\"/booking\">online booking form</a>, call the studio line, or WhatsApp us. Confirm your slot with a brief description of your project."
+            },
+            {
+                "q": "Is this guide relevant for content-batch-production-ncr?",
+                "a": "This article is part of our verified studio knowledge base. Explore <a href=\"/influencer-studio\">influencer-studio</a> service pages and related posts on our <a href=\"/blog\">blog</a>."
+            },
+            {
+                "q": "Can agencies and brands get recurring package rates?",
+                "a": "Yes. Production houses and D2C brands with monthly content needs qualify for package pricing. Contact us with your volume estimate."
+            },
+            {
+                "q": "How much does Content Batch Production in Delhi NCR — One Day, One Month of Content cost in Delhi NCR?",
+                "a": "Pricing depends on session length, crew, and deliverables. Hourly, half-day, and full-day packages are available at our Dwarka studio with equipment included. See <a href=\"/influencer-studio-cost-in-delhi\">Delhi pricing</a> or <a href=\"/pricing\">full rate card</a> for current ranges."
+            }
+        ],
+        "tags": [
+            "creator",
+            "delhi ncr",
+            "influencer-studio",
+            "studio guide",
+            "2026"
+        ],
+        "author": "DyWix Studio Team"
+    }
 ]

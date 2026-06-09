@@ -8,6 +8,23 @@
 @if($post->meta_keywords)
 <meta name="keywords" content="{{ $post->meta_keywords }}">
 @endif
+@if(!empty($post->faqs))
+@php
+    $faqLd = [
+        '@context' => 'https://schema.org',
+        '@type' => 'FAQPage',
+        'mainEntity' => collect($post->faqs)->map(fn ($faq) => [
+            '@type' => 'Question',
+            'name' => $faq['q'] ?? '',
+            'acceptedAnswer' => [
+                '@type' => 'Answer',
+                'text' => strip_tags($faq['a'] ?? ''),
+            ],
+        ])->values()->all(),
+    ];
+@endphp
+<script type="application/ld+json">{!! json_encode($faqLd, JSON_UNESCAPED_SLASHES|JSON_UNESCAPED_UNICODE) !!}</script>
+@endif
 @endsection
 
 @if($post->cover_image)
