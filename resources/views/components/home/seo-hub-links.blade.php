@@ -12,7 +12,7 @@
         <div class="grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
             @foreach($hubLinks as $group => $links)
                 <div>
-                    <h3 class="text-[11px] font-semibold uppercase tracking-widest text-[var(--color-brand-lens-blue)] mb-3">{{ $group }}</h3>
+                    <h3 class="text-[11px] font-semibold uppercase tracking-widest text-brand-lens-blue mb-3">{{ $group }}</h3>
                     <ul class="space-y-1.5">
                         @foreach(array_slice($links, 0, 12) as $link)
                             <li>
@@ -25,7 +25,7 @@
         </div>
 
         <div class="mt-10 flex flex-wrap justify-center gap-3">
-            <a href="{{ route('seo.resources') }}" class="rounded-full bg-[var(--color-brand-lens-blue)] px-6 py-2.5 text-sm font-semibold text-white hover:opacity-90 transition">All Resources</a>
+            <a href="{{ route('seo.resources') }}" class="rounded-full bg-brand-lens-blue px-6 py-2.5 text-sm font-semibold text-white hover:opacity-90 transition">All Resources</a>
             <a href="{{ route('seo.directory') }}" class="rounded-full border border-white/20 px-6 py-2.5 text-sm font-semibold text-white hover:bg-white/10 transition">SEO Directory</a>
             <a href="{{ route('seo.locations') }}" class="rounded-full border border-white/20 px-6 py-2.5 text-sm font-semibold text-white hover:bg-white/10 transition">All Locations</a>
         </div>

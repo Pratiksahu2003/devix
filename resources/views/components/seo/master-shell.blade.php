@@ -20,7 +20,7 @@
     </div>
 </section>
 
-<div class="bg-[var(--color-surface-muted)] py-6">
+<div class="bg-surface-muted py-6">
     <div class="mx-auto max-w-7xl px-4 sm:px-6">
         {{ $slot }}
     </div>

@@ -11,17 +11,17 @@
     </div>
     
     <!-- Gradient Overlay -->
-    <div class="absolute inset-0 bg-gradient-to-br from-[#59267c]/95 to-[#3a155c]/95 z-0 mix-blend-multiply"></div>
+    <div class="absolute inset-0 bg-linear-to-br from-[#59267c]/95 to-[#3a155c]/95 z-0 mix-blend-multiply"></div>
 
     <!-- Animated Orbs -->
     <div class="absolute -top-40 -right-40 w-96 h-96 bg-white/10 rounded-full filter blur-3xl opacity-40 animate-[pulse_8s_ease-in-out_infinite] z-0 pointer-events-none"></div>
     <div class="absolute -bottom-40 -left-40 w-96 h-96 bg-purple-500/30 rounded-full filter blur-3xl opacity-40 animate-[pulse_10s_ease-in-out_infinite] animation-delay-2000 z-0 pointer-events-none"></div>
     
     <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center z-10">
-        <span class="inline-flex items-center px-4 py-1.5 rounded-full text-sm font-semibold text-indigo-200 bg-indigo-900/50 border border-indigo-700/50 backdrop-blur-md mb-6 shadow-lg uppercase tracking-widest text-xs">
+        <span class="inline-flex items-center px-4 py-1.5 rounded-full text-xs font-semibold text-indigo-200 bg-indigo-900/50 border border-indigo-700/50 backdrop-blur-md mb-6 shadow-lg uppercase tracking-widest">
             DyWix Studio Insights
         </span>
-        <h1 class="text-5xl sm:text-6xl md:text-7xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-white via-indigo-100 to-slate-400 tracking-tight mb-6 drop-shadow-sm pb-2">
+        <h1 class="text-5xl sm:text-6xl md:text-7xl font-extrabold text-transparent bg-clip-text bg-linear-to-r from-white via-indigo-100 to-slate-400 tracking-tight mb-6 drop-shadow-sm pb-2">
             Our Blog
         </h1>
         <p class="text-lg md:text-xl text-slate-300 max-w-2xl mx-auto font-medium leading-relaxed">
@@ -34,12 +34,12 @@
     @if($categories->count() > 0)
     <!-- Premium Category Filters -->
     <div class="flex flex-wrap justify-center gap-3 mb-16 relative z-10">
-        <a href="{{ route('blog.index') }}" class="px-6 py-2.5 rounded-full text-sm font-bold transition-all duration-300 {{ !request('category') ? 'bg-gradient-to-r from-indigo-600 to-purple-600 text-white shadow-md shadow-indigo-500/30 transform scale-105' : 'bg-white text-slate-600 hover:text-indigo-600 hover:bg-slate-50 hover:scale-105 shadow-sm border border-slate-200' }}">
+        <a href="{{ route('blog.index') }}" class="px-6 py-2.5 rounded-full text-sm font-bold transition-all duration-300 {{ !request('category') ? 'bg-linear-to-r from-indigo-600 to-purple-600 text-white shadow-md shadow-indigo-500/30 transform scale-105' : 'bg-white text-slate-600 hover:text-indigo-600 hover:bg-slate-50 hover:scale-105 shadow-sm border border-slate-200' }}">
             All Articles
         </a>
         
         @foreach($categories as $category)
-        <a href="{{ route('blog.index', ['category' => $category->slug]) }}" class="px-6 py-2.5 rounded-full text-sm font-bold transition-all duration-300 {{ request('category') === $category->slug ? 'bg-gradient-to-r from-indigo-600 to-purple-600 text-white shadow-md shadow-indigo-500/30 transform scale-105' : 'bg-white text-slate-600 hover:text-indigo-600 hover:bg-slate-50 hover:scale-105 shadow-sm border border-slate-200' }}">
+        <a href="{{ route('blog.index', ['category' => $category->slug]) }}" class="px-6 py-2.5 rounded-full text-sm font-bold transition-all duration-300 {{ request('category') === $category->slug ? 'bg-linear-to-r from-indigo-600 to-purple-600 text-white shadow-md shadow-indigo-500/30 transform scale-105' : 'bg-white text-slate-600 hover:text-indigo-600 hover:bg-slate-50 hover:scale-105 shadow-sm border border-slate-200' }}">
             {{ $category->name }}
         </a>
         @endforeach
@@ -51,14 +51,14 @@
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
         @foreach($posts as $post)
         <article class="group relative bg-white/80 backdrop-blur-xl rounded-3xl shadow-sm hover:shadow-2xl border border-slate-100 hover:border-indigo-100 overflow-hidden flex flex-col transition-all duration-500 hover:-translate-y-2">
-            <div class="absolute inset-0 bg-gradient-to-br from-indigo-600/5 to-purple-600/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-3xl pointer-events-none"></div>
+            <div class="absolute inset-0 bg-linear-to-br from-indigo-600/5 to-purple-600/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-3xl pointer-events-none"></div>
             
-            <a href="{{ route('blog.show', $post->slug) }}" class="block aspect-[4/3] relative overflow-hidden bg-slate-100/50 m-2 rounded-2xl z-10 hover:shadow-inner">
+            <a href="{{ route('blog.show', $post->slug) }}" class="block aspect-4/3 relative overflow-hidden bg-slate-100/50 m-2 rounded-2xl z-10 hover:shadow-inner">
                 @if($post->cover_image)
                     <img src="{{ blog_cover_url($post->cover_image) }}" alt="{{ $post->title }}" class="absolute inset-0 w-full h-full object-cover group-hover:scale-110 group-hover:rotate-1 transition-all duration-700 ease-out">
-                    <div class="absolute inset-0 bg-gradient-to-t from-slate-900/60 to-transparent opacity-60 group-hover:opacity-40 transition-opacity duration-500"></div>
+                    <div class="absolute inset-0 bg-linear-to-t from-slate-900/60 to-transparent opacity-60 group-hover:opacity-40 transition-opacity duration-500"></div>
                 @else
-                    <div class="absolute inset-0 flex items-center justify-center text-slate-300 group-hover:scale-110 transition-transform duration-700 bg-gradient-to-br from-slate-100 to-slate-200">
+                    <div class="absolute inset-0 flex items-center justify-center text-slate-300 group-hover:scale-110 transition-transform duration-700 bg-linear-to-br from-slate-100 to-slate-200">
                         <svg class="w-16 h-16 drop-shadow-sm" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
                     </div>
                 @endif
@@ -79,7 +79,7 @@
                 </div>
                 
                 <a href="{{ route('blog.show', $post->slug) }}" class="block mb-4">
-                    <h2 class="text-2xl font-extrabold text-slate-900 group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-indigo-600 group-hover:to-purple-600 transition-all duration-300 line-clamp-2 leading-tight">
+                    <h2 class="text-2xl font-extrabold text-slate-900 group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-linear-to-r group-hover:from-indigo-600 group-hover:to-purple-600 transition-all duration-300 line-clamp-2 leading-tight">
                         {{ $post->title }}
                     </h2>
                 </a>
@@ -91,7 +91,7 @@
                 <div class="mt-auto flex items-center pt-6 border-t border-slate-100/80">
                     @if($post->author)
                     <div class="flex items-center gap-3">
-                        <div class="w-8 h-8 rounded-full bg-gradient-to-br from-indigo-500 to-purple-600 flex items-center justify-center text-white font-bold text-xs shadow-md">
+                        <div class="w-8 h-8 rounded-full bg-linear-to-br from-indigo-500 to-purple-600 flex items-center justify-center text-white font-bold text-xs shadow-md">
                             {{ substr($post->author->name, 0, 1) }}
                         </div>
                         <div class="font-bold text-slate-700 text-sm">
@@ -114,7 +114,7 @@
     
     @else
     <div class="text-center py-32 px-4 bg-white/60 backdrop-blur-xl rounded-[3rem] shadow-sm border border-slate-100 relative overflow-hidden">
-        <div class="absolute inset-0 bg-gradient-to-br from-transparent to-slate-50/50 pointer-events-none"></div>
+        <div class="absolute inset-0 bg-linear-to-br from-transparent to-slate-50/50 pointer-events-none"></div>
         <div class="relative z-10">
             <div class="mx-auto w-24 h-24 bg-slate-100 rounded-full flex items-center justify-center mb-6 shadow-inner">
                 <svg class="h-10 w-10 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9a2 2 0 00-2-2h-2m-4-3H9a2 2 0 00-2 2v2M4 7h16"></path></svg>

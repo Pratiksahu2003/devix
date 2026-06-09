@@ -64,12 +64,12 @@
                     <input
                         type="email"
                         required
-                        class="h-9 flex-1 rounded-md border border-white/15 bg-white/5 px-3 text-xs text-white placeholder-gray-500 focus:border-[var(--color-brand-lens-blue)] focus:outline-none focus:ring-1 focus:ring-[var(--color-brand-lens-blue)]"
+                        class="h-9 flex-1 rounded-md border border-white/15 bg-white/5 px-3 text-xs text-white placeholder-gray-500 focus:border-brand-lens-blue focus:outline-none focus:ring-1 focus:ring-brand-lens-blue"
                         placeholder="Your email"
                     >
                     <button
                         type="submit"
-                        class="inline-flex h-9 shrink-0 items-center rounded-md bg-[var(--color-brand-lens-blue)] px-3 text-xs font-semibold text-white transition hover:opacity-90"
+                        class="inline-flex h-9 shrink-0 items-center rounded-md bg-brand-lens-blue px-3 text-xs font-semibold text-white transition hover:opacity-90"
                     >
                         Join
                     </button>

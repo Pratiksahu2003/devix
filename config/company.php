@@ -7,8 +7,8 @@ return [
     'initials' => 'DW',
     'logo' => '/logo/logo.png',
     'phone' => [
-        'raw' => '7838663434',
-        'intl' => '+91-7838663434',
+        'raw' => '9540467000',
+        'intl' => '+91-9540467000',
     ],
     'email' => 'digital@tytil.com',
     'address' => [

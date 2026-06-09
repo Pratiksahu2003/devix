@@ -4,12 +4,18 @@ namespace App\Ai\Agents;
 
 use App\Models\Product;
 use Laravel\Ai\Contracts\Agent;
+use Laravel\Ai\Enums\Lab;
 use Laravel\Ai\Promptable;
+use Laravel\Ai\Responses\AgentResponse;
 use Stringable;
 
 class ProductAltTextAgent implements Agent
 {
-    use Promptable;
+    use Promptable {
+        prompt as protected traitPrompt;
+    }
+
+    protected ?string $productContext = null;
 
     /**
      * Get the instructions that the agent should follow.
@@ -30,11 +36,11 @@ TEXT;
     }
 
     /**
-     * Build the base prompt for a given product and optional image description.
+     * Attach product context for the next prompt call.
      */
     public function forProduct(Product $product, ?string $imageDescription = null): static
     {
-        $details = collect([
+        $this->productContext = collect([
             "Product / plan name: {$product->name}",
             $product->short_description ? "Short description: {$product->short_description}" : null,
             $product->category ? "Category: {$product->category}" : null,
@@ -44,6 +50,20 @@ TEXT;
             ->filter()
             ->implode("\n");
 
-        return $this->withPrompt("Generate alt text for this image:\n\n{$details}\n\nAlt text:");
+        return $this;
+    }
+
+    public function prompt(
+        string $prompt,
+        array $attachments = [],
+        Lab|array|string|null $provider = null,
+        ?string $model = null,
+        ?int $timeout = null,
+    ): AgentResponse {
+        if ($this->productContext !== null) {
+            $prompt = "Generate alt text for this image:\n\n{$this->productContext}\n\n{$prompt}";
+        }
+
+        return $this->traitPrompt($prompt, $attachments, $provider, $model, $timeout);
     }
 }

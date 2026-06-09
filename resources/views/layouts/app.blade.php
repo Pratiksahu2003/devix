@@ -70,7 +70,7 @@ $routeName = request()->route()?->getName();
     </script>
 </head>
 
-<body class="min-h-screen flex flex-col bg-[var(--color-surface)] text-[var(--color-text-main)]">
+<body class="min-h-screen flex flex-col bg-surface text-text-main">
     <div class="flex-1 flex flex-col">
         <x-layout.navbar />
 

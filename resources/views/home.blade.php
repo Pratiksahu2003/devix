@@ -31,11 +31,11 @@
         </div>
         @endforeach
         {{-- Dramatic overlay --}}
-        <div class="absolute inset-0 z-20 bg-gradient-to-r from-black via-black/90 to-black/40 pointer-events-none"></div>
-        <div class="absolute inset-0 z-20 bg-gradient-to-t from-black/60 via-transparent to-black/40 pointer-events-none"></div>
+        <div class="absolute inset-0 z-20 bg-linear-to-r from-black via-black/90 to-black/40 pointer-events-none"></div>
+        <div class="absolute inset-0 z-20 bg-linear-to-t from-black/60 via-transparent to-black/40 pointer-events-none"></div>
         {{-- Film-style corner accents --}}
         <div class="absolute inset-0 z-20 pointer-events-none border-[3px] border-white/10 md:border-white/20" style="border-radius: 2px;"></div>
-        <div class="absolute top-8 left-8 right-8 h-px bg-gradient-to-r from-transparent via-red-500/40 to-transparent z-20 pointer-events-none"></div>
+        <div class="absolute top-8 left-8 right-8 h-px bg-linear-to-r from-transparent via-red-500/40 to-transparent z-20 pointer-events-none"></div>
         {{-- Subtle film grain --}}
         <div class="absolute inset-0 z-20 pointer-events-none opacity-[0.03] mix-blend-overlay" style="background-image: url('data:image/svg+xml,%3Csvg viewBox=%220 0 256 256%22 xmlns=%22http://www.w3.org/2000/svg%22%3E%3Cfilter id=%22noise%22%3E%3CfeTurbulence type=%22fractalNoise%22 baseFrequency=%220.9%22 numOctaves=%224%22 stitchTiles=%22stitch%22/%3E%3C/filter%3E%3Crect width=%22100%25%22 height=%22100%25%22 filter=%22url(%23noise)%22/%3E%3C/svg%3E');"></div>
     </div>
@@ -52,7 +52,7 @@
 
                 <h1 class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black text-white leading-[1.05] tracking-tight">
                     <span class="block font-sans">Your Creative</span>
-                    <span class="block mt-1 font-serif bg-gradient-to-r from-white via-red-200 to-red-500 bg-clip-text text-transparent bg-[length:200%_auto] animate-gradient" style="text-shadow: 0 0 60px rgba(220,38,38,0.4);">Space Awaits</span>
+                    <span class="block mt-1 font-serif bg-linear-to-r from-white via-red-200 to-red-500 bg-clip-text text-transparent bg-size-[200%_auto] animate-gradient" style="text-shadow: 0 0 60px rgba(220,38,38,0.4);">Space Awaits</span>
                 </h1>
                 <p class="mt-5 text-lg md:text-xl text-gray-300 max-w-lg leading-relaxed">
                     Pro gear, versatile sets & 24/7 access. Fashion, product, commercial & videography — all under one roof.
@@ -79,8 +79,8 @@
             </div>
 
             {{-- Right: Floating image card (synced with slide) --}}
-            <div class="hidden lg:block flex-shrink-0 reveal-up delay-200" x-intersect="$el.classList.add('is-visible')">
-                <div class="relative w-72 xl:w-80 aspect-[4/5] rounded-2xl overflow-hidden border-2 border-white/20 shadow-2xl shadow-black/50 ring-2 ring-white/10">
+            <div class="hidden lg:block shrink-0 reveal-up delay-200" x-intersect="$el.classList.add('is-visible')">
+                <div class="relative w-72 xl:w-80 aspect-4/5 rounded-2xl overflow-hidden border-2 border-white/20 shadow-2xl shadow-black/50 ring-2 ring-white/10">
                     @foreach(['IMG_0785.jpeg', 'IMG_0769.jpeg', 'IMG_0784.jpeg', 'IMG_0780.jpeg', 'IMG_0781.jpeg', 'IMG_0783.jpeg'] as $i => $img)
                     <div x-show="slide === {{ $i }}"
                         x-transition:enter="transition ease-out duration-700"
@@ -93,7 +93,7 @@
                         <img src="{{ asset('storage/room/' . $img) }}" alt="Studio" class="h-full w-full object-cover">
                     </div>
                     @endforeach
-                    <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+                    <div class="absolute inset-0 bg-linear-to-t from-black/60 to-transparent"></div>
                     <div class="absolute bottom-4 left-4 right-4">
                         <span class="text-xs font-bold tracking-widest text-white/90 uppercase">DYWIX Studio</span>
                     </div>
@@ -123,8 +123,8 @@
 {{-- Scrolling Text Marquee (Modern Infinite) --}}
 <div class="relative overflow-hidden bg-black py-6 md:py-8 border-b border-white/10">
     {{-- Gradient Masks --}}
-    <div class="pointer-events-none absolute inset-y-0 left-0 w-32 bg-gradient-to-r from-black to-transparent z-10"></div>
-    <div class="pointer-events-none absolute inset-y-0 right-0 w-32 bg-gradient-to-l from-black to-transparent z-10"></div>
+    <div class="pointer-events-none absolute inset-y-0 left-0 w-32 bg-linear-to-r from-black to-transparent z-10"></div>
+    <div class="pointer-events-none absolute inset-y-0 right-0 w-32 bg-linear-to-l from-black to-transparent z-10"></div>
 
     <div class="marquee-track flex items-center gap-16 hover:[animation-play-state:paused]">
         <div class="flex items-center gap-16 shrink-0">
@@ -153,8 +153,8 @@
 
     <div class="relative w-full overflow-hidden">
         {{-- Gradient Masks --}}
-        <div class="pointer-events-none absolute inset-y-0 left-0 w-24 bg-gradient-to-r from-white to-transparent z-10"></div>
-        <div class="pointer-events-none absolute inset-y-0 right-0 w-24 bg-gradient-to-l from-white to-transparent z-10"></div>
+        <div class="pointer-events-none absolute inset-y-0 left-0 w-24 bg-linear-to-r from-white to-transparent z-10"></div>
+        <div class="pointer-events-none absolute inset-y-0 right-0 w-24 bg-linear-to-l from-white to-transparent z-10"></div>
 
         {{-- Infinite Marquee Track --}}
         <div class="marquee-track flex items-center gap-12 hover:[animation-play-state:paused] py-4">
@@ -203,10 +203,10 @@
                 @mouseenter="hover = true"
                 :style="`transform: perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(${hover ? 1.02 : 1}); transition: transform 0.1s ease-out;`">
                 <img src="{{ asset('storage/room/IMG_0780.jpeg') }}" class="h-full w-full object-cover transition-transform duration-700 scale-100">
-                <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-transparent to-transparent"></div>
+                <div class="absolute inset-0 bg-linear-to-t from-black/90 via-transparent to-transparent"></div>
 
                 {{-- Shine Effect --}}
-                <div class="absolute inset-0 bg-gradient-to-tr from-transparent via-white/20 to-transparent translate-x-[-100%] transition-transform duration-1000 group-hover:translate-x-[100%]"></div>
+                <div class="absolute inset-0 bg-linear-to-tr from-transparent via-white/20 to-transparent -translate-x-full transition-transform duration-1000 group-hover:translate-x-full"></div>
 
                 <div class="absolute bottom-6 left-6 translate-y-4 transition-transform duration-500 group-hover:translate-y-0">
                     <h3 class="text-xl font-bold text-white">Fashion & Editorial</h3>
@@ -229,10 +229,10 @@
                 @mouseenter="hover = true"
                 :style="`transform: perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(${hover ? 1.02 : 1}); transition: transform 0.1s ease-out;`">
                 <img src="{{ asset('storage/room/IMG_0781.jpeg') }}" class="h-full w-full object-cover transition-transform duration-700 scale-100">
-                <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-transparent to-transparent"></div>
+                <div class="absolute inset-0 bg-linear-to-t from-black/90 via-transparent to-transparent"></div>
 
                 {{-- Shine Effect --}}
-                <div class="absolute inset-0 bg-gradient-to-tr from-transparent via-white/20 to-transparent translate-x-[-100%] transition-transform duration-1000 group-hover:translate-x-[100%]"></div>
+                <div class="absolute inset-0 bg-linear-to-tr from-transparent via-white/20 to-transparent -translate-x-full transition-transform duration-1000 group-hover:translate-x-full"></div>
 
                 <div class="absolute bottom-6 left-6 translate-y-4 transition-transform duration-500 group-hover:translate-y-0">
                     <h3 class="text-xl font-bold text-white">Video Podcast</h3>
@@ -255,10 +255,10 @@
                 @mouseenter="hover = true"
                 :style="`transform: perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(${hover ? 1.02 : 1}); transition: transform 0.1s ease-out;`">
                 <img src="{{ asset('storage/room/IMG_0782.jpeg') }}" class="h-full w-full object-cover transition-transform duration-700 scale-100">
-                <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-transparent to-transparent"></div>
+                <div class="absolute inset-0 bg-linear-to-t from-black/90 via-transparent to-transparent"></div>
 
                 {{-- Shine Effect --}}
-                <div class="absolute inset-0 bg-gradient-to-tr from-transparent via-white/20 to-transparent translate-x-[-100%] transition-transform duration-1000 group-hover:translate-x-[100%]"></div>
+                <div class="absolute inset-0 bg-linear-to-tr from-transparent via-white/20 to-transparent -translate-x-full transition-transform duration-1000 group-hover:translate-x-full"></div>
 
                 <div class="absolute bottom-6 left-6 translate-y-4 transition-transform duration-500 group-hover:translate-y-0">
                     <h3 class="text-xl font-bold text-white">Product & Commercial</h3>
@@ -278,7 +278,7 @@
                     <span class="text-blue-500 font-bold tracking-widest uppercase text-xs">The Studio</span>
                     <h2 class="mt-2 text-4xl font-bold tracking-tighter sm:text-5xl">
                         Create. Record.
-                        <span class="block mt-2 text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-white to-blue-200">Go Live.</span>
+                        <span class="block mt-2 text-transparent bg-clip-text bg-linear-to-r from-blue-400 via-white to-blue-200">Go Live.</span>
                     </h2>
                     <p class="mt-4 text-lg text-gray-400 font-light leading-relaxed">
                         Experience a premium podcast studio designed for creators and brands. Just show up and speak — we take care of the production.
@@ -320,7 +320,7 @@
             {{-- Visual Representation --}}
             <div class="relative h-[450px] w-full rounded-2xl overflow-hidden shadow-2xl shadow-black/50 ring-2 ring-white/10 reveal-up delay-200" x-intersect="$el.classList.add('is-visible')">
                 <img src="{{ asset('storage/room/IMG_0783.jpeg') }}" alt="Podcast Studio" class="h-full w-full object-cover transition-transform duration-700 hover:scale-110">
-                <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
+                <div class="absolute inset-0 bg-linear-to-t from-black/80 via-transparent to-transparent"></div>
                 <div class="absolute bottom-6 left-6 right-6">
                     <div class="inline-flex items-center gap-2 rounded-full bg-green-500/20 px-3 py-1 text-[10px] font-bold text-green-400 backdrop-blur-md border border-green-500/30 mb-3">
                         <span class="h-2 w-2 rounded-full bg-green-400 animate-pulse"></span> Available Today
@@ -385,7 +385,7 @@
 </section>
 
 {{-- NEW SECTION 3: Life at dyWix (Modern Bento Compact) --}}
-<section class="relative bg-gradient-to-b from-slate-50 to-white py-10 md:py-12 overflow-hidden" x-data="{ mouseX: 0, mouseY: 0 }" @mousemove="mouseX = $event.clientX; mouseY = $event.clientY">
+<section class="relative bg-linear-to-b from-slate-50 to-white py-10 md:py-12 overflow-hidden" x-data="{ mouseX: 0, mouseY: 0 }" @mousemove="mouseX = $event.clientX; mouseY = $event.clientY">
     {{-- Ambient accent --}}
     <div class="absolute top-0 right-0 w-96 h-96 bg-red-500/5 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2"></div>
     <div class="absolute bottom-0 left-0 w-64 h-64 bg-blue-500/5 rounded-full blur-3xl translate-y-1/2 -translate-x-1/2"></div>
@@ -432,7 +432,7 @@
               {{-- Image 2 (Bottom Middle) --}}
               <div class="md:col-span-1 md:row-span-1 rounded-2xl overflow-hidden relative group reveal-up delay-200 shadow-lg shadow-gray-200/50 hover:shadow-xl hover:shadow-gray-300/50 transition-all duration-500 ring-1 ring-black/5" x-intersect="$el.classList.add('is-visible')">
                 <img src="{{ asset('storage/room/IMG_0770.jpeg') }}" alt="DyWix Studio space" class="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110">
-                <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-80 group-hover:opacity-60 transition-opacity duration-500"></div>
+                <div class="absolute inset-0 bg-linear-to-t from-black/50 to-transparent opacity-80 group-hover:opacity-60 transition-opacity duration-500"></div>
                 <div class="absolute bottom-3 left-3 right-3">
                     <span class="text-xs font-medium text-white/90 drop-shadow-sm">Studio Vibes</span>
                 </div>
@@ -452,7 +452,7 @@
             {{-- Image 1 (Top Right) --}}
             <div class="md:col-span-2 md:row-span-1 rounded-2xl overflow-hidden relative group reveal-up delay-100 shadow-lg shadow-gray-200/50 hover:shadow-xl hover:shadow-gray-300/50 transition-all duration-500 ring-1 ring-black/5" x-intersect="$el.classList.add('is-visible')">
                 <img src="{{ asset('storage/room/IMG_0787.jpeg') }}" alt="BTS at DyWix Studio" class="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110">
-                <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent group-hover:from-black/50 transition-all duration-500"></div>
+                <div class="absolute inset-0 bg-linear-to-t from-black/70 via-black/20 to-transparent group-hover:from-black/50 transition-all duration-500"></div>
                 <div class="absolute bottom-3 left-3 right-3 flex items-end justify-between">
                     <span class="inline-flex items-center rounded-full bg-white/20 px-2.5 py-1 text-xs font-semibold text-white backdrop-blur-md border border-white/20">BTS Action</span>
                 </div>
@@ -521,7 +521,7 @@
             </div>
 
             {{-- Amenity 5: Air-Conditioned Space --}}
-            <div class="flex flex-col items-center text-center p-6 bg-white rounded-2xl shadow-sm hover:shadow-md transition-all duration-300 hover:-translate-y-1 border border-gray-100 reveal-up delay-[400ms]"
+            <div class="flex flex-col items-center text-center p-6 bg-white rounded-2xl shadow-sm hover:shadow-md transition-all duration-300 hover:-translate-y-1 border border-gray-100 reveal-up delay-400"
                 x-intersect="$el.classList.add('is-visible')">
                 <div class="h-12 w-12 rounded-full bg-cyan-50 text-cyan-600 flex items-center justify-center mb-4">
                     <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -582,7 +582,7 @@
             <div class="rounded-xl border border-gray-200 overflow-hidden hover:shadow-md transition reveal-up" x-intersect="$el.classList.add('is-visible')">
                 <button @click="active = (active === 1 ? null : 1)" class="flex w-full items-center justify-between p-5 text-left font-bold text-gray-900 hover:bg-blue-50/50">
                     <span>What services does DyWix Studio offer?</span>
-                    <svg class="h-5 w-5 transform transition-transform flex-shrink-0" :class="active === 1 ? 'rotate-180' : ''" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <svg class="h-5 w-5 transform transition-transform shrink-0" :class="active === 1 ? 'rotate-180' : ''" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
                     </svg>
                 </button>
@@ -594,7 +594,7 @@
             <div class="rounded-xl border border-gray-200 overflow-hidden hover:shadow-md transition reveal-up delay-100" x-intersect="$el.classList.add('is-visible')">
                 <button @click="active = (active === 2 ? null : 2)" class="flex w-full items-center justify-between p-5 text-left font-bold text-gray-900 hover:bg-blue-50/50">
                     <span>Do I need to bring my own equipment?</span>
-                    <svg class="h-5 w-5 transform transition-transform flex-shrink-0" :class="active === 2 ? 'rotate-180' : ''" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <svg class="h-5 w-5 transform transition-transform shrink-0" :class="active === 2 ? 'rotate-180' : ''" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
                     </svg>
                 </button>
@@ -606,7 +606,7 @@
             <div class="rounded-xl border border-gray-200 overflow-hidden hover:shadow-md transition reveal-up delay-200" x-intersect="$el.classList.add('is-visible')">
                 <button @click="active = (active === 3 ? null : 3)" class="flex w-full items-center justify-between p-5 text-left font-bold text-gray-900 hover:bg-blue-50/50">
                     <span>What type of content can I record?</span>
-                    <svg class="h-5 w-5 transform transition-transform flex-shrink-0" :class="active === 3 ? 'rotate-180' : ''" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <svg class="h-5 w-5 transform transition-transform shrink-0" :class="active === 3 ? 'rotate-180' : ''" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
                     </svg>
                 </button>
@@ -618,7 +618,7 @@
             <div class="rounded-xl border border-gray-200 overflow-hidden hover:shadow-md transition reveal-up delay-300" x-intersect="$el.classList.add('is-visible')">
                 <button @click="active = (active === 4 ? null : 4)" class="flex w-full items-center justify-between p-5 text-left font-bold text-gray-900 hover:bg-blue-50/50">
                     <span>How do I book a session?</span>
-                    <svg class="h-5 w-5 transform transition-transform flex-shrink-0" :class="active === 4 ? 'rotate-180' : ''" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <svg class="h-5 w-5 transform transition-transform shrink-0" :class="active === 4 ? 'rotate-180' : ''" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
                     </svg>
                 </button>
@@ -635,7 +635,7 @@
     <div class="absolute inset-0">
         <img src="{{ asset('storage/room/IMG_0779.jpeg') }}" class="h-full w-full object-cover">
     </div>
-    <div class="absolute inset-0 bg-gradient-to-t from-black via-black/80 to-transparent"></div>
+    <div class="absolute inset-0 bg-linear-to-t from-black via-black/80 to-transparent"></div>
 
     <div class="relative z-10 mx-auto max-w-4xl px-4 text-center">
         <h2 class="text-4xl font-bold tracking-tight sm:text-5xl mb-6">Ready to Create?</h2>
@@ -663,7 +663,7 @@
                 class="text-4xl font-bold tracking-tighter text-black sm:text-6xl lg:text-7xl transition-all duration-1000 transform scale-90 opacity-0"
                 :class="{ 'scale-100 opacity-100': shown }">
                 Built for efficiency.<br />
-                <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600">Designed for excellence.</span>
+                <span class="text-transparent bg-clip-text bg-linear-to-r from-blue-600 to-purple-600">Designed for excellence.</span>
             </h2>
             <p
                 class="mx-auto mt-6 max-w-3xl text-lg text-gray-500 font-light leading-relaxed transition-all duration-1000 delay-300 transform translate-y-8 opacity-0"
@@ -675,7 +675,7 @@
 </section>
 
 {{-- Modern Pricing Cards (Enhanced) --}}
-<section class="relative bg-gradient-to-b from-slate-50 to-white py-20 overflow-hidden" id="pricing">
+<section class="relative bg-linear-to-b from-slate-50 to-white py-20 overflow-hidden" id="pricing">
     {{-- Ambient accents --}}
     <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[300px] bg-red-500/5 rounded-full blur-3xl"></div>
     <div class="absolute bottom-0 right-0 w-96 h-96 bg-blue-500/5 rounded-full blur-3xl translate-y-1/2 translate-x-1/2"></div>

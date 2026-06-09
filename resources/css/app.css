@@ -30,7 +30,7 @@
     }
 
     body {
-        @apply bg-[var(--color-surface)] text-[var(--color-text-main)] font-sans;
+        @apply bg-surface text-text-main font-sans;
     }
 }
 

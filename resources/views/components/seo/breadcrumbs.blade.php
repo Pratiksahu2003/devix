@@ -11,7 +11,7 @@
                 @if($i === count($crumbs) - 1)
                     <span class="font-medium {{ $theme === 'light' ? 'text-gray-900' : 'text-white' }}">{{ $crumb['label'] }}</span>
                 @else
-                    <a href="{{ $crumb['url'] }}" class="hover:underline {{ $theme === 'light' ? 'hover:text-[var(--color-brand-lens-blue)]' : 'hover:text-white' }} transition-colors">{{ $crumb['label'] }}</a>
+                    <a href="{{ $crumb['url'] }}" class="hover:underline {{ $theme === 'light' ? 'hover:text-brand-lens-blue' : 'hover:text-white' }} transition-colors">{{ $crumb['label'] }}</a>
                 @endif
             </li>
         @endforeach
