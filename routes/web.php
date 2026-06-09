@@ -6,19 +6,24 @@ use App\Http\Controllers\ContactController;
 use App\Http\Controllers\SubscriberController;
 use App\Http\Controllers\OgController;
 use App\Http\Controllers\GalleryController;
+use App\Http\Controllers\Seo\SeoHubController;
+use App\Http\Controllers\Seo\SeoMasterHubController;
+use App\Http\Controllers\Seo\SitemapController as SeoSitemapController;
 
 Route::get('/', HomeController::class)->name('home');
 
-// Studio informational pages
-Route::view('/photography-studio', 'pages.photography')->name('pages.photography');
-Route::view('/videography-studio', 'pages.videography')->name('pages.videography');
-Route::view('/podcast-studio', 'pages.podcast')->name('pages.podcast');
-Route::view('/edit-room', 'pages.edit-room')->name('pages.edit-room');
+// Legacy URLs → 301 to canonical SEO hub slugs
+foreach (config('seo.legacy_redirects', []) as $legacy => $canonical) {
+    Route::permanentRedirect('/'.$legacy, '/'.$canonical);
+}
 
-// Additional commercial & content routes
-Route::view('/tv-commercials', 'pages.tvc')->name('pages.tvc');
-Route::view('/corporate-films', 'pages.corporate-films')->name('pages.corporate-films');
-Route::view('/instagram-reels', 'pages.reels')->name('pages.reels');
+// SEO service hub pages (replaces static Blade service pages)
+foreach (config('seo.service_route_names', []) as $slug => $routeName) {
+    Route::get('/'.$slug, [SeoHubController::class, 'showHub'])->name($routeName);
+}
+
+// Remaining studio pages (not yet in SEO service hubs)
+Route::view('/edit-room', 'pages.edit-room')->name('pages.edit-room');
 
 Route::view('/services', 'pages.services')->name('pages.services');
 Route::view('/pricing', 'pages.pricing')->name('pages.pricing');
@@ -57,7 +62,24 @@ Route::get('/blog/{slug}', [App\Http\Controllers\BlogController::class , 'show']
 Route::get('/category/{slug}', [App\Http\Controllers\CategoryController::class, 'show'])->name('category.show');
 
 // ==========================================
-// CATCH-ALL ROUTE FOR SEO LANDING PAGES
+// SEO HUB SYSTEM (Central Authority Architecture)
+// ==========================================
+foreach (config('seo.hub_legacy_redirects', []) as $legacy => $canonical) {
+    Route::permanentRedirect('/'.$legacy, '/'.$canonical);
+}
+
+Route::get(config('seo.hubs.locations'), [SeoMasterHubController::class, 'locations'])->name('seo.locations');
+Route::get(config('seo.hubs.industries'), [SeoMasterHubController::class, 'industries'])->name('seo.industries');
+Route::get(config('seo.hubs.guides'), [SeoMasterHubController::class, 'guides'])->name('seo.guides');
+Route::get(config('seo.hubs.resources'), [SeoMasterHubController::class, 'resources'])->name('seo.resources');
+Route::get(config('seo.hubs.directory'), [SeoMasterHubController::class, 'directory'])->name('seo.directory');
+Route::get(config('seo.hubs.sitemaps'), [SeoMasterHubController::class, 'sitemaps'])->name('seo.sitemaps');
+
+Route::get('/sitemap.xml', [SeoSitemapController::class, 'index'])->name('seo.sitemap.index');
+Route::get('/sitemap-{type}.xml', [SeoSitemapController::class, 'show'])->name('seo.sitemap.show');
+
+// ==========================================
+// CATCH-ALL: SEO HUB PAGES → CMS FALLBACK
 // ==========================================
 // Must remain at the absolute bottom.
-Route::get('/{slug}', [\App\Http\Controllers\PageController::class , 'show'])->name('pages.show');
+Route::get('/{slug}', [SeoHubController::class, 'showOrFallback'])->name('pages.show');

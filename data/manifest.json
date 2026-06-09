@@ -1,0 +1,22 @@
+{
+  "version": 1,
+  "description": "DyWix SEO hub datasets — edit JSON files directly, no database required.",
+  "path": "data/",
+  "files": {
+    "services.json": "Level 2 service hubs (slug, name, category, equipment, process)",
+    "cities.json": "Level 3 city hubs (slug, name, state, region, distance_km, description)",
+    "localities.json": "Level 4 locality hubs (slug, name, city, metro, description, nearby)",
+    "landmarks.json": "Level 5 landmark hubs (slug, name, type, city, distance_km, nearby_areas)",
+    "industries.json": "Level 6 industry hubs (slug, name, category, description, use_cases)",
+    "blogs.json": "Blog cluster metadata (slug, title, category, excerpt, service)"
+  },
+  "commands": {
+    "validate": "php artisan seo:validate-dataset",
+    "sitemaps": "php artisan seo:sitemaps"
+  },
+  "seo": {
+    "schema_types": ["Organization", "WebSite", "WebPage", "BreadcrumbList", "LocalBusiness", "ProfessionalService", "Service", "Offer", "FAQPage", "Article", "Review", "AggregateRating", "Place", "CollectionPage"],
+    "meta_tags": ["description", "keywords", "canonical", "hreflang", "robots", "geo", "og", "twitter"],
+    "services": ["SeoSchemaService", "SeoMetaService", "SeoContentBuilder"]
+  }
+}

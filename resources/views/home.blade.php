@@ -1,6 +1,12 @@
 @extends('layouts.app')
 
-@section('title', config('company.brand').' | Premier Podcast & Content Studio in Delhi NCR')
+@section('title', $pageTitle ?? config('company.brand').' | Premier Podcast & Content Studio in Delhi NCR')
+
+@section('seo_head')
+    @isset($seo)
+        <x-seo.head :meta="$seo['meta']" :schema="$seo['schema_graph']" />
+    @endisset
+@endsection
 
 @section('content')
 {{-- Hero Section - Cinematic & Bold --}}
@@ -759,6 +765,9 @@
         </div>
     </div>
 </section>
+
+{{-- SEO Hub Authority Links --}}
+<x-home.seo-hub-links />
 
 {{-- Contact CTA (Compacted) --}}
 <div class="py-12">

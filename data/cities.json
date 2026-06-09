@@ -1,0 +1,318 @@
+[
+    {
+        "slug": "delhi",
+        "name": "Delhi",
+        "state": "Delhi",
+        "region": "NCR",
+        "population_tier": "metro",
+        "distance_km": 0,
+        "description": "India's capital and largest content creation market with agencies, startups, and creators across every niche."
+    },
+    {
+        "slug": "new-delhi",
+        "name": "New Delhi",
+        "state": "Delhi",
+        "region": "NCR",
+        "population_tier": "metro",
+        "distance_km": 8,
+        "description": "Central Delhi hub for corporate offices, embassies, and premium brand content production."
+    },
+    {
+        "slug": "noida",
+        "name": "Noida",
+        "state": "Uttar Pradesh",
+        "region": "NCR",
+        "population_tier": "metro",
+        "distance_km": 28,
+        "description": "Fast-growing corporate and tech hub with strong demand for video and podcast content."
+    },
+    {
+        "slug": "gurugram",
+        "name": "Gurugram",
+        "state": "Haryana",
+        "region": "NCR",
+        "population_tier": "metro",
+        "distance_km": 22,
+        "description": "Fortune 500 headquarters and startup ecosystem driving corporate video and photography needs."
+    },
+    {
+        "slug": "gurgaon",
+        "name": "Gurgaon",
+        "state": "Haryana",
+        "region": "NCR",
+        "population_tier": "metro",
+        "distance_km": 22,
+        "alias_of": "gurugram",
+        "description": "Alias for Gurugram — major corporate and MNC content production center."
+    },
+    {
+        "slug": "faridabad",
+        "name": "Faridabad",
+        "state": "Haryana",
+        "region": "NCR",
+        "population_tier": "tier1",
+        "distance_km": 35,
+        "description": "Industrial and manufacturing hub with growing demand for product photography and corporate films."
+    },
+    {
+        "slug": "ghaziabad",
+        "name": "Ghaziabad",
+        "state": "Uttar Pradesh",
+        "region": "NCR",
+        "population_tier": "tier1",
+        "distance_km": 32,
+        "description": "Eastern NCR city with retail, education, and healthcare content production needs."
+    },
+    {
+        "slug": "dwarka",
+        "name": "Dwarka",
+        "state": "Delhi",
+        "region": "NCR",
+        "population_tier": "subcity",
+        "distance_km": 0,
+        "description": "Sub-city of Delhi where DyWix studio is located — ideal for West Delhi creators."
+    },
+    {
+        "slug": "south-delhi",
+        "name": "South Delhi",
+        "state": "Delhi",
+        "region": "NCR",
+        "population_tier": "subcity",
+        "distance_km": 12,
+        "description": "Premium residential and commercial district with fashion, lifestyle, and influencer content demand."
+    },
+    {
+        "slug": "east-delhi",
+        "name": "East Delhi",
+        "state": "Delhi",
+        "region": "NCR",
+        "population_tier": "subcity",
+        "distance_km": 18,
+        "description": "Dense commercial area with strong small business and D2C brand photography needs."
+    },
+    {
+        "slug": "west-delhi",
+        "name": "West Delhi",
+        "state": "Delhi",
+        "region": "NCR",
+        "population_tier": "subcity",
+        "distance_km": 5,
+        "description": "Closest Delhi zone to DyWix studio with easy metro and road access."
+    },
+    {
+        "slug": "north-delhi",
+        "name": "North Delhi",
+        "state": "Delhi",
+        "region": "NCR",
+        "population_tier": "subcity",
+        "distance_km": 20,
+        "description": "University and retail hub with educational and youth-focused content demand."
+    },
+    {
+        "slug": "greater-noida",
+        "name": "Greater Noida",
+        "state": "Uttar Pradesh",
+        "region": "NCR",
+        "population_tier": "tier1",
+        "distance_km": 38,
+        "description": "Expanding residential and industrial zone with corporate and real estate content needs."
+    },
+    {
+        "slug": "sonipat",
+        "name": "Sonipat",
+        "state": "Haryana",
+        "region": "NCR",
+        "population_tier": "tier2",
+        "distance_km": 55,
+        "description": "Emerging NCR extension with education and manufacturing content requirements."
+    },
+    {
+        "slug": "bahadurgarh",
+        "name": "Bahadurgarh",
+        "state": "Haryana",
+        "region": "NCR",
+        "population_tier": "tier2",
+        "distance_km": 40,
+        "description": "Industrial town on Delhi border with product and corporate photography demand."
+    },
+    {
+        "slug": "meerut",
+        "name": "Meerut",
+        "state": "Uttar Pradesh",
+        "region": "NCR",
+        "population_tier": "tier2",
+        "distance_km": 70,
+        "description": "Eastern UP city with manufacturing and education content production."
+    },
+    {
+        "slug": "panipat",
+        "name": "Panipat",
+        "state": "Haryana",
+        "region": "NCR",
+        "population_tier": "tier2",
+        "distance_km": 90,
+        "description": "Textile and industrial hub with product photography demand."
+    },
+    {
+        "slug": "rohtak",
+        "name": "Rohtak",
+        "state": "Haryana",
+        "region": "NCR",
+        "population_tier": "tier2",
+        "distance_km": 70,
+        "description": "Education hub with coaching and institutional video content needs."
+    },
+    {
+        "slug": "karnal",
+        "name": "Karnal",
+        "state": "Haryana",
+        "region": "NCR",
+        "population_tier": "tier2",
+        "distance_km": 120,
+        "description": "Agricultural and industrial city on NH-44 with corporate content needs."
+    },
+    {
+        "slug": "palwal",
+        "name": "Palwal",
+        "state": "Haryana",
+        "region": "NCR",
+        "population_tier": "tier2",
+        "distance_km": 60,
+        "description": "Southern Haryana town with logistics and manufacturing content demand."
+    },
+    {
+        "slug": "manesar",
+        "name": "Manesar",
+        "state": "Haryana",
+        "region": "NCR",
+        "population_tier": "tier1",
+        "distance_km": 35,
+        "description": "Industrial belt adjacent to Gurugram with automotive and manufacturing content."
+    },
+    {
+        "slug": "vasant-kunj",
+        "name": "Vasant Kunj",
+        "state": "Delhi",
+        "region": "NCR",
+        "population_tier": "subcity",
+        "distance_km": 14,
+        "description": "Premium South Delhi residential and mall district."
+    },
+    {
+        "slug": "central-delhi",
+        "name": "Central Delhi",
+        "state": "Delhi",
+        "region": "NCR",
+        "population_tier": "subcity",
+        "distance_km": 15,
+        "description": "Government and heritage district with institutional content needs."
+    },
+    {
+        "slug": "shahdara",
+        "name": "Shahdara",
+        "state": "Delhi",
+        "region": "NCR",
+        "population_tier": "subcity",
+        "distance_km": 25,
+        "description": "Eastern Delhi transit hub with retail and wholesale markets."
+    },
+    {
+        "slug": "mayur-vihar",
+        "name": "Mayur Vihar",
+        "state": "Delhi",
+        "region": "NCR",
+        "population_tier": "subcity",
+        "distance_km": 22,
+        "description": "Residential hub on Delhi-Noida border with family and education content."
+    },
+    {
+        "slug": "laxmi-nagar",
+        "name": "Laxmi Nagar",
+        "state": "Delhi",
+        "region": "NCR",
+        "population_tier": "subcity",
+        "distance_km": 20,
+        "description": "Coaching and education hub in East Delhi."
+    },
+    {
+        "slug": "janakpuri",
+        "name": "Janakpuri",
+        "state": "Delhi",
+        "region": "NCR",
+        "population_tier": "subcity",
+        "distance_km": 8,
+        "description": "Major West Delhi residential and commercial center."
+    },
+    {
+        "slug": "rajouri-garden",
+        "name": "Rajouri Garden",
+        "state": "Delhi",
+        "region": "NCR",
+        "population_tier": "subcity",
+        "distance_km": 12,
+        "description": "Popular West Delhi market and metro hub."
+    },
+    {
+        "slug": "pitampura",
+        "name": "Pitampura",
+        "state": "Delhi",
+        "region": "NCR",
+        "population_tier": "subcity",
+        "distance_km": 18,
+        "description": "North West Delhi residential and TV tower landmark area."
+    },
+    {
+        "slug": "rohini",
+        "name": "Rohini",
+        "state": "Delhi",
+        "region": "NCR",
+        "population_tier": "subcity",
+        "distance_km": 22,
+        "description": "Large planned sub-city in North West Delhi."
+    },
+    {
+        "slug": "vasundhara",
+        "name": "Vasundhara",
+        "state": "Uttar Pradesh",
+        "region": "NCR",
+        "population_tier": "tier1",
+        "distance_km": 30,
+        "description": "Ghaziabad residential hub popular with families and professionals."
+    },
+    {
+        "slug": "indirapuram",
+        "name": "Indirapuram",
+        "state": "Uttar Pradesh",
+        "region": "NCR",
+        "population_tier": "tier1",
+        "distance_km": 28,
+        "description": "Premium Ghaziabad township with retail and residential content demand."
+    },
+    {
+        "slug": "raj-nagar-extension",
+        "name": "Raj Nagar Extension",
+        "state": "Uttar Pradesh",
+        "region": "NCR",
+        "population_tier": "tier1",
+        "distance_km": 30,
+        "description": "Growing Ghaziabad extension with new residential projects."
+    },
+    {
+        "slug": "ballabhgarh",
+        "name": "Ballabhgarh",
+        "state": "Haryana",
+        "region": "NCR",
+        "population_tier": "tier2",
+        "distance_km": 42,
+        "description": "Southern Faridabad industrial area."
+    },
+    {
+        "slug": "dharuhera",
+        "name": "Dharuhera",
+        "state": "Haryana",
+        "region": "NCR",
+        "population_tier": "tier2",
+        "distance_km": 48,
+        "description": "Industrial corridor between Gurugram and Rajasthan border."
+    }
+]

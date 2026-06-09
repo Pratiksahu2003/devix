@@ -36,6 +36,9 @@
                     <li><a href="{{ route('pages.contact') }}" class="hover:text-white transition-colors">Contact us</a></li>
                     <li><a href="{{ route('pages.gallery') }}" class="hover:text-white transition-colors">Gallery</a></li>
                     <li><a href="{{ route('blog.index') }}" class="hover:text-white transition-colors">Our Blog</a></li>
+                    <li><a href="{{ route('seo.resources') }}" class="hover:text-white transition-colors">Resources</a></li>
+                    <li><a href="{{ route('seo.locations') }}" class="hover:text-white transition-colors">Locations</a></li>
+                    <li><a href="{{ route('seo.directory') }}" class="hover:text-white transition-colors">SEO Directory</a></li>
                 </ul>
             </div>
 

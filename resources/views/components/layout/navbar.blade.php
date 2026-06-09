@@ -41,6 +41,11 @@
                                 'key' => 'services',
                                 'route' => 'pages.services',
                             ],
+                            [
+                                'label' => 'Resources',
+                                'key' => 'resources',
+                                'route' => 'seo.resources',
+                            ],
                              [
                                 'label' => 'Our Work',
                                 'key' => 'our-work',

@@ -12,36 +12,48 @@ $routeName = request()->route()?->getName();
     <link rel="icon" type="image/png" href="{{ asset('logo/fav/favicon.PNG') }}">
     @php $brand = config('company.brand'); @endphp
     <title>@yield('title', $brand)</title>
-
-    @if (trim($__env->yieldContent('meta')))
-    @yield('meta')
-    @else
-    <meta name="description"
-        content="{{ $brand }} is a 24×7 rental photography, videography, and podcast studio in Delhi NCR with dedicated sets, makeup room, and edit space under one roof.">
-    @endif
-    <link rel="canonical" href="{{ url()->current() }}">
-    <meta name="author" content="{{ $brand }}">
     <meta name="theme-color" content="#004aad">
-    <meta name="robots" content="index,follow">
 
-    {{-- Open Graph / Twitter cards --}}
-    @php
-    $pageTitle = trim($__env->yieldContent('title')) ?: $brand;
-    $pageDescription = trim($__env->yieldContent('meta')) ? '' : $brand.' is a 24×7 rental photography, videography, and podcast studio in Delhi NCR with dedicated sets, makeup room, and edit space under one roof.';
-    $currentUrl = url()->current();
-    $ogFromPage = trim($__env->yieldContent('og_image'));
-    $ogImage = $ogFromPage !== '' ? $ogFromPage : asset(config('company.logo'));
-    $ogDefault = route('og.image', ['title' => $pageTitle, 'subtitle' => 'Delhi NCR • Photo · Video · Podcast']);
-    @endphp
-    <meta property="og:title" content="{{ $pageTitle }}">
-    <meta property="og:description" content="{{ $pageDescription ?: 'Book a 24×7 podcast & content studio in Delhi NCR for photo, video and audio.' }}">
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="{{ $currentUrl }}">
-    <meta property="og:image" content="{{ $ogImage ?: $ogDefault }}">
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="{{ $pageTitle }}">
-    <meta name="twitter:description" content="{{ $pageDescription ?: 'Book a 24×7 podcast & content studio in Delhi NCR for photo, video and audio.' }}">
-    <meta name="twitter:image" content="{{ $ogImage ?: $ogDefault }}">
+    @hasSection('seo_head')
+        @yield('seo_head')
+    @elseif (trim($__env->yieldContent('meta')))
+        @yield('meta')
+        <link rel="canonical" href="{{ url()->current() }}">
+        <meta name="author" content="{{ $brand }}">
+        <meta name="robots" content="index,follow">
+        @php
+        $pageTitle = trim($__env->yieldContent('title')) ?: $brand;
+        $currentUrl = url()->current();
+        $ogFromPage = trim($__env->yieldContent('og_image'));
+        $ogImage = $ogFromPage !== '' ? $ogFromPage : asset(config('company.logo'));
+        $ogDefault = route('og.image', ['title' => $pageTitle, 'subtitle' => 'Delhi NCR • Photo · Video · Podcast']);
+        @endphp
+        <meta property="og:title" content="{{ $pageTitle }}">
+        <meta property="og:type" content="website">
+        <meta property="og:url" content="{{ $currentUrl }}">
+        <meta property="og:image" content="{{ $ogImage ?: $ogDefault }}">
+        <meta name="twitter:card" content="summary_large_image">
+        <meta name="twitter:title" content="{{ $pageTitle }}">
+        <meta name="twitter:image" content="{{ $ogImage ?: $ogDefault }}">
+    @else
+        <meta name="description" content="{{ $brand }} is a 24×7 rental photography, videography, and podcast studio in Delhi NCR with dedicated sets, makeup room, and edit space under one roof.">
+        <link rel="canonical" href="{{ url()->current() }}">
+        <meta name="author" content="{{ $brand }}">
+        <meta name="robots" content="index,follow">
+        @php
+        $pageTitle = $brand;
+        $currentUrl = url()->current();
+        $ogDefault = route('og.image', ['title' => $pageTitle, 'subtitle' => 'Delhi NCR • Photo · Video · Podcast']);
+        @endphp
+        <meta property="og:title" content="{{ $pageTitle }}">
+        <meta property="og:description" content="Book a 24×7 podcast & content studio in Delhi NCR for photo, video and audio.">
+        <meta property="og:type" content="website">
+        <meta property="og:url" content="{{ $currentUrl }}">
+        <meta property="og:image" content="{{ $ogDefault }}">
+        <meta name="twitter:card" content="summary_large_image">
+        <meta name="twitter:title" content="{{ $pageTitle }}">
+        <meta name="twitter:image" content="{{ $ogDefault }}">
+    @endif
 
     @vite(['resources/css/app.css', 'resources/js/app.js'])
     <!-- Google tag (gtag.js) -->

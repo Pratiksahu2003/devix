@@ -1,0 +1,3469 @@
+[
+    {
+        "slug": "dwarka-sector-1",
+        "name": "Dwarka Sector 1",
+        "city": "dwarka",
+        "metro": "dwarka-sector-1",
+        "description": "Dwarka Sector 1 — residential and commercial pocket in West Delhi sub-city.",
+        "nearby": [
+            "dwarka-sector-1",
+            "dwarka-sector-2"
+        ]
+    },
+    {
+        "slug": "dwarka-sector-2",
+        "name": "Dwarka Sector 2",
+        "city": "dwarka",
+        "metro": "dwarka-sector-2",
+        "description": "Dwarka Sector 2 — residential and commercial pocket in West Delhi sub-city.",
+        "nearby": [
+            "dwarka-sector-1",
+            "dwarka-sector-3"
+        ]
+    },
+    {
+        "slug": "dwarka-sector-3",
+        "name": "Dwarka Sector 3",
+        "city": "dwarka",
+        "metro": "dwarka-sector-3",
+        "description": "Dwarka Sector 3 — residential and commercial pocket in West Delhi sub-city.",
+        "nearby": [
+            "dwarka-sector-2",
+            "dwarka-sector-4"
+        ]
+    },
+    {
+        "slug": "dwarka-sector-4",
+        "name": "Dwarka Sector 4",
+        "city": "dwarka",
+        "metro": "dwarka-sector-4",
+        "description": "Dwarka Sector 4 — residential and commercial pocket in West Delhi sub-city.",
+        "nearby": [
+            "dwarka-sector-3",
+            "dwarka-sector-5"
+        ]
+    },
+    {
+        "slug": "dwarka-sector-5",
+        "name": "Dwarka Sector 5",
+        "city": "dwarka",
+        "metro": "dwarka-sector-5",
+        "description": "Dwarka Sector 5 — residential and commercial pocket in West Delhi sub-city.",
+        "nearby": [
+            "dwarka-sector-4",
+            "dwarka-sector-6"
+        ]
+    },
+    {
+        "slug": "dwarka-sector-6",
+        "name": "Dwarka Sector 6",
+        "city": "dwarka",
+        "metro": "dwarka-sector-6",
+        "description": "Dwarka Sector 6 — residential and commercial pocket in West Delhi sub-city.",
+        "nearby": [
+            "dwarka-sector-5",
+            "dwarka-sector-7"
+        ]
+    },
+    {
+        "slug": "dwarka-sector-7",
+        "name": "Dwarka Sector 7",
+        "city": "dwarka",
+        "metro": "dwarka-sector-7",
+        "description": "Dwarka Sector 7 — residential and commercial pocket in West Delhi sub-city.",
+        "nearby": [
+            "dwarka-sector-6",
+            "dwarka-sector-8"
+        ]
+    },
+    {
+        "slug": "dwarka-sector-8",
+        "name": "Dwarka Sector 8",
+        "city": "dwarka",
+        "metro": "dwarka-sector-8",
+        "description": "Dwarka Sector 8 — residential and commercial pocket in West Delhi sub-city.",
+        "nearby": [
+            "dwarka-sector-7",
+            "dwarka-sector-9"
+        ]
+    },
+    {
+        "slug": "dwarka-sector-9",
+        "name": "Dwarka Sector 9",
+        "city": "dwarka",
+        "metro": "dwarka-sector-9",
+        "description": "Dwarka Sector 9 — residential and commercial pocket in West Delhi sub-city.",
+        "nearby": [
+            "dwarka-sector-8",
+            "dwarka-sector-10"
+        ]
+    },
+    {
+        "slug": "dwarka-sector-10",
+        "name": "Dwarka Sector 10",
+        "city": "dwarka",
+        "metro": "dwarka-sector-10",
+        "description": "Dwarka Sector 10 — residential and commercial pocket in West Delhi sub-city.",
+        "nearby": [
+            "dwarka-sector-9",
+            "dwarka-sector-11"
+        ]
+    },
+    {
+        "slug": "dwarka-sector-11",
+        "name": "Dwarka Sector 11",
+        "city": "dwarka",
+        "metro": "dwarka-sector-11",
+        "description": "Dwarka Sector 11 — residential and commercial pocket in West Delhi sub-city.",
+        "nearby": [
+            "dwarka-sector-10",
+            "dwarka-sector-12"
+        ]
+    },
+    {
+        "slug": "dwarka-sector-12",
+        "name": "Dwarka Sector 12",
+        "city": "dwarka",
+        "metro": "dwarka-sector-12",
+        "description": "Dwarka Sector 12 — residential and commercial pocket in West Delhi sub-city.",
+        "nearby": [
+            "dwarka-sector-11",
+            "dwarka-sector-13"
+        ]
+    },
+    {
+        "slug": "dwarka-sector-13",
+        "name": "Dwarka Sector 13",
+        "city": "dwarka",
+        "metro": "dwarka-sector-13",
+        "description": "Dwarka Sector 13 — residential and commercial pocket in West Delhi sub-city.",
+        "nearby": [
+            "dwarka-sector-12",
+            "dwarka-sector-14"
+        ]
+    },
+    {
+        "slug": "dwarka-sector-14",
+        "name": "Dwarka Sector 14",
+        "city": "dwarka",
+        "metro": "dwarka-sector-14",
+        "description": "Dwarka Sector 14 — residential and commercial pocket in West Delhi sub-city.",
+        "nearby": [
+            "dwarka-sector-13",
+            "dwarka-sector-15"
+        ]
+    },
+    {
+        "slug": "dwarka-sector-15",
+        "name": "Dwarka Sector 15",
+        "city": "dwarka",
+        "metro": "dwarka-sector-15",
+        "description": "Dwarka Sector 15 — residential and commercial pocket in West Delhi sub-city.",
+        "nearby": [
+            "dwarka-sector-14",
+            "dwarka-sector-16"
+        ]
+    },
+    {
+        "slug": "dwarka-sector-16",
+        "name": "Dwarka Sector 16",
+        "city": "dwarka",
+        "metro": "dwarka-sector-16",
+        "description": "Dwarka Sector 16 — residential and commercial pocket in West Delhi sub-city.",
+        "nearby": [
+            "dwarka-sector-15",
+            "dwarka-sector-17"
+        ]
+    },
+    {
+        "slug": "dwarka-sector-17",
+        "name": "Dwarka Sector 17",
+        "city": "dwarka",
+        "metro": "dwarka-sector-17",
+        "description": "Dwarka Sector 17 — residential and commercial pocket in West Delhi sub-city.",
+        "nearby": [
+            "dwarka-sector-16",
+            "dwarka-sector-18"
+        ]
+    },
+    {
+        "slug": "dwarka-sector-18",
+        "name": "Dwarka Sector 18",
+        "city": "dwarka",
+        "metro": "dwarka-sector-18",
+        "description": "Dwarka Sector 18 — residential and commercial pocket in West Delhi sub-city.",
+        "nearby": [
+            "dwarka-sector-17",
+            "dwarka-sector-19"
+        ]
+    },
+    {
+        "slug": "dwarka-sector-19",
+        "name": "Dwarka Sector 19",
+        "city": "dwarka",
+        "metro": "dwarka-sector-19",
+        "description": "Dwarka Sector 19 — residential and commercial pocket in West Delhi sub-city.",
+        "nearby": [
+            "dwarka-sector-18",
+            "dwarka-sector-20"
+        ]
+    },
+    {
+        "slug": "dwarka-sector-20",
+        "name": "Dwarka Sector 20",
+        "city": "dwarka",
+        "metro": "dwarka-sector-20",
+        "description": "Dwarka Sector 20 — residential and commercial pocket in West Delhi sub-city.",
+        "nearby": [
+            "dwarka-sector-19",
+            "dwarka-sector-21"
+        ]
+    },
+    {
+        "slug": "dwarka-sector-21",
+        "name": "Dwarka Sector 21",
+        "city": "dwarka",
+        "metro": "dwarka-sector-21",
+        "description": "Dwarka Sector 21 — residential and commercial pocket in West Delhi sub-city.",
+        "nearby": [
+            "dwarka-sector-20",
+            "dwarka-sector-22"
+        ]
+    },
+    {
+        "slug": "dwarka-sector-22",
+        "name": "Dwarka Sector 22",
+        "city": "dwarka",
+        "metro": "dwarka-sector-22",
+        "description": "Dwarka Sector 22 — residential and commercial pocket in West Delhi sub-city.",
+        "nearby": [
+            "dwarka-sector-21",
+            "dwarka-sector-23"
+        ]
+    },
+    {
+        "slug": "dwarka-sector-23",
+        "name": "Dwarka Sector 23",
+        "city": "dwarka",
+        "metro": "dwarka-sector-23",
+        "description": "Dwarka Sector 23 — residential and commercial pocket in West Delhi sub-city.",
+        "nearby": [
+            "dwarka-sector-22",
+            "dwarka-sector-23"
+        ]
+    },
+    {
+        "slug": "saket",
+        "name": "Saket",
+        "city": "south-delhi",
+        "metro": "saket",
+        "description": "Premium South Delhi hub with Select Citywalk.",
+        "nearby": [
+            "saket",
+            "malviya-nagar",
+            "hauz-khas"
+        ]
+    },
+    {
+        "slug": "malviya-nagar",
+        "name": "Malviya Nagar",
+        "city": "south-delhi",
+        "metro": "malviya-nagar",
+        "description": "Busy commercial and residential South Delhi area.",
+        "nearby": [
+            "saket",
+            "malviya-nagar",
+            "hauz-khas"
+        ]
+    },
+    {
+        "slug": "hauz-khas",
+        "name": "Hauz Khas",
+        "city": "south-delhi",
+        "metro": "hauz-khas",
+        "description": "Creative district popular with influencers and startups.",
+        "nearby": [
+            "saket",
+            "malviya-nagar",
+            "hauz-khas"
+        ]
+    },
+    {
+        "slug": "greater-kailash",
+        "name": "Greater Kailash",
+        "city": "south-delhi",
+        "metro": "greater-kailash",
+        "description": "Upscale market and boutique hub.",
+        "nearby": [
+            "saket",
+            "malviya-nagar",
+            "hauz-khas"
+        ]
+    },
+    {
+        "slug": "greater-kailash-1",
+        "name": "Greater Kailash 1",
+        "city": "south-delhi",
+        "metro": "greater-kailash-1",
+        "description": "GK-1 market and residential zone.",
+        "nearby": [
+            "saket",
+            "malviya-nagar",
+            "hauz-khas"
+        ]
+    },
+    {
+        "slug": "greater-kailash-2",
+        "name": "Greater Kailash 2",
+        "city": "south-delhi",
+        "metro": "greater-kailash-2",
+        "description": "GK-2 premium residential area.",
+        "nearby": [
+            "saket",
+            "malviya-nagar",
+            "hauz-khas"
+        ]
+    },
+    {
+        "slug": "defence-colony",
+        "name": "Defence Colony",
+        "city": "south-delhi",
+        "metro": "defence-colony",
+        "description": "Established South Delhi colony with boutique stores.",
+        "nearby": [
+            "saket",
+            "malviya-nagar",
+            "hauz-khas"
+        ]
+    },
+    {
+        "slug": "lajpat-nagar",
+        "name": "Lajpat Nagar",
+        "city": "south-delhi",
+        "metro": "lajpat-nagar",
+        "description": "Popular market area for fashion content.",
+        "nearby": [
+            "saket",
+            "malviya-nagar",
+            "hauz-khas"
+        ]
+    },
+    {
+        "slug": "kalkaji",
+        "name": "Kalkaji",
+        "city": "south-delhi",
+        "metro": "kalkaji",
+        "description": "Religious and commercial hub near Nehru Place.",
+        "nearby": [
+            "saket",
+            "malviya-nagar",
+            "hauz-khas"
+        ]
+    },
+    {
+        "slug": "okhla",
+        "name": "Okhla",
+        "city": "south-delhi",
+        "metro": "okhla",
+        "description": "Industrial and startup hub in South Delhi.",
+        "nearby": [
+            "saket",
+            "malviya-nagar",
+            "hauz-khas"
+        ]
+    },
+    {
+        "slug": "jasola",
+        "name": "Jasola",
+        "city": "south-delhi",
+        "metro": "jasola",
+        "description": "Residential and corporate hub near Apollo Metro.",
+        "nearby": [
+            "saket",
+            "malviya-nagar",
+            "hauz-khas"
+        ]
+    },
+    {
+        "slug": "sarita-vihar",
+        "name": "Sarita Vihar",
+        "city": "south-delhi",
+        "metro": "sarita-vihar",
+        "description": "Residential colony on Mathura Road.",
+        "nearby": [
+            "saket",
+            "malviya-nagar",
+            "hauz-khas"
+        ]
+    },
+    {
+        "slug": "badarpur",
+        "name": "Badarpur",
+        "city": "south-delhi",
+        "metro": "badarpur",
+        "description": "Southern Delhi border area.",
+        "nearby": [
+            "saket",
+            "malviya-nagar",
+            "hauz-khas"
+        ]
+    },
+    {
+        "slug": "chittaranjan-park",
+        "name": "Chittaranjan Park",
+        "city": "south-delhi",
+        "metro": "chittaranjan-park",
+        "description": "Bengali community hub in South Delhi.",
+        "nearby": [
+            "saket",
+            "malviya-nagar",
+            "hauz-khas"
+        ]
+    },
+    {
+        "slug": "panchsheel-park",
+        "name": "Panchsheel Park",
+        "city": "south-delhi",
+        "metro": "panchsheel-park",
+        "description": "Premium South Delhi residential area.",
+        "nearby": [
+            "saket",
+            "malviya-nagar",
+            "hauz-khas"
+        ]
+    },
+    {
+        "slug": "green-park",
+        "name": "Green Park",
+        "city": "south-delhi",
+        "metro": "green-park",
+        "description": "Upscale colony near AIIMS.",
+        "nearby": [
+            "saket",
+            "malviya-nagar",
+            "hauz-khas"
+        ]
+    },
+    {
+        "slug": "gulmohar-park",
+        "name": "Gulmohar Park",
+        "city": "south-delhi",
+        "metro": "gulmohar-park",
+        "description": "Quiet residential enclave in South Delhi.",
+        "nearby": [
+            "saket",
+            "malviya-nagar",
+            "hauz-khas"
+        ]
+    },
+    {
+        "slug": "south-extension",
+        "name": "South Extension",
+        "city": "south-delhi",
+        "metro": "south-extension",
+        "description": "Fashion and retail hub.",
+        "nearby": [
+            "saket",
+            "malviya-nagar",
+            "hauz-khas"
+        ]
+    },
+    {
+        "slug": "kotla",
+        "name": "Kotla",
+        "city": "south-delhi",
+        "metro": "kotla",
+        "description": "Sports and residential area near Saket.",
+        "nearby": [
+            "saket",
+            "malviya-nagar",
+            "hauz-khas"
+        ]
+    },
+    {
+        "slug": "mehrauli",
+        "name": "Mehrauli",
+        "city": "south-delhi",
+        "metro": "mehrauli",
+        "description": "Historic South Delhi area near Qutub Minar.",
+        "nearby": [
+            "saket",
+            "malviya-nagar",
+            "hauz-khas"
+        ]
+    },
+    {
+        "slug": "vasant-vihar",
+        "name": "Vasant Vihar",
+        "city": "south-delhi",
+        "metro": "vasant-vihar",
+        "description": "Diplomatic enclave and premium residential.",
+        "nearby": [
+            "saket",
+            "malviya-nagar",
+            "hauz-khas"
+        ]
+    },
+    {
+        "slug": "munirka",
+        "name": "Munirka",
+        "city": "south-delhi",
+        "metro": "munirka",
+        "description": "Student and professional hub near JNU.",
+        "nearby": [
+            "saket",
+            "malviya-nagar",
+            "hauz-khas"
+        ]
+    },
+    {
+        "slug": "rk-puram",
+        "name": "RK Puram",
+        "city": "south-delhi",
+        "metro": "rk-puram",
+        "description": "Government residential and institutional area.",
+        "nearby": [
+            "saket",
+            "malviya-nagar",
+            "hauz-khas"
+        ]
+    },
+    {
+        "slug": "aiims-delhi",
+        "name": "AIIMS Delhi",
+        "city": "south-delhi",
+        "metro": "aiims-delhi",
+        "description": "Medical hub with healthcare content demand.",
+        "nearby": [
+            "saket",
+            "malviya-nagar",
+            "hauz-khas"
+        ]
+    },
+    {
+        "slug": "lodhi-road",
+        "name": "Lodhi Road",
+        "city": "south-delhi",
+        "metro": "lodhi-road",
+        "description": "Central South Delhi institutional corridor.",
+        "nearby": [
+            "saket",
+            "malviya-nagar",
+            "hauz-khas"
+        ]
+    },
+    {
+        "slug": "khan-market",
+        "name": "Khan Market",
+        "city": "south-delhi",
+        "metro": "khan-market",
+        "description": "Upscale market frequented by diplomats.",
+        "nearby": [
+            "saket",
+            "malviya-nagar",
+            "hauz-khas"
+        ]
+    },
+    {
+        "slug": "nehru-place",
+        "name": "Nehru Place",
+        "city": "south-delhi",
+        "metro": "nehru-place",
+        "description": "IT and electronics hub.",
+        "nearby": [
+            "saket",
+            "malviya-nagar",
+            "hauz-khas"
+        ]
+    },
+    {
+        "slug": "govindpuri",
+        "name": "Govindpuri",
+        "city": "south-delhi",
+        "metro": "govindpuri",
+        "description": "Affordable residential and commercial area.",
+        "nearby": [
+            "saket",
+            "malviya-nagar",
+            "hauz-khas"
+        ]
+    },
+    {
+        "slug": "sangam-vihar",
+        "name": "Sangam Vihar",
+        "city": "south-delhi",
+        "metro": "sangam-vihar",
+        "description": "Large residential colony in South Delhi.",
+        "nearby": [
+            "saket",
+            "malviya-nagar",
+            "hauz-khas"
+        ]
+    },
+    {
+        "slug": "ambedkar-nagar",
+        "name": "Ambedkar Nagar",
+        "city": "south-delhi",
+        "metro": "ambedkar-nagar",
+        "description": "Dense residential pocket in South Delhi.",
+        "nearby": [
+            "saket",
+            "malviya-nagar",
+            "hauz-khas"
+        ]
+    },
+    {
+        "slug": "janakpuri",
+        "name": "Janakpuri",
+        "city": "west-delhi",
+        "metro": "janakpuri",
+        "description": "Major West Delhi residential hub.",
+        "nearby": [
+            "janakpuri",
+            "dwarka-sector-13",
+            "rajouri-garden"
+        ]
+    },
+    {
+        "slug": "rajouri-garden",
+        "name": "Rajouri Garden",
+        "city": "west-delhi",
+        "metro": "rajouri-garden",
+        "description": "Popular market and metro station.",
+        "nearby": [
+            "janakpuri",
+            "dwarka-sector-13",
+            "rajouri-garden"
+        ]
+    },
+    {
+        "slug": "tilak-nagar",
+        "name": "Tilak Nagar",
+        "city": "west-delhi",
+        "metro": "tilak-nagar",
+        "description": "West Delhi commercial and residential area.",
+        "nearby": [
+            "janakpuri",
+            "dwarka-sector-13",
+            "rajouri-garden"
+        ]
+    },
+    {
+        "slug": "tagore-garden",
+        "name": "Tagore Garden",
+        "city": "west-delhi",
+        "metro": "tagore-garden",
+        "description": "Residential colony on Blue Line metro.",
+        "nearby": [
+            "janakpuri",
+            "dwarka-sector-13",
+            "rajouri-garden"
+        ]
+    },
+    {
+        "slug": "subhash-nagar",
+        "name": "Subhash Nagar",
+        "city": "west-delhi",
+        "metro": "subhash-nagar",
+        "description": "Metro-connected West Delhi market.",
+        "nearby": [
+            "janakpuri",
+            "dwarka-sector-13",
+            "rajouri-garden"
+        ]
+    },
+    {
+        "slug": "paschim-vihar",
+        "name": "Paschim Vihar",
+        "city": "west-delhi",
+        "metro": "paschim-vihar",
+        "description": "Planned residential West Delhi sub-city.",
+        "nearby": [
+            "janakpuri",
+            "dwarka-sector-13",
+            "rajouri-garden"
+        ]
+    },
+    {
+        "slug": "punjabi-bagh",
+        "name": "Punjabi Bagh",
+        "city": "west-delhi",
+        "metro": "punjabi-bagh",
+        "description": "Affluent West Delhi residential area.",
+        "nearby": [
+            "janakpuri",
+            "dwarka-sector-13",
+            "rajouri-garden"
+        ]
+    },
+    {
+        "slug": "kirti-nagar",
+        "name": "Kirti Nagar",
+        "city": "west-delhi",
+        "metro": "kirti-nagar",
+        "description": "Furniture market and industrial hub.",
+        "nearby": [
+            "janakpuri",
+            "dwarka-sector-13",
+            "rajouri-garden"
+        ]
+    },
+    {
+        "slug": "moti-nagar",
+        "name": "Moti Nagar",
+        "city": "west-delhi",
+        "metro": "moti-nagar",
+        "description": "Commercial corridor on Ring Road.",
+        "nearby": [
+            "janakpuri",
+            "dwarka-sector-13",
+            "rajouri-garden"
+        ]
+    },
+    {
+        "slug": "patel-nagar",
+        "name": "Patel Nagar",
+        "city": "west-delhi",
+        "metro": "patel-nagar",
+        "description": "Central West Delhi residential hub.",
+        "nearby": [
+            "janakpuri",
+            "dwarka-sector-13",
+            "rajouri-garden"
+        ]
+    },
+    {
+        "slug": "naraina",
+        "name": "Naraina",
+        "city": "west-delhi",
+        "metro": "naraina",
+        "description": "Industrial and residential mix in West Delhi.",
+        "nearby": [
+            "janakpuri",
+            "dwarka-sector-13",
+            "rajouri-garden"
+        ]
+    },
+    {
+        "slug": "vikaspuri",
+        "name": "Vikaspuri",
+        "city": "west-delhi",
+        "metro": "vikaspuri",
+        "description": "Residential colony near Dwarka.",
+        "nearby": [
+            "janakpuri",
+            "dwarka-sector-13",
+            "rajouri-garden"
+        ]
+    },
+    {
+        "slug": "uttam-nagar",
+        "name": "Uttam Nagar",
+        "city": "west-delhi",
+        "metro": "uttam-nagar",
+        "description": "Dense West Delhi residential area.",
+        "nearby": [
+            "janakpuri",
+            "dwarka-sector-13",
+            "rajouri-garden"
+        ]
+    },
+    {
+        "slug": "nangloi",
+        "name": "Nangloi",
+        "city": "west-delhi",
+        "metro": "nangloi",
+        "description": "Western Delhi industrial and residential belt.",
+        "nearby": [
+            "janakpuri",
+            "dwarka-sector-13",
+            "rajouri-garden"
+        ]
+    },
+    {
+        "slug": "bawana",
+        "name": "Bawana",
+        "city": "west-delhi",
+        "metro": "bawana",
+        "description": "Industrial area in North West Delhi.",
+        "nearby": [
+            "janakpuri",
+            "dwarka-sector-13",
+            "rajouri-garden"
+        ]
+    },
+    {
+        "slug": "najafgarh",
+        "name": "Najafgarh",
+        "city": "west-delhi",
+        "metro": "najafgarh",
+        "description": "Western Delhi rural-urban fringe.",
+        "nearby": [
+            "janakpuri",
+            "dwarka-sector-13",
+            "rajouri-garden"
+        ]
+    },
+    {
+        "slug": "rohini-sector-1",
+        "name": "Rohini Sector 1",
+        "city": "rohini",
+        "metro": "rohini-sector-1",
+        "description": "Rohini Sector 1 — planned residential pocket in North West Delhi.",
+        "nearby": [
+            "rohini-sector-7",
+            "pitampura"
+        ]
+    },
+    {
+        "slug": "rohini-sector-2",
+        "name": "Rohini Sector 2",
+        "city": "rohini",
+        "metro": "rohini-sector-2",
+        "description": "Rohini Sector 2 — planned residential pocket in North West Delhi.",
+        "nearby": [
+            "rohini-sector-7",
+            "pitampura"
+        ]
+    },
+    {
+        "slug": "rohini-sector-3",
+        "name": "Rohini Sector 3",
+        "city": "rohini",
+        "metro": "rohini-sector-3",
+        "description": "Rohini Sector 3 — planned residential pocket in North West Delhi.",
+        "nearby": [
+            "rohini-sector-7",
+            "pitampura"
+        ]
+    },
+    {
+        "slug": "rohini-sector-4",
+        "name": "Rohini Sector 4",
+        "city": "rohini",
+        "metro": "rohini-sector-4",
+        "description": "Rohini Sector 4 — planned residential pocket in North West Delhi.",
+        "nearby": [
+            "rohini-sector-7",
+            "pitampura"
+        ]
+    },
+    {
+        "slug": "rohini-sector-5",
+        "name": "Rohini Sector 5",
+        "city": "rohini",
+        "metro": "rohini-sector-5",
+        "description": "Rohini Sector 5 — planned residential pocket in North West Delhi.",
+        "nearby": [
+            "rohini-sector-7",
+            "pitampura"
+        ]
+    },
+    {
+        "slug": "rohini-sector-6",
+        "name": "Rohini Sector 6",
+        "city": "rohini",
+        "metro": "rohini-sector-6",
+        "description": "Rohini Sector 6 — planned residential pocket in North West Delhi.",
+        "nearby": [
+            "rohini-sector-7",
+            "pitampura"
+        ]
+    },
+    {
+        "slug": "rohini-sector-12",
+        "name": "Rohini Sector 12",
+        "city": "rohini",
+        "metro": "rohini-sector-12",
+        "description": "Rohini Sector 12 — planned residential pocket in North West Delhi.",
+        "nearby": [
+            "rohini-sector-7",
+            "pitampura"
+        ]
+    },
+    {
+        "slug": "rohini-sector-14",
+        "name": "Rohini Sector 14",
+        "city": "rohini",
+        "metro": "rohini-sector-14",
+        "description": "Rohini Sector 14 — planned residential pocket in North West Delhi.",
+        "nearby": [
+            "rohini-sector-7",
+            "pitampura"
+        ]
+    },
+    {
+        "slug": "rohini-sector-16",
+        "name": "Rohini Sector 16",
+        "city": "rohini",
+        "metro": "rohini-sector-16",
+        "description": "Rohini Sector 16 — planned residential pocket in North West Delhi.",
+        "nearby": [
+            "rohini-sector-7",
+            "pitampura"
+        ]
+    },
+    {
+        "slug": "rohini-sector-17",
+        "name": "Rohini Sector 17",
+        "city": "rohini",
+        "metro": "rohini-sector-17",
+        "description": "Rohini Sector 17 — planned residential pocket in North West Delhi.",
+        "nearby": [
+            "rohini-sector-7",
+            "pitampura"
+        ]
+    },
+    {
+        "slug": "rohini-sector-19",
+        "name": "Rohini Sector 19",
+        "city": "rohini",
+        "metro": "rohini-sector-19",
+        "description": "Rohini Sector 19 — planned residential pocket in North West Delhi.",
+        "nearby": [
+            "rohini-sector-7",
+            "pitampura"
+        ]
+    },
+    {
+        "slug": "rohini-sector-20",
+        "name": "Rohini Sector 20",
+        "city": "rohini",
+        "metro": "rohini-sector-20",
+        "description": "Rohini Sector 20 — planned residential pocket in North West Delhi.",
+        "nearby": [
+            "rohini-sector-7",
+            "pitampura"
+        ]
+    },
+    {
+        "slug": "rohini-sector-21",
+        "name": "Rohini Sector 21",
+        "city": "rohini",
+        "metro": "rohini-sector-21",
+        "description": "Rohini Sector 21 — planned residential pocket in North West Delhi.",
+        "nearby": [
+            "rohini-sector-7",
+            "pitampura"
+        ]
+    },
+    {
+        "slug": "rohini-sector-22",
+        "name": "Rohini Sector 22",
+        "city": "rohini",
+        "metro": "rohini-sector-22",
+        "description": "Rohini Sector 22 — planned residential pocket in North West Delhi.",
+        "nearby": [
+            "rohini-sector-7",
+            "pitampura"
+        ]
+    },
+    {
+        "slug": "rohini-sector-23",
+        "name": "Rohini Sector 23",
+        "city": "rohini",
+        "metro": "rohini-sector-23",
+        "description": "Rohini Sector 23 — planned residential pocket in North West Delhi.",
+        "nearby": [
+            "rohini-sector-7",
+            "pitampura"
+        ]
+    },
+    {
+        "slug": "rohini-sector-24",
+        "name": "Rohini Sector 24",
+        "city": "rohini",
+        "metro": "rohini-sector-24",
+        "description": "Rohini Sector 24 — planned residential pocket in North West Delhi.",
+        "nearby": [
+            "rohini-sector-7",
+            "pitampura"
+        ]
+    },
+    {
+        "slug": "rohini-sector-25",
+        "name": "Rohini Sector 25",
+        "city": "rohini",
+        "metro": "rohini-sector-25",
+        "description": "Rohini Sector 25 — planned residential pocket in North West Delhi.",
+        "nearby": [
+            "rohini-sector-7",
+            "pitampura"
+        ]
+    },
+    {
+        "slug": "rohini-sector-7",
+        "name": "Rohini Sector 7",
+        "city": "north-delhi",
+        "metro": "rohini-sector-7",
+        "description": "Central Rohini residential sector.",
+        "nearby": [
+            "rohini-sector-7",
+            "pitampura",
+            "model-town"
+        ]
+    },
+    {
+        "slug": "rohini-sector-8",
+        "name": "Rohini Sector 8",
+        "city": "north-delhi",
+        "metro": "rohini-sector-8",
+        "description": "Rohini commercial and residential hub.",
+        "nearby": [
+            "rohini-sector-7",
+            "pitampura",
+            "model-town"
+        ]
+    },
+    {
+        "slug": "rohini-sector-9",
+        "name": "Rohini Sector 9",
+        "city": "north-delhi",
+        "metro": "rohini-sector-9",
+        "description": "Well-connected Rohini pocket.",
+        "nearby": [
+            "rohini-sector-7",
+            "pitampura",
+            "model-town"
+        ]
+    },
+    {
+        "slug": "rohini-sector-10",
+        "name": "Rohini Sector 10",
+        "city": "north-delhi",
+        "metro": "rohini-sector-10",
+        "description": "Established Rohini residential sector.",
+        "nearby": [
+            "rohini-sector-7",
+            "pitampura",
+            "model-town"
+        ]
+    },
+    {
+        "slug": "rohini-sector-11",
+        "name": "Rohini Sector 11",
+        "city": "north-delhi",
+        "metro": "rohini-sector-11",
+        "description": "Rohini market and metro area.",
+        "nearby": [
+            "rohini-sector-7",
+            "pitampura",
+            "model-town"
+        ]
+    },
+    {
+        "slug": "rohini-sector-13",
+        "name": "Rohini Sector 13",
+        "city": "north-delhi",
+        "metro": "rohini-sector-13",
+        "description": "Premium Rohini residential sector.",
+        "nearby": [
+            "rohini-sector-7",
+            "pitampura",
+            "model-town"
+        ]
+    },
+    {
+        "slug": "rohini-sector-15",
+        "name": "Rohini Sector 15",
+        "city": "north-delhi",
+        "metro": "rohini-sector-15",
+        "description": "Rohini institutional and residential mix.",
+        "nearby": [
+            "rohini-sector-7",
+            "pitampura",
+            "model-town"
+        ]
+    },
+    {
+        "slug": "rohini-sector-18",
+        "name": "Rohini Sector 18",
+        "city": "north-delhi",
+        "metro": "rohini-sector-18",
+        "description": "Rohini metro-connected sector.",
+        "nearby": [
+            "rohini-sector-7",
+            "pitampura",
+            "model-town"
+        ]
+    },
+    {
+        "slug": "pitampura",
+        "name": "Pitampura",
+        "city": "north-delhi",
+        "metro": "pitampura",
+        "description": "North West Delhi TV tower area.",
+        "nearby": [
+            "rohini-sector-7",
+            "pitampura",
+            "model-town"
+        ]
+    },
+    {
+        "slug": "shalimar-bagh",
+        "name": "Shalimar Bagh",
+        "city": "north-delhi",
+        "metro": "shalimar-bagh",
+        "description": "Residential and market area.",
+        "nearby": [
+            "rohini-sector-7",
+            "pitampura",
+            "model-town"
+        ]
+    },
+    {
+        "slug": "netaji-subhash-place",
+        "name": "Netaji Subhash Place",
+        "city": "north-delhi",
+        "metro": "netaji-subhash-place",
+        "description": "Major commercial hub NW Delhi.",
+        "nearby": [
+            "rohini-sector-7",
+            "pitampura",
+            "model-town"
+        ]
+    },
+    {
+        "slug": "azadpur",
+        "name": "Azadpur",
+        "city": "north-delhi",
+        "metro": "azadpur",
+        "description": "Asia's largest wholesale fruit market area.",
+        "nearby": [
+            "rohini-sector-7",
+            "pitampura",
+            "model-town"
+        ]
+    },
+    {
+        "slug": "model-town",
+        "name": "Model Town",
+        "city": "north-delhi",
+        "metro": "model-town",
+        "description": "Premium North Delhi residential colony.",
+        "nearby": [
+            "rohini-sector-7",
+            "pitampura",
+            "model-town"
+        ]
+    },
+    {
+        "slug": "civil-lines",
+        "name": "Civil Lines",
+        "city": "north-delhi",
+        "metro": "civil-lines",
+        "description": "Heritage North Delhi administrative area.",
+        "nearby": [
+            "rohini-sector-7",
+            "pitampura",
+            "model-town"
+        ]
+    },
+    {
+        "slug": "kashmere-gate",
+        "name": "Kashmere Gate",
+        "city": "north-delhi",
+        "metro": "kashmere-gate",
+        "description": "Historic metro interchange in Old Delhi.",
+        "nearby": [
+            "rohini-sector-7",
+            "pitampura",
+            "model-town"
+        ]
+    },
+    {
+        "slug": "chandni-chowk",
+        "name": "Chandni Chowk",
+        "city": "north-delhi",
+        "metro": "chandni-chowk",
+        "description": "Iconic Old Delhi market and heritage zone.",
+        "nearby": [
+            "rohini-sector-7",
+            "pitampura",
+            "model-town"
+        ]
+    },
+    {
+        "slug": "daryaganj",
+        "name": "Daryaganj",
+        "city": "north-delhi",
+        "metro": "daryaganj",
+        "description": "Book market and Old Delhi commercial hub.",
+        "nearby": [
+            "rohini-sector-7",
+            "pitampura",
+            "model-town"
+        ]
+    },
+    {
+        "slug": "karol-bagh",
+        "name": "Karol Bagh",
+        "city": "north-delhi",
+        "metro": "karol-bagh",
+        "description": "Major wholesale and retail market.",
+        "nearby": [
+            "rohini-sector-7",
+            "pitampura",
+            "model-town"
+        ]
+    },
+    {
+        "slug": "rajendra-place",
+        "name": "Rajendra Place",
+        "city": "north-delhi",
+        "metro": "rajendra-place",
+        "description": "Metro hub and commercial area.",
+        "nearby": [
+            "rohini-sector-7",
+            "pitampura",
+            "model-town"
+        ]
+    },
+    {
+        "slug": "kingsway-camp",
+        "name": "Kingsway Camp",
+        "city": "north-delhi",
+        "metro": "kingsway-camp",
+        "description": "DU North Campus adjacent area.",
+        "nearby": [
+            "rohini-sector-7",
+            "pitampura",
+            "model-town"
+        ]
+    },
+    {
+        "slug": "burari",
+        "name": "Burari",
+        "city": "north-delhi",
+        "metro": "burari",
+        "description": "Northern Delhi residential belt.",
+        "nearby": [
+            "rohini-sector-7",
+            "pitampura",
+            "model-town"
+        ]
+    },
+    {
+        "slug": "wazirabad",
+        "name": "Wazirabad",
+        "city": "north-delhi",
+        "metro": "wazirabad",
+        "description": "North East Delhi residential area.",
+        "nearby": [
+            "rohini-sector-7",
+            "pitampura",
+            "model-town"
+        ]
+    },
+    {
+        "slug": "timarpur",
+        "name": "Timarpur",
+        "city": "north-delhi",
+        "metro": "timarpur",
+        "description": "North Delhi institutional zone.",
+        "nearby": [
+            "rohini-sector-7",
+            "pitampura",
+            "model-town"
+        ]
+    },
+    {
+        "slug": "majlis-park",
+        "name": "Majlis Park",
+        "city": "north-delhi",
+        "metro": "majlis-park",
+        "description": "Pink Line metro residential hub.",
+        "nearby": [
+            "rohini-sector-7",
+            "pitampura",
+            "model-town"
+        ]
+    },
+    {
+        "slug": "badli",
+        "name": "Badli",
+        "city": "north-delhi",
+        "metro": "badli",
+        "description": "Industrial North West Delhi area.",
+        "nearby": [
+            "rohini-sector-7",
+            "pitampura",
+            "model-town"
+        ]
+    },
+    {
+        "slug": "laxmi-nagar",
+        "name": "Laxmi Nagar",
+        "city": "east-delhi",
+        "metro": "laxmi-nagar",
+        "description": "Coaching and education hub in East Delhi.",
+        "nearby": [
+            "laxmi-nagar",
+            "mayur-vihar-phase-1",
+            "anand-vihar"
+        ]
+    },
+    {
+        "slug": "preet-vihar",
+        "name": "Preet Vihar",
+        "city": "east-delhi",
+        "metro": "preet-vihar",
+        "description": "Established East Delhi residential colony.",
+        "nearby": [
+            "laxmi-nagar",
+            "mayur-vihar-phase-1",
+            "anand-vihar"
+        ]
+    },
+    {
+        "slug": "mayur-vihar-phase-1",
+        "name": "Mayur Vihar Phase 1",
+        "city": "east-delhi",
+        "metro": "mayur-vihar-phase-1",
+        "description": "Residential hub on Delhi-Noida border.",
+        "nearby": [
+            "laxmi-nagar",
+            "mayur-vihar-phase-1",
+            "anand-vihar"
+        ]
+    },
+    {
+        "slug": "mayur-vihar-phase-2",
+        "name": "Mayur Vihar Phase 2",
+        "city": "east-delhi",
+        "metro": "mayur-vihar-phase-2",
+        "description": "Growing East Delhi residential phase.",
+        "nearby": [
+            "laxmi-nagar",
+            "mayur-vihar-phase-1",
+            "anand-vihar"
+        ]
+    },
+    {
+        "slug": "mayur-vihar-phase-3",
+        "name": "Mayur Vihar Phase 3",
+        "city": "east-delhi",
+        "metro": "mayur-vihar-phase-3",
+        "description": "Premium Mayur Vihar extension.",
+        "nearby": [
+            "laxmi-nagar",
+            "mayur-vihar-phase-1",
+            "anand-vihar"
+        ]
+    },
+    {
+        "slug": "patparganj",
+        "name": "Patparganj",
+        "city": "east-delhi",
+        "metro": "patparganj",
+        "description": "Residential and IP extension area.",
+        "nearby": [
+            "laxmi-nagar",
+            "mayur-vihar-phase-1",
+            "anand-vihar"
+        ]
+    },
+    {
+        "slug": "ip-extension",
+        "name": "IP Extension",
+        "city": "east-delhi",
+        "metro": "ip-extension",
+        "description": "Industrial and residential East Delhi hub.",
+        "nearby": [
+            "laxmi-nagar",
+            "mayur-vihar-phase-1",
+            "anand-vihar"
+        ]
+    },
+    {
+        "slug": "shahdara",
+        "name": "Shahdara",
+        "city": "east-delhi",
+        "metro": "shahdara",
+        "description": "Eastern Delhi transit and market hub.",
+        "nearby": [
+            "laxmi-nagar",
+            "mayur-vihar-phase-1",
+            "anand-vihar"
+        ]
+    },
+    {
+        "slug": "dilshad-garden",
+        "name": "Dilshad Garden",
+        "city": "east-delhi",
+        "metro": "dilshad-garden",
+        "description": "Residential colony on Red Line metro.",
+        "nearby": [
+            "laxmi-nagar",
+            "mayur-vihar-phase-1",
+            "anand-vihar"
+        ]
+    },
+    {
+        "slug": "vivek-vihar",
+        "name": "Vivek Vihar",
+        "city": "east-delhi",
+        "metro": "vivek-vihar",
+        "description": "East Delhi commercial and residential area.",
+        "nearby": [
+            "laxmi-nagar",
+            "mayur-vihar-phase-1",
+            "anand-vihar"
+        ]
+    },
+    {
+        "slug": "anand-vihar",
+        "name": "Anand Vihar",
+        "city": "east-delhi",
+        "metro": "anand-vihar",
+        "description": "Major interstate bus and metro terminal.",
+        "nearby": [
+            "laxmi-nagar",
+            "mayur-vihar-phase-1",
+            "anand-vihar"
+        ]
+    },
+    {
+        "slug": "karkardooma",
+        "name": "Karkardooma",
+        "city": "east-delhi",
+        "metro": "karkardooma",
+        "description": "Court and residential East Delhi hub.",
+        "nearby": [
+            "laxmi-nagar",
+            "mayur-vihar-phase-1",
+            "anand-vihar"
+        ]
+    },
+    {
+        "slug": "krishna-nagar",
+        "name": "Krishna Nagar",
+        "city": "east-delhi",
+        "metro": "krishna-nagar",
+        "description": "Traditional East Delhi market area.",
+        "nearby": [
+            "laxmi-nagar",
+            "mayur-vihar-phase-1",
+            "anand-vihar"
+        ]
+    },
+    {
+        "slug": "gandhi-nagar",
+        "name": "Gandhi Nagar",
+        "city": "east-delhi",
+        "metro": "gandhi-nagar",
+        "description": "Textile market in East Delhi.",
+        "nearby": [
+            "laxmi-nagar",
+            "mayur-vihar-phase-1",
+            "anand-vihar"
+        ]
+    },
+    {
+        "slug": "seelampur",
+        "name": "Seelampur",
+        "city": "east-delhi",
+        "metro": "seelampur",
+        "description": "Dense East Delhi residential belt.",
+        "nearby": [
+            "laxmi-nagar",
+            "mayur-vihar-phase-1",
+            "anand-vihar"
+        ]
+    },
+    {
+        "slug": "welcome",
+        "name": "Welcome",
+        "city": "east-delhi",
+        "metro": "welcome",
+        "description": "Red Line metro junction in East Delhi.",
+        "nearby": [
+            "laxmi-nagar",
+            "mayur-vihar-phase-1",
+            "anand-vihar"
+        ]
+    },
+    {
+        "slug": "jhilmil",
+        "name": "Jhilmil",
+        "city": "east-delhi",
+        "metro": "jhilmil",
+        "description": "Industrial East Delhi area.",
+        "nearby": [
+            "laxmi-nagar",
+            "mayur-vihar-phase-1",
+            "anand-vihar"
+        ]
+    },
+    {
+        "slug": "nand-nagri",
+        "name": "Nand Nagri",
+        "city": "east-delhi",
+        "metro": "nand-nagri",
+        "description": "Affordable East Delhi residential colony.",
+        "nearby": [
+            "laxmi-nagar",
+            "mayur-vihar-phase-1",
+            "anand-vihar"
+        ]
+    },
+    {
+        "slug": "yamuna-vihar",
+        "name": "Yamuna Vihar",
+        "city": "east-delhi",
+        "metro": "yamuna-vihar",
+        "description": "North East Delhi residential hub.",
+        "nearby": [
+            "laxmi-nagar",
+            "mayur-vihar-phase-1",
+            "anand-vihar"
+        ]
+    },
+    {
+        "slug": "bhajanpura",
+        "name": "Bhajanpura",
+        "city": "east-delhi",
+        "metro": "bhajanpura",
+        "description": "Trans-Yamuna residential area.",
+        "nearby": [
+            "laxmi-nagar",
+            "mayur-vihar-phase-1",
+            "anand-vihar"
+        ]
+    },
+    {
+        "slug": "sector-1-noida",
+        "name": "Sector 1 Noida",
+        "city": "noida",
+        "metro": "noida-sector-1",
+        "description": "Sector 1 Noida — commercial and residential pocket in Noida.",
+        "nearby": [
+            "sector-18-noida",
+            "sector-62-noida"
+        ]
+    },
+    {
+        "slug": "sector-2-noida",
+        "name": "Sector 2 Noida",
+        "city": "noida",
+        "metro": "noida-sector-2",
+        "description": "Sector 2 Noida — commercial and residential pocket in Noida.",
+        "nearby": [
+            "sector-18-noida",
+            "sector-62-noida"
+        ]
+    },
+    {
+        "slug": "sector-3-noida",
+        "name": "Sector 3 Noida",
+        "city": "noida",
+        "metro": "noida-sector-3",
+        "description": "Sector 3 Noida — commercial and residential pocket in Noida.",
+        "nearby": [
+            "sector-18-noida",
+            "sector-62-noida"
+        ]
+    },
+    {
+        "slug": "sector-4-noida",
+        "name": "Sector 4 Noida",
+        "city": "noida",
+        "metro": "noida-sector-4",
+        "description": "Sector 4 Noida — commercial and residential pocket in Noida.",
+        "nearby": [
+            "sector-18-noida",
+            "sector-62-noida"
+        ]
+    },
+    {
+        "slug": "sector-5-noida",
+        "name": "Sector 5 Noida",
+        "city": "noida",
+        "metro": "noida-sector-5",
+        "description": "Sector 5 Noida — commercial and residential pocket in Noida.",
+        "nearby": [
+            "sector-18-noida",
+            "sector-62-noida"
+        ]
+    },
+    {
+        "slug": "sector-8-noida",
+        "name": "Sector 8 Noida",
+        "city": "noida",
+        "metro": "noida-sector-8",
+        "description": "Sector 8 Noida — commercial and residential pocket in Noida.",
+        "nearby": [
+            "sector-18-noida",
+            "sector-62-noida"
+        ]
+    },
+    {
+        "slug": "sector-10-noida",
+        "name": "Sector 10 Noida",
+        "city": "noida",
+        "metro": "noida-sector-10",
+        "description": "Sector 10 Noida — commercial and residential pocket in Noida.",
+        "nearby": [
+            "sector-18-noida",
+            "sector-62-noida"
+        ]
+    },
+    {
+        "slug": "sector-11-noida",
+        "name": "Sector 11 Noida",
+        "city": "noida",
+        "metro": "noida-sector-11",
+        "description": "Sector 11 Noida — commercial and residential pocket in Noida.",
+        "nearby": [
+            "sector-18-noida",
+            "sector-62-noida"
+        ]
+    },
+    {
+        "slug": "sector-12-noida",
+        "name": "Sector 12 Noida",
+        "city": "noida",
+        "metro": "noida-sector-12",
+        "description": "Sector 12 Noida — commercial and residential pocket in Noida.",
+        "nearby": [
+            "sector-18-noida",
+            "sector-62-noida"
+        ]
+    },
+    {
+        "slug": "sector-15-noida",
+        "name": "Sector 15 Noida",
+        "city": "noida",
+        "metro": "noida-sector-15",
+        "description": "Sector 15 Noida — commercial and residential pocket in Noida.",
+        "nearby": [
+            "sector-18-noida",
+            "sector-62-noida"
+        ]
+    },
+    {
+        "slug": "sector-16-noida",
+        "name": "Sector 16 Noida",
+        "city": "noida",
+        "metro": "noida-sector-16",
+        "description": "Sector 16 Noida — commercial and residential pocket in Noida.",
+        "nearby": [
+            "sector-18-noida",
+            "sector-62-noida"
+        ]
+    },
+    {
+        "slug": "sector-18-noida",
+        "name": "Sector 18 Noida",
+        "city": "noida",
+        "metro": "noida-sector-18",
+        "description": "Sector 18 Noida — commercial and residential pocket in Noida.",
+        "nearby": [
+            "sector-18-noida",
+            "sector-62-noida"
+        ]
+    },
+    {
+        "slug": "sector-19-noida",
+        "name": "Sector 19 Noida",
+        "city": "noida",
+        "metro": "noida-sector-19",
+        "description": "Sector 19 Noida — commercial and residential pocket in Noida.",
+        "nearby": [
+            "sector-18-noida",
+            "sector-62-noida"
+        ]
+    },
+    {
+        "slug": "sector-20-noida",
+        "name": "Sector 20 Noida",
+        "city": "noida",
+        "metro": "noida-sector-20",
+        "description": "Sector 20 Noida — commercial and residential pocket in Noida.",
+        "nearby": [
+            "sector-18-noida",
+            "sector-62-noida"
+        ]
+    },
+    {
+        "slug": "sector-21-noida",
+        "name": "Sector 21 Noida",
+        "city": "noida",
+        "metro": "noida-sector-21",
+        "description": "Sector 21 Noida — commercial and residential pocket in Noida.",
+        "nearby": [
+            "sector-18-noida",
+            "sector-62-noida"
+        ]
+    },
+    {
+        "slug": "sector-22-noida",
+        "name": "Sector 22 Noida",
+        "city": "noida",
+        "metro": "noida-sector-22",
+        "description": "Sector 22 Noida — commercial and residential pocket in Noida.",
+        "nearby": [
+            "sector-18-noida",
+            "sector-62-noida"
+        ]
+    },
+    {
+        "slug": "sector-24-noida",
+        "name": "Sector 24 Noida",
+        "city": "noida",
+        "metro": "noida-sector-24",
+        "description": "Sector 24 Noida — commercial and residential pocket in Noida.",
+        "nearby": [
+            "sector-18-noida",
+            "sector-62-noida"
+        ]
+    },
+    {
+        "slug": "sector-25-noida",
+        "name": "Sector 25 Noida",
+        "city": "noida",
+        "metro": "noida-sector-25",
+        "description": "Sector 25 Noida — commercial and residential pocket in Noida.",
+        "nearby": [
+            "sector-18-noida",
+            "sector-62-noida"
+        ]
+    },
+    {
+        "slug": "sector-27-noida",
+        "name": "Sector 27 Noida",
+        "city": "noida",
+        "metro": "noida-sector-27",
+        "description": "Sector 27 Noida — commercial and residential pocket in Noida.",
+        "nearby": [
+            "sector-18-noida",
+            "sector-62-noida"
+        ]
+    },
+    {
+        "slug": "sector-28-noida",
+        "name": "Sector 28 Noida",
+        "city": "noida",
+        "metro": "noida-sector-28",
+        "description": "Sector 28 Noida — commercial and residential pocket in Noida.",
+        "nearby": [
+            "sector-18-noida",
+            "sector-62-noida"
+        ]
+    },
+    {
+        "slug": "sector-29-noida",
+        "name": "Sector 29 Noida",
+        "city": "noida",
+        "metro": "noida-sector-29",
+        "description": "Sector 29 Noida — commercial and residential pocket in Noida.",
+        "nearby": [
+            "sector-18-noida",
+            "sector-62-noida"
+        ]
+    },
+    {
+        "slug": "sector-30-noida",
+        "name": "Sector 30 Noida",
+        "city": "noida",
+        "metro": "noida-sector-30",
+        "description": "Sector 30 Noida — commercial and residential pocket in Noida.",
+        "nearby": [
+            "sector-18-noida",
+            "sector-62-noida"
+        ]
+    },
+    {
+        "slug": "sector-32-noida",
+        "name": "Sector 32 Noida",
+        "city": "noida",
+        "metro": "noida-sector-32",
+        "description": "Sector 32 Noida — commercial and residential pocket in Noida.",
+        "nearby": [
+            "sector-18-noida",
+            "sector-62-noida"
+        ]
+    },
+    {
+        "slug": "sector-33-noida",
+        "name": "Sector 33 Noida",
+        "city": "noida",
+        "metro": "noida-sector-33",
+        "description": "Sector 33 Noida — commercial and residential pocket in Noida.",
+        "nearby": [
+            "sector-18-noida",
+            "sector-62-noida"
+        ]
+    },
+    {
+        "slug": "sector-34-noida",
+        "name": "Sector 34 Noida",
+        "city": "noida",
+        "metro": "noida-sector-34",
+        "description": "Sector 34 Noida — commercial and residential pocket in Noida.",
+        "nearby": [
+            "sector-18-noida",
+            "sector-62-noida"
+        ]
+    },
+    {
+        "slug": "sector-37-noida",
+        "name": "Sector 37 Noida",
+        "city": "noida",
+        "metro": "noida-sector-37",
+        "description": "Sector 37 Noida — commercial and residential pocket in Noida.",
+        "nearby": [
+            "sector-18-noida",
+            "sector-62-noida"
+        ]
+    },
+    {
+        "slug": "sector-38-noida",
+        "name": "Sector 38 Noida",
+        "city": "noida",
+        "metro": "noida-sector-38",
+        "description": "Sector 38 Noida — commercial and residential pocket in Noida.",
+        "nearby": [
+            "sector-18-noida",
+            "sector-62-noida"
+        ]
+    },
+    {
+        "slug": "sector-39-noida",
+        "name": "Sector 39 Noida",
+        "city": "noida",
+        "metro": "noida-sector-39",
+        "description": "Sector 39 Noida — commercial and residential pocket in Noida.",
+        "nearby": [
+            "sector-18-noida",
+            "sector-62-noida"
+        ]
+    },
+    {
+        "slug": "sector-40-noida",
+        "name": "Sector 40 Noida",
+        "city": "noida",
+        "metro": "noida-sector-40",
+        "description": "Sector 40 Noida — commercial and residential pocket in Noida.",
+        "nearby": [
+            "sector-18-noida",
+            "sector-62-noida"
+        ]
+    },
+    {
+        "slug": "sector-41-noida",
+        "name": "Sector 41 Noida",
+        "city": "noida",
+        "metro": "noida-sector-41",
+        "description": "Sector 41 Noida — commercial and residential pocket in Noida.",
+        "nearby": [
+            "sector-18-noida",
+            "sector-62-noida"
+        ]
+    },
+    {
+        "slug": "sector-44-noida",
+        "name": "Sector 44 Noida",
+        "city": "noida",
+        "metro": "noida-sector-44",
+        "description": "Sector 44 Noida — commercial and residential pocket in Noida.",
+        "nearby": [
+            "sector-18-noida",
+            "sector-62-noida"
+        ]
+    },
+    {
+        "slug": "sector-45-noida",
+        "name": "Sector 45 Noida",
+        "city": "noida",
+        "metro": "noida-sector-45",
+        "description": "Sector 45 Noida — commercial and residential pocket in Noida.",
+        "nearby": [
+            "sector-18-noida",
+            "sector-62-noida"
+        ]
+    },
+    {
+        "slug": "sector-46-noida",
+        "name": "Sector 46 Noida",
+        "city": "noida",
+        "metro": "noida-sector-46",
+        "description": "Sector 46 Noida — commercial and residential pocket in Noida.",
+        "nearby": [
+            "sector-18-noida",
+            "sector-62-noida"
+        ]
+    },
+    {
+        "slug": "sector-50-noida",
+        "name": "Sector 50 Noida",
+        "city": "noida",
+        "metro": "noida-sector-50",
+        "description": "Sector 50 Noida — commercial and residential pocket in Noida.",
+        "nearby": [
+            "sector-18-noida",
+            "sector-62-noida"
+        ]
+    },
+    {
+        "slug": "sector-51-noida",
+        "name": "Sector 51 Noida",
+        "city": "noida",
+        "metro": "noida-sector-51",
+        "description": "Sector 51 Noida — commercial and residential pocket in Noida.",
+        "nearby": [
+            "sector-18-noida",
+            "sector-62-noida"
+        ]
+    },
+    {
+        "slug": "sector-52-noida",
+        "name": "Sector 52 Noida",
+        "city": "noida",
+        "metro": "noida-sector-52",
+        "description": "Sector 52 Noida — commercial and residential pocket in Noida.",
+        "nearby": [
+            "sector-18-noida",
+            "sector-62-noida"
+        ]
+    },
+    {
+        "slug": "sector-53-noida",
+        "name": "Sector 53 Noida",
+        "city": "noida",
+        "metro": "noida-sector-53",
+        "description": "Sector 53 Noida — commercial and residential pocket in Noida.",
+        "nearby": [
+            "sector-18-noida",
+            "sector-62-noida"
+        ]
+    },
+    {
+        "slug": "sector-55-noida",
+        "name": "Sector 55 Noida",
+        "city": "noida",
+        "metro": "noida-sector-55",
+        "description": "Sector 55 Noida — commercial and residential pocket in Noida.",
+        "nearby": [
+            "sector-18-noida",
+            "sector-62-noida"
+        ]
+    },
+    {
+        "slug": "sector-56-noida",
+        "name": "Sector 56 Noida",
+        "city": "noida",
+        "metro": "noida-sector-56",
+        "description": "Sector 56 Noida — commercial and residential pocket in Noida.",
+        "nearby": [
+            "sector-18-noida",
+            "sector-62-noida"
+        ]
+    },
+    {
+        "slug": "sector-57-noida",
+        "name": "Sector 57 Noida",
+        "city": "noida",
+        "metro": "noida-sector-57",
+        "description": "Sector 57 Noida — commercial and residential pocket in Noida.",
+        "nearby": [
+            "sector-18-noida",
+            "sector-62-noida"
+        ]
+    },
+    {
+        "slug": "sector-58-noida",
+        "name": "Sector 58 Noida",
+        "city": "noida",
+        "metro": "noida-sector-58",
+        "description": "Sector 58 Noida — commercial and residential pocket in Noida.",
+        "nearby": [
+            "sector-18-noida",
+            "sector-62-noida"
+        ]
+    },
+    {
+        "slug": "sector-59-noida",
+        "name": "Sector 59 Noida",
+        "city": "noida",
+        "metro": "noida-sector-59",
+        "description": "Sector 59 Noida — commercial and residential pocket in Noida.",
+        "nearby": [
+            "sector-18-noida",
+            "sector-62-noida"
+        ]
+    },
+    {
+        "slug": "sector-60-noida",
+        "name": "Sector 60 Noida",
+        "city": "noida",
+        "metro": "noida-sector-60",
+        "description": "Sector 60 Noida — commercial and residential pocket in Noida.",
+        "nearby": [
+            "sector-18-noida",
+            "sector-62-noida"
+        ]
+    },
+    {
+        "slug": "sector-61-noida",
+        "name": "Sector 61 Noida",
+        "city": "noida",
+        "metro": "noida-sector-61",
+        "description": "Sector 61 Noida — commercial and residential pocket in Noida.",
+        "nearby": [
+            "sector-18-noida",
+            "sector-62-noida"
+        ]
+    },
+    {
+        "slug": "sector-62-noida",
+        "name": "Sector 62 Noida",
+        "city": "noida",
+        "metro": "noida-sector-62",
+        "description": "Sector 62 Noida — commercial and residential pocket in Noida.",
+        "nearby": [
+            "sector-18-noida",
+            "sector-62-noida"
+        ]
+    },
+    {
+        "slug": "sector-63-noida",
+        "name": "Sector 63 Noida",
+        "city": "noida",
+        "metro": "noida-sector-63",
+        "description": "Sector 63 Noida — commercial and residential pocket in Noida.",
+        "nearby": [
+            "sector-18-noida",
+            "sector-62-noida"
+        ]
+    },
+    {
+        "slug": "sector-64-noida",
+        "name": "Sector 64 Noida",
+        "city": "noida",
+        "metro": "noida-sector-64",
+        "description": "Sector 64 Noida — commercial and residential pocket in Noida.",
+        "nearby": [
+            "sector-18-noida",
+            "sector-62-noida"
+        ]
+    },
+    {
+        "slug": "sector-65-noida",
+        "name": "Sector 65 Noida",
+        "city": "noida",
+        "metro": "noida-sector-65",
+        "description": "Sector 65 Noida — commercial and residential pocket in Noida.",
+        "nearby": [
+            "sector-18-noida",
+            "sector-62-noida"
+        ]
+    },
+    {
+        "slug": "sector-66-noida",
+        "name": "Sector 66 Noida",
+        "city": "noida",
+        "metro": "noida-sector-66",
+        "description": "Sector 66 Noida — commercial and residential pocket in Noida.",
+        "nearby": [
+            "sector-18-noida",
+            "sector-62-noida"
+        ]
+    },
+    {
+        "slug": "sector-71-noida",
+        "name": "Sector 71 Noida",
+        "city": "noida",
+        "metro": "noida-sector-71",
+        "description": "Sector 71 Noida — commercial and residential pocket in Noida.",
+        "nearby": [
+            "sector-18-noida",
+            "sector-62-noida"
+        ]
+    },
+    {
+        "slug": "sector-72-noida",
+        "name": "Sector 72 Noida",
+        "city": "noida",
+        "metro": "noida-sector-72",
+        "description": "Sector 72 Noida — commercial and residential pocket in Noida.",
+        "nearby": [
+            "sector-18-noida",
+            "sector-62-noida"
+        ]
+    },
+    {
+        "slug": "sector-73-noida",
+        "name": "Sector 73 Noida",
+        "city": "noida",
+        "metro": "noida-sector-73",
+        "description": "Sector 73 Noida — commercial and residential pocket in Noida.",
+        "nearby": [
+            "sector-18-noida",
+            "sector-62-noida"
+        ]
+    },
+    {
+        "slug": "sector-75-noida",
+        "name": "Sector 75 Noida",
+        "city": "noida",
+        "metro": "noida-sector-75",
+        "description": "Sector 75 Noida — commercial and residential pocket in Noida.",
+        "nearby": [
+            "sector-18-noida",
+            "sector-62-noida"
+        ]
+    },
+    {
+        "slug": "sector-76-noida",
+        "name": "Sector 76 Noida",
+        "city": "noida",
+        "metro": "noida-sector-76",
+        "description": "Sector 76 Noida — commercial and residential pocket in Noida.",
+        "nearby": [
+            "sector-18-noida",
+            "sector-62-noida"
+        ]
+    },
+    {
+        "slug": "sector-77-noida",
+        "name": "Sector 77 Noida",
+        "city": "noida",
+        "metro": "noida-sector-77",
+        "description": "Sector 77 Noida — commercial and residential pocket in Noida.",
+        "nearby": [
+            "sector-18-noida",
+            "sector-62-noida"
+        ]
+    },
+    {
+        "slug": "sector-78-noida",
+        "name": "Sector 78 Noida",
+        "city": "noida",
+        "metro": "noida-sector-78",
+        "description": "Sector 78 Noida — commercial and residential pocket in Noida.",
+        "nearby": [
+            "sector-18-noida",
+            "sector-62-noida"
+        ]
+    },
+    {
+        "slug": "sector-82-noida",
+        "name": "Sector 82 Noida",
+        "city": "noida",
+        "metro": "noida-sector-82",
+        "description": "Sector 82 Noida — commercial and residential pocket in Noida.",
+        "nearby": [
+            "sector-18-noida",
+            "sector-62-noida"
+        ]
+    },
+    {
+        "slug": "sector-93-noida",
+        "name": "Sector 93 Noida",
+        "city": "noida",
+        "metro": "noida-sector-93",
+        "description": "Sector 93 Noida — commercial and residential pocket in Noida.",
+        "nearby": [
+            "sector-18-noida",
+            "sector-62-noida"
+        ]
+    },
+    {
+        "slug": "sector-94-noida",
+        "name": "Sector 94 Noida",
+        "city": "noida",
+        "metro": "noida-sector-94",
+        "description": "Sector 94 Noida — commercial and residential pocket in Noida.",
+        "nearby": [
+            "sector-18-noida",
+            "sector-62-noida"
+        ]
+    },
+    {
+        "slug": "sector-99-noida",
+        "name": "Sector 99 Noida",
+        "city": "noida",
+        "metro": "noida-sector-99",
+        "description": "Sector 99 Noida — commercial and residential pocket in Noida.",
+        "nearby": [
+            "sector-18-noida",
+            "sector-62-noida"
+        ]
+    },
+    {
+        "slug": "sector-100-noida",
+        "name": "Sector 100 Noida",
+        "city": "noida",
+        "metro": "noida-sector-100",
+        "description": "Sector 100 Noida — commercial and residential pocket in Noida.",
+        "nearby": [
+            "sector-18-noida",
+            "sector-62-noida"
+        ]
+    },
+    {
+        "slug": "sector-104-noida",
+        "name": "Sector 104 Noida",
+        "city": "noida",
+        "metro": "noida-sector-104",
+        "description": "Sector 104 Noida — commercial and residential pocket in Noida.",
+        "nearby": [
+            "sector-18-noida",
+            "sector-62-noida"
+        ]
+    },
+    {
+        "slug": "sector-105-noida",
+        "name": "Sector 105 Noida",
+        "city": "noida",
+        "metro": "noida-sector-105",
+        "description": "Sector 105 Noida — commercial and residential pocket in Noida.",
+        "nearby": [
+            "sector-18-noida",
+            "sector-62-noida"
+        ]
+    },
+    {
+        "slug": "sector-108-noida",
+        "name": "Sector 108 Noida",
+        "city": "noida",
+        "metro": "noida-sector-108",
+        "description": "Sector 108 Noida — commercial and residential pocket in Noida.",
+        "nearby": [
+            "sector-18-noida",
+            "sector-62-noida"
+        ]
+    },
+    {
+        "slug": "sector-110-noida",
+        "name": "Sector 110 Noida",
+        "city": "noida",
+        "metro": "noida-sector-110",
+        "description": "Sector 110 Noida — commercial and residential pocket in Noida.",
+        "nearby": [
+            "sector-18-noida",
+            "sector-62-noida"
+        ]
+    },
+    {
+        "slug": "sector-112-noida",
+        "name": "Sector 112 Noida",
+        "city": "noida",
+        "metro": "noida-sector-112",
+        "description": "Sector 112 Noida — commercial and residential pocket in Noida.",
+        "nearby": [
+            "sector-18-noida",
+            "sector-62-noida"
+        ]
+    },
+    {
+        "slug": "sector-113-noida",
+        "name": "Sector 113 Noida",
+        "city": "noida",
+        "metro": "noida-sector-113",
+        "description": "Sector 113 Noida — commercial and residential pocket in Noida.",
+        "nearby": [
+            "sector-18-noida",
+            "sector-62-noida"
+        ]
+    },
+    {
+        "slug": "sector-116-noida",
+        "name": "Sector 116 Noida",
+        "city": "noida",
+        "metro": "noida-sector-116",
+        "description": "Sector 116 Noida — commercial and residential pocket in Noida.",
+        "nearby": [
+            "sector-18-noida",
+            "sector-62-noida"
+        ]
+    },
+    {
+        "slug": "sector-117-noida",
+        "name": "Sector 117 Noida",
+        "city": "noida",
+        "metro": "noida-sector-117",
+        "description": "Sector 117 Noida — commercial and residential pocket in Noida.",
+        "nearby": [
+            "sector-18-noida",
+            "sector-62-noida"
+        ]
+    },
+    {
+        "slug": "sector-120-noida",
+        "name": "Sector 120 Noida",
+        "city": "noida",
+        "metro": "noida-sector-120",
+        "description": "Sector 120 Noida — commercial and residential pocket in Noida.",
+        "nearby": [
+            "sector-18-noida",
+            "sector-62-noida"
+        ]
+    },
+    {
+        "slug": "sector-121-noida",
+        "name": "Sector 121 Noida",
+        "city": "noida",
+        "metro": "noida-sector-121",
+        "description": "Sector 121 Noida — commercial and residential pocket in Noida.",
+        "nearby": [
+            "sector-18-noida",
+            "sector-62-noida"
+        ]
+    },
+    {
+        "slug": "sector-122-noida",
+        "name": "Sector 122 Noida",
+        "city": "noida",
+        "metro": "noida-sector-122",
+        "description": "Sector 122 Noida — commercial and residential pocket in Noida.",
+        "nearby": [
+            "sector-18-noida",
+            "sector-62-noida"
+        ]
+    },
+    {
+        "slug": "sector-123-noida",
+        "name": "Sector 123 Noida",
+        "city": "noida",
+        "metro": "noida-sector-123",
+        "description": "Sector 123 Noida — commercial and residential pocket in Noida.",
+        "nearby": [
+            "sector-18-noida",
+            "sector-62-noida"
+        ]
+    },
+    {
+        "slug": "sector-124-noida",
+        "name": "Sector 124 Noida",
+        "city": "noida",
+        "metro": "noida-sector-124",
+        "description": "Sector 124 Noida — commercial and residential pocket in Noida.",
+        "nearby": [
+            "sector-18-noida",
+            "sector-62-noida"
+        ]
+    },
+    {
+        "slug": "sector-125-noida",
+        "name": "Sector 125 Noida",
+        "city": "noida",
+        "metro": "noida-sector-125",
+        "description": "Sector 125 Noida — commercial and residential pocket in Noida.",
+        "nearby": [
+            "sector-18-noida",
+            "sector-62-noida"
+        ]
+    },
+    {
+        "slug": "sector-126-noida",
+        "name": "Sector 126 Noida",
+        "city": "noida",
+        "metro": "noida-sector-126",
+        "description": "Sector 126 Noida — commercial and residential pocket in Noida.",
+        "nearby": [
+            "sector-18-noida",
+            "sector-62-noida"
+        ]
+    },
+    {
+        "slug": "sector-127-noida",
+        "name": "Sector 127 Noida",
+        "city": "noida",
+        "metro": "noida-sector-127",
+        "description": "Sector 127 Noida — commercial and residential pocket in Noida.",
+        "nearby": [
+            "sector-18-noida",
+            "sector-62-noida"
+        ]
+    },
+    {
+        "slug": "sector-128-noida",
+        "name": "Sector 128 Noida",
+        "city": "noida",
+        "metro": "noida-sector-128",
+        "description": "Sector 128 Noida — commercial and residential pocket in Noida.",
+        "nearby": [
+            "sector-18-noida",
+            "sector-62-noida"
+        ]
+    },
+    {
+        "slug": "sector-132-noida",
+        "name": "Sector 132 Noida",
+        "city": "noida",
+        "metro": "noida-sector-132",
+        "description": "Sector 132 Noida — commercial and residential pocket in Noida.",
+        "nearby": [
+            "sector-18-noida",
+            "sector-62-noida"
+        ]
+    },
+    {
+        "slug": "sector-133-noida",
+        "name": "Sector 133 Noida",
+        "city": "noida",
+        "metro": "noida-sector-133",
+        "description": "Sector 133 Noida — commercial and residential pocket in Noida.",
+        "nearby": [
+            "sector-18-noida",
+            "sector-62-noida"
+        ]
+    },
+    {
+        "slug": "sector-135-noida",
+        "name": "Sector 135 Noida",
+        "city": "noida",
+        "metro": "noida-sector-135",
+        "description": "Sector 135 Noida — commercial and residential pocket in Noida.",
+        "nearby": [
+            "sector-18-noida",
+            "sector-62-noida"
+        ]
+    },
+    {
+        "slug": "sector-137-noida",
+        "name": "Sector 137 Noida",
+        "city": "noida",
+        "metro": "noida-sector-137",
+        "description": "Sector 137 Noida — commercial and residential pocket in Noida.",
+        "nearby": [
+            "sector-18-noida",
+            "sector-62-noida"
+        ]
+    },
+    {
+        "slug": "sector-142-noida",
+        "name": "Sector 142 Noida",
+        "city": "noida",
+        "metro": "noida-sector-142",
+        "description": "Sector 142 Noida — commercial and residential pocket in Noida.",
+        "nearby": [
+            "sector-18-noida",
+            "sector-62-noida"
+        ]
+    },
+    {
+        "slug": "sector-143-noida",
+        "name": "Sector 143 Noida",
+        "city": "noida",
+        "metro": "noida-sector-143",
+        "description": "Sector 143 Noida — commercial and residential pocket in Noida.",
+        "nearby": [
+            "sector-18-noida",
+            "sector-62-noida"
+        ]
+    },
+    {
+        "slug": "sector-144-noida",
+        "name": "Sector 144 Noida",
+        "city": "noida",
+        "metro": "noida-sector-144",
+        "description": "Sector 144 Noida — commercial and residential pocket in Noida.",
+        "nearby": [
+            "sector-18-noida",
+            "sector-62-noida"
+        ]
+    },
+    {
+        "slug": "sector-150-noida",
+        "name": "Sector 150 Noida",
+        "city": "noida",
+        "metro": "noida-sector-150",
+        "description": "Sector 150 Noida — commercial and residential pocket in Noida.",
+        "nearby": [
+            "sector-18-noida",
+            "sector-62-noida"
+        ]
+    },
+    {
+        "slug": "cyber-city",
+        "name": "Cyber City",
+        "city": "gurugram",
+        "metro": "cyber-city",
+        "description": "DLF Cyber City corporate headquarters hub.",
+        "nearby": [
+            "cyber-city",
+            "mg-road-gurugram",
+            "iffco-chowk"
+        ]
+    },
+    {
+        "slug": "dlf-phase-1",
+        "name": "DLF Phase 1",
+        "city": "gurugram",
+        "metro": "dlf-phase-1",
+        "description": "Established Gurugram residential phase.",
+        "nearby": [
+            "cyber-city",
+            "mg-road-gurugram",
+            "iffco-chowk"
+        ]
+    },
+    {
+        "slug": "dlf-phase-2",
+        "name": "DLF Phase 2",
+        "city": "gurugram",
+        "metro": "dlf-phase-2",
+        "description": "Premium Gurugram residential and commercial.",
+        "nearby": [
+            "cyber-city",
+            "mg-road-gurugram",
+            "iffco-chowk"
+        ]
+    },
+    {
+        "slug": "dlf-phase-3",
+        "name": "DLF Phase 3",
+        "city": "gurugram",
+        "metro": "dlf-phase-3",
+        "description": "Corporate and residential Gurugram hub.",
+        "nearby": [
+            "cyber-city",
+            "mg-road-gurugram",
+            "iffco-chowk"
+        ]
+    },
+    {
+        "slug": "dlf-phase-4",
+        "name": "DLF Phase 4",
+        "city": "gurugram",
+        "metro": "dlf-phase-4",
+        "description": "Upscale Gurugram residential area.",
+        "nearby": [
+            "cyber-city",
+            "mg-road-gurugram",
+            "iffco-chowk"
+        ]
+    },
+    {
+        "slug": "dlf-phase-5",
+        "name": "DLF Phase 5",
+        "city": "gurugram",
+        "metro": "dlf-phase-5",
+        "description": "Golf Course Road adjacent premium zone.",
+        "nearby": [
+            "cyber-city",
+            "mg-road-gurugram",
+            "iffco-chowk"
+        ]
+    },
+    {
+        "slug": "mg-road-gurugram",
+        "name": "MG Road Gurugram",
+        "city": "gurugram",
+        "metro": "mg-road-gurugram",
+        "description": "Premium Gurugram commercial corridor.",
+        "nearby": [
+            "cyber-city",
+            "mg-road-gurugram",
+            "iffco-chowk"
+        ]
+    },
+    {
+        "slug": "udyog-vihar",
+        "name": "Udyog Vihar",
+        "city": "gurugram",
+        "metro": "udyog-vihar",
+        "description": "Industrial and export hub.",
+        "nearby": [
+            "cyber-city",
+            "mg-road-gurugram",
+            "iffco-chowk"
+        ]
+    },
+    {
+        "slug": "sector-29-gurugram",
+        "name": "Sector 29 Gurugram",
+        "city": "gurugram",
+        "metro": "sector-29-gurugram",
+        "description": "Food and entertainment district.",
+        "nearby": [
+            "cyber-city",
+            "mg-road-gurugram",
+            "iffco-chowk"
+        ]
+    },
+    {
+        "slug": "golf-course-road",
+        "name": "Golf Course Road",
+        "city": "gurugram",
+        "metro": "golf-course-road",
+        "description": "Ultra-premium Gurugram address.",
+        "nearby": [
+            "cyber-city",
+            "mg-road-gurugram",
+            "iffco-chowk"
+        ]
+    },
+    {
+        "slug": "sohna-road",
+        "name": "Sohna Road",
+        "city": "gurugram",
+        "metro": "sohna-road",
+        "description": "Southern Gurugram residential corridor.",
+        "nearby": [
+            "cyber-city",
+            "mg-road-gurugram",
+            "iffco-chowk"
+        ]
+    },
+    {
+        "slug": "south-city-1",
+        "name": "South City 1",
+        "city": "gurugram",
+        "metro": "south-city-1",
+        "description": "Premium Gurugram township.",
+        "nearby": [
+            "cyber-city",
+            "mg-road-gurugram",
+            "iffco-chowk"
+        ]
+    },
+    {
+        "slug": "south-city-2",
+        "name": "South City 2",
+        "city": "gurugram",
+        "metro": "south-city-2",
+        "description": "Established Gurugram residential hub.",
+        "nearby": [
+            "cyber-city",
+            "mg-road-gurugram",
+            "iffco-chowk"
+        ]
+    },
+    {
+        "slug": "palam-vihar",
+        "name": "Palam Vihar",
+        "city": "gurugram",
+        "metro": "palam-vihar",
+        "description": "Affordable Gurugram residential area.",
+        "nearby": [
+            "cyber-city",
+            "mg-road-gurugram",
+            "iffco-chowk"
+        ]
+    },
+    {
+        "slug": "old-gurugram",
+        "name": "Old Gurugram",
+        "city": "gurugram",
+        "metro": "old-gurugram",
+        "description": "Traditional Sadar Bazar and old city.",
+        "nearby": [
+            "cyber-city",
+            "mg-road-gurugram",
+            "iffco-chowk"
+        ]
+    },
+    {
+        "slug": "iffco-chowk",
+        "name": "IFFCO Chowk",
+        "city": "gurugram",
+        "metro": "iffco-chowk",
+        "description": "Major Gurugram metro and corporate junction.",
+        "nearby": [
+            "cyber-city",
+            "mg-road-gurugram",
+            "iffco-chowk"
+        ]
+    },
+    {
+        "slug": "huda-city-centre",
+        "name": "HUDA City Centre",
+        "city": "gurugram",
+        "metro": "huda-city-centre",
+        "description": "Yellow Line metro terminus.",
+        "nearby": [
+            "cyber-city",
+            "mg-road-gurugram",
+            "iffco-chowk"
+        ]
+    },
+    {
+        "slug": "sector-14-gurugram",
+        "name": "Sector 14 Gurugram",
+        "city": "gurugram",
+        "metro": "sector-14-gurugram",
+        "description": "Old Gurugram institutional hub.",
+        "nearby": [
+            "cyber-city",
+            "mg-road-gurugram",
+            "iffco-chowk"
+        ]
+    },
+    {
+        "slug": "sector-15-gurugram",
+        "name": "Sector 15 Gurugram",
+        "city": "gurugram",
+        "metro": "sector-15-gurugram",
+        "description": "Residential and market area.",
+        "nearby": [
+            "cyber-city",
+            "mg-road-gurugram",
+            "iffco-chowk"
+        ]
+    },
+    {
+        "slug": "sector-21-gurugram",
+        "name": "Sector 21 Gurugram",
+        "city": "gurugram",
+        "metro": "sector-21-gurugram",
+        "description": "Metro-connected Gurugram sector.",
+        "nearby": [
+            "cyber-city",
+            "mg-road-gurugram",
+            "iffco-chowk"
+        ]
+    },
+    {
+        "slug": "sector-22-gurugram",
+        "name": "Sector 22 Gurugram",
+        "city": "gurugram",
+        "metro": "sector-22-gurugram",
+        "description": "Palam Vihar adjacent sector.",
+        "nearby": [
+            "cyber-city",
+            "mg-road-gurugram",
+            "iffco-chowk"
+        ]
+    },
+    {
+        "slug": "sector-23-gurugram",
+        "name": "Sector 23 Gurugram",
+        "city": "gurugram",
+        "metro": "sector-23-gurugram",
+        "description": "Residential Gurugram pocket.",
+        "nearby": [
+            "cyber-city",
+            "mg-road-gurugram",
+            "iffco-chowk"
+        ]
+    },
+    {
+        "slug": "sector-27-gurugram",
+        "name": "Sector 27 Gurugram",
+        "city": "gurugram",
+        "metro": "sector-27-gurugram",
+        "description": "Golf Course Extension area.",
+        "nearby": [
+            "cyber-city",
+            "mg-road-gurugram",
+            "iffco-chowk"
+        ]
+    },
+    {
+        "slug": "sector-43-gurugram",
+        "name": "Sector 43 Gurugram",
+        "city": "gurugram",
+        "metro": "sector-43-gurugram",
+        "description": "DLF adjacent residential sector.",
+        "nearby": [
+            "cyber-city",
+            "mg-road-gurugram",
+            "iffco-chowk"
+        ]
+    },
+    {
+        "slug": "sector-44-gurugram",
+        "name": "Sector 44 Gurugram",
+        "city": "gurugram",
+        "metro": "sector-44-gurugram",
+        "description": "Corporate and residential mix.",
+        "nearby": [
+            "cyber-city",
+            "mg-road-gurugram",
+            "iffco-chowk"
+        ]
+    },
+    {
+        "slug": "sector-45-gurugram",
+        "name": "Sector 45 Gurugram",
+        "city": "gurugram",
+        "metro": "sector-45-gurugram",
+        "description": "Huda City Centre adjacent.",
+        "nearby": [
+            "cyber-city",
+            "mg-road-gurugram",
+            "iffco-chowk"
+        ]
+    },
+    {
+        "slug": "sector-46-gurugram",
+        "name": "Sector 46 Gurugram",
+        "city": "gurugram",
+        "metro": "sector-46-gurugram",
+        "description": "Southern Gurugram residential.",
+        "nearby": [
+            "cyber-city",
+            "mg-road-gurugram",
+            "iffco-chowk"
+        ]
+    },
+    {
+        "slug": "sector-47-gurugram",
+        "name": "Sector 47 Gurugram",
+        "city": "gurugram",
+        "metro": "sector-47-gurugram",
+        "description": "Sohna Road adjacent sector.",
+        "nearby": [
+            "cyber-city",
+            "mg-road-gurugram",
+            "iffco-chowk"
+        ]
+    },
+    {
+        "slug": "sector-48-gurugram",
+        "name": "Sector 48 Gurugram",
+        "city": "gurugram",
+        "metro": "sector-48-gurugram",
+        "description": "New Gurugram residential hub.",
+        "nearby": [
+            "cyber-city",
+            "mg-road-gurugram",
+            "iffco-chowk"
+        ]
+    },
+    {
+        "slug": "sector-49-gurugram",
+        "name": "Sector 49 Gurugram",
+        "city": "gurugram",
+        "metro": "sector-49-gurugram",
+        "description": "Sohna Road corridor sector.",
+        "nearby": [
+            "cyber-city",
+            "mg-road-gurugram",
+            "iffco-chowk"
+        ]
+    },
+    {
+        "slug": "sector-50-gurugram",
+        "name": "Sector 50 Gurugram",
+        "city": "gurugram",
+        "metro": "sector-50-gurugram",
+        "description": "Southern Gurugram premium area.",
+        "nearby": [
+            "cyber-city",
+            "mg-road-gurugram",
+            "iffco-chowk"
+        ]
+    },
+    {
+        "slug": "sector-52-gurugram",
+        "name": "Sector 52 Gurugram",
+        "city": "gurugram",
+        "metro": "sector-52-gurugram",
+        "description": "Rapid metro connected sector.",
+        "nearby": [
+            "cyber-city",
+            "mg-road-gurugram",
+            "iffco-chowk"
+        ]
+    },
+    {
+        "slug": "sector-54-gurugram",
+        "name": "Sector 54 Gurugram",
+        "city": "gurugram",
+        "metro": "sector-54-gurugram",
+        "description": "Golf Course Road pocket.",
+        "nearby": [
+            "cyber-city",
+            "mg-road-gurugram",
+            "iffco-chowk"
+        ]
+    },
+    {
+        "slug": "sector-55-gurugram",
+        "name": "Sector 55 Gurugram",
+        "city": "gurugram",
+        "metro": "sector-55-gurugram",
+        "description": "New Gurugram development zone.",
+        "nearby": [
+            "cyber-city",
+            "mg-road-gurugram",
+            "iffco-chowk"
+        ]
+    },
+    {
+        "slug": "sector-56-gurugram",
+        "name": "Sector 56 Gurugram",
+        "city": "gurugram",
+        "metro": "sector-56-gurugram",
+        "description": "Residential and school hub.",
+        "nearby": [
+            "cyber-city",
+            "mg-road-gurugram",
+            "iffco-chowk"
+        ]
+    },
+    {
+        "slug": "sector-57-gurugram",
+        "name": "Sector 57 Gurugram",
+        "city": "gurugram",
+        "metro": "sector-57-gurugram",
+        "description": "Southern Gurugram residential.",
+        "nearby": [
+            "cyber-city",
+            "mg-road-gurugram",
+            "iffco-chowk"
+        ]
+    },
+    {
+        "slug": "manesar-imbp",
+        "name": "Manesar IMT",
+        "city": "gurugram",
+        "metro": "manesar-imbp",
+        "description": "Industrial Model Township Manesar.",
+        "nearby": [
+            "cyber-city",
+            "mg-road-gurugram",
+            "iffco-chowk"
+        ]
+    },
+    {
+        "slug": "new-gurugram",
+        "name": "New Gurugram",
+        "city": "gurugram",
+        "metro": "new-gurugram",
+        "description": "Southern expansion along SPR.",
+        "nearby": [
+            "cyber-city",
+            "mg-road-gurugram",
+            "iffco-chowk"
+        ]
+    },
+    {
+        "slug": "indirapuram",
+        "name": "Indirapuram",
+        "city": "ghaziabad",
+        "metro": "indirapuram",
+        "description": "Premium Ghaziabad township.",
+        "nearby": [
+            "indirapuram",
+            "vaishali",
+            "kaushambi"
+        ]
+    },
+    {
+        "slug": "vaishali",
+        "name": "Vaishali",
+        "city": "ghaziabad",
+        "metro": "vaishali",
+        "description": "Metro-connected Ghaziabad hub.",
+        "nearby": [
+            "indirapuram",
+            "vaishali",
+            "kaushambi"
+        ]
+    },
+    {
+        "slug": "kaushambi",
+        "name": "Kaushambi",
+        "city": "ghaziabad",
+        "metro": "kaushambi",
+        "description": "Commercial Ghaziabad near Anand Vihar.",
+        "nearby": [
+            "indirapuram",
+            "vaishali",
+            "kaushambi"
+        ]
+    },
+    {
+        "slug": "raj-nagar",
+        "name": "Raj Nagar",
+        "city": "ghaziabad",
+        "metro": "raj-nagar",
+        "description": "Central Ghaziabad residential hub.",
+        "nearby": [
+            "indirapuram",
+            "vaishali",
+            "kaushambi"
+        ]
+    },
+    {
+        "slug": "raj-nagar-extension",
+        "name": "Raj Nagar Extension",
+        "city": "ghaziabad",
+        "metro": "raj-nagar-extension",
+        "description": "Growing Ghaziabad extension.",
+        "nearby": [
+            "indirapuram",
+            "vaishali",
+            "kaushambi"
+        ]
+    },
+    {
+        "slug": "crossings-republik",
+        "name": "Crossings Republik",
+        "city": "ghaziabad",
+        "metro": "crossings-republik",
+        "description": "Large Ghaziabad township.",
+        "nearby": [
+            "indirapuram",
+            "vaishali",
+            "kaushambi"
+        ]
+    },
+    {
+        "slug": "ahinsa-khand",
+        "name": "Ahinsa Khand",
+        "city": "ghaziabad",
+        "metro": "ahinsa-khand",
+        "description": "Indirapuram adjacent residential.",
+        "nearby": [
+            "indirapuram",
+            "vaishali",
+            "kaushambi"
+        ]
+    },
+    {
+        "slug": "shipra-suncity",
+        "name": "Shipra Suncity",
+        "city": "ghaziabad",
+        "metro": "shipra-suncity",
+        "description": "Premium Indirapuram township.",
+        "nearby": [
+            "indirapuram",
+            "vaishali",
+            "kaushambi"
+        ]
+    },
+    {
+        "slug": "vasundhara",
+        "name": "Vasundhara",
+        "city": "ghaziabad",
+        "metro": "vasundhara",
+        "description": "Ghaziabad residential hub.",
+        "nearby": [
+            "indirapuram",
+            "vaishali",
+            "kaushambi"
+        ]
+    },
+    {
+        "slug": "vasundhara-sector-1",
+        "name": "Vasundhara Sector 1",
+        "city": "ghaziabad",
+        "metro": "vasundhara-sector-1",
+        "description": "Established Vasundhara pocket.",
+        "nearby": [
+            "indirapuram",
+            "vaishali",
+            "kaushambi"
+        ]
+    },
+    {
+        "slug": "vasundhara-sector-2",
+        "name": "Vasundhara Sector 2",
+        "city": "ghaziabad",
+        "metro": "vasundhara-sector-2",
+        "description": "Vasundhara commercial area.",
+        "nearby": [
+            "indirapuram",
+            "vaishali",
+            "kaushambi"
+        ]
+    },
+    {
+        "slug": "sahibabad",
+        "name": "Sahibabad",
+        "city": "ghaziabad",
+        "metro": "sahibabad",
+        "description": "Industrial Ghaziabad hub.",
+        "nearby": [
+            "indirapuram",
+            "vaishali",
+            "kaushambi"
+        ]
+    },
+    {
+        "slug": "tronica-city",
+        "name": "Tronica City",
+        "city": "ghaziabad",
+        "metro": "tronica-city",
+        "description": "Ghaziabad industrial and residential.",
+        "nearby": [
+            "indirapuram",
+            "vaishali",
+            "kaushambi"
+        ]
+    },
+    {
+        "slug": "loni",
+        "name": "Loni",
+        "city": "ghaziabad",
+        "metro": "loni",
+        "description": "Eastern Ghaziabad border area.",
+        "nearby": [
+            "indirapuram",
+            "vaishali",
+            "kaushambi"
+        ]
+    },
+    {
+        "slug": "modinagar",
+        "name": "Modinagar",
+        "city": "ghaziabad",
+        "metro": "modinagar",
+        "description": "NH-58 industrial town.",
+        "nearby": [
+            "indirapuram",
+            "vaishali",
+            "kaushambi"
+        ]
+    },
+    {
+        "slug": "muradnagar",
+        "name": "Muradnagar",
+        "city": "ghaziabad",
+        "metro": "muradnagar",
+        "description": "Eastern Ghaziabad commercial hub.",
+        "nearby": [
+            "indirapuram",
+            "vaishali",
+            "kaushambi"
+        ]
+    },
+    {
+        "slug": "sector-15-faridabad",
+        "name": "Sector 15 Faridabad",
+        "city": "faridabad",
+        "metro": "sector-15-faridabad",
+        "description": "Central Faridabad commercial hub.",
+        "nearby": [
+            "sector-15-faridabad",
+            "ballabhgarh"
+        ]
+    },
+    {
+        "slug": "sector-16-faridabad",
+        "name": "Sector 16 Faridabad",
+        "city": "faridabad",
+        "metro": "sector-16-faridabad",
+        "description": "Faridabad institutional area.",
+        "nearby": [
+            "sector-15-faridabad",
+            "ballabhgarh"
+        ]
+    },
+    {
+        "slug": "sector-21c-faridabad",
+        "name": "Sector 21C Faridabad",
+        "city": "faridabad",
+        "metro": "sector-21c-faridabad",
+        "description": "Residential Faridabad sector.",
+        "nearby": [
+            "sector-15-faridabad",
+            "ballabhgarh"
+        ]
+    },
+    {
+        "slug": "sector-28-faridabad",
+        "name": "Sector 28 Faridabad",
+        "city": "faridabad",
+        "metro": "sector-28-faridabad",
+        "description": "Industrial Faridabad belt.",
+        "nearby": [
+            "sector-15-faridabad",
+            "ballabhgarh"
+        ]
+    },
+    {
+        "slug": "sector-37-faridabad",
+        "name": "Sector 37 Faridabad",
+        "city": "faridabad",
+        "metro": "sector-37-faridabad",
+        "description": "Faridabad residential hub.",
+        "nearby": [
+            "sector-15-faridabad",
+            "ballabhgarh"
+        ]
+    },
+    {
+        "slug": "nit-faridabad",
+        "name": "NIT Faridabad",
+        "city": "faridabad",
+        "metro": "nit-faridabad",
+        "description": "Industrial training and manufacturing hub.",
+        "nearby": [
+            "sector-15-faridabad",
+            "ballabhgarh"
+        ]
+    },
+    {
+        "slug": "ballabhgarh",
+        "name": "Ballabhgarh",
+        "city": "faridabad",
+        "metro": "ballabhgarh",
+        "description": "Southern Faridabad industrial area.",
+        "nearby": [
+            "sector-15-faridabad",
+            "ballabhgarh"
+        ]
+    },
+    {
+        "slug": "greater-faridabad",
+        "name": "Greater Faridabad",
+        "city": "faridabad",
+        "metro": "greater-faridabad",
+        "description": "New Faridabad development zone.",
+        "nearby": [
+            "sector-15-faridabad",
+            "ballabhgarh"
+        ]
+    },
+    {
+        "slug": "neharpar",
+        "name": "Neharpar",
+        "city": "faridabad",
+        "metro": "neharpar",
+        "description": "Omaxe City and new Faridabad corridor.",
+        "nearby": [
+            "sector-15-faridabad",
+            "ballabhgarh"
+        ]
+    },
+    {
+        "slug": "pari-chowk",
+        "name": "Pari Chowk",
+        "city": "greater-noida",
+        "metro": "pari-chowk",
+        "description": "Greater Noida central commercial hub.",
+        "nearby": [
+            "pari-chowk",
+            "knowledge-park"
+        ]
+    },
+    {
+        "slug": "alpha-1-greater-noida",
+        "name": "Alpha 1 Greater Noida",
+        "city": "greater-noida",
+        "metro": "alpha-1-greater-noida",
+        "description": "Premium Greater Noida sector.",
+        "nearby": [
+            "pari-chowk",
+            "knowledge-park"
+        ]
+    },
+    {
+        "slug": "beta-1-greater-noida",
+        "name": "Beta 1 Greater Noida",
+        "city": "greater-noida",
+        "metro": "beta-1-greater-noida",
+        "description": "Established Greater Noida pocket.",
+        "nearby": [
+            "pari-chowk",
+            "knowledge-park"
+        ]
+    },
+    {
+        "slug": "gamma-1-greater-noida",
+        "name": "Gamma 1 Greater Noida",
+        "city": "greater-noida",
+        "metro": "gamma-1-greater-noida",
+        "description": "Greater Noida residential hub.",
+        "nearby": [
+            "pari-chowk",
+            "knowledge-park"
+        ]
+    },
+    {
+        "slug": "delta-1-greater-noida",
+        "name": "Delta 1 Greater Noida",
+        "city": "greater-noida",
+        "metro": "delta-1-greater-noida",
+        "description": "Greater Noida institutional area.",
+        "nearby": [
+            "pari-chowk",
+            "knowledge-park"
+        ]
+    },
+    {
+        "slug": "omicron-1-greater-noida",
+        "name": "Omicron 1 Greater Noida",
+        "city": "greater-noida",
+        "metro": "omicron-1-greater-noida",
+        "description": "Greater Noida residential sector.",
+        "nearby": [
+            "pari-chowk",
+            "knowledge-park"
+        ]
+    },
+    {
+        "slug": "knowledge-park",
+        "name": "Knowledge Park",
+        "city": "greater-noida",
+        "metro": "knowledge-park",
+        "description": "IT and education hub in Greater Noida.",
+        "nearby": [
+            "pari-chowk",
+            "knowledge-park"
+        ]
+    },
+    {
+        "slug": "surajpur",
+        "name": "Surajpur",
+        "city": "greater-noida",
+        "metro": "surajpur",
+        "description": "Industrial Greater Noida belt.",
+        "nearby": [
+            "pari-chowk",
+            "knowledge-park"
+        ]
+    },
+    {
+        "slug": "noida-extension",
+        "name": "Noida Extension",
+        "city": "greater-noida",
+        "metro": "noida-extension",
+        "description": "Crossings and Gaur City corridor.",
+        "nearby": [
+            "pari-chowk",
+            "knowledge-park"
+        ]
+    },
+    {
+        "slug": "techzone-4",
+        "name": "Techzone 4",
+        "city": "greater-noida",
+        "metro": "techzone-4",
+        "description": "Greater Noida West IT hub.",
+        "nearby": [
+            "pari-chowk",
+            "knowledge-park"
+        ]
+    },
+    {
+        "slug": "connaught-place",
+        "name": "Connaught Place",
+        "city": "new-delhi",
+        "metro": "connaught-place",
+        "description": "Central Delhi business district.",
+        "nearby": [
+            "connaught-place",
+            "ito"
+        ]
+    },
+    {
+        "slug": "janpath",
+        "name": "Janpath",
+        "city": "new-delhi",
+        "metro": "janpath",
+        "description": "Tourist and retail Central Delhi corridor.",
+        "nearby": [
+            "connaught-place",
+            "ito"
+        ]
+    },
+    {
+        "slug": "mandi-house",
+        "name": "Mandi House",
+        "city": "new-delhi",
+        "metro": "mandi-house",
+        "description": "Cultural and media hub.",
+        "nearby": [
+            "connaught-place",
+            "ito"
+        ]
+    },
+    {
+        "slug": "ito",
+        "name": "ITO",
+        "city": "new-delhi",
+        "metro": "ito",
+        "description": "Media and government press district.",
+        "nearby": [
+            "connaught-place",
+            "ito"
+        ]
+    },
+    {
+        "slug": "pragati-maidan",
+        "name": "Pragati Maidan",
+        "city": "new-delhi",
+        "metro": "pragati-maidan",
+        "description": "Exhibition and convention center.",
+        "nearby": [
+            "connaught-place",
+            "ito"
+        ]
+    },
+    {
+        "slug": "barakhamba-road",
+        "name": "Barakhamba Road",
+        "city": "new-delhi",
+        "metro": "barakhamba-road",
+        "description": "Central Delhi corporate corridor.",
+        "nearby": [
+            "connaught-place",
+            "ito"
+        ]
+    },
+    {
+        "slug": "kasturba-gandhi-marg",
+        "name": "Kasturba Gandhi Marg",
+        "city": "new-delhi",
+        "metro": "kasturba-gandhi-marg",
+        "description": "Premium Central Delhi address.",
+        "nearby": [
+            "connaught-place",
+            "ito"
+        ]
+    },
+    {
+        "slug": "sector-7-noida",
+        "name": "Sector 7 Noida",
+        "city": "noida",
+        "metro": "sector-7-noida",
+        "description": "Established Noida residential and institutional sector.",
+        "nearby": [
+            "sector-15-noida",
+            "sector-18-noida"
+        ]
+    },
+    {
+        "slug": "sector-9-noida",
+        "name": "Sector 9 Noida",
+        "city": "noida",
+        "metro": "sector-9-noida",
+        "description": "Central Noida residential hub near City Centre.",
+        "nearby": [
+            "sector-18-noida",
+            "sector-37-noida"
+        ]
+    },
+    {
+        "slug": "sector-14-noida",
+        "name": "Sector 14 Noida",
+        "city": "noida",
+        "metro": "sector-14-noida",
+        "description": "Noida institutional and coaching hub.",
+        "nearby": [
+            "sector-15-noida",
+            "sector-18-noida"
+        ]
+    },
+    {
+        "slug": "sector-17-noida",
+        "name": "Sector 17 Noida",
+        "city": "noida",
+        "metro": "sector-17-noida",
+        "description": "Noida commercial and market sector.",
+        "nearby": [
+            "sector-18-noida",
+            "sector-15-noida"
+        ]
+    },
+    {
+        "slug": "vasant-kunj-mall",
+        "name": "Vasant Kunj Mall District",
+        "city": "vasant-kunj",
+        "metro": "vasant-kunj",
+        "description": "Premium mall and residential corridor in Vasant Kunj.",
+        "nearby": [
+            "vasant-kunj",
+            "saket"
+        ]
+    }
+]

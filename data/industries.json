@@ -1,0 +1,1094 @@
+[
+    {
+        "slug": "doctors",
+        "name": "Doctors",
+        "category": "healthcare",
+        "description": "Medical professionals creating patient education and health content.",
+        "use_cases": [
+            "Patient education videos",
+            "Medical podcasts",
+            "Doctor profiles",
+            "Clinic promos"
+        ]
+    },
+    {
+        "slug": "dentists",
+        "name": "Dentists",
+        "category": "healthcare",
+        "description": "Dental practices producing treatment explainers and smile makeover content.",
+        "use_cases": [
+            "Treatment explainers",
+            "Dental vlogs",
+            "Clinic tours",
+            "Patient testimonials"
+        ]
+    },
+    {
+        "slug": "lawyers",
+        "name": "Lawyers",
+        "category": "legal",
+        "description": "Legal professionals producing thought leadership and client education.",
+        "use_cases": [
+            "Legal explainers",
+            "Law firm podcasts",
+            "Attorney headshots",
+            "Webinars"
+        ]
+    },
+    {
+        "slug": "chartered-accountants",
+        "name": "Chartered Accountants",
+        "category": "finance",
+        "description": "CAs and tax professionals creating advisory and compliance content.",
+        "use_cases": [
+            "Tax advisory videos",
+            "Financial planning content",
+            "Firm branding",
+            "Webinar recordings"
+        ]
+    },
+    {
+        "slug": "youtubers",
+        "name": "YouTubers",
+        "category": "creator",
+        "description": "YouTube creators needing consistent professional studio output.",
+        "use_cases": [
+            "Channel studio days",
+            "Interview episodes",
+            "Tutorials",
+            "Podcast crossovers"
+        ]
+    },
+    {
+        "slug": "influencers",
+        "name": "Influencers",
+        "category": "creator",
+        "description": "Social media influencers shooting reels and brand collaborations.",
+        "use_cases": [
+            "Brand deals",
+            "Reel production",
+            "Unboxing",
+            "Lifestyle content"
+        ]
+    },
+    {
+        "slug": "startups",
+        "name": "Startups",
+        "category": "business",
+        "description": "Early-stage companies creating pitch videos and product demos.",
+        "use_cases": [
+            "Pitch videos",
+            "Founder stories",
+            "Product demos",
+            "Culture films"
+        ]
+    },
+    {
+        "slug": "real-estate",
+        "name": "Real Estate",
+        "category": "property",
+        "description": "Developers and brokers producing property walkthroughs and agent profiles.",
+        "use_cases": [
+            "Property tours",
+            "Agent profiles",
+            "Launch films",
+            "Market updates"
+        ]
+    },
+    {
+        "slug": "edtech",
+        "name": "EdTech",
+        "category": "education",
+        "description": "Education companies recording courses and lectures at scale.",
+        "use_cases": [
+            "Course recording",
+            "Teacher profiles",
+            "Promo explainers",
+            "Webinars"
+        ]
+    },
+    {
+        "slug": "ecommerce",
+        "name": "E-Commerce",
+        "category": "retail",
+        "description": "Online sellers needing catalog photography and product videos.",
+        "use_cases": [
+            "Catalog shoots",
+            "Amazon photos",
+            "Brand stories",
+            "UGC ads"
+        ]
+    },
+    {
+        "slug": "restaurants",
+        "name": "Restaurants",
+        "category": "hospitality",
+        "description": "Food businesses creating menu photography and chef profiles.",
+        "use_cases": [
+            "Food photography",
+            "Chef interviews",
+            "Menu promos",
+            "Restaurant tours"
+        ]
+    },
+    {
+        "slug": "fitness",
+        "name": "Fitness",
+        "category": "wellness",
+        "description": "Trainers and gyms producing workout and motivational content.",
+        "use_cases": [
+            "Workout tutorials",
+            "Trainer profiles",
+            "Gym promos",
+            "Wellness podcasts"
+        ]
+    },
+    {
+        "slug": "fashion-brands",
+        "name": "Fashion Brands",
+        "category": "fashion",
+        "description": "Clothing labels shooting lookbooks and campaigns.",
+        "use_cases": [
+            "Lookbooks",
+            "Campaigns",
+            "Model portfolios",
+            "Runway BTS"
+        ]
+    },
+    {
+        "slug": "corporates",
+        "name": "Corporates",
+        "category": "business",
+        "description": "Enterprises producing internal communications and training.",
+        "use_cases": [
+            "CEO messages",
+            "Training modules",
+            "Annual report photos",
+            "Town halls"
+        ]
+    },
+    {
+        "slug": "agencies",
+        "name": "Agencies",
+        "category": "business",
+        "description": "Marketing agencies booking studio for client productions.",
+        "use_cases": [
+            "Client shoots",
+            "Ad films",
+            "Pitch videos",
+            "Portfolio work"
+        ]
+    },
+    {
+        "slug": "coaches",
+        "name": "Coaches",
+        "category": "education",
+        "description": "Life and business coaches recording courses and podcasts.",
+        "use_cases": [
+            "Course modules",
+            "Coaching podcasts",
+            "Testimonials",
+            "Lead magnets"
+        ]
+    },
+    {
+        "slug": "ngos",
+        "name": "NGOs",
+        "category": "nonprofit",
+        "description": "Non-profits creating impact stories and awareness campaigns.",
+        "use_cases": [
+            "Impact films",
+            "Fundraising videos",
+            "Volunteer stories",
+            "Awareness campaigns"
+        ]
+    },
+    {
+        "slug": "architects",
+        "name": "Architects",
+        "category": "professional",
+        "description": "Architecture firms documenting projects and firm culture.",
+        "use_cases": [
+            "Project walkthroughs",
+            "Firm profiles",
+            "Design explainers",
+            "Portfolio videos"
+        ]
+    },
+    {
+        "slug": "interior-designers",
+        "name": "Interior Designers",
+        "category": "professional",
+        "description": "Designers showcasing portfolio and process content.",
+        "use_cases": [
+            "Portfolio shoots",
+            "Before-after videos",
+            "Design vlogs",
+            "Client testimonials"
+        ]
+    },
+    {
+        "slug": "wedding-planners",
+        "name": "Wedding Planners",
+        "category": "events",
+        "description": "Planners creating showcase and promotional wedding content.",
+        "use_cases": [
+            "Wedding films",
+            "Vendor profiles",
+            "Venue tours",
+            "Social highlights"
+        ]
+    },
+    {
+        "slug": "event-companies",
+        "name": "Event Companies",
+        "category": "events",
+        "description": "Event managers producing highlight reels and corporate event coverage.",
+        "use_cases": [
+            "Event highlights",
+            "Conference recordings",
+            "Exhibition coverage",
+            "AV production"
+        ]
+    },
+    {
+        "slug": "hospitals",
+        "name": "Hospitals",
+        "category": "healthcare",
+        "description": "Healthcare institutions producing patient communication and training.",
+        "use_cases": [
+            "Patient education",
+            "Medical training",
+            "Hospital tours",
+            "Health campaigns"
+        ]
+    },
+    {
+        "slug": "pharma-companies",
+        "name": "Pharma Companies",
+        "category": "healthcare",
+        "description": "Pharmaceutical brands creating compliant medical content.",
+        "use_cases": [
+            "MOA explainers",
+            "HCP education",
+            "Compliance training",
+            "Product launches"
+        ]
+    },
+    {
+        "slug": "insurance",
+        "name": "Insurance",
+        "category": "finance",
+        "description": "Insurance companies producing agent training and customer education.",
+        "use_cases": [
+            "Policy explainers",
+            "Agent training",
+            "Customer testimonials",
+            "Brand campaigns"
+        ]
+    },
+    {
+        "slug": "banks",
+        "name": "Banks",
+        "category": "finance",
+        "description": "Banks and NBFCs creating financial literacy and product content.",
+        "use_cases": [
+            "Product explainers",
+            "Financial literacy",
+            "Branch promos",
+            "Executive messages"
+        ]
+    },
+    {
+        "slug": "schools",
+        "name": "Schools",
+        "category": "education",
+        "description": "Schools producing admission promos and annual day coverage.",
+        "use_cases": [
+            "Admission videos",
+            "Annual day films",
+            "Principal messages",
+            "Campus tours"
+        ]
+    },
+    {
+        "slug": "colleges",
+        "name": "Colleges",
+        "category": "education",
+        "description": "Colleges creating placement and campus life content.",
+        "use_cases": [
+            "Campus tours",
+            "Placement stories",
+            "Department profiles",
+            "Convocation films"
+        ]
+    },
+    {
+        "slug": "universities",
+        "name": "Universities",
+        "category": "education",
+        "description": "Universities producing research and institutional content.",
+        "use_cases": [
+            "Research highlights",
+            "Lecture recordings",
+            "International promos",
+            "Alumni stories"
+        ]
+    },
+    {
+        "slug": "coaching-centers",
+        "name": "Coaching Centers",
+        "category": "education",
+        "description": "JEE, NEET, and UPSC coaching institutes recording lectures.",
+        "use_cases": [
+            "Lecture recording",
+            "Success stories",
+            "Faculty profiles",
+            "Course promos"
+        ]
+    },
+    {
+        "slug": "publishers",
+        "name": "Publishers",
+        "category": "media",
+        "description": "Book publishers creating author interviews and book trailers.",
+        "use_cases": [
+            "Author interviews",
+            "Book trailers",
+            "Audiobook recording",
+            "Launch events"
+        ]
+    },
+    {
+        "slug": "authors",
+        "name": "Authors",
+        "category": "media",
+        "description": "Authors recording audiobooks and promotional content.",
+        "use_cases": [
+            "Audiobook sessions",
+            "Book promos",
+            "Interview podcasts",
+            "Reading events"
+        ]
+    },
+    {
+        "slug": "musicians",
+        "name": "Musicians",
+        "category": "entertainment",
+        "description": "Musicians recording music videos and performance content.",
+        "use_cases": [
+            "Music videos",
+            "Live sessions",
+            "Acoustic recordings",
+            "Behind-the-scenes"
+        ]
+    },
+    {
+        "slug": "comedians",
+        "name": "Comedians",
+        "category": "entertainment",
+        "description": "Stand-up comedians filming specials and promotional content.",
+        "use_cases": [
+            "Stand-up specials",
+            "Sketch comedy",
+            "Podcast recordings",
+            "Promo clips"
+        ]
+    },
+    {
+        "slug": "actors",
+        "name": "Actors",
+        "category": "entertainment",
+        "description": "Actors creating showreels and self-tape auditions.",
+        "use_cases": [
+            "Showreels",
+            "Self-tapes",
+            "Monologue recordings",
+            "Portfolio shoots"
+        ]
+    },
+    {
+        "slug": "models",
+        "name": "Models",
+        "category": "fashion",
+        "description": "Models building portfolios and digitals in professional studio.",
+        "use_cases": [
+            "Portfolio shoots",
+            "Digitals",
+            "Comp cards",
+            "Walk videos"
+        ]
+    },
+    {
+        "slug": "jewellery-brands",
+        "name": "Jewellery Brands",
+        "category": "retail",
+        "description": "Jewellers shooting product and campaign photography.",
+        "use_cases": [
+            "Product macro shots",
+            "Campaign films",
+            "Collection launches",
+            "Craftsmanship stories"
+        ]
+    },
+    {
+        "slug": "automobile-dealers",
+        "name": "Automobile Dealers",
+        "category": "retail",
+        "description": "Car dealers producing vehicle showcase and testimonial content.",
+        "use_cases": [
+            "Vehicle showcases",
+            "Test drive films",
+            "Customer stories",
+            "Launch events"
+        ]
+    },
+    {
+        "slug": "hotels",
+        "name": "Hotels",
+        "category": "hospitality",
+        "description": "Hotels creating room tours and experience marketing content.",
+        "use_cases": [
+            "Room tours",
+            "Experience films",
+            "Chef profiles",
+            "Wedding venue promos"
+        ]
+    },
+    {
+        "slug": "travel-companies",
+        "name": "Travel Companies",
+        "category": "hospitality",
+        "description": "Travel brands producing destination and package promos.",
+        "use_cases": [
+            "Destination films",
+            "Package promos",
+            "Travel vlogs",
+            "Customer testimonials"
+        ]
+    },
+    {
+        "slug": "saas-companies",
+        "name": "SaaS Companies",
+        "category": "technology",
+        "description": "Software companies creating product demos and explainers.",
+        "use_cases": [
+            "Product demos",
+            "Feature explainers",
+            "Customer stories",
+            "Webinar production"
+        ]
+    },
+    {
+        "slug": "it-companies",
+        "name": "IT Companies",
+        "category": "technology",
+        "description": "IT services firms producing capability and recruitment content.",
+        "use_cases": [
+            "Capability videos",
+            "Recruitment films",
+            "Case studies",
+            "Tech talks"
+        ]
+    },
+    {
+        "slug": "cybersecurity",
+        "name": "Cybersecurity",
+        "category": "technology",
+        "description": "Security firms creating awareness and product education content.",
+        "use_cases": [
+            "Threat explainers",
+            "Product demos",
+            "CISO interviews",
+            "Training modules"
+        ]
+    },
+    {
+        "slug": "gaming",
+        "name": "Gaming",
+        "category": "entertainment",
+        "description": "Gaming creators and studios producing streams and promotional content.",
+        "use_cases": [
+            "Game trailers",
+            "Stream setups",
+            "Esports content",
+            "Dev diaries"
+        ]
+    },
+    {
+        "slug": "sports-academies",
+        "name": "Sports Academies",
+        "category": "wellness",
+        "description": "Sports training centers producing coaching and promotional content.",
+        "use_cases": [
+            "Training tutorials",
+            "Academy promos",
+            "Athlete profiles",
+            "Tournament coverage"
+        ]
+    },
+    {
+        "slug": "politicians",
+        "name": "Politicians",
+        "category": "public",
+        "description": "Political figures producing campaign and constituency communication.",
+        "use_cases": [
+            "Campaign videos",
+            "Message recordings",
+            "Town halls",
+            "Social media content"
+        ]
+    },
+    {
+        "slug": "government",
+        "name": "Government",
+        "category": "public",
+        "description": "Government departments producing public awareness and training content.",
+        "use_cases": [
+            "PSA campaigns",
+            "Training modules",
+            "Scheme explainers",
+            "Event coverage"
+        ]
+    },
+    {
+        "slug": "churches",
+        "name": "Churches",
+        "category": "faith",
+        "description": "Faith organizations streaming services and creating ministry content.",
+        "use_cases": [
+            "Sermon recordings",
+            "Worship sessions",
+            "Ministry stories",
+            "Event livestreams"
+        ]
+    },
+    {
+        "slug": "temples",
+        "name": "Temples",
+        "category": "faith",
+        "description": "Temples and religious trusts producing cultural and event content.",
+        "use_cases": [
+            "Festival coverage",
+            "Cultural programs",
+            "Prasad promos",
+            "Event documentaries"
+        ]
+    },
+    {
+        "slug": "astrologers",
+        "name": "Astrologers",
+        "category": "media",
+        "description": "Astrologers recording shows and consultation promos.",
+        "use_cases": [
+            "Show recordings",
+            "Consultation promos",
+            "YouTube episodes",
+            "Course content"
+        ]
+    },
+    {
+        "slug": "spiritual-gurus",
+        "name": "Spiritual Gurus",
+        "category": "faith",
+        "description": "Spiritual leaders producing discourse and meditation content.",
+        "use_cases": [
+            "Discourse recordings",
+            "Meditation guides",
+            "Book promos",
+            "Retreat films"
+        ]
+    },
+    {
+        "slug": "artists",
+        "name": "Artists",
+        "category": "creative",
+        "description": "Visual artists documenting process and portfolio content.",
+        "use_cases": [
+            "Process documentaries",
+            "Portfolio shoots",
+            "Gallery promos",
+            "Tutorial content"
+        ]
+    },
+    {
+        "slug": "photographers",
+        "name": "Photographers",
+        "category": "creative",
+        "description": "Photographers renting studio for client shoots and workshops.",
+        "use_cases": [
+            "Client sessions",
+            "Workshops",
+            "Portfolio reviews",
+            "Collaboration shoots"
+        ]
+    },
+    {
+        "slug": "videographers",
+        "name": "Videographers",
+        "category": "creative",
+        "description": "Videographers using studio for controlled productions.",
+        "use_cases": [
+            "Controlled shoots",
+            "Interview setups",
+            "Product films",
+            "Green screen work"
+        ]
+    },
+    {
+        "slug": "podcasters",
+        "name": "Podcasters",
+        "category": "creator",
+        "description": "Podcast hosts needing professional recurring studio space.",
+        "use_cases": [
+            "Episode recording",
+            "Video podcasts",
+            "Guest interviews",
+            "Live recordings"
+        ]
+    },
+    {
+        "slug": "news-channels",
+        "name": "News Channels",
+        "category": "media",
+        "description": "Media houses producing interviews and debate segments.",
+        "use_cases": [
+            "Interview setups",
+            "Debate recordings",
+            "Panel discussions",
+            "Promo shoots"
+        ]
+    },
+    {
+        "slug": "pr-agencies",
+        "name": "PR Agencies",
+        "category": "business",
+        "description": "PR firms creating spokesperson training and media content.",
+        "use_cases": [
+            "Media training",
+            "Spokesperson videos",
+            "Crisis comms",
+            "Launch events"
+        ]
+    },
+    {
+        "slug": "logistics",
+        "name": "Logistics",
+        "category": "business",
+        "description": "Logistics companies producing fleet and operations content.",
+        "use_cases": [
+            "Fleet showcases",
+            "Safety training",
+            "Operations films",
+            "Client testimonials"
+        ]
+    },
+    {
+        "slug": "manufacturing",
+        "name": "Manufacturing",
+        "category": "industrial",
+        "description": "Manufacturers creating factory and product documentation.",
+        "use_cases": [
+            "Factory tours",
+            "Product demos",
+            "Safety training",
+            "Export promos"
+        ]
+    },
+    {
+        "slug": "export-houses",
+        "name": "Export Houses",
+        "category": "industrial",
+        "description": "Export businesses producing catalog and trade fair content.",
+        "use_cases": [
+            "Catalog photography",
+            "Trade fair films",
+            "Factory documentation",
+            "Buyer presentations"
+        ]
+    },
+    {
+        "slug": "textile-brands",
+        "name": "Textile Brands",
+        "category": "fashion",
+        "description": "Textile companies shooting fabric and collection content.",
+        "use_cases": [
+            "Fabric photography",
+            "Collection launches",
+            "Loom documentaries",
+            "Trade show content"
+        ]
+    },
+    {
+        "slug": "furniture-brands",
+        "name": "Furniture Brands",
+        "category": "retail",
+        "description": "Furniture companies producing catalog and lifestyle imagery.",
+        "use_cases": [
+            "Catalog shoots",
+            "Lifestyle staging",
+            "Room set photography",
+            "Assembly tutorials"
+        ]
+    },
+    {
+        "slug": "home-decor",
+        "name": "Home Decor",
+        "category": "retail",
+        "description": "Home decor brands creating styled product and room content.",
+        "use_cases": [
+            "Styled shoots",
+            "Room sets",
+            "Seasonal campaigns",
+            "DIY tutorials"
+        ]
+    },
+    {
+        "slug": "beauty-brands",
+        "name": "Beauty Brands",
+        "category": "retail",
+        "description": "Beauty and cosmetics brands producing tutorial and campaign content.",
+        "use_cases": [
+            "Tutorial filming",
+            "Product launches",
+            "Influencer collabs",
+            "Campaign photography"
+        ]
+    },
+    {
+        "slug": "salons",
+        "name": "Salons",
+        "category": "retail",
+        "description": "Salons and spas creating service showcase and training content.",
+        "use_cases": [
+            "Service tutorials",
+            "Before-after content",
+            "Stylist profiles",
+            "Brand promos"
+        ]
+    },
+    {
+        "slug": "spas",
+        "name": "Spas",
+        "category": "wellness",
+        "description": "Spa brands producing wellness and treatment promotional content.",
+        "use_cases": [
+            "Treatment films",
+            "Ambiance videos",
+            "Therapist profiles",
+            "Package promos"
+        ]
+    },
+    {
+        "slug": "nutritionists",
+        "name": "Nutritionists",
+        "category": "wellness",
+        "description": "Nutrition experts recording courses and client education.",
+        "use_cases": [
+            "Nutrition courses",
+            "Recipe videos",
+            "Consultation promos",
+            "Health podcasts"
+        ]
+    },
+    {
+        "slug": "psychologists",
+        "name": "Psychologists",
+        "category": "healthcare",
+        "description": "Mental health professionals creating educational content.",
+        "use_cases": [
+            "Educational videos",
+            "Therapy explainers",
+            "Workshop recordings",
+            "Podcast series"
+        ]
+    },
+    {
+        "slug": "veterinarians",
+        "name": "Veterinarians",
+        "category": "healthcare",
+        "description": "Vet clinics producing pet care and clinic promotional content.",
+        "use_cases": [
+            "Pet care videos",
+            "Clinic tours",
+            "Procedure explainers",
+            "Client testimonials"
+        ]
+    },
+    {
+        "slug": "pet-brands",
+        "name": "Pet Brands",
+        "category": "retail",
+        "description": "Pet product companies shooting catalog and lifestyle content.",
+        "use_cases": [
+            "Product photography",
+            "Pet lifestyle shoots",
+            "Brand stories",
+            "Tutorial content"
+        ]
+    },
+    {
+        "slug": "farmers",
+        "name": "Farmers",
+        "category": "agriculture",
+        "description": "Agri-businesses producing crop and equipment demonstration content.",
+        "use_cases": [
+            "Crop demos",
+            "Equipment tutorials",
+            "Farm documentaries",
+            "Market promos"
+        ]
+    },
+    {
+        "slug": "organic-brands",
+        "name": "Organic Brands",
+        "category": "agriculture",
+        "description": "Organic food brands creating farm-to-table story content.",
+        "use_cases": [
+            "Farm stories",
+            "Product photography",
+            "Process documentaries",
+            "Recipe content"
+        ]
+    },
+    {
+        "slug": "breweries",
+        "name": "Breweries",
+        "category": "hospitality",
+        "description": "Breweries producing brand story and product launch content.",
+        "use_cases": [
+            "Brand documentaries",
+            "Product launches",
+            "Brewery tours",
+            "Event coverage"
+        ]
+    },
+    {
+        "slug": "cafes",
+        "name": "Cafes",
+        "category": "hospitality",
+        "description": "Cafes creating ambiance and menu promotional content.",
+        "use_cases": [
+            "Menu photography",
+            "Ambiance films",
+            "Barista profiles",
+            "Social reels"
+        ]
+    },
+    {
+        "slug": "cloud-kitchens",
+        "name": "Cloud Kitchens",
+        "category": "hospitality",
+        "description": "Cloud kitchens producing food photography and delivery promos.",
+        "use_cases": [
+            "Food photography",
+            "Menu videos",
+            "Brand stories",
+            "Delivery app content"
+        ]
+    },
+    {
+        "slug": "franchises",
+        "name": "Franchises",
+        "category": "business",
+        "description": "Franchise brands creating standardized marketing and training content.",
+        "use_cases": [
+            "Franchise promos",
+            "Training modules",
+            "Unit photography",
+            "Brand compliance content"
+        ]
+    },
+    {
+        "slug": "retail-chains",
+        "name": "Retail Chains",
+        "category": "retail",
+        "description": "Multi-store retailers producing campaign and in-store content.",
+        "use_cases": [
+            "Campaign shoots",
+            "Store photography",
+            "Seasonal promos",
+            "Staff training"
+        ]
+    },
+    {
+        "slug": "dmart-vendors",
+        "name": "D-Mart Vendors",
+        "category": "retail",
+        "description": "FMCG vendors creating product listing and promotional content.",
+        "use_cases": [
+            "Listing photography",
+            "Product demos",
+            "Shelf appeal content",
+            "Promo videos"
+        ]
+    },
+    {
+        "slug": "amazon-sellers",
+        "name": "Amazon Sellers",
+        "category": "ecommerce",
+        "description": "Amazon marketplace sellers needing listing-ready product content.",
+        "use_cases": [
+            "White background photos",
+            "Lifestyle images",
+            "A+ content videos",
+            "Unboxing videos"
+        ]
+    },
+    {
+        "slug": "flipkart-sellers",
+        "name": "Flipkart Sellers",
+        "category": "ecommerce",
+        "description": "Flipkart sellers producing catalog-compliant product imagery.",
+        "use_cases": [
+            "Catalog photos",
+            "Detail shots",
+            "Size chart content",
+            "Brand store videos"
+        ]
+    },
+    {
+        "slug": "d2c-brands",
+        "name": "D2C Brands",
+        "category": "ecommerce",
+        "description": "Direct-to-consumer brands creating full-funnel content at scale.",
+        "use_cases": [
+            "Launch campaigns",
+            "UGC-style ads",
+            "Founder stories",
+            "Product demos"
+        ]
+    },
+    {
+        "slug": "crowdfunding",
+        "name": "Crowdfunding",
+        "category": "business",
+        "description": "Crowdfunding campaigns producing pitch and explainer videos.",
+        "use_cases": [
+            "Pitch videos",
+            "Product demos",
+            "Founder appeals",
+            "Update content"
+        ]
+    },
+    {
+        "slug": "venture-capital",
+        "name": "Venture Capital",
+        "category": "finance",
+        "description": "VC firms creating portfolio and thought leadership content.",
+        "use_cases": [
+            "Portfolio stories",
+            "Partner interviews",
+            "Event coverage",
+            "Market commentary"
+        ]
+    },
+    {
+        "slug": "consultants",
+        "name": "Consultants",
+        "category": "professional",
+        "description": "Management consultants producing thought leadership and training.",
+        "use_cases": [
+            "Thought leadership",
+            "Case study films",
+            "Workshop recordings",
+            "Keynote capture"
+        ]
+    },
+    {
+        "slug": "hr-departments",
+        "name": "HR Departments",
+        "category": "business",
+        "description": "HR teams creating recruitment and onboarding content.",
+        "use_cases": [
+            "Recruitment videos",
+            "Onboarding modules",
+            "Culture films",
+            "Policy explainers"
+        ]
+    },
+    {
+        "slug": "training-companies",
+        "name": "Training Companies",
+        "category": "education",
+        "description": "Corporate training providers recording courses at scale.",
+        "use_cases": [
+            "Course modules",
+            "Role-play setups",
+            "Certification content",
+            "Sales training"
+        ]
+    },
+    {
+        "slug": "security-companies",
+        "name": "Security Companies",
+        "category": "business",
+        "description": "Security firms producing training and capability content.",
+        "use_cases": [
+            "Training videos",
+            "Capability demos",
+            "Recruitment films",
+            "Client presentations"
+        ]
+    },
+    {
+        "slug": "cleaning-services",
+        "name": "Cleaning Services",
+        "category": "business",
+        "description": "Facility management companies creating service demonstration content.",
+        "use_cases": [
+            "Service demos",
+            "Before-after videos",
+            "Client testimonials",
+            "Training modules"
+        ]
+    },
+    {
+        "slug": "construction",
+        "name": "Construction",
+        "category": "industrial",
+        "description": "Construction firms documenting projects and safety training.",
+        "use_cases": [
+            "Project documentaries",
+            "Safety training",
+            "Progress timelapses",
+            "Tender presentations"
+        ]
+    },
+    {
+        "slug": "interior-contractors",
+        "name": "Interior Contractors",
+        "category": "professional",
+        "description": "Contractors showcasing completed projects and craftsmanship.",
+        "use_cases": [
+            "Project walkthroughs",
+            "Craftsmanship films",
+            "Client testimonials",
+            "Before-after content"
+        ]
+    },
+    {
+        "slug": "solar-companies",
+        "name": "Solar Companies",
+        "category": "energy",
+        "description": "Solar installers producing installation and education content.",
+        "use_cases": [
+            "Installation demos",
+            "ROI explainers",
+            "Customer stories",
+            "Technical training"
+        ]
+    },
+    {
+        "slug": "ev-companies",
+        "name": "EV Companies",
+        "category": "automotive",
+        "description": "Electric vehicle brands creating product and charging content.",
+        "use_cases": [
+            "Product launches",
+            "Charging tutorials",
+            "Range test films",
+            "Dealer training"
+        ]
+    }
+]

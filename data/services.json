@@ -1,0 +1,110 @@
+[
+  {
+    "slug": "podcast-studio",
+    "name": "Podcast Studio",
+    "category": "podcast",
+    "short_description": "Professional podcast recording studio with broadcast mics, acoustic treatment, and multi-camera video setup.",
+    "overview": "Record studio-quality audio and video podcasts at DyWix. Our podcast studio features Rode and Shure microphones, sound-treated rooms, multi-camera angles, teleprompter, and on-site technical support for creators across Delhi NCR.",
+    "equipment": ["Rode PodMic", "Shure SM7B", "Focusrite Scarlett Interface", "Multi-Camera Sony Setup", "Acoustic Panels", "Teleprompter"],
+    "process": ["Book your slot online or by phone", "Arrive 15 minutes early for setup", "Record with engineer support", "Export raw files or book edit room"],
+    "legacy_route": "pages.podcast",
+    "priority": 1
+  },
+  {
+    "slug": "video-production",
+    "name": "Video Production",
+    "category": "video",
+    "short_description": "Full-service video production studio for commercials, corporate films, and branded content.",
+    "overview": "From concept to final cut, DyWix video production studio offers professional lighting, cinema cameras, green screen, and dedicated edit suites for brands and agencies in Delhi NCR.",
+    "equipment": ["Sony Cinema Line Cameras", "Aputure LED Lighting", "DJI Ronin Gimbal", "Green Screen Cyc Wall", "Teleprompter", "Edit Suite"],
+    "process": ["Pre-production consultation", "Studio shoot with crew", "On-site direction support", "Post-production in edit room"],
+    "legacy_route": "pages.videography",
+    "priority": 2
+  },
+  {
+    "slug": "product-photography",
+    "name": "Product Photography",
+    "category": "photography",
+    "short_description": "E-commerce and catalog product photography with professional lighting and styling.",
+    "overview": "High-conversion product photography for Amazon, Flipkart, D2C brands, and catalogs. Infinity coves, macro setups, and lifestyle staging available at our Dwarka studio.",
+    "equipment": ["Canon R5", "Profoto Strobes", "Infinity Cove", "Light Tent", "Macro Lens Kit", "Color Calibration Tools"],
+    "process": ["Product intake and briefing", "Lighting setup per SKU", "Shoot with art direction", "Retouch-ready file delivery"],
+    "legacy_route": "pages.photography",
+    "priority": 3
+  },
+  {
+    "slug": "fashion-photography",
+    "name": "Fashion Photography",
+    "category": "photography",
+    "short_description": "Fashion lookbook, editorial, and model photography with makeup room and wardrobe area.",
+    "overview": "Shoot fashion campaigns, lookbooks, and editorial content with dedicated sets, makeup room, and styling space. Ideal for designers, boutiques, and agencies in Delhi NCR.",
+    "equipment": ["Medium Format Digital", "Fashion Strobes", "Backdrop Systems", "Makeup Station", "Steamer & Wardrobe Rack"],
+    "process": ["Creative brief alignment", "Set and lighting design", "Model and stylist coordination", "High-res delivery"],
+    "legacy_route": "pages.photography",
+    "priority": 4
+  },
+  {
+    "slug": "corporate-photography",
+    "name": "Corporate Photography",
+    "category": "photography",
+    "short_description": "Headshots, team photos, and corporate event photography for businesses.",
+    "overview": "Professional corporate photography for annual reports, websites, LinkedIn headshots, and leadership portraits. Fast turnaround for HR and marketing teams.",
+    "equipment": ["Portrait Lighting Kit", "Corporate Backdrops", "Teleprompter for Video Bios", "Group Lighting Setup"],
+    "process": ["Schedule team slots", "On-site or studio shoot", "Same-day previews available", "Branded file delivery"],
+    "legacy_route": "pages.corporate-films",
+    "priority": 5
+  },
+  {
+    "slug": "youtube-studio-rental",
+    "name": "YouTube Studio Rental",
+    "category": "creator",
+    "short_description": "Rent a fully equipped YouTube studio for vlogs, tutorials, and channel content.",
+    "overview": "YouTube creators get a turnkey studio with multi-camera setup, ring lights, teleprompter, acoustic treatment, and flexible hourly booking — perfect for consistent channel production.",
+    "equipment": ["3-Camera Switching", "Rode Wireless GO", "Ring & Key Lights", "Green Screen", "Teleprompter", "Live Stream Encoder"],
+    "process": ["Book hourly or full-day", "Pre-configured YouTube set", "Record solo or with guests", "Optional edit room add-on"],
+    "priority": 6
+  },
+  {
+    "slug": "green-screen-studio",
+    "name": "Green Screen Studio",
+    "category": "video",
+    "short_description": "Chroma key green screen studio for virtual backgrounds and VFX-ready footage.",
+    "overview": "Shoot clean green screen footage for corporate presentations, educational content, and creative VFX. Professional cyc wall with even lighting and spill control.",
+    "equipment": ["12ft Cyc Green Wall", "Chroma Key Lighting", "Floor Green Extension", "Monitor for Preview", "Wireless Lav Mics"],
+    "process": ["Background content planning", "Green screen lighting calibration", "Talent direction", "Key-ready file export"],
+    "priority": 7
+  },
+  {
+    "slug": "influencer-studio",
+    "name": "Influencer Studio",
+    "category": "creator",
+    "short_description": "Content creation studio designed for influencers, reels, and social media production.",
+    "overview": "Create Instagram reels, YouTube shorts, and branded content in a studio built for social media creators. Trending sets, ring lights, and fast turnaround booking.",
+    "equipment": ["Vertical Video Rigs", "Ring Lights", "RGB Accent Lighting", "Phone & Camera Mounts", "Audio Isolation Booth"],
+    "process": ["Content plan review", "Set selection for platform", "Shoot with creator support", "Same-day file handoff"],
+    "legacy_route": "pages.reels",
+    "priority": 8
+  },
+  {
+    "slug": "reel-shoot-studio",
+    "name": "Reel Shoot Studio",
+    "category": "creator",
+    "short_description": "Dedicated studio for Instagram reels, YouTube shorts, and short-form video.",
+    "overview": "Shoot high-engagement reels and shorts with vertical-optimized lighting, multiple backdrop options, and on-trend aesthetic sets in Dwarka, Delhi.",
+    "equipment": ["Vertical Camera Rigs", "RGB Tube Lights", "Neon Props", "DJI Pocket / Phone Rigs", "Wireless Audio"],
+    "process": ["Trend and hook planning", "Vertical set staging", "Multi-take recording", "Quick export for posting"],
+    "legacy_route": "pages.reels",
+    "priority": 9
+  },
+  {
+    "slug": "tv-commercial-studio",
+    "name": "TV Commercial Studio",
+    "category": "video",
+    "short_description": "Broadcast-quality studio for TV commercials and ad film production.",
+    "overview": "Produce TV commercials and ad films with cinema-grade equipment, large studio floor, and experienced crew support for agencies and brands.",
+    "equipment": ["Cinema Cameras", "Crane & Slider", "HMI Lights", "Large Cyc Wall", "Production Office", "Client Monitor"],
+    "process": ["Agency storyboard review", "Full crew production day", "Multiple set changes", "Dailies and proxy delivery"],
+    "legacy_route": "pages.tvc",
+    "priority": 10
+  }
+]
