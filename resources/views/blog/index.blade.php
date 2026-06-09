@@ -55,7 +55,7 @@
             
             <a href="{{ route('blog.show', $post->slug) }}" class="block aspect-[4/3] relative overflow-hidden bg-slate-100/50 m-2 rounded-2xl z-10 hover:shadow-inner">
                 @if($post->cover_image)
-                    <img src="{{ asset('storage/' . $post->cover_image) }}" alt="{{ $post->title }}" class="absolute inset-0 w-full h-full object-cover group-hover:scale-110 group-hover:rotate-1 transition-all duration-700 ease-out">
+                    <img src="{{ blog_cover_url($post->cover_image) }}" alt="{{ $post->title }}" class="absolute inset-0 w-full h-full object-cover group-hover:scale-110 group-hover:rotate-1 transition-all duration-700 ease-out">
                     <div class="absolute inset-0 bg-gradient-to-t from-slate-900/60 to-transparent opacity-60 group-hover:opacity-40 transition-opacity duration-500"></div>
                 @else
                     <div class="absolute inset-0 flex items-center justify-center text-slate-300 group-hover:scale-110 transition-transform duration-700 bg-gradient-to-br from-slate-100 to-slate-200">

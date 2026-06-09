@@ -11,7 +11,7 @@
 @endsection
 
 @if($post->cover_image)
-@section('og_image', asset('storage/' . $post->cover_image))
+@section('og_image', blog_cover_url($post->cover_image))
 @endif
 
 @section('content')
@@ -22,7 +22,7 @@
         <!-- Background Image & Gradient Overlay -->
         @if($post->cover_image)
         <div class="absolute inset-0 z-0">
-            <img src="{{ asset('storage/' . $post->cover_image) }}" alt="{{ $post->title }}" class="w-full h-full object-cover filter saturate-50 opacity-30 mix-blend-screen">
+            <img src="{{ blog_cover_url($post->cover_image) }}" alt="{{ $post->title }}" class="w-full h-full object-cover filter saturate-50 opacity-30 mix-blend-screen">
         </div>
         <div class="absolute inset-0 bg-gradient-to-br from-[#59267c]/95 to-[#3a155c]/95 z-0 mix-blend-multiply"></div>
         @else
@@ -99,7 +99,7 @@
                     </div>
                 @elseif($post->cover_image)
                     <div class="w-full aspect-video sm:aspect-[21/9] bg-slate-100">
-                        <img src="{{ asset('storage/' . $post->cover_image) }}" alt="{{ $post->title }}" class="w-full h-full object-cover">
+                        <img src="{{ blog_cover_url($post->cover_image) }}" alt="{{ $post->title }}" class="w-full h-full object-cover">
                     </div>
                 @else
                     <!-- Fallback if no media -->
@@ -201,7 +201,7 @@
                         <a href="{{ route('blog.show', $lPost->slug) }}" class="flex gap-4 group items-center">
                             <div class="w-16 h-16 rounded-2xl overflow-hidden flex-shrink-0 bg-slate-100 relative border border-slate-200 group-hover:border-amber-400 transition-colors">
                                 @if($lPost->cover_image)
-                                    <img src="{{ asset('storage/' . $lPost->cover_image) }}" alt="{{ $lPost->title }}" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500">
+                                    <img src="{{ blog_cover_url($lPost->cover_image) }}" alt="{{ $lPost->title }}" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500">
                                 @else
                                     <div class="absolute inset-0 bg-gradient-to-br from-amber-100 to-orange-100 flex items-center justify-center">
                                         <svg class="w-6 h-6 text-amber-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
@@ -245,7 +245,7 @@
                         <a href="{{ route('blog.show', $relPost->slug) }}" class="flex gap-4 group items-center">
                             <div class="w-20 h-20 rounded-2xl overflow-hidden flex-shrink-0 bg-slate-100 relative border border-slate-200 group-hover:border-indigo-400 transition-colors">
                                 @if($relPost->cover_image)
-                                    <img src="{{ asset('storage/' . $relPost->cover_image) }}" alt="{{ $relPost->title }}" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500">
+                                    <img src="{{ blog_cover_url($relPost->cover_image) }}" alt="{{ $relPost->title }}" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500">
                                 @elseif($relPost->video_url)
                                     <div class="absolute inset-0 bg-slate-900 flex items-center justify-center">
                                         <svg class="w-6 h-6 text-white/50" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
@@ -284,7 +284,7 @@
                 <a href="{{ route('blog.show', $previous->slug) }}" class="group relative flex flex-col bg-white rounded-3xl border border-slate-200/60 hover:border-indigo-300 hover:shadow-xl transition-all duration-300 overflow-hidden">
                     <div class="h-40 relative overflow-hidden bg-gradient-to-br from-slate-100 to-slate-200 flex-shrink-0">
                         @if($previous->cover_image)
-                            <img src="{{ asset('storage/' . $previous->cover_image) }}" alt="{{ $previous->title }}" class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                            <img src="{{ blog_cover_url($previous->cover_image) }}" alt="{{ $previous->title }}" class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
                             <div class="absolute inset-0 bg-gradient-to-t from-slate-900/60 to-transparent"></div>
                         @else
                             <div class="absolute inset-0 bg-gradient-to-br from-indigo-500/10 to-purple-500/10 flex items-center justify-center">
@@ -315,7 +315,7 @@
                 <a href="{{ route('blog.show', $next->slug) }}" class="group relative flex flex-col bg-white rounded-3xl border border-slate-200/60 hover:border-indigo-300 hover:shadow-xl transition-all duration-300 overflow-hidden">
                     <div class="h-40 relative overflow-hidden bg-gradient-to-br from-slate-100 to-slate-200 flex-shrink-0">
                         @if($next->cover_image)
-                            <img src="{{ asset('storage/' . $next->cover_image) }}" alt="{{ $next->title }}" class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                            <img src="{{ blog_cover_url($next->cover_image) }}" alt="{{ $next->title }}" class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
                             <div class="absolute inset-0 bg-gradient-to-t from-slate-900/60 to-transparent"></div>
                         @else
                             <div class="absolute inset-0 bg-gradient-to-br from-indigo-500/10 to-purple-500/10 flex items-center justify-center">

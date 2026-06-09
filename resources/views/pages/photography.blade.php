@@ -411,7 +411,7 @@
                 <p class="text-slate-300 leading-relaxed mb-4 max-w-2xl mx-auto">If you are looking for a professional photography studio in Delhi NCR, {{ config('company.brand') }} Studio is the perfect place to bring your creative ideas to life.</p>
                 <p class="text-slate-300 leading-relaxed mb-4 max-w-2xl mx-auto">Our studio is available for photography shoots, video production, podcast recording, and content creation projects. Book for hourly sessions, half-day shoots, or full-day production projects.</p>
                 <p class="text-slate-200 font-medium mb-8">Create stunning content, build your brand, and bring your vision to life at {{ config('company.brand') }} Studio.</p>
-                <a href="#contact" class="inline-flex items-center justify-center gap-2 rounded-xl bg-white px-10 py-4 text-base font-bold text-slate-900 shadow-lg transition-all duration-300 hover:bg-slate-100 hover:scale-105">
+                <a href="{{ route('pages.contact')}}" class="inline-flex items-center justify-center gap-2 rounded-xl bg-white px-10 py-4 text-base font-bold text-slate-900 shadow-lg transition-all duration-300 hover:bg-slate-100 hover:scale-105">
                     Book Studio Now
                     <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
                 </a>

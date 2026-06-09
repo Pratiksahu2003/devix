@@ -157,6 +157,18 @@ return [
     | Resource Center Sections
     |--------------------------------------------------------------------------
     */
+    'blog_categories' => [
+        'podcast' => 'Podcast',
+        'photography' => 'Photography',
+        'video' => 'Video Production',
+        'creator' => 'Creator',
+        'marketing' => 'Marketing',
+        'equipment' => 'Equipment',
+        'pricing' => 'Pricing',
+        'location' => 'Location',
+        'industry' => 'Industry',
+    ],
+
     'resource_sections' => [
         'podcast' => 'Podcast Resources',
         'photography' => 'Photography Resources',

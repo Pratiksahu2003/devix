@@ -2,13 +2,55 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Post;
 use App\Models\Category;
+use App\Models\Post;
+use App\Services\Blog\JsonBlogService;
 use Illuminate\Http\Request;
 
 class BlogController extends Controller
 {
+    public function __construct(
+        protected JsonBlogService $jsonBlog,
+    ) {}
+
     public function index(Request $request)
+    {
+        if ($this->hasDatabasePosts()) {
+            return $this->indexFromDatabase($request);
+        }
+
+        $posts = $this->jsonBlog->paginated($request->get('category'));
+        $categories = $this->jsonBlog->categories();
+
+        return view('blog.index', compact('posts', 'categories'));
+    }
+
+    public function show($slug)
+    {
+        if ($this->hasDatabasePosts()) {
+            return $this->showFromDatabase($slug);
+        }
+
+        $post = $this->jsonBlog->find($slug);
+
+        abort_if(! $post, 404);
+
+        $adjacent = $this->jsonBlog->adjacent($post);
+        $previous = $adjacent['previous'];
+        $next = $adjacent['next'];
+        $relatedPosts = $this->jsonBlog->related($post);
+        $categories = $this->jsonBlog->categoriesWithCounts();
+        $latestPosts = $this->jsonBlog->latest($post);
+
+        return view('blog.show', compact('post', 'previous', 'next', 'relatedPosts', 'categories', 'latestPosts'));
+    }
+
+    protected function hasDatabasePosts(): bool
+    {
+        return Post::where('is_published', true)->whereNotNull('published_at')->exists();
+    }
+
+    protected function indexFromDatabase(Request $request)
     {
         $query = Post::with(['category', 'author'])
             ->where('is_published', true)
@@ -16,7 +58,7 @@ class BlogController extends Controller
             ->latest('published_at');
 
         if ($request->has('category')) {
-            $query->whereHas('category', function($q) use ($request) {
+            $query->whereHas('category', function ($q) use ($request) {
                 $q->where('slug', $request->category);
             });
         }
@@ -27,7 +69,7 @@ class BlogController extends Controller
         return view('blog.index', compact('posts', 'categories'));
     }
 
-    public function show($slug)
+    protected function showFromDatabase($slug)
     {
         $post = Post::with(['category', 'author'])
             ->where('slug', $slug)
