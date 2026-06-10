@@ -1,3 +1,97 @@
+# robots.txt — DyWix Studio (www.dywix.com)
+# Public content is crawlable; admin and internal paths are blocked.
+
+# ── Default: all crawlers ───────────────────────────────────────────────────
 User-agent: *
-Disallow:
-Sitemap: /sitemap.xml
+Disallow: /admin/
+Disallow: /storage/
+Disallow: /up
+
+# ── OpenAI ──────────────────────────────────────────────────────────────────
+User-agent: GPTBot
+Disallow: /admin/
+Disallow: /storage/
+Disallow: /up
+
+User-agent: ChatGPT-User
+Disallow: /admin/
+Disallow: /storage/
+Disallow: /up
+
+User-agent: OAI-SearchBot
+Disallow: /admin/
+Disallow: /storage/
+Disallow: /up
+
+# ── Anthropic ───────────────────────────────────────────────────────────────
+User-agent: ClaudeBot
+Disallow: /admin/
+Disallow: /storage/
+Disallow: /up
+
+User-agent: anthropic-ai
+Disallow: /admin/
+Disallow: /storage/
+Disallow: /up
+
+# ── Google (AI / extended use) ──────────────────────────────────────────────
+User-agent: Google-Extended
+Disallow: /admin/
+Disallow: /storage/
+Disallow: /up
+
+# ── Perplexity ──────────────────────────────────────────────────────────────
+User-agent: PerplexityBot
+Disallow: /admin/
+Disallow: /storage/
+Disallow: /up
+
+# ── ByteDance ───────────────────────────────────────────────────────────────
+User-agent: Bytespider
+Disallow: /admin/
+Disallow: /storage/
+Disallow: /up
+
+# ── Common Crawl ────────────────────────────────────────────────────────────
+User-agent: CCBot
+Disallow: /admin/
+Disallow: /storage/
+Disallow: /up
+
+# ── Meta ────────────────────────────────────────────────────────────────────
+User-agent: meta-externalagent
+Disallow: /admin/
+Disallow: /storage/
+Disallow: /up
+
+User-agent: FacebookBot
+Disallow: /admin/
+Disallow: /storage/
+Disallow: /up
+
+# ── Apple ─────────────────────────────────────────────────────────────────────
+User-agent: Applebot-Extended
+Disallow: /admin/
+Disallow: /storage/
+Disallow: /up
+
+# ── Amazon ──────────────────────────────────────────────────────────────────
+User-agent: Amazonbot
+Disallow: /admin/
+Disallow: /storage/
+Disallow: /up
+
+# ── Cohere ──────────────────────────────────────────────────────────────────
+User-agent: cohere-ai
+Disallow: /admin/
+Disallow: /storage/
+Disallow: /up
+
+# ── Diffbot ─────────────────────────────────────────────────────────────────
+User-agent: Diffbot
+Disallow: /admin/
+Disallow: /storage/
+Disallow: /up
+
+# ── Sitemap ───────────────────────────────────────────────────────────────────
+Sitemap: https://www.dywix.com/sitemap.xml
