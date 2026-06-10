@@ -16,11 +16,18 @@ if (! function_exists('seo_slug')) {
     }
 }
 
+if (! function_exists('blog_default_cover')) {
+    function blog_default_cover(): string
+    {
+        return 'banner/blog.avif';
+    }
+}
+
 if (! function_exists('blog_cover_url')) {
-    function blog_cover_url(?string $cover): ?string
+    function blog_cover_url(?string $cover): string
     {
         if (! $cover) {
-            return null;
+            return asset(blog_default_cover());
         }
 
         if (str_starts_with($cover, 'banner/') || str_starts_with($cover, 'images/')) {

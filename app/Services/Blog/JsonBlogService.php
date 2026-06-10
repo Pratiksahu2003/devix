@@ -153,14 +153,8 @@ class JsonBlogService
         return $this->posts;
     }
 
-    protected function defaultCover(string $category): ?string
+    protected function defaultCover(string $category): string
     {
-        return match ($category) {
-            'podcast' => 'banner/blog.avif',
-            'photography' => 'banner/photography.avif',
-            'video' => 'banner/videography.avif',
-            'location' => 'banner/location.avif',
-            default => 'banner/blog.avif',
-        };
+        return blog_default_cover();
     }
 }

@@ -54,14 +54,8 @@
             <div class="absolute inset-0 bg-linear-to-br from-indigo-600/5 to-purple-600/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-3xl pointer-events-none"></div>
             
             <a href="{{ route('blog.show', $post->slug) }}" class="block aspect-4/3 relative overflow-hidden bg-slate-100/50 m-2 rounded-2xl z-10 hover:shadow-inner">
-                @if($post->cover_image)
-                    <img src="{{ blog_cover_url($post->cover_image) }}" alt="{{ $post->title }}" class="absolute inset-0 w-full h-full object-cover group-hover:scale-110 group-hover:rotate-1 transition-all duration-700 ease-out">
-                    <div class="absolute inset-0 bg-linear-to-t from-slate-900/60 to-transparent opacity-60 group-hover:opacity-40 transition-opacity duration-500"></div>
-                @else
-                    <div class="absolute inset-0 flex items-center justify-center text-slate-300 group-hover:scale-110 transition-transform duration-700 bg-linear-to-br from-slate-100 to-slate-200">
-                        <svg class="w-16 h-16 drop-shadow-sm" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
-                    </div>
-                @endif
+                <img src="{{ blog_cover_url($post->cover_image) }}" alt="{{ $post->title }}" class="absolute inset-0 w-full h-full object-cover group-hover:scale-110 group-hover:rotate-1 transition-all duration-700 ease-out" onerror="this.onerror=null;this.src='{{ asset(blog_default_cover()) }}'">
+                <div class="absolute inset-0 bg-linear-to-t from-slate-900/60 to-transparent opacity-60 group-hover:opacity-40 transition-opacity duration-500"></div>
                 
                 @if($post->category)
                 <div class="absolute top-4 left-4">
