@@ -264,6 +264,8 @@
         </div>
     </div>
 
+    <x-seo.internal-links :links="$internalLinks" />
+
     {{-- Compact CTA --}}
     <section class="bg-brand-lens-blue py-6 border-t border-white/10">
         <div class="mx-auto max-w-7xl px-4 sm:px-6 flex flex-col sm:flex-row items-center justify-between gap-4">
@@ -277,6 +279,4 @@
             </div>
         </div>
     </section>
-
-    <x-seo.internal-links :links="$internalLinks" />
 @endsection
