@@ -19,7 +19,9 @@ foreach (config('seo.legacy_redirects', []) as $legacy => $canonical) {
 
 // SEO service hub pages (replaces static Blade service pages)
 foreach (config('seo.service_route_names', []) as $slug => $routeName) {
-    Route::get('/'.$slug, [SeoHubController::class, 'showHub'])->name($routeName);
+    Route::get('/'.$slug, [SeoHubController::class, 'showHub'])
+        ->defaults('slug', $slug)
+        ->name($routeName);
 }
 
 // Remaining studio pages (not yet in SEO service hubs)
