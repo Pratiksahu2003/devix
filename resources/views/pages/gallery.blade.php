@@ -291,19 +291,19 @@
                         </template>
                     </div>
 
-                    {{-- Grid --}}
-                    <div class="grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-4">
+                    {{-- Masonry gallery --}}
+                    <div class="columns-2 gap-3 sm:columns-3 lg:columns-4">
                         <template x-for="it in filteredItems" :key="it.id">
                             <button type="button"
-                                    class="group relative overflow-hidden rounded-2xl bg-white border border-[var(--color-border-subtle)] shadow-sm transition hover:shadow-md focus:outline-none focus:ring-2 focus:ring-[var(--color-brand-lens-blue)]/40"
+                                    class="group mb-3 w-full break-inside-avoid overflow-hidden rounded-2xl bg-white border border-[var(--color-border-subtle)] shadow-sm transition hover:shadow-md focus:outline-none focus:ring-2 focus:ring-[var(--color-brand-lens-blue)]/40"
                                     @click="openLightbox(it.src, it.alt, it.caption)">
-                                <div class="relative aspect-[4/3]">
+                                <div class="relative overflow-hidden">
                                     <img
                                         :src="it.src"
                                         :alt="it.alt"
                                         loading="lazy"
                                         decoding="async"
-                                        class="h-full w-full object-cover transition duration-700 ease-out group-hover:scale-[1.04]"
+                                        class="block w-full h-auto transition duration-700 ease-out group-hover:scale-[1.04]"
                                         :style="`background-color:${it.bg};`"
                                     />
                                     <div aria-hidden="true" class="absolute inset-0 bg-gradient-to-t from-black/45 via-black/10 to-transparent opacity-0 transition group-hover:opacity-100"></div>
