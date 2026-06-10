@@ -5,6 +5,7 @@
 @section('meta')
     <meta name="description"
           content="{{ config('company.brand') }} is temporarily unavailable due to maintenance. Please check back soon." />
+    <meta name="robots" content="noindex, nofollow" />
 @endsection
 
 @section('content')

@@ -5,6 +5,7 @@
 @section('meta')
     <meta name="description"
           content="You’ve made too many requests in a short time on {{ config('company.brand') }}. Please try again later." />
+    <meta name="robots" content="noindex, nofollow" />
 @endsection
 
 @section('content')

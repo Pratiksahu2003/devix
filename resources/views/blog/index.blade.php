@@ -1,13 +1,26 @@
 @extends('layouts.app')
 
-@section('title', 'Blog | ' . config('company.brand'))
+@section('title', $seo['meta']['title'] ?? 'Blog | ' . config('company.brand'))
+
+@section('seo_head')
+    @isset($seo)
+        <x-seo.head :meta="$seo['meta']" :schema="$seo['schema_graph']" />
+        @if(($seo['lastPage'] ?? 1) > 1 && ($seo['page'] ?? 1) > 1)
+            @php $prevPage = $seo['page'] - 1; @endphp
+            <link rel="prev" href="{{ route('blog.index', array_filter(['category' => $seo['categorySlug'] ?? null, 'page' => $prevPage > 1 ? $prevPage : null])) }}" />
+        @endif
+        @if(($seo['lastPage'] ?? 1) > 1 && ($seo['page'] ?? 1) < ($seo['lastPage'] ?? 1))
+            <link rel="next" href="{{ route('blog.index', array_filter(['category' => $seo['categorySlug'] ?? null, 'page' => $seo['page'] + 1])) }}" />
+        @endif
+    @endisset
+@endsection
 
 @section('content')
 <!-- Modern Hero Section -->
 <div class="relative overflow-hidden bg-[#3a155c] pt-24 pb-32 sm:pt-32 sm:pb-40 rounded-b-[3rem] sm:rounded-b-[4rem] shadow-2xl mb-16 sm:mb-24">
     <!-- Banner Image Background -->
     <div class="absolute inset-0 z-0">
-        <img src="{{ asset('banner/blog.avif') }}" alt="Blog Banner" class="w-full h-full object-cover filter saturate-50 opacity-40 mix-blend-screen transform scale-105">
+        <img src="{{ asset('banner/blog.avif') }}" alt="{{ config('company.brand') }} blog — studio production tips and guides" class="w-full h-full object-cover filter saturate-50 opacity-40 mix-blend-screen transform scale-105" fetchpriority="high">
     </div>
     
     <!-- Gradient Overlay -->
@@ -54,7 +67,7 @@
             <div class="absolute inset-0 bg-linear-to-br from-indigo-600/5 to-purple-600/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-3xl pointer-events-none"></div>
             
             <a href="{{ route('blog.show', $post->slug) }}" class="block aspect-4/3 relative overflow-hidden bg-slate-100/50 m-2 rounded-2xl z-10 hover:shadow-inner">
-                <img src="{{ blog_cover_url($post->cover_image) }}" alt="{{ $post->title }}" class="absolute inset-0 w-full h-full object-cover group-hover:scale-110 group-hover:rotate-1 transition-all duration-700 ease-out" onerror="this.onerror=null;this.src='{{ asset(blog_default_cover()) }}'">
+                <img src="{{ blog_cover_url($post->cover_image) }}" alt="{{ $post->title }}" class="absolute inset-0 w-full h-full object-cover group-hover:scale-110 group-hover:rotate-1 transition-all duration-700 ease-out" loading="lazy" decoding="async" onerror="this.onerror=null;this.src='{{ asset(blog_default_cover()) }}'">
                 <div class="absolute inset-0 bg-linear-to-t from-slate-900/60 to-transparent opacity-60 group-hover:opacity-40 transition-opacity duration-500"></div>
                 
                 @if($post->category)

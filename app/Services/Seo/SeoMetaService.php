@@ -2,6 +2,8 @@
 
 namespace App\Services\Seo;
 
+use App\Models\Category;
+
 class SeoMetaService
 {
     public function buildHubMeta(array $page, array $resolved): array
@@ -119,5 +121,82 @@ class SeoMetaService
             'position' => $geo['latitude'].';'.$geo['longitude'],
             'icbm' => $geo['latitude'].', '.$geo['longitude'],
         ];
+    }
+
+    public function buildBlogIndexMeta(?string $categorySlug = null, ?string $categoryName = null, int $page = 1): array
+    {
+        $brand = config('company.brand');
+        $params = array_filter([
+            'category' => $categorySlug,
+            'page' => $page > 1 ? $page : null,
+        ]);
+
+        if ($categoryName) {
+            $title = "{$categoryName} Articles | Blog — {$brand}";
+            $description = "Browse {$categoryName} articles from {$brand} — podcast, photo, and video production tips for Delhi NCR creators.";
+        } else {
+            $title = "Blog | Studio Tips, Guides & Production Insights — {$brand}";
+            $description = "Expert tips on podcast recording, photography, videography, and content production from {$brand} studio in Delhi NCR.";
+        }
+
+        $url = route('blog.index', $params);
+        $meta = $this->buildMasterMeta($title, $description, $url);
+        $meta['og']['type'] = 'website';
+
+        return $meta;
+    }
+
+    public function buildBlogPostMeta(object $post): array
+    {
+        $title = seo_post_page_title($post);
+        $description = seo_post_description($post);
+        $url = route('blog.show', $post->slug);
+        $image = blog_cover_url($post->cover_image);
+        $ogImage = route('og.image', [
+            'title' => $post->title,
+            'subtitle' => config('company.short_name').' · Blog',
+        ]);
+
+        return [
+            'title' => $title,
+            'description' => $description,
+            'keywords' => $post->meta_keywords ?? implode(', ', config('seo.defaults.keywords', [])),
+            'canonical' => $url,
+            'robots' => 'index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1',
+            'author' => optional($post->author)->name ?? config('company.brand'),
+            'publisher' => config('company.name'),
+            'og' => [
+                'title' => $post->title,
+                'description' => $description,
+                'type' => 'article',
+                'url' => $url,
+                'image' => $image,
+                'image_alt' => $post->title.' — '.config('company.brand'),
+                'site_name' => config('company.brand'),
+                'locale' => 'en_IN',
+            ],
+            'twitter' => [
+                'card' => 'summary_large_image',
+                'title' => $post->title,
+                'description' => $description,
+                'image' => $ogImage,
+                'site' => '@'.config('seo.defaults.twitter_handle', 'dywixstudio'),
+            ],
+            'alternate' => [
+                'hreflang' => 'en-in',
+                'url' => $url,
+            ],
+        ];
+    }
+
+    public function buildCategoryMeta(Category $category): array
+    {
+        $brand = config('company.brand');
+        $title = "{$category->name} | Topics & Articles — {$brand}";
+        $description = $category->description
+            ?: "Explore {$category->name} articles, studio services, and production resources from {$brand} in Delhi NCR.";
+        $url = route('category.show', $category->slug);
+
+        return $this->buildMasterMeta($title, $description, $url);
     }
 }

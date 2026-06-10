@@ -2,6 +2,11 @@
 
 @section('title', 'Studio Pricing | '.config('company.brand'))
 
+@section('meta')
+    <meta name="description"
+          content="Transparent studio rental pricing at {{ config('company.brand') }} in Delhi NCR — hourly and daily rates for podcast, photography, and videography with no hidden fees." />
+@endsection
+
 @section('content')
     {{-- Hero & Pricing Table --}}
     <div class="bg-[var(--color-surface-strong)] pt-12 pb-6">

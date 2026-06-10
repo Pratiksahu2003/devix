@@ -3,15 +3,15 @@
 namespace App\Http\Controllers;
 
 use App\Models\Category;
-use Illuminate\Http\Request;
+use App\Services\Seo\SeoMetaService;
+use App\Services\Seo\SeoSchemaService;
 
 class CategoryController extends Controller
 {
-    public function show($slug)
+    public function show($slug, SeoMetaService $meta, SeoSchemaService $schema)
     {
         $category = Category::where('slug', $slug)->firstOrFail();
 
-        // Fetch related active posts
         $posts = $category->posts()
             ->with('author')
             ->where('is_published', true)
@@ -19,13 +19,17 @@ class CategoryController extends Controller
             ->latest('published_at')
             ->get();
 
-        // Fetch related active SEO pages
         $pages = $category->pages()
             ->with('author')
             ->where('is_published', true)
             ->latest('published_at')
             ->get();
 
-        return view('categories.show', compact('category', 'posts', 'pages'));
+        $seo = [
+            'meta' => $meta->buildCategoryMeta($category),
+            'schema_graph' => $schema->buildCategoryGraph($category),
+        ];
+
+        return view('categories.show', compact('category', 'posts', 'pages', 'seo'));
     }
 }

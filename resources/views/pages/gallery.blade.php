@@ -179,11 +179,29 @@
             ];
         })->toArray();
 
+        $galleryUrl = route('pages.gallery');
         $galleryLd = [
             '@context' => 'https://schema.org',
-            '@type' => 'CollectionPage',
-            'name' => 'Gallery | ' . config('company.brand'),
-            'hasPart' => $imageObjects,
+            '@graph' => [
+                [
+                    '@type' => 'CollectionPage',
+                    '@id' => $galleryUrl.'/#webpage',
+                    'url' => $galleryUrl,
+                    'name' => 'Our Work | ' . config('company.brand'),
+                    'description' => 'A curated gallery of recent shoots, campaigns, and frames from ' . config('company.brand') . ' in Delhi NCR.',
+                    'hasPart' => $imageObjects,
+                    'isPartOf' => ['@id' => url('/').'/#website'],
+                    'inLanguage' => 'en-IN',
+                ],
+                [
+                    '@type' => 'BreadcrumbList',
+                    '@id' => $galleryUrl.'/#breadcrumb',
+                    'itemListElement' => [
+                        ['@type' => 'ListItem', 'position' => 1, 'name' => 'Home', 'item' => route('home')],
+                        ['@type' => 'ListItem', 'position' => 2, 'name' => 'Our Work', 'item' => $galleryUrl],
+                    ],
+                ],
+            ],
         ];
     @endphp
 

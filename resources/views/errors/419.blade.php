@@ -5,6 +5,7 @@
 @section('meta')
     <meta name="description"
           content="Your session has expired on {{ config('company.brand') }}. Please refresh and try again." />
+    <meta name="robots" content="noindex, nofollow" />
 @endsection
 
 @section('content')

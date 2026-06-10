@@ -1,51 +1,30 @@
 @extends('layouts.app')
 
-@section('title', $post->meta_title ?: $post->title . ' - Blog')
+@section('title', seo_post_page_title($post))
 
-@section('meta')
-<meta name="description" content="{{ $post->meta_description ?: Str::limit(strip_tags($post->content), 160) }}">
-<meta name="author" content="{{ optional($post->author)->name ?? 'System' }}">
-@if($post->meta_keywords)
-<meta name="keywords" content="{{ $post->meta_keywords }}">
-@endif
-@if(!empty($post->faqs))
-@php
-    $faqLd = [
-        '@context' => 'https://schema.org',
-        '@type' => 'FAQPage',
-        'mainEntity' => collect($post->faqs)->map(fn ($faq) => [
-            '@type' => 'Question',
-            'name' => $faq['q'] ?? '',
-            'acceptedAnswer' => [
-                '@type' => 'Answer',
-                'text' => strip_tags($faq['a'] ?? ''),
-            ],
-        ])->values()->all(),
-    ];
-@endphp
-<script type="application/ld+json">{!! json_encode($faqLd, JSON_UNESCAPED_SLASHES|JSON_UNESCAPED_UNICODE) !!}</script>
-@endif
+@section('seo_head')
+    @isset($seo)
+        <x-seo.head :meta="$seo['meta']" :schema="$seo['schema_graph']" />
+    @endisset
 @endsection
-
-@section('og_image', blog_cover_url($post->cover_image))
 
 @section('content')
 @php
     $coverUrl = blog_cover_url($post->cover_image);
     $fallbackCover = asset(blog_default_cover());
 @endphp
-<div class="bg-surface-muted min-h-screen pb-20 font-sans">
+<article class="bg-surface-muted min-h-screen pb-20 font-sans">
 
     {{-- Hero --}}
     <section class="bg-brand-lens-blue pt-20 pb-10 relative overflow-hidden">
         <div class="absolute inset-0 z-0">
-            <img src="{{ $coverUrl }}" alt="" class="w-full h-full object-cover filter saturate-50 opacity-30 mix-blend-screen" onerror="this.onerror=null;this.src='{{ $fallbackCover }}'">
+            <img src="{{ $coverUrl }}" alt="" aria-hidden="true" class="w-full h-full object-cover filter saturate-50 opacity-30 mix-blend-screen" onerror="this.onerror=null;this.src='{{ $fallbackCover }}'">
         </div>
         <div class="absolute inset-0 bg-linear-to-br from-brand-lens-blue/95 to-slate-900/90 z-0"></div>
         <div class="absolute top-0 right-0 w-[600px] h-[600px] bg-white/5 rounded-full filter blur-3xl transform translate-x-1/3 -translate-y-1/3 pointer-events-none z-0"></div>
 
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-            <nav class="flex items-center text-sm font-medium text-brand-lens-blue-soft/80 mb-5 tracking-wide">
+            <nav aria-label="Breadcrumb" class="flex items-center text-sm font-medium text-brand-lens-blue-soft/80 mb-5 tracking-wide">
                 <a href="/" class="hover:text-white flex items-center gap-1.5 transition-colors">
                     <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path d="M10.707 2.293a1 1 0 00-1.414 0l-7 7a1 1 0 001.414 1.414L4 10.414V17a1 1 0 001 1h2a1 1 0 001-1v-2a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 001 1h2a1 1 0 001-1v-6.586l.293.293a1 1 0 001.414-1.414l-7-7z"/></svg>
                     Home
@@ -108,7 +87,7 @@
                         </div>
                     @else
                         <div class="w-full aspect-video sm:aspect-21/9 bg-surface-muted">
-                            <img src="{{ $coverUrl }}" alt="{{ $post->title }}" class="w-full h-full object-cover" onerror="this.onerror=null;this.src='{{ $fallbackCover }}'">
+                            <img src="{{ $coverUrl }}" alt="{{ $post->title }}" class="w-full h-full object-cover" fetchpriority="high" decoding="async" onerror="this.onerror=null;this.src='{{ $fallbackCover }}'">
                         </div>
                     @endif
 
@@ -159,7 +138,7 @@
                         @foreach($latestPosts as $lPost)
                         <a href="{{ route('blog.show', $lPost->slug) }}" class="flex gap-3 group items-start">
                             <div class="w-14 h-14 rounded-xl overflow-hidden shrink-0 bg-surface-muted border border-border-subtle">
-                                <img src="{{ blog_cover_url($lPost->cover_image) }}" alt="" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" onerror="this.onerror=null;this.src='{{ $fallbackCover }}'">
+                                <img src="{{ blog_cover_url($lPost->cover_image) }}" alt="{{ $lPost->title }}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" loading="lazy" decoding="async" onerror="this.onerror=null;this.src='{{ $fallbackCover }}'">
                             </div>
                             <div class="flex-1 min-w-0 pt-0.5">
                                 <h3 class="font-semibold text-text-main text-sm leading-snug line-clamp-2 group-hover:text-brand-lens-blue transition-colors">
@@ -191,7 +170,7 @@
                                         <svg class="w-5 h-5 text-white/60" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
                                     </div>
                                 @else
-                                    <img src="{{ blog_cover_url($relPost->cover_image) }}" alt="" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" onerror="this.onerror=null;this.src='{{ $fallbackCover }}'">
+                                    <img src="{{ blog_cover_url($relPost->cover_image) }}" alt="{{ $relPost->title }}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" loading="lazy" decoding="async" onerror="this.onerror=null;this.src='{{ $fallbackCover }}'">
                                 @endif
                             </div>
                             <div class="flex-1 min-w-0 pt-0.5">
@@ -220,7 +199,7 @@
                 @if(isset($previous))
                 <a href="{{ route('blog.show', $previous->slug) }}" class="group flex flex-col bg-white rounded-2xl border border-border-subtle hover:border-brand-lens-blue/40 hover:shadow-md transition-all overflow-hidden">
                     <div class="h-36 relative overflow-hidden bg-surface-muted shrink-0">
-                        <img src="{{ blog_cover_url($previous->cover_image) }}" alt="" class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" onerror="this.onerror=null;this.src='{{ $fallbackCover }}'">
+                        <img src="{{ blog_cover_url($previous->cover_image) }}" alt="{{ $previous->title }}" class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" decoding="async" onerror="this.onerror=null;this.src='{{ $fallbackCover }}'">
                         <div class="absolute inset-0 bg-linear-to-t from-slate-900/50 to-transparent"></div>
                         <span class="absolute top-3 left-3 flex items-center gap-1.5 bg-white/95 backdrop-blur-sm px-2.5 py-1 rounded-full text-xs font-semibold text-text-muted">
                             <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg>
@@ -239,7 +218,7 @@
                 @if(isset($next))
                 <a href="{{ route('blog.show', $next->slug) }}" class="group flex flex-col bg-white rounded-2xl border border-border-subtle hover:border-brand-lens-blue/40 hover:shadow-md transition-all overflow-hidden">
                     <div class="h-36 relative overflow-hidden bg-surface-muted shrink-0">
-                        <img src="{{ blog_cover_url($next->cover_image) }}" alt="" class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" onerror="this.onerror=null;this.src='{{ $fallbackCover }}'">
+                        <img src="{{ blog_cover_url($next->cover_image) }}" alt="{{ $next->title }}" class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" decoding="async" onerror="this.onerror=null;this.src='{{ $fallbackCover }}'">
                         <div class="absolute inset-0 bg-linear-to-t from-slate-900/50 to-transparent"></div>
                         <span class="absolute top-3 right-3 flex items-center gap-1.5 bg-white/95 backdrop-blur-sm px-2.5 py-1 rounded-full text-xs font-semibold text-text-muted">
                             Next
@@ -260,5 +239,5 @@
         @endif
 
     </div>
-</div>
+</article>
 @endsection

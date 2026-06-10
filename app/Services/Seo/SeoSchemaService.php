@@ -2,6 +2,8 @@
 
 namespace App\Services\Seo;
 
+use App\Models\Category;
+
 class SeoSchemaService
 {
     protected string $baseUrl;
@@ -71,6 +73,94 @@ class SeoSchemaService
             '@context' => 'https://schema.org',
             '@graph' => $graph,
         ];
+    }
+
+    public function buildBlogIndexGraph(?string $categoryName = null): array
+    {
+        $title = $categoryName
+            ? "{$categoryName} Articles | Blog — ".config('company.brand')
+            : 'Blog | '.config('company.brand');
+        $description = $categoryName
+            ? "Browse {$categoryName} articles from ".config('company.brand').'.'
+            : config('seo.defaults.site_description');
+        $url = $categoryName && request()->has('category')
+            ? route('blog.index', ['category' => request('category')])
+            : route('blog.index');
+
+        return $this->buildMasterGraph($title, $description, $url, [
+            ['label' => 'Home', 'url' => route('home')],
+            ['label' => 'Blog', 'url' => route('blog.index')],
+        ]);
+    }
+
+    public function buildBlogPostGraph(object $post): array
+    {
+        $url = route('blog.show', $post->slug);
+        $description = seo_post_description($post);
+        $image = blog_cover_url($post->cover_image);
+        $published = $post->published_at?->toIso8601String() ?? config('seo.defaults.date_published');
+        $modified = ($post->updated_at ?? $post->published_at)?->toIso8601String() ?? $published;
+        $authorName = optional($post->author)->name ?? config('company.brand');
+
+        $graph = [
+            $this->organization(),
+            $this->website(),
+            [
+                '@type' => 'BlogPosting',
+                '@id' => $url.'/#article',
+                'headline' => $post->title,
+                'description' => $description,
+                'image' => $image,
+                'url' => $url,
+                'datePublished' => $published,
+                'dateModified' => $modified,
+                'author' => [
+                    '@type' => 'Person',
+                    'name' => $authorName,
+                ],
+                'publisher' => ['@id' => $this->baseUrl.'/#organization'],
+                'mainEntityOfPage' => ['@id' => $url.'/#webpage'],
+                'inLanguage' => 'en-IN',
+                'articleSection' => optional($post->category)->name ?? 'Blog',
+            ],
+            [
+                '@type' => 'WebPage',
+                '@id' => $url.'/#webpage',
+                'url' => $url,
+                'name' => $post->title,
+                'description' => $description,
+                'isPartOf' => ['@id' => $this->baseUrl.'/#website'],
+                'publisher' => ['@id' => $this->baseUrl.'/#organization'],
+                'inLanguage' => 'en-IN',
+            ],
+            $this->breadcrumbList([
+                ['label' => 'Home', 'url' => route('home')],
+                ['label' => 'Blog', 'url' => route('blog.index')],
+                ['label' => $post->title, 'url' => $url],
+            ], $url),
+        ];
+
+        if (! empty($post->faqs)) {
+            $graph[] = $this->faqPage($post->faqs, $url);
+        }
+
+        return [
+            '@context' => 'https://schema.org',
+            '@graph' => $graph,
+        ];
+    }
+
+    public function buildCategoryGraph(Category $category): array
+    {
+        $url = route('category.show', $category->slug);
+        $title = "{$category->name} | ".config('company.brand');
+        $description = $category->description
+            ?: "Explore {$category->name} articles and studio resources from ".config('company.brand').'.';
+
+        return $this->buildMasterGraph($title, $description, $url, [
+            ['label' => 'Home', 'url' => route('home')],
+            ['label' => $category->name, 'url' => $url],
+        ]);
     }
 
     protected function organization(): array

@@ -5,6 +5,7 @@
 @section('meta')
     <meta name="description"
           content="The page you are looking for could not be found on {{ config('company.brand') }}." />
+    <meta name="robots" content="noindex, nofollow" />
 @endsection
 
 @section('content')

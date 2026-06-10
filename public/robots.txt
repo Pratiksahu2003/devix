@@ -6,6 +6,7 @@ User-agent: *
 Disallow: /admin/
 Disallow: /storage/
 Disallow: /up
+Disallow: /og
 
 # ── OpenAI ──────────────────────────────────────────────────────────────────
 User-agent: GPTBot

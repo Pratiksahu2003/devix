@@ -17,24 +17,42 @@ $routeName = request()->route()?->getName();
     @hasSection('seo_head')
         @yield('seo_head')
     @elseif (trim($__env->yieldContent('meta')))
-        @yield('meta')
-        <link rel="canonical" href="{{ url()->current() }}">
-        <meta name="author" content="{{ $brand }}">
-        <meta name="robots" content="index,follow">
         @php
         $pageTitle = trim($__env->yieldContent('title')) ?: $brand;
+        $metaContent = trim($__env->yieldContent('meta'));
+        $parsedMeta = seo_parse_meta_content($metaContent);
+        $metaDescription = $parsedMeta['description'] ?: config('seo.defaults.site_description');
+        $metaRobots = $parsedMeta['robots'];
         $currentUrl = url()->current();
         $ogFromPage = trim($__env->yieldContent('og_image'));
         $ogImage = $ogFromPage !== '' ? $ogFromPage : asset(config('company.logo'));
         $ogDefault = route('og.image', ['title' => $pageTitle, 'subtitle' => 'Delhi NCR • Photo · Video · Podcast']);
+        $resolvedOgImage = $ogImage ?: $ogDefault;
         @endphp
+        @yield('meta')
+        <link rel="canonical" href="{{ $currentUrl }}">
+        <link rel="alternate" hreflang="en-in" href="{{ $currentUrl }}">
+        <meta name="author" content="{{ $brand }}">
+        <meta name="publisher" content="{{ config('company.name') }}">
+        @if (! str_contains($metaContent, 'name="robots"') && ! str_contains($metaContent, "name='robots'"))
+            <meta name="robots" content="{{ $metaRobots }}">
+        @endif
+        @if (! str_contains($metaContent, 'name="description"') && ! str_contains($metaContent, "name='description'"))
+            <meta name="description" content="{{ $metaDescription }}">
+        @endif
         <meta property="og:title" content="{{ $pageTitle }}">
+        <meta property="og:description" content="{{ $metaDescription }}">
         <meta property="og:type" content="website">
         <meta property="og:url" content="{{ $currentUrl }}">
-        <meta property="og:image" content="{{ $ogImage ?: $ogDefault }}">
+        <meta property="og:image" content="{{ $resolvedOgImage }}">
+        <meta property="og:image:alt" content="{{ $pageTitle }}">
+        <meta property="og:site_name" content="{{ $brand }}">
+        <meta property="og:locale" content="en_IN">
         <meta name="twitter:card" content="summary_large_image">
         <meta name="twitter:title" content="{{ $pageTitle }}">
-        <meta name="twitter:image" content="{{ $ogImage ?: $ogDefault }}">
+        <meta name="twitter:description" content="{{ $metaDescription }}">
+        <meta name="twitter:image" content="{{ $resolvedOgImage }}">
+        <meta name="twitter:site" content="@{{ config('seo.defaults.twitter_handle', 'dywixstudio') }}">
     @else
         <meta name="description" content="{{ $brand }} is a 24×7 rental photography, videography, and podcast studio in Delhi NCR with dedicated sets, makeup room, and edit space under one roof.">
         <link rel="canonical" href="{{ url()->current() }}">
@@ -50,9 +68,14 @@ $routeName = request()->route()?->getName();
         <meta property="og:type" content="website">
         <meta property="og:url" content="{{ $currentUrl }}">
         <meta property="og:image" content="{{ $ogDefault }}">
+        <meta property="og:image:alt" content="{{ $pageTitle }}">
+        <meta property="og:site_name" content="{{ $brand }}">
+        <meta property="og:locale" content="en_IN">
         <meta name="twitter:card" content="summary_large_image">
         <meta name="twitter:title" content="{{ $pageTitle }}">
+        <meta name="twitter:description" content="Book a 24×7 podcast & content studio in Delhi NCR for photo, video and audio.">
         <meta name="twitter:image" content="{{ $ogDefault }}">
+        <meta name="twitter:site" content="@{{ config('seo.defaults.twitter_handle', 'dywixstudio') }}">
     @endif
 
     @vite(['resources/css/app.css', 'resources/js/app.js'])

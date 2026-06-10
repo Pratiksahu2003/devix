@@ -5,6 +5,7 @@
 @section('meta')
     <meta name="description"
           content="An unexpected error occurred on {{ config('company.brand') }}. Please try again in a moment." />
+    <meta name="robots" content="noindex, nofollow" />
 @endsection
 
 @section('content')

@@ -2,6 +2,8 @@
 
 namespace App\Services\Seo;
 
+use App\Models\Category;
+use App\Models\Post;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\File;
 
@@ -71,9 +73,16 @@ class SeoSitemapService
             route('seo.sitemaps'),
             route('pages.pricing'),
             route('pages.services'),
+            route('pages.about'),
+            route('pages.gallery'),
+            route('pages.help'),
             route('pages.booking'),
             route('pages.contact'),
             route('pages.location'),
+            route('pages.studio-specs'),
+            route('pages.use-cases'),
+            route('pages.collaborations'),
+            route('pages.edit-room'),
             route('blog.index'),
         ];
 
@@ -106,11 +115,40 @@ class SeoSitemapService
 
     protected function blogUrls(): Collection
     {
+        if (Post::where('is_published', true)->whereNotNull('published_at')->exists()) {
+            $posts = Post::where('is_published', true)
+                ->whereNotNull('published_at')
+                ->orderByDesc('published_at')
+                ->get()
+                ->map(fn (Post $post) => [
+                    'loc' => route('blog.show', $post->slug),
+                    'priority' => config('seo.sitemap_priorities.blog'),
+                    'changefreq' => 'monthly',
+                ]);
+
+            return $posts->concat($this->categoryUrls());
+        }
+
         return $this->data->blogs()->map(fn (array $blog) => [
             'loc' => route('blog.show', $blog['slug']),
             'priority' => config('seo.sitemap_priorities.blog'),
             'changefreq' => 'monthly',
         ]);
+    }
+
+    protected function categoryUrls(): Collection
+    {
+        return Category::query()
+            ->whereHas('posts', fn ($query) => $query
+                ->where('is_published', true)
+                ->whereNotNull('published_at'))
+            ->orderBy('name')
+            ->get()
+            ->map(fn (Category $category) => [
+                'loc' => route('category.show', $category->slug),
+                'priority' => config('seo.sitemap_priorities.blog'),
+                'changefreq' => 'monthly',
+            ]);
     }
 
     protected function sitemapEntry(string $file): array

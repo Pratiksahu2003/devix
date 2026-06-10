@@ -5,6 +5,7 @@
 @section('meta')
     <meta name="description"
           content="You need to be signed in to access this page on {{ config('company.brand') }}." />
+    <meta name="robots" content="noindex, nofollow" />
 @endsection
 
 @section('content')
