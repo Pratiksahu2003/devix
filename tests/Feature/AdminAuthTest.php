@@ -16,7 +16,7 @@ class AdminAuthTest extends TestCase
         $response = $this->get('/admin/login');
 
         $response->assertStatus(200);
-        $response->assertSee('Admin Login');
+        $response->assertSee('Admin Portal');
     }
 
     public function test_admins_can_authenticate_using_the_login_screen(): void
