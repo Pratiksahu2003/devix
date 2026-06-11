@@ -34,5 +34,6 @@ return [
         'youtube' => 'https://youtube.com/@dywixstudio?si=SmXo57EjP1desPUO',
         'whatsapp' => 'https://wa.me/917838663434 ',
         // 'pinterest' => 'https://in.pinterest.com/dywix/',
+        'blogger' => 'https://dywix.blogspot.com/',
     ],
 ];
