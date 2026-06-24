@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Services\FeaturedWorkService;
 use App\Services\Seo\SeoMetaService;
 use App\Services\Seo\SeoSchemaService;
 use Illuminate\View\View;
@@ -11,8 +12,11 @@ class HomeController extends Controller
     /**
      * Display the studio homepage.
      */
-    public function __invoke(SeoMetaService $meta, SeoSchemaService $schema): View
-    {
+    public function __invoke(
+        SeoMetaService $meta,
+        SeoSchemaService $schema,
+        FeaturedWorkService $featuredWork,
+    ): View {
         $title = config('company.brand').' | Premier Podcast & Content Studio in Delhi NCR';
         $description = config('seo.defaults.site_description');
         $url = route('home');
@@ -25,6 +29,7 @@ class HomeController extends Controller
                 ]),
             ],
             'pageTitle' => $title,
+            'featuredWorkItems' => $featuredWork->items(),
         ]);
     }
 }

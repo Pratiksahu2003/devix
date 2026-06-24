@@ -14,7 +14,7 @@
     <x-home.logos />
     <x-home.shop-by-frame />
     <x-home.studio-showcase />
-    <x-home.featured-work />
+    <x-home.featured-work :items="$featuredWorkItems" />
     <x-home.pricing />
     <x-home.testimonials />
     <x-home.cta-banner />

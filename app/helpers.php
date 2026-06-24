@@ -66,6 +66,44 @@ if (! function_exists('youtube_thumbnail_url')) {
     }
 }
 
+if (! function_exists('youtube_embed_url')) {
+    function youtube_embed_url(?string $videoUrl): ?string
+    {
+        $videoId = youtube_video_id_from_url($videoUrl);
+
+        if (! $videoId) {
+            return null;
+        }
+
+        return 'https://www.youtube.com/embed/'.$videoId;
+    }
+}
+
+if (! function_exists('our_work_image_url')) {
+    function our_work_image_url(?string $imagePath): ?string
+    {
+        $imagePath = ltrim((string) $imagePath, '/');
+
+        if ($imagePath === '') {
+            return null;
+        }
+
+        if (preg_match('/^https?:\/\//i', $imagePath) === 1) {
+            return $imagePath;
+        }
+
+        if (str_starts_with($imagePath, 'storage/')) {
+            $imagePath = substr($imagePath, strlen('storage/'));
+        }
+
+        if (! \Illuminate\Support\Facades\Storage::disk('public')->exists($imagePath)) {
+            return null;
+        }
+
+        return \Illuminate\Support\Facades\Storage::disk('public')->url($imagePath);
+    }
+}
+
 if (! function_exists('blog_cover_url')) {
     function blog_cover_url(?string $cover): string
     {
