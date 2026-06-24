@@ -1,5 +1,15 @@
 @php
-    $slides = ['IMG_0785.jpeg', 'IMG_0769.jpeg', 'IMG_0784.jpeg', 'IMG_0780.jpeg', 'IMG_0781.jpeg', 'IMG_0783.jpeg'];
+    $slides = collect(glob(public_path('slider/*.{webp,jpg,jpeg,png,avif}'), GLOB_BRACE) ?: [])
+        ->sort()
+        ->map(fn (string $path) => asset('slider/'.basename($path)))
+        ->values()
+        ->all();
+
+    if ($slides === []) {
+        $slides = collect(['IMG_0785.jpeg', 'IMG_0769.jpeg', 'IMG_0784.jpeg', 'IMG_0780.jpeg', 'IMG_0781.jpeg', 'IMG_0783.jpeg'])
+            ->map(fn (string $img) => asset('storage/room/'.$img))
+            ->all();
+    }
 @endphp
 
 <section class="relative w-full min-h-[85vh] md:min-h-[80vh] flex items-center overflow-hidden group"
@@ -18,7 +28,7 @@
             x-transition:leave-end="opacity-0 scale-105"
             class="absolute inset-0"
             :class="{ 'z-10': slide === {{ $i }} }">
-            <img src="{{ asset('storage/room/' . $img) }}" alt="DyWix studio {{ $i + 1 }}" class="h-full w-full object-cover object-center">
+            <img src="{{ $img }}" alt="DyWix studio {{ $i + 1 }}" class="h-full w-full object-cover object-center" fetchpriority="{{ $i === 0 ? 'high' : 'auto' }}">
         </div>
         @endforeach
         <div class="absolute inset-0 z-20 bg-linear-to-r from-slate-950 via-slate-950/90 to-slate-950/40 pointer-events-none"></div>
@@ -72,7 +82,7 @@
                         x-transition:leave-start="opacity-100"
                         x-transition:leave-end="opacity-0"
                         class="absolute inset-0">
-                        <img src="{{ asset('storage/room/' . $img) }}" alt="DyWix studio" class="h-full w-full object-cover">
+                        <img src="{{ $img }}" alt="DyWix studio" class="h-full w-full object-cover" loading="lazy" decoding="async">
                     </div>
                     @endforeach
                     <div class="absolute inset-0 bg-linear-to-t from-slate-950/60 to-transparent"></div>
