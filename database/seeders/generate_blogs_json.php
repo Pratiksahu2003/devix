@@ -4,6 +4,8 @@
  * One-time generator for data/blogs.json — run: php database/seeders/generate_blogs_json.php
  */
 
+require __DIR__.'/blog_youtube_videos.php';
+
 $blogs = [
     ['slug' => 'how-to-start-podcast-delhi-ncr', 'title' => 'How to Start a Podcast in Delhi NCR (Complete 2026 Guide)', 'category' => 'podcast', 'service' => 'podcast-studio', 'excerpt' => 'Launch your podcast from concept to distribution with a Delhi NCR studio workflow.'],
     ['slug' => 'best-podcast-microphones-studio', 'title' => 'Best Podcast Microphones for Professional Studio Recording', 'category' => 'equipment', 'service' => 'podcast-studio', 'excerpt' => 'Compare dynamic and condenser mics for broadcast-quality podcast audio in treated rooms.'],
@@ -37,6 +39,11 @@ $blogs = [
     ['slug' => 'multi-camera-podcast-setup', 'title' => 'Multi-Camera Podcast Setup — Angles, Sync & Clipping for Shorts', 'category' => 'podcast', 'service' => 'podcast-studio', 'excerpt' => 'Configure multi-cam podcast rigs for YouTube, Spotify video, and vertical clips.'],
     ['slug' => 'studio-booking-checklist-beginners', 'title' => 'First Studio Booking Checklist — What to Bring & Expect', 'category' => 'creator', 'service' => 'podcast-studio', 'excerpt' => 'Everything first-time studio clients need before their DyWix session.'],
     ['slug' => 'content-batch-production-ncr', 'title' => 'Content Batch Production in Delhi NCR — One Day, One Month of Content', 'category' => 'creator', 'service' => 'influencer-studio', 'excerpt' => 'Batch podcasts, Reels, and photos in a single disciplined studio day.'],
+    ['slug' => 'women-podcast-recording-delhi-ncr', 'title' => "Women's Podcast Recording in Delhi NCR — Real Stories, Studio Quality", 'category' => 'podcast', 'service' => 'podcast-studio', 'excerpt' => 'Record authentic women-led podcasts with professional audio, video, and a supportive studio environment in Dwarka.'],
+    ['slug' => 'bollywood-dance-reel-shoot-studio', 'title' => 'Bollywood Dance Reel Shoot in a Professional Studio — 4K Production Guide', 'category' => 'creator', 'service' => 'reel-shoot-studio', 'excerpt' => 'Shoot high-energy Bollywood dance Reels with studio lighting, multi-camera coverage, and 4K export in one session.'],
+    ['slug' => 'model-portfolio-photography-delhi', 'title' => 'Model Portfolio Photography in Delhi — Audition-Ready Session Guide', 'category' => 'photography', 'service' => 'fashion-photography', 'excerpt' => 'Build an audition-ready modelling portfolio with professional lighting, styling support, and fast delivery in Delhi NCR.'],
+    ['slug' => 'youtube-dance-tutorial-filming-guide', 'title' => 'How to Film YouTube Dance Tutorials in a Studio — Lighting and Multi-Cam', 'category' => 'creator', 'service' => 'youtube-studio-rental', 'excerpt' => 'Film step-by-step dance tutorials with clean framing, synced audio, and repeatable studio lighting for YouTube growth.'],
+    ['slug' => 'social-storytelling-vertical-video-studio', 'title' => 'Social Storytelling and Vertical Video Production — Studio Session Guide', 'category' => 'video', 'service' => 'video-production', 'excerpt' => 'Produce emotional vertical stories and short-form narratives with controlled lighting, sound, and export specs for Reels and Shorts.'],
 ];
 
 function faqsFor(array $blog, int $index): array
@@ -100,6 +107,8 @@ foreach ($blogs as $i => $blog) {
     $blog['faqs'] = faqsFor($blog, $i);
     $blog['tags'] = [$blog['category'], 'delhi ncr', $blog['service'], 'studio guide', '2026'];
     $blog['author'] = 'DyWix Studio Team';
+    $blog['video_url'] = dywixYoutubeUrlForBlog($blog);
+
     $out[] = $blog;
 }
 

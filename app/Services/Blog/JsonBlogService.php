@@ -124,7 +124,9 @@ class JsonBlogService
                 $post->title = $blog['title'];
                 $post->excerpt = $blog['excerpt'] ?? '';
                 $post->content = $blog['content'] ?? $this->content->build($blog);
-                $post->cover_image = $blog['cover'] ?? $this->defaultCover($categorySlug);
+                $post->cover_image = $blog['cover']
+                    ?? blog_youtube_cover_url($blog)
+                    ?? blog_category_cover($categorySlug);
                 $post->video_url = $blog['video_url'] ?? null;
                 $post->published_at = $publishedAt;
                 $post->is_published = true;
@@ -155,6 +157,6 @@ class JsonBlogService
 
     protected function defaultCover(string $category): string
     {
-        return blog_default_cover();
+        return blog_category_cover($category);
     }
 }
