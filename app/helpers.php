@@ -22,7 +22,6 @@ if (! function_exists('blog_default_cover')) {
         return 'banner/blog.avif';
     }
 }
-
 if (! function_exists('blog_category_cover')) {
     function blog_category_cover(?string $category): string
     {
