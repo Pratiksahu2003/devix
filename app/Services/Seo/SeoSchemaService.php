@@ -97,7 +97,7 @@ class SeoSchemaService
     {
         $url = route('blog.show', $post->slug);
         $description = seo_post_description($post);
-        $image = blog_cover_url($post->cover_image);
+        $image = blog_post_cover_url($post);
         $published = $post->published_at?->toIso8601String() ?? config('seo.defaults.date_published');
         $modified = ($post->updated_at ?? $post->published_at)?->toIso8601String() ?? $published;
         $authorName = optional($post->author)->name ?? config('company.brand');

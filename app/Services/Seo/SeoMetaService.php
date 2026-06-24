@@ -151,7 +151,7 @@ class SeoMetaService
         $title = seo_post_page_title($post);
         $description = seo_post_description($post);
         $url = route('blog.show', $post->slug);
-        $image = blog_cover_url($post->cover_image);
+        $image = blog_post_cover_url($post);
         $ogImage = route('og.image', [
             'title' => $post->title,
             'subtitle' => config('company.short_name').' · Blog',

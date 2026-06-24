@@ -1,0 +1,45 @@
+<?php
+
+/**
+ * Unique YouTube thumbnail per blog card (round-robin through @dywixstudio channel).
+ * Hero embed video is mapped separately in database/seeders/blog_youtube_videos.php.
+ */
+return [
+    'social-storytelling-vertical-video-studio' => 'gMUdVVb-u_I',
+    'youtube-dance-tutorial-filming-guide' => 'kB0tk5E7ukY',
+    'model-portfolio-photography-delhi' => 'geWRxFT0juc',
+    'bollywood-dance-reel-shoot-studio' => '8h6TTCt9soM',
+    'women-podcast-recording-delhi-ncr' => 'EtKLA2D3ffc',
+    'content-batch-production-ncr' => '8gs50hFtnUA',
+    'studio-booking-checklist-beginners' => 'TXlNzpdjzIQ',
+    'multi-camera-podcast-setup' => 'Uy3uL91Lp-0',
+    'd2c-brand-photography-playbook' => '1uzpEF9BSPI',
+    'startup-explainer-video-guide' => 'HdCETPWqiaQ',
+    'legal-firm-podcast-studio-guide' => 'g3cP43RbvLQ',
+    'healthcare-video-production-guide' => 'C2jieZ076Gs',
+    'youtube-thumbnail-shoot-tips' => 'ioa5bO6kT-U',
+    'fashion-lookbook-photography-delhi' => 'fqRJVrPyyco',
+    'reel-shoot-studio-gurugram' => 'dJDYTGZl_9s',
+    'video-production-studio-noida' => '6GsLOaJVo_8',
+    'podcast-studio-cost-delhi' => 'hIj0xuA2zJ0',
+    'amazon-listing-photography-guide' => 'BDTrrrmJQwM',
+    'brand-film-production-delhi' => 'MHx8RnmVs4M',
+    'interview-podcast-recording-tips' => 'GMTva2whDaQ',
+    'ecommerce-catalog-photography-ncr' => 'rX36COizTY0',
+    'podcast-editing-workflow-guide' => 'ZHQvyHhTQsw',
+    'studio-lighting-three-point-guide' => 'gMUdVVb-u_I',
+    'corporate-headshot-photography-guide' => 'kB0tk5E7ukY',
+    'tv-commercial-production-india' => 'geWRxFT0juc',
+    'influencer-content-strategy-2026' => '8h6TTCt9soM',
+    'podcast-studio-delhi-comparison' => 'EtKLA2D3ffc',
+    'fashion-photoshoot-checklist' => '8gs50hFtnUA',
+    'corporate-video-types-guide' => 'TXlNzpdjzIQ',
+    'instagram-reels-studio-workflow' => 'Uy3uL91Lp-0',
+    'youtube-studio-setup-budget' => '1uzpEF9BSPI',
+    'green-screen-chroma-key-guide' => 'HdCETPWqiaQ',
+    'product-photography-ecommerce-guide' => 'g3cP43RbvLQ',
+    'video-production-cost-delhi' => 'C2jieZ076Gs',
+    'podcast-marketing-india-2026' => 'ioa5bO6kT-U',
+    'best-podcast-microphones-studio' => 'fqRJVrPyyco',
+    'how-to-start-podcast-delhi-ncr' => 'dJDYTGZl_9s',
+];
