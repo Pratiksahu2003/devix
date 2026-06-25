@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', $pageTitle ?? config('company.brand').' | Premier Podcast & Content Studio in Delhi NCR')
+@section('title', $pageTitle ?? config('company.brand') . ' | Premier Podcast & Content Studio in Delhi NCR')
 
 @section('seo_head')
     @isset($seo)
