@@ -10,7 +10,7 @@ return [
         'raw' => '9540467000',
         'intl' => '+91-9540467000',
     ],
-    'email' => 'digital@tytil.com',
+    'email' => 'studio@dywix.com',
     'address' => [
         'lines' => [
             '4th Floor. 96A, Block- B. Pocket-10.',
