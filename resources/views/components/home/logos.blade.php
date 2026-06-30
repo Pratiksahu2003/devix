@@ -15,7 +15,7 @@
                 <div class="flex h-24 w-32 items-center justify-center">
                     <img src="{{ asset('brand/' . $i . '.png') }}"
                         class="max-h-16 w-auto object-contain opacity-70 hover:opacity-100 transition-opacity"
-                        alt="Client logo {{ $i }}" loading="lazy">
+                        alt="Client logo {{ $i }}" loading="lazy" width="128" height="64">
                 </div>
                 @endforeach
             </div>

@@ -1,6 +1,6 @@
 <section class="relative bg-slate-950 py-24 text-white overflow-hidden">
     <div class="absolute inset-0">
-        <img src="{{ asset('storage/room/IMG_0779.jpeg') }}" alt="DyWix studio interior" class="h-full w-full object-cover">
+        <img src="{{ asset('storage/room/IMG_0779.jpeg') }}" alt="DyWix studio interior" class="h-full w-full object-cover" loading="lazy" decoding="async" width="1920" height="1080">
     </div>
     <div class="absolute inset-0 bg-linear-to-t from-slate-950 via-slate-950/80 to-transparent"></div>
 

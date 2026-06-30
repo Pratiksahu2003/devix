@@ -16,7 +16,7 @@
             x-transition:leave-end="opacity-0 scale-105"
             class="absolute inset-0"
             :class="{ 'z-10': slide === {{ $i }} }">
-            <img src="{{ $img }}" alt="DyWix studio {{ $i + 1 }}" class="h-full w-full object-cover object-center" fetchpriority="{{ $i === 0 ? 'high' : 'auto' }}">
+            <img src="{{ $img }}" alt="DyWix studio {{ $i + 1 }}" class="h-full w-full object-cover object-center" fetchpriority="{{ $i === 0 ? 'high' : 'auto' }}" width="1920" height="1080">
         </div>
         @endforeach
         <div class="absolute inset-0 z-20 bg-linear-to-r from-slate-950 via-slate-950/90 to-slate-950/40 pointer-events-none"></div>
@@ -70,7 +70,7 @@
                         x-transition:leave-start="opacity-100"
                         x-transition:leave-end="opacity-0"
                         class="absolute inset-0">
-                        <img src="{{ $img }}" alt="DyWix studio" class="h-full w-full object-cover" loading="lazy" decoding="async">
+                        <img src="{{ $img }}" alt="DyWix studio" class="h-full w-full object-cover" loading="lazy" decoding="async" width="320" height="400">
                     </div>
                     @endforeach
                     <div class="absolute inset-0 bg-linear-to-t from-slate-950/60 to-transparent"></div>

@@ -22,6 +22,68 @@ class HomeController extends Controller
         $description = config('seo.defaults.site_description');
         $url = route('home');
 
+        // Run automatic slider image optimizer once if not done yet
+        $optimizedMarker = public_path('slider/.optimized');
+        if (!file_exists($optimizedMarker)) {
+            try {
+                $targetDir = public_path('slider');
+                $backupDir = $targetDir . '/original';
+                if (!is_dir($backupDir)) {
+                    @mkdir($backupDir, 0755, true);
+                }
+
+                if (is_dir($targetDir) && function_exists('imagecreatefromwebp') && function_exists('imagewebp')) {
+                    $files = scandir($targetDir);
+                    foreach ($files as $file) {
+                        if ($file === '.' || $file === '..' || $file === 'original' || strtolower(pathinfo($file, PATHINFO_EXTENSION)) !== 'webp') {
+                            continue;
+                        }
+                        $filePath = $targetDir . '/' . $file;
+                        if (is_file($filePath)) {
+                            $backupPath = $backupDir . '/' . $file;
+                            if (!file_exists($backupPath)) {
+                                @copy($filePath, $backupPath);
+                            }
+
+                            $image = @imagecreatefromwebp($backupPath);
+                            if ($image) {
+                                $width = imagesx($image);
+                                $height = imagesy($image);
+
+                                // Resize if larger than 1600px width
+                                if ($width > 1600) {
+                                    $newWidth = 1600;
+                                    $newHeight = intval($height * ($newWidth / $width));
+                                    $newImage = imagecreatetruecolor($newWidth, $newHeight);
+                                    imagealphablending($newImage, false);
+                                    imagesavealpha($newImage, true);
+                                    imagecopyresampled($newImage, $image, 0, 0, 0, 0, $newWidth, $newHeight, $width, $height);
+                                    imagedestroy($image);
+                                    $image = $newImage;
+                                } else {
+                                    imagealphablending($image, false);
+                                    imagesavealpha($image, true);
+                                }
+
+                                $tempFile = $filePath . '.temp';
+                                @imagewebp($image, $tempFile, 75);
+                                if (file_exists($tempFile)) {
+                                    @unlink($filePath);
+                                    @rename($tempFile, $filePath);
+                                }
+                                imagedestroy($image);
+                            }
+                        }
+                    }
+                    @file_put_contents($optimizedMarker, date('Y-m-d H:i:s'));
+                    Cache::forget('home_slider_slides');
+                }
+            } catch (\Throwable $e) {
+                // Fail silently so the page still loads even if optimization fails
+                logger()->error('Auto-optimization of slider failed: ' . $e->getMessage());
+            }
+        }
+
         // Fetch slider images (cached for 1 hour)
         $slides = Cache::remember('home_slider_slides', 3600, function () {
             $slides = collect(glob(public_path('slider/*.{webp,jpg,jpeg,png,avif}'), GLOB_BRACE) ?: [])
