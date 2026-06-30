@@ -32,69 +32,102 @@ if (!is_dir($backupDir)) {
 }
 
 function optimizeWebPImage($source, $destination, $targetSize, $maxWidth) {
-    if (!function_exists('imagecreatefromwebp') || !function_exists('imagewebp')) {
-        echo "[GD WebP not supported by PHP installation] ";
-        return false;
-    }
+    $optimized = false;
 
-    $image = @imagecreatefromwebp($source);
-    if (!$image) {
-        echo "[Failed to read WebP image] ";
-        return false;
-    }
+    // Method A: Imagick
+    if (class_exists(\Imagick::class)) {
+        try {
+            $imagick = new \Imagick($source);
+            $imagick->setImageFormat('webp');
+            
+            $geometry = $imagick->getImageGeometry();
+            if ($geometry['width'] > $maxWidth) {
+                $newHeight = intval($geometry['height'] * ($maxWidth / $geometry['width']));
+                $imagick->resizeImage($maxWidth, $newHeight, \Imagick::FILTER_LANCZOS, 1);
+            }
+            
+            $quality = 80;
+            $minQuality = 45;
+            $tempFile = $destination . '.temp';
 
-    // Get current dimensions
-    $width = imagesx($image);
-    $height = imagesy($image);
-    
-    // Resize if larger than max width
-    if ($width > $maxWidth) {
-        $newWidth = $maxWidth;
-        $newHeight = intval($height * ($newWidth / $width));
-        
-        $newImage = imagecreatetruecolor($newWidth, $newHeight);
-        
-        // Preserve transparency for WebP
-        imagealphablending($newImage, false);
-        imagesavealpha($newImage, true);
-        
-        imagecopyresampled($newImage, $image, 0, 0, 0, 0, $newWidth, $newHeight, $width, $height);
-        imagedestroy($image);
-        $image = $newImage;
-    } else {
-        // Preserve transparency for WebP
-        imagealphablending($image, false);
-        imagesavealpha($image, true);
-    }
+            do {
+                $imagick->setImageCompressionQuality($quality);
+                $imagick->writeImage($tempFile);
+                clearstatcache();
+                $size = filesize($tempFile);
+                if ($size <= $targetSize || $quality <= $minQuality) {
+                    break;
+                }
+                $quality -= 5;
+            } while ($quality >= $minQuality);
 
-    // Iterative quality reduction loop for WebP
-    $quality = 80;
-    $minQuality = 45;
-    $tempFile = $destination . '.temp';
-    
-    do {
-        imagewebp($image, $tempFile, $quality);
-        
-        clearstatcache();
-        $size = filesize($tempFile);
-        
-        if ($size <= $targetSize || $quality <= $minQuality) {
-            break;
+            if (file_exists($tempFile)) {
+                if (file_exists($destination)) {
+                    unlink($destination);
+                }
+                rename($tempFile, $destination);
+                $imagick->clear();
+                $imagick->destroy();
+                return true;
+            }
+            $imagick->clear();
+            $imagick->destroy();
+        } catch (\Throwable $e) {
+            echo "[Imagick failed: " . $e->getMessage() . "] ";
         }
-        
-        $quality -= 5;
-    } while ($quality >= $minQuality);
-
-    if (file_exists($tempFile)) {
-        if (file_exists($destination)) {
-            unlink($destination);
-        }
-        rename($tempFile, $destination);
-        imagedestroy($image);
-        return true;
     }
-    
-    imagedestroy($image);
+
+    // Method B: GD (Fallback)
+    if (function_exists('imagecreatefromwebp') && function_exists('imagewebp')) {
+        try {
+            $image = @imagecreatefromwebp($source);
+            if ($image) {
+                $width = imagesx($image);
+                $height = imagesy($image);
+                
+                if ($width > $maxWidth) {
+                    $newWidth = $maxWidth;
+                    $newHeight = intval($height * ($newWidth / $width));
+                    $newImage = imagecreatetruecolor($newWidth, $newHeight);
+                    imagealphablending($newImage, false);
+                    imagesavealpha($newImage, true);
+                    imagecopyresampled($newImage, $image, 0, 0, 0, 0, $newWidth, $newHeight, $width, $height);
+                    imagedestroy($image);
+                    $image = $newImage;
+                } else {
+                    imagealphablending($image, false);
+                    imagesavealpha($image, true);
+                }
+
+                $quality = 80;
+                $minQuality = 45;
+                $tempFile = $destination . '.temp';
+                
+                do {
+                    imagewebp($image, $tempFile, $quality);
+                    clearstatcache();
+                    $size = filesize($tempFile);
+                    if ($size <= $targetSize || $quality <= $minQuality) {
+                        break;
+                    }
+                    $quality -= 5;
+                } while ($quality >= $minQuality);
+
+                if (file_exists($tempFile)) {
+                    if (file_exists($destination)) {
+                        unlink($destination);
+                    }
+                    rename($tempFile, $destination);
+                    imagedestroy($image);
+                    return true;
+                }
+                imagedestroy($image);
+            }
+        } catch (\Throwable $e) {
+            echo "[GD failed: " . $e->getMessage() . "] ";
+        }
+    }
+
     return false;
 }
 

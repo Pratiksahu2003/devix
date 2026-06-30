@@ -32,8 +32,9 @@ class HomeController extends Controller
                     @mkdir($backupDir, 0755, true);
                 }
 
-                if (is_dir($targetDir) && function_exists('imagecreatefromwebp') && function_exists('imagewebp')) {
+                if (is_dir($targetDir)) {
                     $files = scandir($targetDir);
+                    $hasOptimizedAny = false;
                     foreach ($files as $file) {
                         if ($file === '.' || $file === '..' || $file === 'original' || strtolower(pathinfo($file, PATHINFO_EXTENSION)) !== 'webp') {
                             continue;
@@ -45,38 +46,72 @@ class HomeController extends Controller
                                 @copy($filePath, $backupPath);
                             }
 
-                            $image = @imagecreatefromwebp($backupPath);
-                            if ($image) {
-                                $width = imagesx($image);
-                                $height = imagesy($image);
+                            $optimized = false;
 
-                                // Resize if larger than 1600px width
-                                if ($width > 1600) {
-                                    $newWidth = 1600;
-                                    $newHeight = intval($height * ($newWidth / $width));
-                                    $newImage = imagecreatetruecolor($newWidth, $newHeight);
-                                    imagealphablending($newImage, false);
-                                    imagesavealpha($newImage, true);
-                                    imagecopyresampled($newImage, $image, 0, 0, 0, 0, $newWidth, $newHeight, $width, $height);
-                                    imagedestroy($image);
-                                    $image = $newImage;
-                                } else {
-                                    imagealphablending($image, false);
-                                    imagesavealpha($image, true);
+                            // Method A: Imagick (usually available on production and has perfect WebP support)
+                            if (class_exists(\Imagick::class)) {
+                                try {
+                                    $imagick = new \Imagick($backupPath);
+                                    $imagick->setImageFormat('webp');
+                                    $geometry = $imagick->getImageGeometry();
+                                    if ($geometry['width'] > 1600) {
+                                        $newHeight = intval($geometry['height'] * (1600 / $geometry['width']));
+                                        $imagick->resizeImage(1600, $newHeight, \Imagick::FILTER_LANCZOS, 1);
+                                    }
+                                    $imagick->setImageCompressionQuality(75);
+                                    $imagick->writeImage($filePath);
+                                    $imagick->clear();
+                                    $imagick->destroy();
+                                    $optimized = true;
+                                    $hasOptimizedAny = true;
+                                } catch (\Throwable $imEx) {
+                                    logger()->error('Imagick auto-optimization failed for ' . $file . ': ' . $imEx->getMessage());
                                 }
+                            }
 
-                                $tempFile = $filePath . '.temp';
-                                @imagewebp($image, $tempFile, 75);
-                                if (file_exists($tempFile)) {
-                                    @unlink($filePath);
-                                    @rename($tempFile, $filePath);
+                            // Method B: GD (Fallback)
+                            if (!$optimized && function_exists('imagecreatefromwebp') && function_exists('imagewebp')) {
+                                try {
+                                    $image = @imagecreatefromwebp($backupPath);
+                                    if ($image) {
+                                        $width = imagesx($image);
+                                        $height = imagesy($image);
+
+                                        // Resize if larger than 1600px width
+                                        if ($width > 1600) {
+                                            $newWidth = 1600;
+                                            $newHeight = intval($height * ($newWidth / $width));
+                                            $newImage = imagecreatetruecolor($newWidth, $newHeight);
+                                            imagealphablending($newImage, false);
+                                            imagesavealpha($newImage, true);
+                                            imagecopyresampled($newImage, $image, 0, 0, 0, 0, $newWidth, $newHeight, $width, $height);
+                                            imagedestroy($image);
+                                            $image = $newImage;
+                                        } else {
+                                            imagealphablending($image, false);
+                                            imagesavealpha($image, true);
+                                        }
+
+                                        $tempFile = $filePath . '.temp';
+                                        @imagewebp($image, $tempFile, 75);
+                                        if (file_exists($tempFile)) {
+                                            @unlink($filePath);
+                                            @rename($tempFile, $filePath);
+                                        }
+                                        imagedestroy($image);
+                                        $optimized = true;
+                                        $hasOptimizedAny = true;
+                                    }
+                                } catch (\Throwable $gdEx) {
+                                    logger()->error('GD auto-optimization failed for ' . $file . ': ' . $gdEx->getMessage());
                                 }
-                                imagedestroy($image);
                             }
                         }
                     }
-                    @file_put_contents($optimizedMarker, date('Y-m-d H:i:s'));
-                    Cache::forget('home_slider_slides');
+                    if ($hasOptimizedAny) {
+                        @file_put_contents($optimizedMarker, date('Y-m-d H:i:s'));
+                        Cache::forget('home_slider_slides');
+                    }
                 }
             } catch (\Throwable $e) {
                 // Fail silently so the page still loads even if optimization fails

@@ -3,15 +3,69 @@ ini_set('memory_limit', '1024M');
 
 $directories = [
     __DIR__ . '/public/storage/room',
+    __DIR__ . '/public/storage/studio',
+    __DIR__ . '/public/storage/podcast',
 ];
 
-function optimizeImage($source, $destination, $targetSize = 204800, $maxWidth = 1500) {
+$targetSize = 81920; // 80 KB in bytes
+$maxWidth = 1000;    // Max width in pixels
+
+function optimizeImage($source, $destination, $targetSize, $maxWidth) {
+    $optimized = false;
+
+    // Method A: Imagick
+    if (class_exists(\Imagick::class)) {
+        try {
+            $imagick = new \Imagick($source);
+            $format = strtolower($imagick->getImageFormat());
+            
+            // Adjust geometry
+            $geometry = $imagick->getImageGeometry();
+            if ($geometry['width'] > $maxWidth) {
+                $newHeight = intval($geometry['height'] * ($maxWidth / $geometry['width']));
+                $imagick->resizeImage($maxWidth, $newHeight, \Imagick::FILTER_LANCZOS, 1);
+            }
+            
+            // Quality reduction loop
+            $quality = 85;
+            $minQuality = 40;
+            $tempFile = $destination . '.temp';
+
+            do {
+                $imagick->setImageCompressionQuality($quality);
+                $imagick->writeImage($tempFile);
+                clearstatcache();
+                $size = filesize($tempFile);
+                if ($size <= $targetSize || $quality <= $minQuality || in_array($format, ['png'])) {
+                    break;
+                }
+                $quality -= 5;
+            } while ($quality >= $minQuality);
+
+            if (file_exists($tempFile)) {
+                if (file_exists($destination)) {
+                    unlink($destination);
+                }
+                rename($tempFile, $destination);
+                $imagick->clear();
+                $imagick->destroy();
+                return true;
+            }
+            $imagick->clear();
+            $imagick->destroy();
+        } catch (\Throwable $e) {
+            echo "[Imagick failed: " . $e->getMessage() . "] ";
+        }
+    }
+
+    // Method B: GD (Fallback)
     $info = getimagesize($source);
     if ($info === false) return false;
 
     // Load image
     switch ($info['mime']) {
         case 'image/jpeg':
+            if (!function_exists('imagecreatefromjpeg')) return false;
             $image = imagecreatefromjpeg($source);
             // Handle EXIF Orientation
             if (function_exists('exif_read_data')) {
@@ -33,6 +87,7 @@ function optimizeImage($source, $destination, $targetSize = 204800, $maxWidth = 
             }
             break;
         case 'image/png':
+            if (!function_exists('imagecreatefrompng')) return false;
             $image = imagecreatefrompng($source);
             break;
         default:
@@ -46,7 +101,6 @@ function optimizeImage($source, $destination, $targetSize = 204800, $maxWidth = 
     $height = imagesy($image);
     
     // Initial resize if larger than max width
-    // Use the orientation-corrected dimensions
     if ($width > $maxWidth) {
         $newWidth = $maxWidth;
         $newHeight = intval($height * ($newWidth / $width));
@@ -79,36 +133,30 @@ function optimizeImage($source, $destination, $targetSize = 204800, $maxWidth = 
         if ($info['mime'] == 'image/jpeg') {
             imagejpeg($image, $tempFile, $quality);
         } elseif ($info['mime'] == 'image/png') {
-            // PNG compression 0-9. 
-            // PNG is lossless-ish, so quality parameter in imagepng is compression level.
-            // It doesn't affect size as dramatically as JPEG quality.
-            // We'll stick to max compression (9).
             imagepng($image, $tempFile, 9);
-            // If it's PNG and too big, we might need to convert to JPEG or resize more, 
-            // but for now let's just break if it's PNG as we can't do much more with standard GD.
-            if (filesize($tempFile) > $targetSize) {
-                 // Optional: Convert to JPEG if transparency not critical? 
-                 // But let's assume we keep format.
-            }
         }
         
         clearstatcache();
         $size = filesize($tempFile);
         
-        if ($size <= $targetSize || $quality <= $minQuality) {
+        if ($size <= $targetSize || $quality <= $minQuality || $info['mime'] == 'image/png') {
             break;
         }
         
         $quality -= 5;
     } while ($quality >= $minQuality);
-
-    // If still too big and we hit min quality, we could resize down further, 
-    // but for now let's accept the result to avoid infinite loops or tiny images.
     
-    rename($tempFile, $destination);
+    if (file_exists($tempFile)) {
+        if (file_exists($destination)) {
+            unlink($destination);
+        }
+        rename($tempFile, $destination);
+        imagedestroy($image);
+        return true;
+    }
+    
     imagedestroy($image);
-
-    return true;
+    return false;
 }
 
 foreach ($directories as $dir) {
@@ -145,7 +193,7 @@ foreach ($directories as $dir) {
         }
 
         // Optimize using BACKUP as source
-        if (optimizeImage($backupPath, $filePath)) {
+        if (optimizeImage($backupPath, $filePath, $targetSize, $maxWidth)) {
             echo "Done. Size: " . round(filesize($filePath) / 1024) . "KB\n";
         } else {
             echo "Failed.\n";
