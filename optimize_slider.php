@@ -10,7 +10,7 @@
 ini_set('memory_limit', '1024M');
 
 $targetDir = __DIR__ . '/public/slider';
-$targetSize = 256000; // 250 KB in bytes
+$targetSize = 60000; // 250 KB in bytes
 $maxWidth = 1600; // Max width in pixels
 
 echo "=========================================\n";
