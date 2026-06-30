@@ -227,6 +227,77 @@ class HomeController extends Controller
                     }
                     @file_put_contents($logoMarker, date('Y-m-d H:i:s'));
                 }
+
+                // Run automatic optimization for home page room assets (IMG_0783.jpeg and IMG_0779.jpeg)
+                $roomMarker = storage_path('app/public/room/.optimized_home');
+                if (!file_exists($roomMarker)) {
+                    $roomPath = storage_path('app/public/room');
+                    $backupDir = $roomPath . '/original';
+                    if (!is_dir($backupDir)) {
+                        @mkdir($backupDir, 0755, true);
+                    }
+
+                    $homeRoomFiles = ['IMG_0783.jpeg', 'IMG_0779.jpeg'];
+                    foreach ($homeRoomFiles as $file) {
+                        $filePath = $roomPath . '/' . $file;
+                        if (is_file($filePath)) {
+                            $backupPath = $backupDir . '/' . $file;
+                            if (!file_exists($backupPath)) {
+                                @copy($filePath, $backupPath);
+                            }
+
+                            $optimized = false;
+                            
+                            // Method A: Imagick
+                            if (class_exists(\Imagick::class)) {
+                                try {
+                                    $imagick = new \Imagick($backupPath);
+                                    $geometry = $imagick->getImageGeometry();
+                                    if ($geometry['width'] > 1000) {
+                                        $newHeight = intval($geometry['height'] * (1000 / $geometry['width']));
+                                        $imagick->resizeImage(1000, $newHeight, \Imagick::FILTER_LANCZOS, 1);
+                                    }
+                                    $imagick->setImageCompressionQuality(70);
+                                    $imagick->writeImage($filePath);
+                                    $imagick->clear();
+                                    $imagick->destroy();
+                                    $optimized = true;
+                                } catch (\Throwable $imEx) {
+                                    logger()->error('Imagick room auto-optimization failed: ' . $imEx->getMessage());
+                                }
+                            }
+
+                            // Method B: GD
+                            if (!$optimized && function_exists('imagecreatefromjpeg') && function_exists('imagejpeg')) {
+                                try {
+                                    $image = @imagecreatefromjpeg($backupPath);
+                                    if ($image) {
+                                        $width = imagesx($image);
+                                        $height = imagesy($image);
+                                        if ($width > 1000) {
+                                            $newWidth = 1000;
+                                            $newHeight = intval($height * ($newWidth / $width));
+                                            $newImage = imagecreatetruecolor($newWidth, $newHeight);
+                                            imagecopyresampled($newImage, $image, 0, 0, 0, 0, $newWidth, $newHeight, $width, $height);
+                                            imagedestroy($image);
+                                            $image = $newImage;
+                                        }
+                                        $tempFile = $filePath . '.temp';
+                                        @imagejpeg($image, $tempFile, 70);
+                                        if (file_exists($tempFile)) {
+                                            @unlink($filePath);
+                                            @rename($tempFile, $filePath);
+                                        }
+                                        imagedestroy($image);
+                                    }
+                                } catch (\Throwable $gdEx) {
+                                    logger()->error('GD room auto-optimization failed: ' . $gdEx->getMessage());
+                                }
+                            }
+                        }
+                    }
+                    @file_put_contents($roomMarker, date('Y-m-d H:i:s'));
+                }
             } catch (\Throwable $e) {
                 // Fail silently so the page still loads even if optimization fails
                 logger()->error('Auto-optimization of slider failed: ' . $e->getMessage());

@@ -58,7 +58,7 @@
             <span class="font-semibold">
                 ₹{{ $plan['price'] }}
             </span>
-            <span class="text-[11px] text-emerald-600">
+            <span class="text-[11px] text-emerald-700">
                 {{ $plan['availability'] ?? 'Available 24×7' }}
             </span>
         </div>

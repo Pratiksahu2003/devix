@@ -44,9 +44,16 @@ Alpine.start();
     els.forEach((el) => {
         const max = 4; // Max rotation degrees
         let raf = 0;
+        let rect = null;
+
+        function onEnter() {
+            rect = el.getBoundingClientRect();
+        }
 
         function onMove(e) {
-            const rect = el.getBoundingClientRect();
+            if (!rect) {
+                rect = el.getBoundingClientRect();
+            }
             // Calculate mouse position relative to center of element
             const x = (e.clientX - rect.left) / rect.width - 0.5;
             const y = (e.clientY - rect.top) / rect.height - 0.5;
@@ -64,8 +71,10 @@ Alpine.start();
         function onLeave() {
             cancelAnimationFrame(raf);
             el.style.transform = '';
+            rect = null;
         }
 
+        el.addEventListener('mouseenter', onEnter);
         el.addEventListener('mousemove', onMove);
         el.addEventListener('mouseleave', onLeave);
     });
