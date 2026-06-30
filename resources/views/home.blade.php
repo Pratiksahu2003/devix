@@ -9,11 +9,11 @@
 @endsection
 
 @section('content')
-    <x-home.hero />
+    <x-home.hero :slides="$slides" />
     <x-home.services-marquee />
     <x-home.logos />
     <x-home.shop-by-frame />
-    <x-home.studio-showcase />
+    <x-home.studio-showcase :podcastImages="$podcastImages" />
     <x-home.featured-work :items="$featuredWorkItems" />
     <x-home.pricing />
     <x-home.testimonials />

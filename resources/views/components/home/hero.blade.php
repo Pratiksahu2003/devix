@@ -1,16 +1,4 @@
-@php
-    $slides = collect(glob(public_path('slider/*.{webp,jpg,jpeg,png,avif}'), GLOB_BRACE) ?: [])
-        ->sort()
-        ->map(fn (string $path) => asset('slider/'.basename($path)))
-        ->values()
-        ->all();
-
-    if ($slides === []) {
-        $slides = collect(['IMG_0785.jpeg', 'IMG_0769.jpeg', 'IMG_0784.jpeg', 'IMG_0780.jpeg', 'IMG_0781.jpeg', 'IMG_0783.jpeg'])
-            ->map(fn (string $img) => asset('storage/room/'.$img))
-            ->all();
-    }
-@endphp
+@props(['slides' => []])
 
 <section class="relative w-full min-h-[85vh] md:min-h-[80vh] flex items-center overflow-hidden group"
     x-data="{ slide: 0, total: {{ count($slides) }}, paused: false, startTimer() { return setInterval(() => { if (!this.paused) this.slide = (this.slide + 1) % this.total }, 4500) }, timer: null }"

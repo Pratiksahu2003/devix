@@ -78,6 +78,10 @@ $routeName = request()->route()?->getName();
         <meta name="twitter:site" content="@{{ config('seo.defaults.twitter_handle', 'dywixstudio') }}">
     @endif
 
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Cinzel:wght@400;700&display=swap" rel="stylesheet">
+
     @vite(['resources/css/app.css', 'resources/js/app.js'])
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=AW-17989742944"></script>
