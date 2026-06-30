@@ -13,7 +13,7 @@
             <div class="flex items-center gap-12 shrink-0">
                 @foreach (range(1, 9) as $i)
                 <div class="flex h-24 w-32 items-center justify-center">
-                    <img src="{{ asset('brand/' . $i . '.png') }}"
+                    <img src="{{ asset('brand/' . $i . '.webp') }}"
                         class="max-h-16 w-auto object-contain opacity-70 hover:opacity-100 transition-opacity"
                         alt="Client logo {{ $i }}" loading="lazy" width="128" height="64">
                 </div>

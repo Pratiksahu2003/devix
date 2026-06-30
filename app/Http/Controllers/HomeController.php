@@ -113,6 +113,120 @@ class HomeController extends Controller
                         Cache::forget('home_slider_slides');
                     }
                 }
+
+                // Run automatic logo & brand optimizer once if not done yet
+                $logoMarker = public_path('logo/.optimized');
+                if (!file_exists($logoMarker)) {
+                    $logoSource = public_path('logo/logo.png');
+                    $logoDest = public_path('logo/logo.webp');
+                    $brandDir = public_path('brand');
+                    
+                    // Optimize main logo
+                    if (file_exists($logoSource)) {
+                        $optimized = false;
+                        if (class_exists(\Imagick::class)) {
+                            try {
+                                $imagick = new \Imagick($logoSource);
+                                $imagick->setImageFormat('webp');
+                                $geometry = $imagick->getImageGeometry();
+                                if ($geometry['width'] > 300) {
+                                    $newHeight = intval($geometry['height'] * (300 / $geometry['width']));
+                                    $imagick->resizeImage(300, $newHeight, \Imagick::FILTER_LANCZOS, 1);
+                                }
+                                $imagick->setImageCompressionQuality(80);
+                                $imagick->writeImage($logoDest);
+                                $imagick->clear();
+                                $imagick->destroy();
+                                $optimized = true;
+                            } catch (\Throwable $imEx) {
+                                logger()->error('Auto-optimization of logo.png via Imagick failed: ' . $imEx->getMessage());
+                            }
+                        }
+                        if (!$optimized && function_exists('imagecreatefrompng') && function_exists('imagewebp')) {
+                            try {
+                                $image = @imagecreatefrompng($logoSource);
+                                if ($image) {
+                                    $width = imagesx($image);
+                                    $height = imagesy($image);
+                                    if ($width > 300) {
+                                        $newWidth = 300;
+                                        $newHeight = intval($height * ($newWidth / $width));
+                                        $newImage = imagecreatetruecolor($newWidth, $newHeight);
+                                        imagealphablending($newImage, false);
+                                        imagesavealpha($newImage, true);
+                                        imagecopyresampled($newImage, $image, 0, 0, 0, 0, $newWidth, $newHeight, $width, $height);
+                                        imagedestroy($image);
+                                        $image = $newImage;
+                                    } else {
+                                        imagealphablending($image, false);
+                                        imagesavealpha($image, true);
+                                    }
+                                    @imagewebp($image, $logoDest, 80);
+                                    imagedestroy($image);
+                                }
+                            } catch (\Throwable $gdEx) {
+                                logger()->error('Auto-optimization of logo.png via GD failed: ' . $gdEx->getMessage());
+                            }
+                        }
+                    }
+
+                    // Optimize brand logos
+                    if (is_dir($brandDir)) {
+                        $files = scandir($brandDir);
+                        foreach ($files as $file) {
+                            if ($file === '.' || $file === '..' || strtolower(pathinfo($file, PATHINFO_EXTENSION)) !== 'png') {
+                                continue;
+                            }
+                            $sourcePath = $brandDir . '/' . $file;
+                            $destPath = $brandDir . '/' . pathinfo($file, PATHINFO_FILENAME) . '.webp';
+                            
+                            if (is_file($sourcePath) && !file_exists($destPath)) {
+                                $optimized = false;
+                                if (class_exists(\Imagick::class)) {
+                                    try {
+                                        $imagick = new \Imagick($sourcePath);
+                                        $imagick->setImageFormat('webp');
+                                        $geometry = $imagick->getImageGeometry();
+                                        if ($geometry['width'] > 150) {
+                                            $newHeight = intval($geometry['height'] * (150 / $geometry['width']));
+                                            $imagick->resizeImage(150, $newHeight, \Imagick::FILTER_LANCZOS, 1);
+                                        }
+                                        $imagick->setImageCompressionQuality(80);
+                                        $imagick->writeImage($destPath);
+                                        $imagick->clear();
+                                        $imagick->destroy();
+                                        $optimized = true;
+                                    } catch (\Throwable $imEx) {}
+                                }
+                                if (!$optimized && function_exists('imagecreatefrompng') && function_exists('imagewebp')) {
+                                    try {
+                                        $image = @imagecreatefrompng($sourcePath);
+                                        if ($image) {
+                                            $width = imagesx($image);
+                                            $height = imagesy($image);
+                                            if ($width > 150) {
+                                                $newWidth = 150;
+                                                $newHeight = intval($height * ($newWidth / $width));
+                                                $newImage = imagecreatetruecolor($newWidth, $newHeight);
+                                                imagealphablending($newImage, false);
+                                                imagesavealpha($newImage, true);
+                                                imagecopyresampled($newImage, $image, 0, 0, 0, 0, $newWidth, $newHeight, $width, $height);
+                                                imagedestroy($image);
+                                                $image = $newImage;
+                                            } else {
+                                                imagealphablending($image, false);
+                                                imagesavealpha($image, true);
+                                            }
+                                            @imagewebp($image, $destPath, 80);
+                                            imagedestroy($image);
+                                        }
+                                    } catch (\Throwable $gdEx) {}
+                                }
+                            }
+                        }
+                    }
+                    @file_put_contents($logoMarker, date('Y-m-d H:i:s'));
+                }
             } catch (\Throwable $e) {
                 // Fail silently so the page still loads even if optimization fails
                 logger()->error('Auto-optimization of slider failed: ' . $e->getMessage());

@@ -8,6 +8,7 @@
     <div class="absolute inset-0">
         @foreach ($slides as $i => $img)
         <div x-show="slide === {{ $i }}"
+            @if($i > 0) style="display: none;" @endif
             x-transition:enter="transition ease-out duration-1200"
             x-transition:enter-start="opacity-0 scale-110"
             x-transition:enter-end="opacity-100 scale-100"
@@ -63,6 +64,7 @@
                 <div class="relative w-72 xl:w-80 aspect-4/5 rounded-2xl overflow-hidden border-2 border-white/20 shadow-2xl shadow-black/50 ring-2 ring-brand-lens-blue/20">
                     @foreach ($slides as $i => $img)
                     <div x-show="slide === {{ $i }}"
+                        @if($i > 0) style="display: none;" @endif
                         x-transition:enter="transition ease-out duration-700"
                         x-transition:enter-start="opacity-0 scale-95"
                         x-transition:enter-end="opacity-100 scale-100"

@@ -12,6 +12,7 @@ $routeName = request()->route()?->getName();
     <link rel="icon" type="image/png" href="{{ asset('logo/fav/favicon.PNG') }}">
     @php $brand = config('company.brand'); @endphp
     <title>@yield('title', $brand)</title>
+    @yield('preload')
     <meta name="theme-color" content="#004aad">
 
     @hasSection('seo_head')
@@ -80,7 +81,10 @@ $routeName = request()->route()?->getName();
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Cinzel:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Cinzel:wght@400;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+    <noscript>
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Cinzel:wght@400;700&display=swap" rel="stylesheet">
+    </noscript>
 
     @vite(['resources/css/app.css', 'resources/js/app.js'])
     <!-- Lazy load Google Tag Manager & Google Adsense on first interaction or timeout -->
@@ -134,8 +138,18 @@ $routeName = request()->route()?->getName();
         <x-layout.footer />
     </div>
 </body>
-<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <script>
+    function loadSweetAlert(callback) {
+        if (window.Swal) {
+            callback();
+            return;
+        }
+        var script = document.createElement('script');
+        script.src = 'https://cdn.jsdelivr.net/npm/sweetalert2@11';
+        script.onload = callback;
+        document.body.appendChild(script);
+    }
+
     document.addEventListener('DOMContentLoaded', function() {
         const form = document.getElementById('newsletter-form');
         if (form) {
@@ -153,12 +167,14 @@ $routeName = request()->route()?->getName();
                         email: email
                     })
                     .then(function(response) {
-                        Swal.fire({
-                            title: 'Success!',
-                            text: response.data.message,
-                            icon: 'success',
-                            confirmButtonText: 'Great!',
-                            confirmButtonColor: '#004aad'
+                        loadSweetAlert(function() {
+                            Swal.fire({
+                                title: 'Success!',
+                                text: response.data.message,
+                                icon: 'success',
+                                confirmButtonText: 'Great!',
+                                confirmButtonColor: '#004aad'
+                            });
                         });
                         emailInput.value = '';
                     })
@@ -168,12 +184,14 @@ $routeName = request()->route()?->getName();
                             message = error.response.data.message;
                         }
 
-                        Swal.fire({
-                            title: 'Error!',
-                            text: message,
-                            icon: 'error',
-                            confirmButtonText: 'Okay',
-                            confirmButtonColor: '#004aad'
+                        loadSweetAlert(function() {
+                            Swal.fire({
+                                title: 'Error!',
+                                text: message,
+                                icon: 'error',
+                                confirmButtonText: 'Okay',
+                                confirmButtonColor: '#004aad'
+                            });
                         });
                     })
                     .finally(function() {

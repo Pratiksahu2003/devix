@@ -8,6 +8,12 @@
     @endisset
 @endsection
 
+@section('preload')
+    @if(isset($slides) && count($slides) > 0)
+        <link rel="preload" href="{{ $slides[0] }}" as="image" type="image/webp" fetchpriority="high">
+    @endif
+@endsection
+
 @section('content')
     <x-home.hero :slides="$slides" />
     <x-home.services-marquee />

@@ -5,7 +5,7 @@ return [
     'brand' => 'DyWix by SuGanta International',
     'short_name' => 'DyWix',
     'initials' => 'DW',
-    'logo' => '/logo/logo.png',
+    'logo' => '/logo/logo.webp',
     'phone' => [
         'raw' => '9540467000',
         'intl' => '+91-9540467000',
