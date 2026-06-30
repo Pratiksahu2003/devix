@@ -83,20 +83,42 @@ $routeName = request()->route()?->getName();
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Cinzel:wght@400;700&display=swap" rel="stylesheet">
 
     @vite(['resources/css/app.css', 'resources/js/app.js'])
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=AW-17989742944"></script>
+    <!-- Lazy load Google Tag Manager & Google Adsense on first interaction or timeout -->
     <script>
-        window.dataLayer = window.dataLayer || [];
+        function loadThirdPartyScripts() {
+            if (window.thirdPartyScriptsLoaded) return;
+            window.thirdPartyScriptsLoaded = true;
 
-        function gtag() {
-            dataLayer.push(arguments);
+            // Initialize GTM Data Layer
+            window.dataLayer = window.dataLayer || [];
+            function gtag() { dataLayer.push(arguments); }
+            gtag('js', new Date());
+            gtag('config', 'AW-17989742944');
+
+            // Append GTM Script
+            var gtmScript = document.createElement('script');
+            gtmScript.src = 'https://www.googletagmanager.com/gtag/js?id=AW-17989742944';
+            gtmScript.async = true;
+            document.head.appendChild(gtmScript);
+
+            // Append Adsense Script
+            var adsScript = document.createElement('script');
+            adsScript.src = 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5147720230554161';
+            adsScript.async = true;
+            adsScript.crossOrigin = 'anonymous';
+            document.head.appendChild(adsScript);
         }
-        gtag('js', new Date());
 
-        gtag('config', 'AW-17989742944');
+        // Trigger loading on first interaction
+        ['mouseover', 'keydown', 'touchmove', 'touchstart', 'scroll'].forEach(function(event) {
+            window.addEventListener(event, loadThirdPartyScripts, { once: true, passive: true });
+        });
+
+        // Fallback: load after 4 seconds if no interaction
+        window.addEventListener('load', function() {
+            setTimeout(loadThirdPartyScripts, 4000);
+        });
     </script>
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5147720230554161"
-     crossorigin="anonymous"></script>
 </head>
 
 <body class="min-h-screen flex flex-col bg-surface text-text-main">
