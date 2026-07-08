@@ -9,6 +9,7 @@ use App\Http\Controllers\GalleryController;
 use App\Http\Controllers\Seo\SeoHubController;
 use App\Http\Controllers\Seo\SeoMasterHubController;
 use App\Http\Controllers\Seo\SitemapController as SeoSitemapController;
+use App\Http\Controllers\SeoPageController;
 
 Route::get('/', HomeController::class)->name('home');
 
@@ -81,7 +82,7 @@ Route::get('/sitemap.xml', [SeoSitemapController::class, 'index'])->name('seo.si
 Route::get('/sitemap-{type}.xml', [SeoSitemapController::class, 'show'])->name('seo.sitemap.show');
 
 // ==========================================
-// CATCH-ALL: SEO HUB PAGES → CMS FALLBACK
+// CATCH-ALL: SEO PROGRAMMATIC PAGES → CMS FALLBACK
 // ==========================================
 // Must remain at the absolute bottom.
-Route::get('/{slug}', [SeoHubController::class, 'showOrFallback'])->name('pages.show');
+Route::get('/{slug}', [SeoPageController::class, 'show'])->where('slug', '[A-Za-z0-9-]+')->name('pages.show');
