@@ -23,6 +23,10 @@ class SeoPageGenerator
         $locations = $this->repository->getAllLocations();
         $faqBank = $this->loadFaqBank();
 
+        dump("DEBUG - Services Count: " . count($services));
+        dump("DEBUG - Locations Count: " . count($locations));
+        dump("DEBUG - FAQ Bank Count: " . count($faqBank));
+
         $generatedPages = [];
         $slugsSeen = [];
 
@@ -39,6 +43,11 @@ class SeoPageGenerator
 
                 // Ignore if priority score is below 4
                 if ($score < 4) {
+                    continue;
+                }
+
+                // Skip hyperlocal sectors/child locations for pages.json to avoid performance and memory bloat
+                if (!empty($location['canonical_parent']) || str_contains($locationId, '-sector-')) {
                     continue;
                 }
 
@@ -260,11 +269,11 @@ class SeoPageGenerator
      */
     protected function loadFaqBank(): array
     {
-        $path = 'seo/faq-bank.json';
-        if (!Storage::exists($path)) {
+        $path = storage_path('app/seo/faq-bank.json');
+        if (!file_exists($path)) {
             return [];
         }
-        $content = Storage::get($path);
+        $content = file_get_contents($path);
         return json_decode($content, true) ?? [];
     }
 }

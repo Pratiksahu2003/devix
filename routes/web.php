@@ -81,6 +81,32 @@ Route::get(config('seo.hubs.sitemaps'), [SeoMasterHubController::class, 'sitemap
 Route::get('/sitemap.xml', [SeoSitemapController::class, 'index'])->name('seo.sitemap.index');
 Route::get('/sitemap-{type}.xml', [SeoSitemapController::class, 'show'])->name('seo.sitemap.show');
 
+Route::get('/dev/generate-seo', function (
+    \App\Services\SeoPageGenerator $generator,
+    \App\Services\SeoSitemapGenerator $sitemapGenerator,
+    \App\Services\SeoPageRepository $repository
+) {
+    try {
+        $pages = $generator->generate();
+        file_put_contents(storage_path('app/seo/pages.json'), json_encode($pages, JSON_PRETTY_PRINT));
+        $repository->clearCache();
+
+        $sitemapCount = $sitemapGenerator->generate();
+
+        return response()->json([
+            'status' => 'success',
+            'message' => 'Programmatic SEO pages and sitemaps generated successfully!',
+            'pages_generated' => count($pages),
+            'sitemap_urls' => $sitemapCount
+        ]);
+    } catch (\Throwable $th) {
+        return response()->json([
+            'status' => 'error',
+            'message' => $th->getMessage()
+        ], 500);
+    }
+});
+
 // ==========================================
 // CATCH-ALL: SEO PROGRAMMATIC PAGES → CMS FALLBACK
 // ==========================================

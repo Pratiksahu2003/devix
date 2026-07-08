@@ -34,7 +34,7 @@ class GenerateSeoPages extends Command
             $count = count($pages);
 
             // Write back to pages.json
-            Storage::put('seo/pages.json', json_encode($pages, JSON_PRETTY_PRINT));
+            file_put_contents(storage_path('app/seo/pages.json'), json_encode($pages, JSON_PRETTY_PRINT));
 
             $this->info("Successfully generated and saved {$count} pages to storage/app/seo/pages.json!");
             

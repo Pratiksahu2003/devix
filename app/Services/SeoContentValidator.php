@@ -150,8 +150,11 @@ class SeoContentValidator
         ];
 
         // Ensure directories exist
-        Storage::makeDirectory('seo/reports');
-        Storage::put($reportPath, json_encode($report, JSON_PRETTY_PRINT));
+        $reportDir = storage_path('app/seo/reports');
+        if (!file_exists($reportDir)) {
+            @mkdir($reportDir, 0755, true);
+        }
+        @file_put_contents(storage_path('app/seo/reports/validation-report.json'), json_encode($report, JSON_PRETTY_PRINT));
 
         return $report;
     }
