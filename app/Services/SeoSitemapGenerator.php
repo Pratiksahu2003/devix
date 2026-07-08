@@ -17,6 +17,13 @@ class SeoSitemapGenerator
     {
         $baseUrl = rtrim(config('dywix.base_url', 'https://www.dywix.com'), '/');
 
+        // Clean up previous sub-sitemaps
+        foreach (glob(public_path('sitemap-part-*.xml')) as $oldFile) {
+            if (is_file($oldFile)) {
+                @unlink($oldFile);
+            }
+        }
+
         // 1. Gather all URL entries
         $entries = [];
 
@@ -62,14 +69,35 @@ class SeoSitemapGenerator
             ];
         }
 
-        // 4. Generate sitemap XML
-        $xmlContent = $this->buildSitemapXml($entries);
+        $totalUrls = count($entries);
+        $chunkLimit = 40000;
 
-        // Write to public/sitemap.xml
-        $publicPath = public_path('sitemap.xml');
-        file_put_contents($publicPath, $xmlContent);
+        if ($totalUrls <= $chunkLimit) {
+            // Write a single sitemap file
+            $xmlContent = $this->buildSitemapXml($entries);
+            file_put_contents(public_path('sitemap.xml'), $xmlContent);
+        } else {
+            // Split into multiple sitemap files
+            $chunks = array_chunk($entries, $chunkLimit);
+            $sitemaps = [];
 
-        return count($entries);
+            foreach ($chunks as $index => $chunk) {
+                $partNum = $index + 1;
+                $filename = "sitemap-part-{$partNum}.xml";
+                $xmlContent = $this->buildSitemapXml($chunk);
+                file_put_contents(public_path($filename), $xmlContent);
+                $sitemaps[] = [
+                    'loc' => $baseUrl . '/' . $filename,
+                    'lastmod' => date('Y-m-d')
+                ];
+            }
+
+            // Write index sitemap file pointing to parts
+            $indexContent = $this->buildSitemapIndexXml($sitemaps);
+            file_put_contents(public_path('sitemap.xml'), $indexContent);
+        }
+
+        return $totalUrls;
     }
 
     /**
@@ -91,6 +119,26 @@ class SeoSitemapGenerator
         }
 
         $xml .= '</urlset>';
+        return $xml;
+    }
+
+    /**
+     * Build Sitemap Index XML structure.
+     */
+    protected function buildSitemapIndexXml(array $sitemaps): string
+    {
+        $xml = '<?xml version="1.0" encoding="UTF-8"?>' . "\n";
+        $xml .= '<sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">' . "\n";
+
+        foreach ($sitemaps as $sitemap) {
+            $loc = htmlspecialchars($sitemap['loc'], ENT_XML1, 'UTF-8');
+            $xml .= "  <sitemap>\n";
+            $xml .= "    <loc>{$loc}</loc>\n";
+            $xml .= "    <lastmod>{$sitemap['lastmod']}</lastmod>\n";
+            $xml .= "  </sitemap>\n";
+        }
+
+        $xml .= '</sitemapindex>';
         return $xml;
     }
 }
