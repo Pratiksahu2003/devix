@@ -231,10 +231,10 @@ class SeoPageGenerator
 
         $pool = array_merge($serviceFaqs, $generalFaqs);
 
-        // Pick top 3 and localize
+        // Pick top 10 and localize
         $count = 0;
         foreach ($pool as $faq) {
-            if ($count >= 3) break;
+            if ($count >= 10) break;
 
             $question = str_replace(['in Delhi', 'in Delhi NCR', 'in Dwarka'], "in {$locationName}", $faq['question']);
             $answer = str_replace(['in Delhi', 'in Delhi NCR', 'in Dwarka'], "in {$locationName}", $faq['answer']);
