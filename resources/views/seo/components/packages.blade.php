@@ -1,4 +1,4 @@
-<section class="space-y-6 reveal-up is-visible">
+<section id="packages" class="space-y-6 reveal-up is-visible scroll-mt-24">
     <div class="text-center max-w-2xl mx-auto">
         <h2 class="text-3xl font-serif text-brand-lens-blue">Booking & Pricing Packages</h2>
         <p class="text-text-muted">Flexible rates designed for individual content creators and brand marketing campaigns.</p>
