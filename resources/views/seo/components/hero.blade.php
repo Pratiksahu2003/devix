@@ -61,80 +61,80 @@
 </style>
 
 <!-- Hero Section (Full Bleed) -->
-<section class="relative w-full bg-cover bg-center text-white py-12 md:py-20 px-6 md:px-12 overflow-hidden border-b border-white/5" 
+<section class="relative w-full bg-cover bg-center text-white py-6 md:py-10 px-6 md:px-12 overflow-hidden border-b border-white/5" 
          style="background-image: linear-gradient(rgba(10, 30, 63, 0.88), rgba(5, 17, 38, 0.94)), url('{{ asset('storage/studio/DSC01008.JPG') }}');">
     
-    <div class="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+    <div class="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-center">
         <!-- Left Column: Copy & Stats -->
-        <div class="lg:col-span-8 space-y-6">
+        <div class="lg:col-span-8 space-y-3.5">
             <!-- Breadcrumbs -->
-            <nav class="flex items-center text-xs md:text-sm text-gray-300/80 space-x-2" aria-label="Breadcrumb">
+            <nav class="flex items-center text-xs text-gray-300/80 space-x-1.5" aria-label="Breadcrumb">
                 <a href="/" class="hover:underline hover:text-white transition">Home</a>
-                <span class="text-gray-500">&gt;</span>
+                <span class="text-gray-500 text-[10px]">&gt;</span>
                 <span class="text-gray-400">Resources</span>
-                <span class="text-gray-500">&gt;</span>
+                <span class="text-gray-500 text-[10px]">&gt;</span>
                 <span class="text-white font-medium truncate">{{ $serviceData['name'] ?? ($page['h1'] ?? '') }}</span>
             </nav>
 
             <!-- Pill Badge -->
             <div>
-                <span class="inline-block px-3 py-1 bg-white/10 border border-white/20 text-[10px] md:text-xs font-semibold tracking-wider text-gray-200 uppercase rounded-md">
+                <span class="inline-block px-2.5 py-0.5 bg-white/10 border border-white/20 text-[9px] font-semibold tracking-wider text-gray-200 uppercase rounded">
                     {{ strtoupper($serviceData['category'] ?? 'Professional') }} STUDIO · {{ strtoupper($location['name'] ?? 'Delhi NCR') }}
                 </span>
             </div>
 
             <!-- H1 Page Title -->
-            <h1 class="text-3xl md:text-5xl font-sans font-bold leading-tight tracking-tight text-white">
+            <h1 class="text-2xl md:text-4xl font-sans font-bold leading-tight tracking-tight text-white">
                 {{ $page['h1'] ?? '' }}
             </h1>
 
             <!-- Description -->
-            <p class="text-sm md:text-base text-gray-300 leading-relaxed max-w-3xl">
+            <p class="text-xs md:text-sm text-gray-300 leading-relaxed max-w-2xl">
                 {{ $page['intro'] ?? '' }}
             </p>
 
             <!-- Action Buttons Stacked/Inline -->
-            <div class="flex flex-wrap gap-3 pt-2">
-                <a href="/contact" class="px-6 py-3 bg-white text-black font-semibold rounded-md shadow-md hover:bg-gray-150 transition duration-200 text-center font-sans text-sm md:text-base">
+            <div class="flex flex-wrap gap-2.5 pt-1">
+                <a href="/contact" class="px-5 py-2 bg-white text-black font-semibold rounded shadow hover:bg-gray-150 transition duration-200 text-center font-sans text-xs md:text-sm">
                     Book Now
                 </a>
-                <a href="#packages" class="px-6 py-3 border border-white/40 text-white font-semibold rounded-md hover:bg-white/10 transition duration-200 text-center font-sans text-sm md:text-base">
+                <a href="#packages" class="px-5 py-2 border border-white/40 text-white font-semibold rounded hover:bg-white/10 transition duration-200 text-center font-sans text-xs md:text-sm">
                     Pricing
                 </a>
-                <a href="tel:{{ config('dywix.phone') }}" class="px-6 py-3 border border-white/40 text-white font-semibold rounded-md hover:bg-white/10 transition duration-200 text-center font-sans text-sm md:text-base whitespace-nowrap">
+                <a href="tel:{{ config('dywix.phone') }}" class="px-5 py-2 border border-white/40 text-white font-semibold rounded hover:bg-white/10 transition duration-200 text-center font-sans text-xs md:text-sm whitespace-nowrap">
                     {{ config('dywix.phone', '+91-9540467000') }}
                 </a>
             </div>
 
             <!-- Stats grid -->
-            <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 max-w-2xl pt-4">
+            <div class="grid grid-cols-2 sm:grid-cols-4 gap-2.5 max-w-2xl pt-2">
                 <!-- Stat 1 -->
-                <div class="border border-white/10 bg-black/40 rounded-lg p-3 text-center">
-                    <div class="text-xl md:text-2xl font-bold text-white font-sans">24/7</div>
-                    <div class="text-[9px] tracking-widest text-gray-400 uppercase mt-1">Studio Access</div>
+                <div class="border border-white/10 bg-black/40 rounded py-1.5 px-2 text-center">
+                    <div class="text-base md:text-lg font-bold text-white font-sans">24/7</div>
+                    <div class="text-[8px] tracking-widest text-gray-400 uppercase mt-0.5">Studio Access</div>
                 </div>
                 <!-- Stat 2 -->
-                <div class="border border-white/10 bg-black/40 rounded-lg p-3 text-center">
-                    <div class="text-xl md:text-2xl font-bold text-white font-sans">10+</div>
-                    <div class="text-[9px] tracking-widest text-gray-400 uppercase mt-1">Pro Services</div>
+                <div class="border border-white/10 bg-black/40 rounded py-1.5 px-2 text-center">
+                    <div class="text-base md:text-lg font-bold text-white font-sans">10+</div>
+                    <div class="text-[8px] tracking-widest text-gray-400 uppercase mt-0.5">Pro Services</div>
                 </div>
                 <!-- Stat 3 -->
-                <div class="border border-white/10 bg-black/40 rounded-lg p-3 text-center">
-                    <div class="text-xl md:text-2xl font-bold text-white font-sans">500+</div>
-                    <div class="text-[9px] tracking-widest text-gray-400 uppercase mt-1">Projects Done</div>
+                <div class="border border-white/10 bg-black/40 rounded py-1.5 px-2 text-center">
+                    <div class="text-base md:text-lg font-bold text-white font-sans">500+</div>
+                    <div class="text-[8px] tracking-widest text-gray-400 uppercase mt-0.5">Projects Done</div>
                 </div>
                 <!-- Stat 4 -->
-                <div class="border border-white/10 bg-black/40 rounded-lg p-3 text-center">
-                    <div class="text-xl md:text-2xl font-bold text-white font-sans">Dwarka</div>
-                    <div class="text-[9px] tracking-widest text-gray-400 uppercase mt-1">Sector 13 Studio</div>
+                <div class="border border-white/10 bg-black/40 rounded py-1.5 px-2 text-center">
+                    <div class="text-base md:text-lg font-bold text-white font-sans">Dwarka</div>
+                    <div class="text-[8px] tracking-widest text-gray-400 uppercase mt-0.5">Sector 13 Studio</div>
                 </div>
             </div>
         </div>
 
         <!-- Right Column: Animated dynamic SVGs -->
-        <div class="lg:col-span-4 flex justify-center items-center w-full min-h-[260px]">
+        <div class="lg:col-span-4 flex justify-center items-center w-full min-h-[180px]">
             <!-- Glassmorphic graphic container -->
-            <div class="relative w-full max-w-[320px] aspect-square rounded-2xl bg-white/[0.03] border border-white/10 shadow-inner flex items-center justify-center p-6 overflow-hidden animate-float-slow group">
+            <div class="relative w-full max-w-[200px] aspect-square rounded-2xl bg-white/[0.03] border border-white/10 shadow-inner flex items-center justify-center p-4 overflow-hidden animate-float-slow group">
                 <div class="absolute inset-0 bg-gradient-to-tr from-[#0c234b]/30 to-white/[0.02] pointer-events-none"></div>
 
                 @if($category === 'podcast')
