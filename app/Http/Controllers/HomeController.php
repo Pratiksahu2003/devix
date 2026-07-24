@@ -313,8 +313,8 @@ class HomeController extends Controller
                 ->all();
 
             if ($slides === []) {
-                $slides = collect(['IMG_0785.jpeg', 'IMG_0769.jpeg', 'IMG_0784.jpeg', 'IMG_0780.jpeg', 'IMG_0781.jpeg', 'IMG_0783.jpeg'])
-                    ->map(fn (string $img) => asset('storage/room/'.$img))
+                $slides = collect(config('dywix.roles.slider', []))
+                    ->map(fn (string $img) => dywix_asset($img))
                     ->all();
             }
             return $slides;
@@ -346,6 +346,16 @@ class HomeController extends Controller
                     }
                 }
             }
+
+            if ($podcastImages === []) {
+                foreach (array_slice(config('dywix.images', []), 0, 8) as $file) {
+                    $podcastImages[] = [
+                        'src' => dywix_asset($file),
+                        'name' => $file,
+                    ];
+                }
+            }
+
             return $podcastImages;
         });
 

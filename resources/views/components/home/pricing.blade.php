@@ -19,7 +19,7 @@
                         'description' =>
                             'Available 24×7 · Min 3 hours · Basic equipment, 2 Godox QT 1200 IIIm, octa + strip, 2 plain backdrops, props, light assistant, makeup room.',
                         'availability' => 'Min. 3 hours · 24×7',
-                        'image' => asset('storage/room/IMG_0772.jpeg'),
+                        'image' => asset('storage/dywix/IMG_4011.jpg'),
                         'color' => '#e6f0ff',
                     ],
                     [
@@ -29,7 +29,7 @@
                         'description' =>
                             'Available 24×7 · Basic equipment, 2 Godox QT 1200 IIIm, 2 Godox 600, 2 textured walls, 3 plain backgrounds, props, light assistant, makeup room.',
                         'availability' => 'Day booking · 24×7',
-                        'image' => asset('storage/room/IMG_0773.jpeg'),
+                        'image' => asset('storage/dywix/IMG_4012.jpg'),
                         'color' => '#fde68a',
                     ],
                     [
@@ -39,7 +39,7 @@
                         'description' =>
                             'Available 24×7 · Full studio access, 2 Godox QT 1200 IIIm, 2 Godox 600, 3 textured walls, 3 backgrounds, props, light assistant, makeup room.',
                         'availability' => 'All in · 24×7',
-                        'image' => asset('storage/room/IMG_0777.jpeg'),
+                        'image' => asset('storage/dywix/IMG_4016.jpg'),
                         'color' => '#e5e7eb',
                     ],
                 ];
@@ -60,7 +60,7 @@
                         'description' =>
                             'Available 24×7 · Min 3 hours · 3 Godox 1×1 LED panels with cutter & diffuser, set of 2 dynamic mics, light assistant, makeup room.',
                         'availability' => 'Min. 3 hours · 24×7',
-                        'image' => asset('storage/studio/DSC01007.JPG'),
+                        'image' => asset('storage/dywix/IMG_4028.jpg'),
                         'color' => '#e6f0ff',
                     ],
                     [
@@ -70,7 +70,7 @@
                         'description' =>
                             'Available 24×7 · Min 3 hours · 2 Kodak 200 constant lights with cutter & diffuser, props, light assistant, makeup room.',
                         'availability' => 'Min. 3 hours · 24×7',
-                        'image' => asset('storage/studio/DSC01009.JPG'),
+                        'image' => asset('storage/dywix/IMG_4030.jpg'),
                         'color' => '#e5e7eb',
                     ],
                     [
@@ -80,7 +80,7 @@
                         'description' =>
                             'Available 24×7 · Min 3 hours · Mac mini M2 Pro, 4K screen, calm edit environment, light assistant, makeup room access.',
                         'availability' => 'Min. 3 hours · 24×7',
-                        'image' => asset('storage/room/IMG_0774.jpeg'),
+                        'image' => asset('storage/dywix/IMG_4013.jpg'),
                         'color' => '#f3e8ff',
                     ],
                 ];

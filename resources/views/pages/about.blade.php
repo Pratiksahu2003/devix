@@ -12,7 +12,7 @@
     <section class="relative overflow-hidden bg-black text-white h-[70vh] min-h-[500px] flex items-center justify-center">
         <div class="absolute inset-0 z-0">
             <img 
-                src="{{ asset('storage/room/IMG_0787.jpeg') }}" 
+                src="{{ asset('storage/dywix/IMG_4025.jpg') }}" 
                 alt="Studio Background" 
                 class="h-full w-full object-cover opacity-40 animate-pan-slow"
             >
@@ -84,15 +84,15 @@
                         class="space-y-6 pt-12 transition-all duration-1000 delay-200 transform translate-y-12 opacity-0"
                         :class="{ 'translate-y-0 opacity-100': shown }"
                     >
-                        <img src="{{ asset('storage/room/IMG_0780.jpeg') }}" alt="Team Meeting" class="rounded-3xl shadow-xl w-full h-64 object-cover hover:scale-105 transition duration-500">
-                        <img src="{{ asset('storage/room/IMG_0783.jpeg') }}" alt="Studio Vibe" class="rounded-3xl shadow-xl w-full h-48 object-cover hover:scale-105 transition duration-500">
+                        <img src="{{ asset('storage/dywix/IMG_4018.jpg') }}" alt="Team Meeting" class="rounded-3xl shadow-xl w-full h-64 object-cover hover:scale-105 transition duration-500">
+                        <img src="{{ asset('storage/dywix/IMG_4021.jpg') }}" alt="Studio Vibe" class="rounded-3xl shadow-xl w-full h-48 object-cover hover:scale-105 transition duration-500">
                     </div>
                     <div 
                         class="space-y-6 transition-all duration-1000 delay-400 transform translate-y-12 opacity-0"
                         :class="{ 'translate-y-0 opacity-100': shown }"
                     >
-                        <img src="{{ asset('storage/room/IMG_0781.jpeg') }}" alt="Studio Set" class="rounded-3xl shadow-xl w-full h-48 object-cover hover:scale-105 transition duration-500">
-                        <img src="{{ asset('storage/room/IMG_0785.jpeg') }}" alt="Creative Space" class="rounded-3xl shadow-xl w-full h-64 object-cover hover:scale-105 transition duration-500">
+                        <img src="{{ asset('storage/dywix/IMG_4019.jpg') }}" alt="Studio Set" class="rounded-3xl shadow-xl w-full h-48 object-cover hover:scale-105 transition duration-500">
+                        <img src="{{ asset('storage/dywix/IMG_4023.jpg') }}" alt="Creative Space" class="rounded-3xl shadow-xl w-full h-64 object-cover hover:scale-105 transition duration-500">
                     </div>
                 </div>
             </div>
@@ -156,41 +156,41 @@
             <div class="columns-2 md:columns-4 gap-4 space-y-4">
                 {{-- Column 1 --}}
                 <div class="break-inside-avoid relative group overflow-hidden rounded-2xl">
-                    <img class="w-full object-cover transition duration-700 group-hover:scale-110" src="{{ asset('storage/room/IMG_0782.jpeg') }}" alt="Podcast Setup">
+                    <img class="w-full object-cover transition duration-700 group-hover:scale-110" src="{{ asset('storage/dywix/IMG_4020.jpg') }}" alt="Podcast Setup">
                     <div class="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition duration-300"></div>
                 </div>
                 <div class="break-inside-avoid relative group overflow-hidden rounded-2xl">
-                    <img class="w-full object-cover transition duration-700 group-hover:scale-110" src="{{ asset('storage/room/IMG_0776.jpeg') }}" alt="Marketing Shoot">
+                    <img class="w-full object-cover transition duration-700 group-hover:scale-110" src="{{ asset('storage/dywix/IMG_4015.jpg') }}" alt="Marketing Shoot">
                      <div class="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition duration-300"></div>
                 </div>
 
                  {{-- Column 2 --}}
                 <div class="break-inside-avoid relative group overflow-hidden rounded-2xl">
-                    <img class="w-full object-cover transition duration-700 group-hover:scale-110" src="{{ asset('storage/room/IMG_0769.jpeg') }}" alt="Lighting Grid">
+                    <img class="w-full object-cover transition duration-700 group-hover:scale-110" src="{{ asset('storage/dywix/IMG_4008.jpg') }}" alt="Lighting Grid">
                      <div class="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition duration-300"></div>
                 </div>
                 <div class="break-inside-avoid relative group overflow-hidden rounded-2xl">
-                    <img class="w-full object-cover transition duration-700 group-hover:scale-110" src="{{ asset('storage/room/IMG_0774.jpeg') }}" alt="Edit Suite">
+                    <img class="w-full object-cover transition duration-700 group-hover:scale-110" src="{{ asset('storage/dywix/IMG_4013.jpg') }}" alt="Edit Suite">
                      <div class="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition duration-300"></div>
                 </div>
 
                  {{-- Column 3 --}}
                 <div class="break-inside-avoid relative group overflow-hidden rounded-2xl">
-                    <img class="w-full object-cover transition duration-700 group-hover:scale-110" src="{{ asset('storage/room/IMG_0779.jpeg') }}" alt="Product Photography">
+                    <img class="w-full object-cover transition duration-700 group-hover:scale-110" src="{{ asset('storage/dywix/IMG_4017.jpg') }}" alt="Product Photography">
                      <div class="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition duration-300"></div>
                 </div>
                 <div class="break-inside-avoid relative group overflow-hidden rounded-2xl">
-                    <img class="w-full object-cover transition duration-700 group-hover:scale-110" src="{{ asset('storage/room/IMG_0772.jpeg') }}" alt="Camera Gear">
+                    <img class="w-full object-cover transition duration-700 group-hover:scale-110" src="{{ asset('storage/dywix/IMG_4011.jpg') }}" alt="Camera Gear">
                      <div class="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition duration-300"></div>
                 </div>
 
                  {{-- Column 4 --}}
                 <div class="break-inside-avoid relative group overflow-hidden rounded-2xl">
-                    <img class="w-full object-cover transition duration-700 group-hover:scale-110" src="{{ asset('storage/room/IMG_0777.jpeg') }}" alt="Makeup Station">
+                    <img class="w-full object-cover transition duration-700 group-hover:scale-110" src="{{ asset('storage/dywix/IMG_4016.jpg') }}" alt="Makeup Station">
                      <div class="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition duration-300"></div>
                 </div>
                 <div class="break-inside-avoid relative group overflow-hidden rounded-2xl">
-                    <img class="w-full object-cover transition duration-700 group-hover:scale-110" src="{{ asset('storage/room/IMG_0773.jpeg') }}" alt="Cyclorama Wall">
+                    <img class="w-full object-cover transition duration-700 group-hover:scale-110" src="{{ asset('storage/dywix/IMG_4012.jpg') }}" alt="Cyclorama Wall">
                      <div class="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition duration-300"></div>
                 </div>
             </div>

@@ -11,16 +11,16 @@
     @php
         $hero = [
             'alt' => 'Professional video editing suite with Mac mini M2 Pro',
-            'src' => 'storage/room/IMG_0769.jpeg',
+            'src' => 'storage/dywix/IMG_4008.jpg',
         ];
 
         $galleryItems = [
-             ['src' => 'storage/room/IMG_0770.jpeg', 'alt' => 'Editing Desk Setup'],
-             ['src' => 'storage/room/IMG_0771.jpeg', 'alt' => 'Comfortable Seating'],
-             ['src' => 'storage/room/IMG_0772.jpeg', 'alt' => 'Calibrated Display'],
-             ['src' => 'storage/room/IMG_0773.jpeg', 'alt' => 'Ambient Lighting'],
-             ['src' => 'storage/room/IMG_0774.jpeg', 'alt' => 'Workspace Detail'],
-             ['src' => 'storage/room/IMG_0775.jpeg', 'alt' => 'Studio Environment'],
+             ['src' => 'storage/dywix/IMG_4009.jpg', 'alt' => 'Editing Desk Setup'],
+             ['src' => 'storage/dywix/IMG_4010.jpg', 'alt' => 'Comfortable Seating'],
+             ['src' => 'storage/dywix/IMG_4011.jpg', 'alt' => 'Calibrated Display'],
+             ['src' => 'storage/dywix/IMG_4012.jpg', 'alt' => 'Ambient Lighting'],
+             ['src' => 'storage/dywix/IMG_4013.jpg', 'alt' => 'Workspace Detail'],
+             ['src' => 'storage/dywix/IMG_4014.jpg', 'alt' => 'Studio Environment'],
         ];
     @endphp
 

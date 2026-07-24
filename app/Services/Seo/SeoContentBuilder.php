@@ -425,13 +425,15 @@ class SeoContentBuilder
 
     protected function heroImage(array $service): string
     {
-        return match ($service['category'] ?? '') {
-            'podcast' => 'storage/room/IMG_0780.jpeg',
-            'video' => 'storage/room/IMG_0769.jpeg',
-            'photography' => 'storage/room/IMG_0784.jpeg',
-            'creator' => 'storage/room/IMG_0783.jpeg',
-            default => 'storage/room/IMG_0785.jpeg',
+        $role = match ($service['category'] ?? '') {
+            'podcast' => 'podcast',
+            'video' => 'video',
+            'photography' => 'photography',
+            'creator' => 'creator',
+            default => 'hero',
         };
+
+        return dywix_image($role);
     }
 
     protected function buildBreadcrumbs(string $type, array $service, ?array $entity): array

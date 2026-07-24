@@ -16,6 +16,65 @@ if (! function_exists('seo_slug')) {
     }
 }
 
+if (! function_exists('dywix_image')) {
+    /**
+     * Resolve a DyWix studio image path under storage/dywix.
+     *
+     * @param  string|null  $keyOrFile  Role key (hero, podcast, …), filename, or null for default hero.
+     */
+    function dywix_image(?string $keyOrFile = null): string
+    {
+        $dir = rtrim((string) config('dywix.images_dir', 'storage/dywix'), '/');
+        $roles = config('dywix.roles', []);
+
+        if ($keyOrFile === null || $keyOrFile === '') {
+            $file = $roles['hero'] ?? (config('dywix.images.0') ?? 'IMG_4008.jpg');
+
+            return $dir.'/'.$file;
+        }
+
+        if (isset($roles[$keyOrFile]) && is_string($roles[$keyOrFile])) {
+            return $dir.'/'.$roles[$keyOrFile];
+        }
+
+        $file = ltrim($keyOrFile, '/');
+        if (str_starts_with($file, 'storage/dywix/')) {
+            return $file;
+        }
+
+        return $dir.'/'.basename($file);
+    }
+}
+
+if (! function_exists('dywix_asset')) {
+    /**
+     * Public URL for a DyWix studio image.
+     */
+    function dywix_asset(?string $keyOrFile = null): string
+    {
+        return asset(dywix_image($keyOrFile));
+    }
+}
+
+if (! function_exists('dywix_gallery')) {
+    /**
+     * @return list<string> Relative paths (storage/dywix/…)
+     */
+    function dywix_gallery(?int $limit = null): array
+    {
+        $dir = rtrim((string) config('dywix.images_dir', 'storage/dywix'), '/');
+        $files = config('dywix.images', []);
+
+        $paths = array_map(static fn (string $file) => $dir.'/'.$file, $files);
+
+        if ($limit !== null) {
+            return array_slice($paths, 0, max(0, $limit));
+        }
+
+        return $paths;
+    }
+}
+
 if (! function_exists('blog_default_cover')) {
     function blog_default_cover(): string
     {

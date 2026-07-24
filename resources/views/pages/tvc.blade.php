@@ -43,15 +43,15 @@
         ];
         $hero = [
             'alt' => 'Professional TVC and commercial production studio setup',
-            'src' => 'storage/studio/DSC01010.JPG',
+            'src' => 'storage/dywix/IMG_4031.jpg',
         ];
         $galleryItems = [
-            ['src' => 'storage/studio/DSC01007.JPG', 'alt' => 'Studio lighting and setup'],
-            ['src' => 'storage/room/IMG_0780.jpeg', 'alt' => 'Podcast and interview setup'],
-            ['src' => 'storage/studio/DSC01009.JPG', 'alt' => 'Videography lighting'],
-            ['src' => 'storage/room/IMG_0782.jpeg', 'alt' => 'Multi-camera recording'],
-            ['src' => 'storage/studio/DSC01010.JPG', 'alt' => 'Professional studio space'],
-            ['src' => 'storage/room/IMG_0784.jpeg', 'alt' => 'Content creation studio'],
+            ['src' => 'storage/dywix/IMG_4028.jpg', 'alt' => 'Studio lighting and setup'],
+            ['src' => 'storage/dywix/IMG_4018.jpg', 'alt' => 'Podcast and interview setup'],
+            ['src' => 'storage/dywix/IMG_4030.jpg', 'alt' => 'Videography lighting'],
+            ['src' => 'storage/dywix/IMG_4020.jpg', 'alt' => 'Multi-camera recording'],
+            ['src' => 'storage/dywix/IMG_4031.jpg', 'alt' => 'Professional studio space'],
+            ['src' => 'storage/dywix/IMG_4022.jpg', 'alt' => 'Content creation studio'],
         ];
     @endphp
 
