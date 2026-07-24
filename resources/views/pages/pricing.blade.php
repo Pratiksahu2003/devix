@@ -8,6 +8,7 @@
 @endsection
 
 @section('content')
+    @php $imgs = dywix_page('pricing'); @endphp
     {{-- Hero & Pricing Table --}}
     <div class="bg-[var(--color-surface-strong)] pt-12 pb-6">
         <div class="text-center container mx-auto px-6 mb-12">
@@ -74,7 +75,7 @@
                 
                 <div class="order-1 lg:order-2">
                     <div class="relative rounded-[2rem] overflow-hidden shadow-2xl group">
-                        <img src="{{ asset('storage/dywix/IMG_4017.jpg') }}" alt="Studio Floor" class="w-full h-full object-cover transform group-hover:scale-105 transition duration-700">
+                        <img src="{{ asset($imgs[0]) }}" alt="Studio Floor" class="w-full h-full object-cover transform group-hover:scale-105 transition duration-700">
                         <div class="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent"></div>
                     </div>
                 </div>
@@ -94,7 +95,7 @@
                 {{-- Case 1 --}}
                 <div class="bg-[var(--color-surface)] rounded-3xl overflow-hidden shadow-sm border border-[var(--color-border-subtle)] group hover:shadow-xl transition-all duration-300 flex flex-col">
                     <div class="h-64 overflow-hidden relative">
-                        <img src="{{ asset('storage/dywix/IMG_4011.jpg') }}" alt="Hourly Booking" class="w-full h-full object-cover transform group-hover:scale-110 transition duration-500">
+                        <img src="{{ asset($imgs[1]) }}" alt="Hourly Booking" class="w-full h-full object-cover transform group-hover:scale-110 transition duration-500">
                         <div class="absolute top-4 right-4 bg-white/90 backdrop-blur-sm px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider text-[var(--color-text-main)] shadow-sm">Hourly</div>
                     </div>
                     <div class="p-8 flex-1 flex flex-col">
@@ -111,7 +112,7 @@
                 {{-- Case 2 --}}
                 <div class="bg-[var(--color-surface)] rounded-3xl overflow-hidden shadow-sm border border-[var(--color-border-subtle)] group hover:shadow-xl transition-all duration-300 flex flex-col">
                     <div class="h-64 overflow-hidden relative">
-                        <img src="{{ asset('storage/dywix/IMG_4012.jpg') }}" alt="Day Booking" class="w-full h-full object-cover transform group-hover:scale-110 transition duration-500">
+                        <img src="{{ asset($imgs[2]) }}" alt="Day Booking" class="w-full h-full object-cover transform group-hover:scale-110 transition duration-500">
                         <div class="absolute top-4 right-4 bg-[var(--color-brand-lens-blue)]/90 backdrop-blur-sm px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider text-white shadow-sm">Popular</div>
                     </div>
                     <div class="p-8 flex-1 flex flex-col">
@@ -128,7 +129,7 @@
                 {{-- Case 3 --}}
                 <div class="bg-[var(--color-surface)] rounded-3xl overflow-hidden shadow-sm border border-[var(--color-border-subtle)] group hover:shadow-xl transition-all duration-300 flex flex-col">
                     <div class="h-64 overflow-hidden relative">
-                        <img src="{{ asset('storage/dywix/IMG_4016.jpg') }}" alt="All In Booking" class="w-full h-full object-cover transform group-hover:scale-110 transition duration-500">
+                        <img src="{{ asset($imgs[3]) }}" alt="All In Booking" class="w-full h-full object-cover transform group-hover:scale-110 transition duration-500">
                         <div class="absolute top-4 right-4 bg-purple-500/90 backdrop-blur-sm px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider text-white shadow-sm">Campaign</div>
                     </div>
                     <div class="p-8 flex-1 flex flex-col">

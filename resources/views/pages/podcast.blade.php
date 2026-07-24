@@ -43,19 +43,19 @@
             })->toArray(),
         ];
 
+        $pageImages = dywix_page('podcast');
         $hero = [
             'alt' => 'Podcast Studio Setup',
-            'src' => 'storage/dywix/IMG_4018.jpg',
+            'src' => $pageImages[0],
         ];
 
-        // Studio Images - Mixing Studio and Room images for a complete vibe
         $galleryItems = [
-            ['src' => 'storage/dywix/IMG_4018.jpg', 'alt' => 'Studio Ambiance'],
-            ['src' => 'storage/dywix/IMG_4019.jpg', 'alt' => 'Creative Lighting'],
-            ['src' => 'storage/dywix/IMG_4020.jpg', 'alt' => 'Podcast Setup'],
-            ['src' => 'storage/dywix/IMG_4021.jpg', 'alt' => 'Cozy Corner'],
-            ['src' => 'storage/dywix/IMG_4022.jpg', 'alt' => 'Lounge Area'],
-            ['src' => 'storage/dywix/IMG_4023.jpg', 'alt' => 'Acoustic Treatment'],
+            ['src' => $pageImages[1], 'alt' => 'Studio Ambiance'],
+            ['src' => $pageImages[2], 'alt' => 'Creative Lighting'],
+            ['src' => $pageImages[3], 'alt' => 'Podcast Setup'],
+            ['src' => $pageImages[4], 'alt' => 'Cozy Corner'],
+            ['src' => $pageImages[5], 'alt' => 'Lounge Area'],
+            ['src' => $pageImages[6], 'alt' => 'Acoustic Treatment'],
         ];
     @endphp
 

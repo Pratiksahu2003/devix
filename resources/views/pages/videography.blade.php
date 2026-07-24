@@ -41,17 +41,18 @@
                 ];
             })->toArray(),
         ];
+        $pageImages = dywix_page('videography');
         $hero = [
             'alt' => 'Videography studio setup with lighting and cameras in Dwarka',
-            'src' => 'storage/dywix/IMG_4029.jpg',
+            'src' => $pageImages[0],
         ];
         $galleryItems = [
-            ['src' => 'storage/dywix/IMG_4028.jpg', 'alt' => 'Studio lighting and setup'],
-            ['src' => 'storage/dywix/IMG_4018.jpg', 'alt' => 'Podcast and interview setup'],
-            ['src' => 'storage/dywix/IMG_4030.jpg', 'alt' => 'Videography lighting'],
-            ['src' => 'storage/dywix/IMG_4020.jpg', 'alt' => 'Multi-camera recording'],
-            ['src' => 'storage/dywix/IMG_4031.jpg', 'alt' => 'Professional studio space'],
-            ['src' => 'storage/dywix/IMG_4022.jpg', 'alt' => 'Content creation studio'],
+            ['src' => $pageImages[1], 'alt' => 'Studio lighting and setup'],
+            ['src' => $pageImages[2], 'alt' => 'Podcast and interview setup'],
+            ['src' => $pageImages[3], 'alt' => 'Videography lighting'],
+            ['src' => $pageImages[4], 'alt' => 'Multi-camera recording'],
+            ['src' => $pageImages[5], 'alt' => 'Professional studio space'],
+            ['src' => $pageImages[6], 'alt' => 'Content creation studio'],
         ];
     @endphp
 

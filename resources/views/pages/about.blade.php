@@ -8,11 +8,12 @@
 @endsection
 
 @section('content')
+    @php $imgs = dywix_page('about'); @endphp
     {{-- Hero Section --}}
     <section class="relative overflow-hidden bg-black text-white h-[70vh] min-h-[500px] flex items-center justify-center">
         <div class="absolute inset-0 z-0">
             <img 
-                src="{{ asset('storage/dywix/IMG_4025.jpg') }}" 
+                src="{{ asset($imgs[0]) }}" 
                 alt="Studio Background" 
                 class="h-full w-full object-cover opacity-40 animate-pan-slow"
             >
@@ -84,15 +85,15 @@
                         class="space-y-6 pt-12 transition-all duration-1000 delay-200 transform translate-y-12 opacity-0"
                         :class="{ 'translate-y-0 opacity-100': shown }"
                     >
-                        <img src="{{ asset('storage/dywix/IMG_4018.jpg') }}" alt="Team Meeting" class="rounded-3xl shadow-xl w-full h-64 object-cover hover:scale-105 transition duration-500">
-                        <img src="{{ asset('storage/dywix/IMG_4021.jpg') }}" alt="Studio Vibe" class="rounded-3xl shadow-xl w-full h-48 object-cover hover:scale-105 transition duration-500">
+                        <img src="{{ asset($imgs[1]) }}" alt="Team Meeting" class="rounded-3xl shadow-xl w-full h-64 object-cover hover:scale-105 transition duration-500">
+                        <img src="{{ asset($imgs[2]) }}" alt="Studio Vibe" class="rounded-3xl shadow-xl w-full h-48 object-cover hover:scale-105 transition duration-500">
                     </div>
                     <div 
                         class="space-y-6 transition-all duration-1000 delay-400 transform translate-y-12 opacity-0"
                         :class="{ 'translate-y-0 opacity-100': shown }"
                     >
-                        <img src="{{ asset('storage/dywix/IMG_4019.jpg') }}" alt="Studio Set" class="rounded-3xl shadow-xl w-full h-48 object-cover hover:scale-105 transition duration-500">
-                        <img src="{{ asset('storage/dywix/IMG_4023.jpg') }}" alt="Creative Space" class="rounded-3xl shadow-xl w-full h-64 object-cover hover:scale-105 transition duration-500">
+                        <img src="{{ asset($imgs[3]) }}" alt="Studio Set" class="rounded-3xl shadow-xl w-full h-48 object-cover hover:scale-105 transition duration-500">
+                        <img src="{{ asset($imgs[4]) }}" alt="Creative Space" class="rounded-3xl shadow-xl w-full h-64 object-cover hover:scale-105 transition duration-500">
                     </div>
                 </div>
             </div>
@@ -156,42 +157,42 @@
             <div class="columns-2 md:columns-4 gap-4 space-y-4">
                 {{-- Column 1 --}}
                 <div class="break-inside-avoid relative group overflow-hidden rounded-2xl">
-                    <img class="w-full object-cover transition duration-700 group-hover:scale-110" src="{{ asset('storage/dywix/IMG_4020.jpg') }}" alt="Podcast Setup">
+                    <img class="w-full object-cover transition duration-700 group-hover:scale-110" src="{{ asset($imgs[5]) }}" alt="Podcast Setup">
                     <div class="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition duration-300"></div>
                 </div>
                 <div class="break-inside-avoid relative group overflow-hidden rounded-2xl">
-                    <img class="w-full object-cover transition duration-700 group-hover:scale-110" src="{{ asset('storage/dywix/IMG_4015.jpg') }}" alt="Marketing Shoot">
+                    <img class="w-full object-cover transition duration-700 group-hover:scale-110" src="{{ asset($imgs[6]) }}" alt="Marketing Shoot">
                      <div class="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition duration-300"></div>
                 </div>
 
                  {{-- Column 2 --}}
                 <div class="break-inside-avoid relative group overflow-hidden rounded-2xl">
-                    <img class="w-full object-cover transition duration-700 group-hover:scale-110" src="{{ asset('storage/dywix/IMG_4008.jpg') }}" alt="Lighting Grid">
-                     <div class="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition duration-300"></div>
+                    <img class="w-full object-cover transition duration-700 group-hover:scale-110" src="{{ asset($imgs[7]) }}" alt="Lighting Grid">
+                    <div class="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition duration-300"></div>
                 </div>
                 <div class="break-inside-avoid relative group overflow-hidden rounded-2xl">
-                    <img class="w-full object-cover transition duration-700 group-hover:scale-110" src="{{ asset('storage/dywix/IMG_4013.jpg') }}" alt="Edit Suite">
-                     <div class="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition duration-300"></div>
+                    <img class="w-full object-cover transition duration-700 group-hover:scale-110" src="{{ asset($imgs[8]) }}" alt="Edit Suite">
+                    <div class="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition duration-300"></div>
                 </div>
 
                  {{-- Column 3 --}}
                 <div class="break-inside-avoid relative group overflow-hidden rounded-2xl">
-                    <img class="w-full object-cover transition duration-700 group-hover:scale-110" src="{{ asset('storage/dywix/IMG_4017.jpg') }}" alt="Product Photography">
-                     <div class="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition duration-300"></div>
+                    <img class="w-full object-cover transition duration-700 group-hover:scale-110" src="{{ asset($imgs[9]) }}" alt="Product Photography">
+                    <div class="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition duration-300"></div>
                 </div>
                 <div class="break-inside-avoid relative group overflow-hidden rounded-2xl">
-                    <img class="w-full object-cover transition duration-700 group-hover:scale-110" src="{{ asset('storage/dywix/IMG_4011.jpg') }}" alt="Camera Gear">
-                     <div class="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition duration-300"></div>
+                    <img class="w-full object-cover transition duration-700 group-hover:scale-110" src="{{ asset($imgs[10]) }}" alt="Camera Gear">
+                    <div class="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition duration-300"></div>
                 </div>
 
                  {{-- Column 4 --}}
                 <div class="break-inside-avoid relative group overflow-hidden rounded-2xl">
-                    <img class="w-full object-cover transition duration-700 group-hover:scale-110" src="{{ asset('storage/dywix/IMG_4016.jpg') }}" alt="Makeup Station">
-                     <div class="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition duration-300"></div>
+                    <img class="w-full object-cover transition duration-700 group-hover:scale-110" src="{{ asset($imgs[11]) }}" alt="Makeup Station">
+                    <div class="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition duration-300"></div>
                 </div>
                 <div class="break-inside-avoid relative group overflow-hidden rounded-2xl">
-                    <img class="w-full object-cover transition duration-700 group-hover:scale-110" src="{{ asset('storage/dywix/IMG_4012.jpg') }}" alt="Cyclorama Wall">
-                     <div class="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition duration-300"></div>
+                    <img class="w-full object-cover transition duration-700 group-hover:scale-110" src="{{ asset($imgs[12]) }}" alt="Cyclorama Wall">
+                    <div class="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition duration-300"></div>
                 </div>
             </div>
         </div>

@@ -62,7 +62,7 @@
 
 <!-- Hero Section (Full Bleed) -->
 <section class="relative w-full bg-cover bg-center text-white py-6 md:py-10 px-6 md:px-12 overflow-hidden border-b border-white/5" 
-         style="background-image: linear-gradient(rgba(10, 30, 63, 0.88), rgba(5, 17, 38, 0.94)), url('{{ asset('storage/dywix/IMG_4029.jpg') }}');">
+         style="background-image: linear-gradient(rgba(10, 30, 63, 0.88), rgba(5, 17, 38, 0.94)), url('{{ asset(dywix_page('seo_hero')[0]) }}');">
     
     <div class="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-center">
         <!-- Left Column: Copy & Stats -->

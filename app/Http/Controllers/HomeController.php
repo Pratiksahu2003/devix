@@ -313,8 +313,8 @@ class HomeController extends Controller
                 ->all();
 
             if ($slides === []) {
-                $slides = collect(config('dywix.roles.slider', []))
-                    ->map(fn (string $img) => dywix_asset($img))
+                $slides = collect(dywix_page('home_slider'))
+                    ->map(fn (string $path) => asset($path))
                     ->all();
             }
             return $slides;
@@ -348,10 +348,10 @@ class HomeController extends Controller
             }
 
             if ($podcastImages === []) {
-                foreach (array_slice(config('dywix.images', []), 0, 8) as $file) {
+                foreach (dywix_page('home_podcast') as $path) {
                     $podcastImages[] = [
-                        'src' => dywix_asset($file),
-                        'name' => $file,
+                        'src' => asset($path),
+                        'name' => basename($path),
                     ];
                 }
             }

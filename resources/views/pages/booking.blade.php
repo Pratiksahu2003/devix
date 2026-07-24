@@ -8,13 +8,14 @@
 @endsection
 
 @section('content')
+    @php $imgs = dywix_page('booking'); @endphp
     {{-- Hero Section --}}
     <section class="relative min-h-[70vh] flex items-center justify-center overflow-hidden bg-black text-white" x-data="{ shown: false }" x-init="setTimeout(() => shown = true, 100)">
         {{-- Background Image --}}
         <div class="absolute inset-0 z-0">
             <div class="absolute inset-0 bg-gradient-to-b from-black/70 via-black/40 to-black z-10"></div>
             <img 
-                src="{{ asset('storage/dywix/IMG_4025.jpg') }}" 
+                src="{{ asset($imgs[0]) }}" 
                 alt="Studio Booking" 
                 class="w-full h-full object-cover opacity-60 transition-transform duration-[3s] ease-out scale-105"
                 :class="{ 'scale-100': shown }"
@@ -162,7 +163,7 @@
             <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
                 {{-- Large Feature Card --}}
                 <div class="md:col-span-2 relative group overflow-hidden rounded-[2.5rem] bg-black h-[400px]">
-                    <img src="{{ asset('storage/dywix/IMG_4013.jpg') }}" alt="Studio Amenities" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 opacity-80 group-hover:opacity-60">
+                    <img src="{{ asset($imgs[1]) }}" alt="Studio Amenities" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 opacity-80 group-hover:opacity-60">
                     <div class="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent"></div>
                     <div class="absolute bottom-0 left-0 p-10">
                         <h3 class="text-3xl font-bold text-white mb-2">Makeup & Styling Suite</h3>
@@ -234,7 +235,7 @@
                 {{-- Add-on 1 --}}
                 <div class="group relative bg-white rounded-[2rem] overflow-hidden shadow-sm hover:shadow-2xl transition-all duration-500 border border-[var(--color-border-subtle)] hover:-translate-y-2">
                     <div class="h-64 overflow-hidden">
-                        <img src="{{ asset('storage/dywix/IMG_4018.jpg') }}" alt="Studio Assistant" class="w-full h-full object-cover transform group-hover:scale-110 transition duration-700">
+                        <img src="{{ asset($imgs[2]) }}" alt="Studio Assistant" class="w-full h-full object-cover transform group-hover:scale-110 transition duration-700">
                         <div class="absolute top-4 right-4 bg-white/90 backdrop-blur-sm px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider text-[var(--color-brand-lens-blue)]">
                             Most Popular
                         </div>
@@ -257,7 +258,7 @@
                 {{-- Add-on 2 --}}
                 <div class="group relative bg-white rounded-[2rem] overflow-hidden shadow-sm hover:shadow-2xl transition-all duration-500 border border-[var(--color-border-subtle)] hover:-translate-y-2">
                     <div class="h-64 overflow-hidden">
-                        <img src="{{ asset('storage/dywix/IMG_4015.jpg') }}" alt="Camera Package" class="w-full h-full object-cover transform group-hover:scale-110 transition duration-700">
+                        <img src="{{ asset($imgs[3]) }}" alt="Camera Package" class="w-full h-full object-cover transform group-hover:scale-110 transition duration-700">
                     </div>
                     <div class="p-8">
                         <div class="flex justify-between items-center mb-4">
@@ -277,7 +278,7 @@
                 {{-- Add-on 3 --}}
                 <div class="group relative bg-white rounded-[2rem] overflow-hidden shadow-sm hover:shadow-2xl transition-all duration-500 border border-[var(--color-border-subtle)] hover:-translate-y-2">
                     <div class="h-64 overflow-hidden">
-                        <img src="{{ asset('storage/dywix/IMG_4021.jpg') }}" alt="Set Building" class="w-full h-full object-cover transform group-hover:scale-110 transition duration-700">
+                        <img src="{{ asset($imgs[4]) }}" alt="Set Building" class="w-full h-full object-cover transform group-hover:scale-110 transition duration-700">
                     </div>
                     <div class="p-8">
                         <div class="flex justify-between items-center mb-4">

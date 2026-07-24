@@ -8,6 +8,7 @@
 @endsection
 
 @section('content')
+    @php $imgs = dywix_page('location'); @endphp
     {{-- Hero Map Section --}}
     <section class="relative h-[70vh] min-h-[600px] w-full bg-[var(--color-surface-strong)]">
         <iframe
@@ -120,13 +121,13 @@
                 <div class="relative h-full min-h-[500px] rounded-[2.5rem] overflow-hidden shadow-2xl">
                     <div class="grid grid-rows-2 h-full gap-4 p-4 bg-[var(--color-surface-muted)]">
                         <div class="relative rounded-3xl overflow-hidden group">
-                            <img src="{{ asset('storage/dywix/IMG_4023.jpg') }}" alt="Studio Vibe" class="w-full h-full object-cover transform group-hover:scale-105 transition duration-700">
+                            <img src="{{ asset($imgs[0]) }}" alt="Studio Vibe" class="w-full h-full object-cover transform group-hover:scale-105 transition duration-700">
                             <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex items-end p-6">
                                 <p class="text-white font-bold text-xl">Your Creative Destination</p>
                             </div>
                         </div>
                         <div class="relative rounded-3xl overflow-hidden group">
-                            <img src="{{ asset('storage/dywix/IMG_4020.jpg') }}" alt="Studio Setup" class="w-full h-full object-cover transform group-hover:scale-105 transition duration-700">
+                            <img src="{{ asset($imgs[1]) }}" alt="Studio Setup" class="w-full h-full object-cover transform group-hover:scale-105 transition duration-700">
                             <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex items-end p-6">
                                 <p class="text-white font-bold text-xl">Professional Environment</p>
                             </div>

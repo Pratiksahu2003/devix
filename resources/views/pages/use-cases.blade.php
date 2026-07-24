@@ -8,10 +8,11 @@
 @endsection
 
 @section('content')
+    @php $imgs = dywix_page('use_cases'); @endphp
     {{-- Hero --}}
     <section class="relative overflow-hidden bg-black text-white pt-20 pb-24 lg:pt-32 lg:pb-40">
         <div class="absolute inset-0 z-0">
-            <img src="{{ asset('storage/dywix/IMG_4030.jpg') }}" alt="Studio Background" class="h-full w-full object-cover opacity-40">
+            <img src="{{ asset($imgs[0]) }}" alt="Studio Background" class="h-full w-full object-cover opacity-40">
             <div class="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent"></div>
         </div>
         <div class="relative z-10 mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 text-center">
@@ -30,7 +31,7 @@
         <div class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
             <div class="grid gap-12 lg:grid-cols-2 lg:gap-20 items-center">
                 <div class="relative rounded-3xl overflow-hidden shadow-2xl aspect-[4/5] lg:aspect-square group">
-                    <img src="{{ asset('storage/dywix/IMG_4026.jpg') }}" alt="Fashion Editorial" class="h-full w-full object-cover transition duration-700 group-hover:scale-105">
+                    <img src="{{ asset($imgs[1]) }}" alt="Fashion Editorial" class="h-full w-full object-cover transition duration-700 group-hover:scale-105">
                 </div>
                 <div>
                     <div class="inline-flex items-center rounded-full bg-pink-50 px-3 py-1 text-xs font-medium text-pink-700 mb-6">
@@ -99,7 +100,7 @@
                     </ul>
                 </div>
                 <div class="order-1 lg:order-2 relative rounded-3xl overflow-hidden shadow-2xl aspect-[4/5] lg:aspect-square group">
-                    <img src="{{ asset('storage/dywix/IMG_4028.jpg') }}" alt="Product Photography" class="h-full w-full object-cover transition duration-700 group-hover:scale-105">
+                    <img src="{{ asset($imgs[2]) }}" alt="Product Photography" class="h-full w-full object-cover transition duration-700 group-hover:scale-105">
                 </div>
             </div>
         </div>
@@ -110,7 +111,7 @@
         <div class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
             <div class="grid gap-12 lg:grid-cols-2 lg:gap-20 items-center">
                 <div class="relative rounded-3xl overflow-hidden shadow-2xl aspect-[4/5] lg:aspect-square group">
-                    <img src="{{ asset('storage/dywix/IMG_4029.jpg') }}" alt="Podcast Studio" class="h-full w-full object-cover transition duration-700 group-hover:scale-105">
+                    <img src="{{ asset($imgs[3]) }}" alt="Podcast Studio" class="h-full w-full object-cover transition duration-700 group-hover:scale-105">
                 </div>
                 <div>
                     <div class="inline-flex items-center rounded-full bg-purple-50 px-3 py-1 text-xs font-medium text-purple-700 mb-6">
@@ -160,7 +161,7 @@
                 {{-- Card 1 --}}
                 <div class="group relative overflow-hidden rounded-2xl bg-white shadow-sm transition hover:shadow-md">
                     <div class="aspect-video bg-gray-200 overflow-hidden">
-                        <img src="{{ asset('storage/dywix/IMG_4027.jpg') }}" alt="Corporate" class="h-full w-full object-cover transition duration-500 group-hover:scale-105">
+                        <img src="{{ asset($imgs[4]) }}" alt="Corporate" class="h-full w-full object-cover transition duration-500 group-hover:scale-105">
                     </div>
                     <div class="p-6">
                         <h3 class="text-lg font-bold text-[var(--color-text-main)]">Corporate Headshots</h3>
@@ -170,7 +171,7 @@
                 {{-- Card 2 --}}
                 <div class="group relative overflow-hidden rounded-2xl bg-white shadow-sm transition hover:shadow-md">
                     <div class="aspect-video bg-gray-200 overflow-hidden">
-                        <img src="{{ asset('storage/dywix/IMG_4031.jpg') }}" alt="Social Media" class="h-full w-full object-cover transition duration-500 group-hover:scale-105">
+                        <img src="{{ asset($imgs[5]) }}" alt="Social Media" class="h-full w-full object-cover transition duration-500 group-hover:scale-105">
                     </div>
                     <div class="p-6">
                         <h3 class="text-lg font-bold text-[var(--color-text-main)]">Content Sprints</h3>
@@ -180,7 +181,7 @@
                 {{-- Card 3 --}}
                 <div class="group relative overflow-hidden rounded-2xl bg-white shadow-sm transition hover:shadow-md">
                     <div class="aspect-video bg-gray-200 overflow-hidden">
-                        <img src="{{ asset('storage/dywix/IMG_4036.jpg') }}" alt="Workshops" class="h-full w-full object-cover transition duration-500 group-hover:scale-105">
+                        <img src="{{ asset($imgs[6]) }}" alt="Workshops" class="h-full w-full object-cover transition duration-500 group-hover:scale-105">
                     </div>
                     <div class="p-6">
                         <h3 class="text-lg font-bold text-[var(--color-text-main)]">Workshops</h3>

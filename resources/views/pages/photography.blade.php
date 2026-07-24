@@ -45,7 +45,7 @@
 
         $hero = [
             'alt' => 'Photography studio makeup room with lighted mirror',
-            'src' => 'storage/dywix/IMG_4031.jpg',
+            'src' => dywix_page('photography')[0],
         ];
 
         $galleryItems = [

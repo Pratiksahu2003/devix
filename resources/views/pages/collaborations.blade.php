@@ -8,11 +8,12 @@
 @endsection
 
 @section('content')
+    @php $imgs = dywix_page('collaborations'); @endphp
     {{-- Hero Section --}}
     <section class="relative overflow-hidden bg-black pt-24 pb-32 lg:pt-32 lg:pb-40 text-white">
         <div class="absolute inset-0 z-0">
              <div class="absolute inset-0 bg-gradient-to-r from-black via-black/90 to-transparent z-10"></div>
-             <img src="{{ asset('storage/dywix/IMG_4028.jpg') }}" alt="Studio Background" class="h-full w-full object-cover opacity-50">
+             <img src="{{ asset($imgs[0]) }}" alt="Studio Background" class="h-full w-full object-cover opacity-50">
         </div>
         
         <div class="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -43,18 +44,18 @@
                 <div class="hidden lg:grid lg:col-span-5 grid-cols-2 gap-4">
                     <div class="space-y-4 pt-12">
                         <div class="rounded-2xl overflow-hidden shadow-2xl border border-white/10 transform hover:scale-105 transition duration-500">
-                             <img src="{{ asset('storage/dywix/IMG_4027.jpg') }}" class="h-48 w-full object-cover">
+                             <img src="{{ asset($imgs[1]) }}" class="h-48 w-full object-cover">
                         </div>
                         <div class="rounded-2xl overflow-hidden shadow-2xl border border-white/10 transform hover:scale-105 transition duration-500">
-                             <img src="{{ asset('storage/dywix/IMG_4029.jpg') }}" class="h-64 w-full object-cover">
+                             <img src="{{ asset($imgs[2]) }}" class="h-64 w-full object-cover">
                         </div>
                     </div>
                     <div class="space-y-4">
                         <div class="rounded-2xl overflow-hidden shadow-2xl border border-white/10 transform hover:scale-105 transition duration-500">
-                             <img src="{{ asset('storage/dywix/IMG_4030.jpg') }}" class="h-64 w-full object-cover">
+                             <img src="{{ asset($imgs[3]) }}" class="h-64 w-full object-cover">
                         </div>
                         <div class="rounded-2xl overflow-hidden shadow-2xl border border-white/10 transform hover:scale-105 transition duration-500">
-                             <img src="{{ asset('storage/dywix/IMG_4031.jpg') }}" class="h-48 w-full object-cover">
+                             <img src="{{ asset($imgs[4]) }}" class="h-48 w-full object-cover">
                         </div>
                     </div>
                 </div>
@@ -81,7 +82,7 @@
                         For agencies needing a reliable "home base" for multiple clients. We offer white-label production support and simplified billing.
                     </p>
                     <div class="h-48 rounded-xl overflow-hidden">
-                        <img src="{{ asset('storage/dywix/IMG_4026.jpg') }}" class="w-full h-full object-cover group-hover:scale-110 transition duration-700">
+                        <img src="{{ asset($imgs[5]) }}" class="w-full h-full object-cover group-hover:scale-110 transition duration-700">
                     </div>
                 </div>
 
@@ -95,7 +96,7 @@
                         Consistent imagery is vital for conversion. Lock in a monthly slot for new drops, social content, and campaign shoots.
                     </p>
                     <div class="h-48 rounded-xl overflow-hidden">
-                        <img src="{{ asset('storage/dywix/IMG_4027.jpg') }}" class="w-full h-full object-cover group-hover:scale-110 transition duration-700">
+                        <img src="{{ asset($imgs[6]) }}" class="w-full h-full object-cover group-hover:scale-110 transition duration-700">
                     </div>
                 </div>
 
@@ -109,7 +110,7 @@
                         Need a secondary unit location or a specialized podcast set? We integrate seamlessly into your larger production logistics.
                     </p>
                     <div class="h-48 rounded-xl overflow-hidden">
-                        <img src="{{ asset('storage/dywix/IMG_4036.jpg') }}" class="w-full h-full object-cover group-hover:scale-110 transition duration-700">
+                        <img src="{{ asset($imgs[7]) }}" class="w-full h-full object-cover group-hover:scale-110 transition duration-700">
                     </div>
                 </div>
             </div>
@@ -168,7 +169,7 @@
                 <div class="relative">
                     <div class="absolute -inset-4 bg-gradient-to-r from-blue-100 to-purple-100 rounded-[2rem] transform rotate-2"></div>
                     <div class="relative rounded-[2rem] overflow-hidden shadow-2xl">
-                        <img src="{{ asset('storage/dywix/IMG_4031.jpg') }}" alt="Meeting" class="w-full object-cover h-[600px]">
+                        <img src="{{ asset($imgs[8]) }}" alt="Meeting" class="w-full object-cover h-[600px]">
                         <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
                         <div class="absolute bottom-8 left-8 right-8 text-white">
                             <p class="font-serif italic text-2xl">"The best studio partnership we've had. Consistent quality and zero friction."</p>

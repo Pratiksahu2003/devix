@@ -90,7 +90,7 @@
                 </div>
             @else
                 <div class="relative h-[450px] w-full rounded-2xl overflow-hidden shadow-2xl shadow-black/50 ring-2 ring-brand-lens-blue/20 reveal-up delay-200" x-intersect="$el.classList.add('is-visible')">
-                    <img src="{{ asset('storage/dywix/IMG_4021.jpg') }}" alt="Podcast Studio at DyWix" class="h-full w-full object-cover transition-transform duration-700 hover:scale-110" loading="lazy" width="600" height="450">
+                    <img src="{{ asset(dywix_page('home_showcase')[0]) }}" alt="Podcast Studio at DyWix" class="h-full w-full object-cover transition-transform duration-700 hover:scale-110" loading="lazy" width="600" height="450">
                     <div class="absolute inset-0 bg-linear-to-t from-slate-950/80 via-transparent to-transparent"></div>
                     <div class="absolute bottom-6 left-6 right-6">
                         <div class="inline-flex items-center gap-2 rounded-full bg-emerald-500/20 px-3 py-1 text-[10px] font-bold text-emerald-400 backdrop-blur-md border border-emerald-500/30 mb-3">

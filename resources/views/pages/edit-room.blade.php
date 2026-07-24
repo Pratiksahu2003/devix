@@ -9,18 +9,19 @@
 
 @section('content')
     @php
+        $pageImages = dywix_page('edit_room');
         $hero = [
             'alt' => 'Professional video editing suite with Mac mini M2 Pro',
-            'src' => 'storage/dywix/IMG_4008.jpg',
+            'src' => $pageImages[0],
         ];
 
         $galleryItems = [
-             ['src' => 'storage/dywix/IMG_4009.jpg', 'alt' => 'Editing Desk Setup'],
-             ['src' => 'storage/dywix/IMG_4010.jpg', 'alt' => 'Comfortable Seating'],
-             ['src' => 'storage/dywix/IMG_4011.jpg', 'alt' => 'Calibrated Display'],
-             ['src' => 'storage/dywix/IMG_4012.jpg', 'alt' => 'Ambient Lighting'],
-             ['src' => 'storage/dywix/IMG_4013.jpg', 'alt' => 'Workspace Detail'],
-             ['src' => 'storage/dywix/IMG_4014.jpg', 'alt' => 'Studio Environment'],
+             ['src' => $pageImages[1], 'alt' => 'Editing Desk Setup'],
+             ['src' => $pageImages[2], 'alt' => 'Comfortable Seating'],
+             ['src' => $pageImages[3], 'alt' => 'Calibrated Display'],
+             ['src' => $pageImages[4], 'alt' => 'Ambient Lighting'],
+             ['src' => $pageImages[5], 'alt' => 'Workspace Detail'],
+             ['src' => $pageImages[6], 'alt' => 'Studio Environment'],
         ];
     @endphp
 

@@ -12,7 +12,7 @@
     <section class="relative bg-black h-[70vh] min-h-[600px] flex items-center justify-center overflow-hidden">
         <div class="absolute inset-0 z-0">
             <img 
-                src="{{ asset('storage/dywix/IMG_4018.jpg') }}" 
+                src="{{ asset(dywix_page('services')[0]) }}" 
                 class="h-full w-full object-cover opacity-50 animate-pan-slow" 
                 alt="Studio Background"
             >

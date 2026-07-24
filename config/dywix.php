@@ -44,21 +44,52 @@ return [
     */
     'images_dir' => 'storage/dywix',
     'images' => $dywixImages,
+
+    /*
+    |--------------------------------------------------------------------------
+    | Unique per-page image ranges (index into images[], no within-page dupes)
+    |--------------------------------------------------------------------------
+    */
+    'pages' => [
+        'podcast' => ['offset' => 0, 'count' => 7],
+        'videography' => ['offset' => 7, 'count' => 7],
+        'corporate_films' => ['offset' => 14, 'count' => 7],
+        'tvc' => ['offset' => 21, 'count' => 7],
+        'reels' => ['offset' => 28, 'count' => 7],
+        'edit_room' => ['offset' => 35, 'count' => 7],
+        'about' => ['offset' => 42, 'count' => 13],
+        'booking' => ['offset' => 55, 'count' => 5],
+        'pricing' => ['offset' => 60, 'count' => 4],
+        'photography' => ['offset' => 64, 'count' => 1],
+        'services' => ['offset' => 65, 'count' => 1],
+        'location' => ['offset' => 66, 'count' => 2],
+        'home_cta' => ['offset' => 68, 'count' => 1],
+        'home_showcase' => ['offset' => 69, 'count' => 1],
+        'seo_hero' => ['offset' => 70, 'count' => 1],
+        'home_slider' => ['offset' => 14, 'count' => 6],
+        'home_pricing' => ['offset' => 8, 'count' => 6],
+        'home_podcast' => ['offset' => 0, 'count' => 8],
+        'collaborations' => ['offset' => 48, 'count' => 9],
+        'use_cases' => ['offset' => 30, 'count' => 7],
+        'studio_specs' => ['offset' => 20, 'count' => 4],
+        'studio_specs_gallery' => ['offset' => 40, 'count' => 18],
+    ],
+
     'roles' => [
         'hero' => 'IMG_4008.jpg',
-        'podcast' => 'IMG_4030.jpg',
-        'video' => 'IMG_4077.jpg',
-        'photography' => 'IMG_4058.jpg',
-        'creator' => 'IMG_4029.jpg',
-        'cta' => 'IMG_4078.jpg',
-        'booking' => 'IMG_4031.jpg',
-        'about' => 'IMG_4008.jpg',
-        'services' => 'IMG_4018.jpg',
-        'pricing' => 'IMG_4017.jpg',
+        'podcast' => 'IMG_4008.jpg',
+        'video' => 'IMG_4015.jpg',
+        'photography' => 'IMG_4076.jpg',
+        'creator' => 'IMG_4036.jpg',
+        'cta' => 'IMG_4081.jpg',
+        'booking' => 'IMG_4067.jpg',
+        'about' => 'IMG_4054.jpg',
+        'services' => 'IMG_4077.jpg',
+        'pricing' => 'IMG_4072.jpg',
         'studio' => 'IMG_4029.jpg',
         'slider' => [
-            'IMG_4008.jpg', 'IMG_4030.jpg', 'IMG_4058.jpg',
-            'IMG_4077.jpg', 'IMG_4029.jpg', 'IMG_4082.jpg',
+            'IMG_4022.jpg', 'IMG_4023.jpg', 'IMG_4024.jpg',
+            'IMG_4025.jpg', 'IMG_4026.jpg', 'IMG_4027.jpg',
         ],
     ],
 ];

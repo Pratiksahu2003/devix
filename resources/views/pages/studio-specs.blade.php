@@ -8,12 +8,13 @@
 @endsection
 
 @section('content')
+    @php $specs = dywix_page('studio_specs'); @endphp
     {{-- Hero Section --}}
     <section class="relative overflow-hidden bg-black text-white" x-data="{ shown: false }" x-init="setTimeout(() => shown = true, 100)">
         <div class="absolute inset-0 z-0">
             <div class="absolute inset-0 bg-gradient-to-b from-black/80 via-black/50 to-black z-10"></div>
             <img 
-                src="{{ asset('storage/dywix/IMG_4029.jpg') }}" 
+                src="{{ asset($specs[0]) }}" 
                 alt="Studio Lighting Grid" 
                 class="h-full w-full object-cover opacity-50 transition-transform duration-[3s] ease-out scale-105"
                 :class="{ 'scale-100': shown }"
@@ -198,7 +199,7 @@
                         class="aspect-square rounded-3xl overflow-hidden bg-gray-100 shadow-2xl transition-all duration-1000 transform translate-x-12 opacity-0"
                         :class="{ 'translate-x-0 opacity-100': shown }"
                     >
-                        <img src="{{ asset('storage/dywix/IMG_4030.jpg') }}" alt="Lighting Gear" class="h-full w-full object-cover">
+                        <img src="{{ asset($specs[1]) }}" alt="Lighting Gear" class="h-full w-full object-cover">
                     </div>
                     {{-- Floating Card --}}
                     <div 
@@ -239,7 +240,7 @@
                     style="transition-duration: 800ms;"
                 >
                     <div class="aspect-[4/3] overflow-hidden">
-                        <img src="{{ asset('storage/dywix/IMG_4028.jpg') }}" alt="Audio Gear" class="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105">
+                        <img src="{{ asset($specs[2]) }}" alt="Audio Gear" class="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105">
                     </div>
                     <div class="p-8">
                         <p class="text-xs font-bold uppercase tracking-wider text-purple-600">Audio</p>
@@ -259,7 +260,7 @@
                     style="transition-duration: 800ms; transition-delay: 200ms;"
                 >
                     <div class="aspect-[4/3] overflow-hidden">
-                        <img src="{{ asset('storage/dywix/IMG_4013.jpg') }}" alt="Grip Gear" class="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105">
+                        <img src="{{ asset($specs[3]) }}" alt="Grip Gear" class="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105">
                     </div>
                     <div class="p-8">
                         <p class="text-xs font-bold uppercase tracking-wider text-[var(--color-brand-lens-blue)]">Grip</p>
@@ -347,7 +348,7 @@
             </div>
             
             <div class="columns-1 md:columns-2 lg:columns-3 gap-8 space-y-8">
-                @foreach(dywix_gallery(18) as $img)
+                @foreach(dywix_page('studio_specs_gallery') as $img)
                     <div class="break-inside-avoid relative group overflow-hidden rounded-2xl bg-gray-200 shadow-md hover:shadow-xl transition-all duration-300">
                         <img 
                             src="{{ asset($img) }}" 

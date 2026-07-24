@@ -56,16 +56,86 @@ if (! function_exists('dywix_asset')) {
     }
 }
 
+if (! function_exists('dywix_at')) {
+    /**
+     * Image path by index into the dywix gallery (wraps safely).
+     */
+    function dywix_at(int $index): string
+    {
+        $files = config('dywix.images', []);
+        $count = count($files);
+
+        if ($count === 0) {
+            return dywix_image();
+        }
+
+        $file = $files[(($index % $count) + $count) % $count];
+
+        return rtrim((string) config('dywix.images_dir', 'storage/dywix'), '/').'/'.$file;
+    }
+}
+
+if (! function_exists('dywix_slice')) {
+    /**
+     * Consecutive unique image paths starting at $offset.
+     *
+     * @return list<string>
+     */
+    function dywix_slice(int $offset, int $count): array
+    {
+        $paths = [];
+        for ($i = 0; $i < max(0, $count); $i++) {
+            $paths[] = dywix_at($offset + $i);
+        }
+
+        return $paths;
+    }
+}
+
+if (! function_exists('dywix_page')) {
+    /**
+     * Unique image set for a named page (from config dywix.pages).
+     *
+     * @return list<string>
+     */
+    function dywix_page(string $page): array
+    {
+        $def = config('dywix.pages.'.$page);
+
+        if (! is_array($def) || $def === []) {
+            return [];
+        }
+
+        if (isset($def['offset'], $def['count'])) {
+            return dywix_slice((int) $def['offset'], (int) $def['count']);
+        }
+
+        return array_map(static fn ($index) => dywix_at((int) $index), array_values($def));
+    }
+}
+
 if (! function_exists('dywix_gallery')) {
     /**
+     * @param  list<string>|null  $exclude  Paths/filenames already used on the page
      * @return list<string> Relative paths (storage/dywix/…)
      */
-    function dywix_gallery(?int $limit = null): array
+    function dywix_gallery(?int $limit = null, ?array $exclude = null): array
     {
         $dir = rtrim((string) config('dywix.images_dir', 'storage/dywix'), '/');
         $files = config('dywix.images', []);
 
-        $paths = array_map(static fn (string $file) => $dir.'/'.$file, $files);
+        $excludeBasenames = [];
+        foreach ($exclude ?? [] as $item) {
+            $excludeBasenames[basename((string) $item)] = true;
+        }
+
+        $paths = [];
+        foreach ($files as $file) {
+            if (isset($excludeBasenames[$file])) {
+                continue;
+            }
+            $paths[] = $dir.'/'.$file;
+        }
 
         if ($limit !== null) {
             return array_slice($paths, 0, max(0, $limit));
